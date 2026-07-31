@@ -1,0 +1,2 @@
+# A string used to distinguish different Supabase projects on the same host. Not used by this site directly.
+project_id = "mlightcad-homepage"

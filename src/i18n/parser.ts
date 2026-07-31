@@ -5,6 +5,38 @@ export interface ParserFaq {
   a: string
 }
 
+export interface TrialFormCopy {
+  title: string
+  lead: string
+  close: string
+  companySection: string
+  useSection: string
+  companyName: string
+  companyNamePlaceholder: string
+  website: string
+  websitePlaceholder: string
+  websiteOptional: string
+  country: string
+  countryPlaceholder: string
+  contactName: string
+  contactNamePlaceholder: string
+  contactEmail: string
+  contactEmailPlaceholder: string
+  githubUsername: string
+  githubUsernamePlaceholder: string
+  productName: string
+  productNamePlaceholder: string
+  deploymentModel: string
+  deploymentModelPlaceholder: string
+  useCase: string
+  useCasePlaceholder: string
+  submit: string
+  submitting: string
+  success: string
+  error: string
+  requiredHint: string
+}
+
 export interface ParserCopy {
   metaTitle: string
   metaDescription: string
@@ -31,8 +63,10 @@ export interface ParserCopy {
   pricingNote: string
   trialTitle: string
   trialLead: string
+  trialCta: string
   trialSteps: string[]
   trialNote: string
+  trialForm: TrialFormCopy
   integrationTitle: string
   integrationLead: string
   supportTitle: string
@@ -59,7 +93,7 @@ export const parserEn: ParserCopy = {
   eyebrow: 'Commercial product',
   title: 'Proprietary DWG Parser',
   lead: 'A commercial alternative to the open-source LibreDWG stack — built for closed-source products, white-label deployments, and SaaS / on-premise viewers that cannot ship GPL-3.0 code to customers.',
-  contactCta: 'Email for purchase or trial',
+  contactCta: 'Apply for Trial License',
   docsCta: 'Full license document',
   docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
   scopeTitle: 'Scope',
@@ -102,12 +136,44 @@ export const parserEn: ParserCopy = {
     'No royalties, no per-seat fees, no usage caps. After year one you may keep using the version you have without paying; the annual donation is only for new upgrade packages.',
   trialTitle: 'Trial license',
   trialLead: 'Companies and organizations can apply for a trial before purchase. Personal / individual applications are not accepted at this time.',
+  trialCta: 'Apply for Trial License',
   trialSteps: [
-    'Email mlight.lee@outlook.com with company information and intended use case',
+    'Submit the trial application form with company information and intended use',
     'Include a GitHub username — access is granted via the mlight-cad organization',
     'After approval, accept the GitHub org invite and install @mlight-cad/dwg-converter',
   ],
   trialNote: 'Public evaluation is also available via the realdwg-web-example demo project on GitHub.',
+  trialForm: {
+    title: 'Apply for Trial License',
+    lead: 'For companies and organizations only. We will review your application and follow up by email.',
+    close: 'Close',
+    companySection: 'Company information',
+    useSection: 'Intended use',
+    companyName: 'Company / organization name',
+    companyNamePlaceholder: 'Your company name',
+    website: 'Website',
+    websitePlaceholder: 'https://example.com',
+    websiteOptional: 'optional',
+    country: 'Country / region',
+    countryPlaceholder: 'Country or region',
+    contactName: 'Contact name',
+    contactNamePlaceholder: 'Your name',
+    contactEmail: 'Contact email',
+    contactEmailPlaceholder: 'Your work email',
+    githubUsername: 'GitHub username',
+    githubUsernamePlaceholder: 'your-github-username',
+    productName: 'Product / project name',
+    productNamePlaceholder: 'Brief name',
+    deploymentModel: 'Deployment model',
+    deploymentModelPlaceholder: 'e.g. SaaS, on-premise, desktop, white-label',
+    useCase: 'Brief description of use case',
+    useCasePlaceholder: '1–3 sentences on how you plan to use the parser',
+    submit: 'Submit application',
+    submitting: 'Submitting…',
+    success: 'Application submitted. We will review it and reply by email.',
+    error: 'Could not submit the application. Please try again or email mlight.lee@outlook.com.',
+    requiredHint: 'Required fields are marked with *',
+  },
   integrationTitle: 'Integration',
   integrationLead:
     'Register as an AcDbDatabaseConverter through AcDbDatabaseConverterManager — the same path as LibreDWG. Output conforms to the MIT @mlightcad/data-model; rendering and plugins stay unchanged.',
@@ -173,7 +239,7 @@ export const parserZh: ParserCopy = {
   eyebrow: '商业产品',
   title: '专有 DWG 解析器',
   lead: '开源 LibreDWG 栈的商业替代方案 — 面向无法向客户分发 GPL-3.0 代码的闭源产品、白标部署，以及 SaaS / 本地化 CAD 查看器。',
-  contactCta: '邮件咨询购买或试用',
+  contactCta: '申请试用授权',
   docsCta: '完整授权文档',
   docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.zh-CN.md',
   scopeTitle: '范围',
@@ -216,12 +282,44 @@ export const parserZh: ParserCopy = {
     '无版税、无按席位费用、无用量上限。首年后可继续使用已获得版本而无需付费；年度捐赠仅用于获取新的升级包。',
   trialTitle: '试用授权',
   trialLead: '公司与组织可在购买前申请试用。暂不接受个人开发者申请。',
+  trialCta: '申请试用授权',
   trialSteps: [
-    '发送邮件至 mlight.lee@outlook.com，说明公司信息与用途',
+    '填写试用申请表，提供公司信息与用途说明',
     '须提供 GitHub 用户名 — 通过 mlight-cad 组织开通访问',
     '获批后接受组织邀请，安装 @mlight-cad/dwg-converter',
   ],
   trialNote: '也可通过 GitHub 上的 realdwg-web-example 公开演示项目进行能力评估。',
+  trialForm: {
+    title: '申请试用授权',
+    lead: '仅面向公司与组织。我们会审核申请并通过邮件回复。',
+    close: '关闭',
+    companySection: '公司信息',
+    useSection: '用途说明',
+    companyName: '公司 / 组织名称',
+    companyNamePlaceholder: '贵公司名称',
+    website: '网站',
+    websitePlaceholder: 'https://example.com',
+    websiteOptional: '选填',
+    country: '国家 / 地区',
+    countryPlaceholder: '国家或地区',
+    contactName: '联系人姓名',
+    contactNamePlaceholder: '您的姓名',
+    contactEmail: '联系邮箱',
+    contactEmailPlaceholder: '工作邮箱',
+    githubUsername: 'GitHub 用户名',
+    githubUsernamePlaceholder: 'your-github-username',
+    productName: '产品 / 项目名称',
+    productNamePlaceholder: '简要名称',
+    deploymentModel: '部署模式',
+    deploymentModelPlaceholder: '例如：SaaS、本地部署、桌面端、白标',
+    useCase: '用例简述',
+    useCasePlaceholder: '用 1–3 句话说明计划如何使用解析器',
+    submit: '提交申请',
+    submitting: '提交中…',
+    success: '申请已提交。我们会审核后通过邮件回复。',
+    error: '提交失败。请重试，或直接发送邮件至 mlight.lee@outlook.com。',
+    requiredHint: '标有 * 的为必填项',
+  },
   integrationTitle: '集成方式',
   integrationLead:
     '通过 AcDbDatabaseConverterManager 注册为 AcDbDatabaseConverter — 与 LibreDWG 相同路径。输出符合 MIT 的 @mlightcad/data-model；渲染与插件无需改动。',
