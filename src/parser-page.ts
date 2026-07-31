@@ -10,6 +10,7 @@ import {
   setupNav,
   setupWebGL,
 } from './shared'
+import { bindTrialTriggers, ensureTrialDialog } from './trial-license'
 
 function listHtml(items: string[]): string {
   return `<ul class="doc-list">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`
@@ -109,6 +110,7 @@ function renderParserBody(): void {
         `<p>${p.trialLead}</p>`,
         listHtml(p.trialSteps),
         `<p class="doc-note">${p.trialNote}</p>`,
+        `<p class="doc-cta"><button type="button" class="btn btn--primary btn--glow" data-trial-open>${p.trialCta}</button></p>`,
       ].join('\n'),
     ),
     sectionShell(
@@ -155,6 +157,8 @@ function applyI18n(): void {
 
   applyCommonI18n(dict)
   renderParserBody()
+  ensureTrialDialog(dict.parser.trialForm)
+  bindTrialTriggers()
 
   const scrambleEl = document.querySelector<HTMLElement>('[data-scramble]')
   window.setTimeout(() => scrambleText(scrambleEl, dict.parser.eyebrow), 450)
