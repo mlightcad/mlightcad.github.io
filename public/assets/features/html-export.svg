@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.35">
+    <path d="M40 60h560M40 340h560M40 60v280M600 60v280"/>
+  </g>
+  <!-- left: source drawing, content inset inside frame -->
+  <rect x="100" y="90" width="188" height="220" rx="2" stroke="#8B9BB4" fill="#121821"/>
+  <rect x="118" y="110" width="152" height="96" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <path d="M134 132h70M134 152h100M134 172h52" stroke="#3DDCFF" stroke-width="1.5" opacity="0.8"/>
+  <path d="M134 186h36v18h-36zM182 180h42v24h-42z" stroke="#8B9BB4" stroke-width="1"/>
+  <text x="118" y="248" fill="#8B9BB4" font-family="monospace" font-size="11">drawing.dwg</text>
+  <!-- arrow -->
+  <path d="M310 200h48" stroke="#3DDCFF" stroke-width="2"/>
+  <path d="M346 188l22 12-22 12" fill="#3DDCFF"/>
+  <!-- right: html export -->
+  <rect x="372" y="90" width="188" height="220" rx="2" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <text x="390" y="122" fill="#3DDCFF" font-family="monospace" font-size="14">&lt;html&gt;</text>
+  <rect x="390" y="140" width="152" height="96" stroke="#E8EEF5" stroke-width="1" opacity="0.55"/>
+  <path d="M406 162h70M406 182h100M406 202h52" stroke="#3DDCFF" stroke-width="1.2"/>
+  <text x="390" y="272" fill="#E8EEF5" font-family="monospace" font-size="11">export.html</text>
+  <text x="390" y="292" fill="#8B9BB4" font-family="monospace" font-size="10">OFFLINE - NO SERVER</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">ONE FILE - ANY BROWSER</text>
+</svg>

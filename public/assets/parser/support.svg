@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.4">
+    <path d="M40 80h560M40 160h560M40 240h560M40 320h560"/>
+    <path d="M120 20v360M280 20v360M440 20v360"/>
+  </g>
+  <path d="M320 72l100 36v72c0 56-40 96-100 120-60-24-100-64-100-120v-72z" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <path d="M288 188l20 20 44-48" stroke="#E8A54B" stroke-width="2.5"/>
+  <rect x="80" y="280" width="140" height="56" stroke="#8B9BB4" fill="#121821"/>
+  <text x="104" y="314" fill="#8B9BB4" font-family="monospace" font-size="11">BUG FIX</text>
+  <rect x="250" y="280" width="140" height="56" stroke="#3DDCFF" fill="#0F1820"/>
+  <text x="268" y="314" fill="#3DDCFF" font-family="monospace" font-size="11">UPGRADES</text>
+  <rect x="420" y="280" width="140" height="56" stroke="#8B9BB4" fill="#121821"/>
+  <text x="448" y="314" fill="#8B9BB4" font-family="monospace" font-size="11">EMAIL</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">MAINTENANCE COVER</text>
+</svg>

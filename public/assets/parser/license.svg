@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.4">
+    <path d="M0 80h640M0 160h640M0 240h640M0 320h640"/>
+    <path d="M120 0v400M240 0v400M400 0v400M520 0v400"/>
+  </g>
+  <rect x="170" y="88" width="300" height="220" rx="4" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <path d="M170 128h300" stroke="#4A5A70"/>
+  <text x="192" y="116" fill="#3DDCFF" font-family="monospace" font-size="12" letter-spacing="2">PERPETUAL LICENSE</text>
+  <rect x="206" y="156" width="72" height="88" stroke="#E8A54B" fill="#0B0F14"/>
+  <path d="M218 176h48M218 196h36M218 216h42" stroke="#E8A54B" stroke-width="1.5"/>
+  <text x="216" y="262" fill="#8B9BB4" font-family="monospace" font-size="10">PACKAGE</text>
+  <circle cx="360" cy="200" r="40" stroke="#3DDCFF" stroke-width="1.5" fill="#0B0F14"/>
+  <circle cx="360" cy="200" r="28" stroke="#E8A54B" stroke-width="1"/>
+  <path d="M346 200l10 10 18-22" stroke="#3DDCFF" stroke-width="2"/>
+  <text x="330" y="262" fill="#8B9BB4" font-family="monospace" font-size="10">SEALED</text>
+  <path d="M200 292h240" stroke="#4A5A70" stroke-dasharray="4 4"/>
+  <text x="214" y="318" fill="#8B9BB4" font-family="monospace" font-size="11">EMBED OK - NO STANDALONE SDK</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">COMMERCIAL TERMS</text>
+</svg>

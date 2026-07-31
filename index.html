@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="cad-viewer: the first fully backend-free DWG/DXF viewer and editor that runs entirely in the browser."
+    />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>MLightCAD — The first open-source browser CAD editor</title>
+  </head>
+  <body data-page="home">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="fx-spot" data-spot aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--x" data-cross-x aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--y" data-cross-y aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+    <div class="site">
+      <header class="nav">
+        <div class="nav__inner">
+          <a class="nav__brand" href="/">MLight<span>CAD</span></a>
+          <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" data-nav-toggle>
+            <span></span>
+          </button>
+          <ul class="nav__links" data-nav-links>
+            <li class="nav__dropdown" data-dropdown>
+              <button type="button" class="nav__drop-btn" aria-expanded="false" aria-haspopup="true" data-drop-toggle>
+                <span data-i18n="nav.product">Product</span>
+                <span class="nav__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="nav__menu" data-drop-menu>
+                <li>
+                  <a href="/#product" data-i18n="nav.cadViewer">cad-viewer</a>
+                </li>
+                <li>
+                  <a href="/dwg-parser.html" data-i18n="nav.dwgParser">DWG Parser</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="/#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="/#plugins" data-i18n="nav.plugins">Plugins</a></li>
+            <li>
+              <a href="https://cad-viewer.readthedocs.io/en/latest/" target="_blank" rel="noopener" data-i18n="nav.docs"
+                >Docs</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener" data-i18n="nav.github"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+          <div class="nav__actions">
+            <div class="lang" role="group" aria-label="Language">
+              <button type="button" class="lang__btn" data-locale="en" aria-pressed="true">EN</button>
+              <button type="button" class="lang__btn" data-locale="zh" aria-pressed="false">中文</button>
+            </div>
+            <a
+              class="btn btn--primary btn--nav btn--nav-demo"
+              href="https://mlightcad.github.io/cad-viewer/"
+              target="_blank"
+              rel="noopener"
+              data-i18n="nav.demo"
+              >Live Demo</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero shell">
+          <div class="hero__frame" data-tilt>
+            <div class="hero__corners" aria-hidden="true"></div>
+            <p class="hero__boot" data-boot aria-hidden="true">
+              <span>mlightcad://boot</span>
+              <span class="hero__boot-ok">OK</span>
+            </p>
+            <p class="hero__meta hero-enter" data-i18n="hero.meta">OPEN SOURCE · WEBGL · ZERO BACKEND</p>
+            <h1 class="hero__brand hero-enter" data-i18n="hero.brand">MLight<em>CAD</em></h1>
+            <p class="hero__headline hero-enter" data-i18n="hero.headline">
+              The first open CAD stack that never leaves the browser.
+            </p>
+            <p class="hero__sub hero-enter" data-i18n="hero.subline">
+              Parse, render, and edit DXF/DWG entirely on-device — no backend, no upload pipeline, no compromise on
+              privacy.
+            </p>
+            <ul class="firsts hero-enter" data-i18n-firsts="hero"></ul>
+            <div class="hero__ctas hero-enter">
+              <a
+                class="btn btn--primary btn--glow"
+                href="https://mlightcad.github.io/cad-viewer/"
+                target="_blank"
+                rel="noopener"
+                data-i18n="hero.ctaDemo"
+                >Try Live Demo</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/mlightcad/cad-viewer"
+                target="_blank"
+                rel="noopener"
+                data-i18n="hero.ctaGithub"
+                >View on GitHub</a
+              >
+            </div>
+          </div>
+          <div class="hud" aria-hidden="true">
+            <span class="hud__label">UCS</span>
+            <span class="hud__coords" data-hud-coords>X 0.00 &nbsp; Y 0.00</span>
+          </div>
+        </section>
+
+        <section class="section" id="product">
+          <div class="shell">
+            <p class="eyebrow reveal" data-i18n="flagship.eyebrow">Flagship</p>
+            <h2 class="section__title reveal" data-i18n="flagship.title">cad-viewer</h2>
+            <p class="section__lead reveal" data-i18n="flagship.lead">
+              A production-grade WebGL CAD runtime for DWG/DXF in the browser.
+            </p>
+            <div class="flagship__grid">
+              <figure class="flagship__media viewport-chrome reveal">
+                <div class="viewport-chrome__bar" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                  <em>cad-viewer · live</em>
+                </div>
+                <div class="viewport-chrome__stage">
+                  <img
+                    src="/assets/cad-viewer.gif"
+                    alt="cad-viewer demo: pan, zoom, and edit DWG/DXF in the browser"
+                    width="960"
+                    height="600"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption>cad-viewer · WebGL · in-browser</figcaption>
+              </figure>
+              <div>
+                <p class="eco__label reveal" data-i18n="flagship.firstsLabel">Industry firsts</p>
+                <ul class="firsts firsts--stack reveal" data-i18n-firsts="flagship"></ul>
+                <div class="flagship__actions reveal">
+                  <a
+                    class="btn btn--primary btn--glow"
+                    href="https://mlightcad.github.io/cad-viewer/"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="flagship.ctaDemo"
+                    >Open Demo</a
+                  >
+                  <a
+                    class="btn btn--ghost"
+                    href="https://cad-viewer.readthedocs.io/en/latest/"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="flagship.ctaDocs"
+                    >API Docs</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="features">
+          <div class="shell">
+            <p class="eyebrow reveal" data-i18n="features.eyebrow">Features</p>
+            <h2 class="section__title reveal" data-i18n="features.title">
+              Built for privacy, portability, and product teams.
+            </h2>
+            <p class="section__lead reveal" data-i18n="features.lead">
+              Every capability is designed around a single principle: serious CAD work should be possible without
+              standing up a CAD server.
+            </p>
+            <div class="feature-list" data-i18n-features></div>
+          </div>
+        </section>
+
+        <section class="section" id="plugins">
+          <div class="shell">
+            <p class="eyebrow reveal" data-i18n="plugins.eyebrow">Ecosystem</p>
+            <h2 class="section__title reveal" data-i18n="plugins.title">Official plugins</h2>
+            <p class="section__lead reveal" data-i18n="plugins.lead">
+              Compose UI, export, and AI around a shared plugin bus — load only what each product needs.
+            </p>
+            <div class="plugins reveal">
+              <div class="plugins__copy">
+                <ul class="plugin-list" data-i18n-plugins></ul>
+              </div>
+              <figure class="plugins__visual">
+                <img
+                  src="/assets/features/plugins.svg"
+                  alt=""
+                  width="640"
+                  height="400"
+                  loading="lazy"
+                  data-i18n-alt="plugins.imageAlt"
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="resources">
+          <div class="shell">
+            <p class="eyebrow reveal" data-i18n="resources.eyebrow">Resources</p>
+            <h2 class="section__title reveal" data-i18n="resources.title">Docs, demo, and community</h2>
+            <p class="section__lead reveal" data-i18n="resources.lead">
+              Start from the live viewer, then dig into API reference and the project wiki.
+            </p>
+            <div class="resource-grid reveal" data-i18n-resources></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="shell">
+          <p class="footer__tagline" data-i18n="footer.tagline">Open-source CAD infrastructure for the web.</p>
+          <p class="footer__license" data-i18n="footer.license"></p>
+          <div class="footer__meta">
+            <a href="/dwg-parser.html" data-i18n="footer.parser">Proprietary DWG parser</a>
+            <a href="mailto:mlight.lee@outlook.com" data-i18n="footer.contact">mlight.lee@outlook.com</a>
+            <span data-i18n="footer.rights">MLightCAD</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

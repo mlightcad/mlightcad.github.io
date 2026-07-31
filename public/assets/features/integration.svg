@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.4">
+    <path d="M0 100h640M0 200h640M0 300h640"/>
+    <path d="M160 0v400M320 0v400M480 0v400"/>
+  </g>
+  <rect x="72" y="140" width="120" height="72" stroke="#8B9BB4" fill="#121821"/>
+  <rect x="260" y="116" width="120" height="120" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <rect x="448" y="140" width="120" height="72" stroke="#8B9BB4" fill="#121821"/>
+  <path d="M192 176h68M380 176h68" stroke="#3DDCFF" stroke-width="1.5"/>
+  <circle cx="192" cy="176" r="4" fill="#3DDCFF"/>
+  <circle cx="260" cy="176" r="4" fill="#3DDCFF"/>
+  <circle cx="380" cy="176" r="4" fill="#3DDCFF"/>
+  <circle cx="448" cy="176" r="4" fill="#3DDCFF"/>
+  <path d="M290 156h60v60h-60z" stroke="#E8EEF5" stroke-width="1" opacity="0.7"/>
+  <path d="M300 186h40M320 166v40" stroke="#3DDCFF" stroke-width="1.5"/>
+  <text x="88" y="182" fill="#8B9BB4" font-family="monospace" font-size="12">HOST</text>
+  <text x="292" y="252" fill="#3DDCFF" font-family="monospace" font-size="12">CORE</text>
+  <text x="468" y="182" fill="#8B9BB4" font-family="monospace" font-size="12">PLUGIN</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">EMBED - EXTEND - SHIP</text>
+</svg>

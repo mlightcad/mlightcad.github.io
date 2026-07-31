@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.35">
+    <path d="M0 100h640M0 200h640M0 300h640"/>
+    <path d="M160 0v400M320 0v400M480 0v400"/>
+  </g>
+  <rect x="56" y="96" width="200" height="208" stroke="#8B9BB4" fill="#121821"/>
+  <text x="76" y="124" fill="#8B9BB4" font-family="monospace" font-size="11">Manager</text>
+  <rect x="76" y="144" width="160" height="36" stroke="#4A5A70" fill="#0B0F14"/>
+  <text x="88" y="166" fill="#5A6A82" font-family="monospace" font-size="10">LibreDWG slot</text>
+  <rect x="76" y="196" width="160" height="36" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <text x="88" y="218" fill="#3DDCFF" font-family="monospace" font-size="10">DWG converter</text>
+  <rect x="76" y="248" width="160" height="36" stroke="#4A5A70" fill="#0B0F14"/>
+  <text x="88" y="270" fill="#5A6A82" font-family="monospace" font-size="10">DXF converter</text>
+  <path d="M272 214h56" stroke="#3DDCFF" stroke-width="1.5"/>
+  <polygon points="328,214 316,208 316,220" fill="#3DDCFF"/>
+  <rect x="344" y="120" width="240" height="160" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <text x="364" y="152" fill="#3DDCFF" font-family="monospace" font-size="11">register(</text>
+  <text x="380" y="178" fill="#E8EEF5" font-family="monospace" font-size="12">DWG,</text>
+  <text x="380" y="204" fill="#E8A54B" font-family="monospace" font-size="12">converter</text>
+  <text x="364" y="230" fill="#3DDCFF" font-family="monospace" font-size="11">)</text>
+  <text x="364" y="260" fill="#8B9BB4" font-family="monospace" font-size="10">same path as LibreDWG</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">DROP-IN REGISTER</text>
+</svg>

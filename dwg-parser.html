@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Commercial DWG parser for closed-source products: perpetual license, no GPL distribution."
+    />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Proprietary DWG Parser — MLightCAD</title>
+  </head>
+  <body data-page="parser">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="fx-spot" data-spot aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--x" data-cross-x aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--y" data-cross-y aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+    <div class="site">
+      <header class="nav">
+        <div class="nav__inner">
+          <a class="nav__brand" href="/">MLight<span>CAD</span></a>
+          <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" data-nav-toggle>
+            <span></span>
+          </button>
+          <ul class="nav__links" data-nav-links>
+            <li class="nav__dropdown" data-dropdown>
+              <button type="button" class="nav__drop-btn" aria-expanded="false" aria-haspopup="true" data-drop-toggle>
+                <span data-i18n="nav.product">Product</span>
+                <span class="nav__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="nav__menu" data-drop-menu>
+                <li>
+                  <a href="/#product" data-i18n="nav.cadViewer">cad-viewer</a>
+                </li>
+                <li>
+                  <a href="/dwg-parser.html" data-i18n="nav.dwgParser" aria-current="page">DWG Parser</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="/#features" data-i18n="nav.features">Features</a></li>
+            <li><a href="/#plugins" data-i18n="nav.plugins">Plugins</a></li>
+            <li>
+              <a href="https://cad-viewer.readthedocs.io/en/latest/" target="_blank" rel="noopener" data-i18n="nav.docs"
+                >Docs</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener" data-i18n="nav.github"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+          <div class="nav__actions">
+            <div class="lang" role="group" aria-label="Language">
+              <button type="button" class="lang__btn" data-locale="en" aria-pressed="true">EN</button>
+              <button type="button" class="lang__btn" data-locale="zh" aria-pressed="false">中文</button>
+            </div>
+            <a
+              class="btn btn--primary btn--nav btn--nav-demo"
+              href="https://mlightcad.github.io/cad-viewer/"
+              target="_blank"
+              rel="noopener"
+              data-i18n="nav.demo"
+              >Live Demo</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero parser-hero shell">
+          <div class="hero__frame" data-tilt>
+            <div class="hero__corners" aria-hidden="true"></div>
+            <p class="hero__meta hero-enter" data-scramble data-i18n="parser.eyebrow">Commercial product</p>
+            <h1 class="section__title hero-enter" data-i18n="parser.title">Proprietary DWG Parser</h1>
+            <p class="section__lead hero-enter" data-i18n="parser.lead"></p>
+            <div class="hero__ctas hero-enter">
+              <a
+                class="btn btn--primary btn--glow"
+                href="mailto:mlight.lee@outlook.com"
+                data-i18n="parser.contactCta"
+                >Email for purchase or trial</a
+              >
+              <a
+                class="btn btn--ghost"
+                href="https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md"
+                target="_blank"
+                rel="noopener"
+                data-i18n="parser.docsCta"
+                data-i18n-href="parser.docsHref"
+                >Full license document</a
+              >
+            </div>
+          </div>
+          <div class="hud" aria-hidden="true">
+            <span class="hud__label">UCS</span>
+            <span class="hud__coords" data-hud-coords>X 0.00 &nbsp; Y 0.00</span>
+          </div>
+        </section>
+        <div class="shell parser-body" data-parser-body></div>
+      </main>
+
+      <footer class="footer">
+        <div class="shell">
+          <p class="footer__tagline" data-i18n="footer.tagline">Open-source CAD infrastructure for the web.</p>
+          <p class="footer__license" data-i18n="footer.license"></p>
+          <div class="footer__meta">
+            <a href="/dwg-parser.html" data-i18n="footer.parser">Proprietary DWG parser</a>
+            <a href="mailto:mlight.lee@outlook.com" data-i18n="footer.contact">mlight.lee@outlook.com</a>
+            <span data-i18n="footer.rights">MLightCAD</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/parser-page.ts"></script>
+  </body>
+</html>
