@@ -61,7 +61,10 @@ function renderParserBody(): void {
     .map((faq) => `<details class="faq"><summary>${faq.q}</summary><p>${faq.a}</p></details>`)
     .join('')
   const related = p.related
-    .map((link) => `<a href="${link.href}" target="_blank" rel="noopener">${link.name}</a>`)
+    .map(
+      (link) =>
+        `<li><a href="${link.href}" target="_blank" rel="noopener"><strong>${link.name}</strong><span>${link.desc}</span></a></li>`,
+    )
     .join('')
 
   root.innerHTML = [
@@ -138,7 +141,7 @@ function renderParserBody(): void {
       '/assets/parser/related.svg',
       p.imageAlts.related,
       false,
-      [`<h2>${p.relatedTitle}</h2>`, `<div class="related-links">${related}</div>`].join('\n'),
+      [`<h2>${p.relatedTitle}</h2>`, `<ul class="related-list">${related}</ul>`].join('\n'),
     ),
   ].join('\n')
 }

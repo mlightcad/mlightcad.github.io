@@ -40,7 +40,7 @@ export interface ParserCopy {
   faqTitle: string
   faqs: ParserFaq[]
   relatedTitle: string
-  related: { name: string; href: string }[]
+  related: { name: string; desc: string; href: string }[]
   imageAlts: {
     scope: string
     license: string
@@ -139,9 +139,21 @@ export const parserEn: ParserCopy = {
   ],
   relatedTitle: 'Related',
   related: [
-    { name: 'Full PROPRIETARY-PARSER.md', href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md' },
-    { name: 'realdwg-web-example', href: 'https://github.com/mlightcad/realdwg-web-example' },
-    { name: 'API Docs', href: 'https://mlightcad.github.io/cad-viewer/docs/' },
+    {
+      name: 'Full product documentation',
+      desc: 'Complete commercial guide covering scope, licensing, pricing, trial, and integration.',
+      href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+    },
+    {
+      name: 'realdwg-web-example',
+      desc: 'Sample app that demonstrates the proprietary DWG parser in the browser.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
+    },
+    {
+      name: 'API Docs',
+      desc: 'API reference for cad-viewer, data-model, and converter integration.',
+      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+    },
   ],
   imageAlts: {
     scope: 'DWG file flowing into the proprietary converter package and data-model',
@@ -241,9 +253,21 @@ export const parserZh: ParserCopy = {
   ],
   relatedTitle: '相关链接',
   related: [
-    { name: '完整 PROPRIETARY-PARSER 中文文档', href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.zh-CN.md' },
-    { name: 'realdwg-web-example', href: 'https://github.com/mlightcad/realdwg-web-example' },
-    { name: 'API 文档', href: 'https://mlightcad.github.io/cad-viewer/docs/' },
+    {
+      name: '完整介绍文档',
+      desc: '覆盖范围、授权、定价、试用与集成的完整商业说明。',
+      href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.zh-CN.md',
+    },
+    {
+      name: 'realdwg-web-example',
+      desc: 'DWG parser 示例程序，演示专有解析器在浏览器中的用法。',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
+    },
+    {
+      name: 'API 文档',
+      desc: 'cad-viewer、data-model 与转换器集成的 API 参考。',
+      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+    },
   ],
   imageAlts: {
     scope: 'DWG 文件进入专有转换包并输出到 data-model',

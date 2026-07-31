@@ -1543,21 +1543,43 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   max-width: 65ch;
 }
 
-.related-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-4);
+.related-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.related-links a {
-  color: var(--cyan);
+.related-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.related-list a {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.85rem 0;
   text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
+  transition: padding-left 0.25s var(--ease);
 }
 
-.related-links a:hover {
-  text-decoration: underline;
+.related-list a:hover {
+  padding-left: 0.35rem;
+}
+
+.related-list strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.related-list a:hover strong {
+  color: var(--cyan);
+}
+
+.related-list span {
+  color: var(--steel);
+  font-size: 0.95rem;
+  line-height: 1.45;
 }
 
 
