@@ -3,6 +3,9 @@ dist
 .DS_Store
 *.local
 .vite
+.env
+.env.*
+!.env.example
 
 # Local Cursor Agent skills
 .agents/
