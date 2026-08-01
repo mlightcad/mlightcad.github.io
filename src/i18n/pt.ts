@@ -11,8 +11,8 @@ const parserPt: ParserCopy = {
   title: 'Parser DWG proprietário',
   lead: 'Uma alternativa comercial ao stack open source LibreDWG — feita para produtos de código fechado, implantações white-label e visualizadores SaaS / on-premise que não podem distribuir código GPL-3.0 aos clientes.',
   contactCta: 'Solicitar licença de avaliação',
-  docsCta: 'Documento de licença completo',
-  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+  demoCta: 'Experimentar demo ao vivo',
+  demoHref: 'https://mlightcad.com/realdwg-web-example/',
   scopeTitle: 'Escopo',
   scopeLead: 'Substituição direta do conversor DWG open source padrão.',
   scopeRows: [
@@ -135,7 +135,7 @@ const parserPt: ParserCopy = {
     {
       name: 'Documentação da API',
       desc: 'Referência da API para cad-viewer, data-model e integração do conversor.',
-      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      href: 'https://mlightcad.com/realdwg-web/',
     },
   ],
   imageAlts: {

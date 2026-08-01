@@ -11,8 +11,8 @@ const parserCs: ParserCopy = {
   title: 'Proprietární parser DWG',
   lead: 'Komerční alternativa k open source stacku LibreDWG — pro produkty s uzavřeným kódem, white-label nasazení a SaaS / on-premise prohlížeče, které nemohou zákazníkům distribuovat kód GPL-3.0.',
   contactCta: 'Požádat o zkušební licenci',
-  docsCta: 'Úplný licenční dokument',
-  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+  demoCta: 'Vyzkoušet živé demo',
+  demoHref: 'https://mlightcad.com/realdwg-web-example/',
   scopeTitle: 'Rozsah',
   scopeLead: 'Přímá náhrada výchozího open source převodníku DWG.',
   scopeRows: [
@@ -135,7 +135,7 @@ const parserCs: ParserCopy = {
     {
       name: 'Dokumentace API',
       desc: 'Referenční API pro cad-viewer, data-model a integraci převodníku.',
-      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      href: 'https://mlightcad.com/realdwg-web/',
     },
   ],
   imageAlts: {
