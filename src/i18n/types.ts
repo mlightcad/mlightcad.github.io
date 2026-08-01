@@ -1,6 +1,6 @@
 import type { ParserCopy } from './parser'
 
-export type Locale = 'en' | 'zh'
+export type Locale = 'en' | 'zh' | 'ja' | 'ko' | 'es' | 'pt' | 'ru' | 'cs'
 
 export interface FeatureAction {
   label: string
@@ -34,8 +34,7 @@ export interface Dictionary {
     docs: string
     github: string
     demo: string
-    langEn: string
-    langZh: string
+    language: string
   }
   hero: {
     brand: string

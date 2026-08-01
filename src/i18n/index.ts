@@ -1,22 +1,45 @@
+import { cs } from './cs'
 import { en } from './en'
-import { zh } from './zh'
+import { es } from './es'
+import { ja } from './ja'
+import { ko } from './ko'
+import { isLocale, LOCALE_META, matchLocale } from './locales'
+import { pt } from './pt'
+import { ru } from './ru'
 import type { Dictionary, Locale } from './types'
+import { zh } from './zh'
 
 export type { Dictionary, Locale }
+export { isLocale, LOCALES, LOCALE_META, matchLocale } from './locales'
 
 const STORAGE_KEY = 'mlightcad-locale'
 
-const dictionaries: Record<Locale, Dictionary> = { en, zh }
+const dictionaries: Record<Locale, Dictionary> = {
+  en,
+  zh,
+  ja,
+  ko,
+  es,
+  pt,
+  ru,
+  cs,
+}
 
 export function detectLocale(): Locale {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored === 'en' || stored === 'zh') return stored
+    if (isLocale(stored)) return stored
   } catch {
     /* ignore */
   }
-  const lang = navigator.language.toLowerCase()
-  return lang.startsWith('zh') ? 'zh' : 'en'
+
+  const candidates = [...(navigator.languages ?? []), navigator.language]
+  for (const tag of candidates) {
+    if (!tag) continue
+    const matched = matchLocale(tag)
+    if (matched) return matched
+  }
+  return 'en'
 }
 
 export function setLocale(locale: Locale): void {
@@ -25,7 +48,7 @@ export function setLocale(locale: Locale): void {
   } catch {
     /* ignore */
   }
-  document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en'
+  document.documentElement.lang = LOCALE_META[locale].htmlLang
 }
 
 export function t(locale: Locale): Dictionary {

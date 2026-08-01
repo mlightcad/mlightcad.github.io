@@ -1,0 +1,316 @@
+import type { Dictionary } from './types'
+import type { ParserCopy } from './parser'
+
+const parserKo: ParserCopy = {
+  metaTitle: '상용 DWG 파서 — MLightCAD',
+  metaDescription:
+    '클로즈드소스 제품을 위한 상용 DWG 파서: 영구 라이선스, GPL 배포 불필요, cad-viewer의 LibreDWG를 교체 가능.',
+  metaKeywords:
+    'DWG 파서, 상용 DWG, LibreDWG 대안, 상용 DWG 변환, cad-viewer, 클로즈드소스 CAD, 영구 라이선스',
+  eyebrow: '상용 제품',
+  title: '상용 DWG 파서',
+  lead: '오픈소스 LibreDWG 스택의 상용 대안 — GPL-3.0 코드를 고객에게 배포할 수 없는 클로즈드소스 제품, 화이트라벨, SaaS / 온프레미스 뷰어용.',
+  contactCta: '체험 라이선스 신청',
+  docsCta: '전체 라이선스 문서',
+  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+  scopeTitle: '범위',
+  scopeLead: '기본 오픈소스 DWG 컨버터를 드롭인 방식으로 교체합니다.',
+  scopeRows: [
+    { label: '형식', value: 'DWG' },
+    { label: '패키지', value: '@mlight-cad/dwg-converter' },
+    { label: '제공', value: '사전 빌드 npm 패키지 (소스 없음)' },
+  ],
+  benefitsTitle: '선택하는 이유',
+  benefits: [
+    'LibreDWG 기반 WASM 스택보다 낮은 메모리 사용량',
+    '더 큰 DWG 지원 — libredwg-web 힙 제한에 묶이지 않음',
+    '실무 도면을 위한 더 정확한 파싱',
+    'GPL 의존성을 제거하면 나머지 cad-viewer 스택을 MIT만으로 유지',
+  ],
+  licenseTitle: '라이선스',
+  receiveTitle: '제공 내용',
+  receive: [
+    '사전 빌드 npm 패키지(컴파일/번들). 소스 코드는 포함되지 않습니다.',
+    '제품과 배포에서 패키지를 사용할 수 있는 영구 라이선스.',
+  ],
+  permittedTitle: '허용 사용',
+  permitted: [
+    '클로즈드소스 애플리케이션(데스크톱, 모바일, 웹)에 임베드 및 재배포',
+    'SaaS, 온프레미스, 화이트라벨 환경에 배포',
+    '사용자·테넌트·프로젝트·파일 수 무제한 — 좌석/파일 과금 없음',
+  ],
+  restrictionsTitle: '제한',
+  restrictions: [
+    '파서를 독립 DWG 파싱 라이브러리 또는 SDK로 재배포하거나 재판매할 수 없습니다.',
+  ],
+  pricingTitle: '가격',
+  pricingRows: [
+    { item: '영구 라이선스 (일회성 기부)', amount: '$3,000 USD' },
+    { item: '업그레이드 패키지 — 첫해', amount: '포함' },
+    { item: '업그레이드 패키지 — 첫해 이후', amount: '$1,500 / 년' },
+  ],
+  pricingNote:
+    '로열티, 좌석 요금, 사용량 한도가 없습니다. 첫해 이후에도 이미 받은 버전은 무료로 계속 사용할 수 있으며, 연간 기부는 새 업그레이드 패키지용입니다.',
+  trialTitle: '체험 라이선스',
+  trialLead: '기업 및 조직은 구매 전 체험을 신청할 수 있습니다. 개인 신청은 현재 받지 않습니다.',
+  trialCta: '체험 라이선스 신청',
+  trialSteps: [
+    '회사 정보와 사용 목적이 담긴 체험 신청서 제출',
+    'GitHub 사용자명 포함 — mlight-cad 조직을 통해 접근 부여',
+    '승인 후 GitHub 조직 초대를 수락하고 @mlight-cad/dwg-converter 설치',
+  ],
+  trialNote: 'GitHub의 realdwg-web-example 데모로도 공개 평가가 가능합니다.',
+  trialForm: {
+    title: '체험 라이선스 신청',
+    lead: '기업 및 조직만 대상입니다. 신청을 검토한 뒤 이메일로 회신합니다.',
+    close: '닫기',
+    companySection: '회사 정보',
+    useSection: '사용 목적',
+    companyName: '회사 / 조직명',
+    companyNamePlaceholder: '회사명',
+    website: '웹사이트',
+    websitePlaceholder: 'https://example.com',
+    websiteOptional: '선택',
+    country: '국가 / 지역',
+    countryPlaceholder: '국가 또는 지역',
+    contactName: '담당자 이름',
+    contactNamePlaceholder: '이름',
+    contactEmail: '연락 이메일',
+    contactEmailPlaceholder: '업무용 이메일',
+    githubUsername: 'GitHub 사용자명',
+    githubUsernamePlaceholder: 'your-github-username',
+    productName: '제품 / 프로젝트명',
+    productNamePlaceholder: '간단한 이름',
+    deploymentModel: '배포 모델',
+    deploymentModelPlaceholder: '예: SaaS, 온프레미스, 데스크톱, 화이트라벨',
+    useCase: '사용 사례 요약',
+    useCasePlaceholder: '파서 사용 계획을 1–3문장으로',
+    submit: '신청 제출',
+    submitting: '제출 중…',
+    success: '신청이 접수되었습니다. 검토 후 이메일로 회신합니다.',
+    error: '제출할 수 없습니다. 다시 시도하거나 mlight.lee@outlook.com으로 메일을 보내 주세요.',
+    requiredHint: '* 표시는 필수 항목입니다',
+  },
+  integrationTitle: '통합',
+  integrationLead:
+    'AcDbDatabaseConverterManager를 통해 AcDbDatabaseConverter로 등록 — LibreDWG와 동일한 경로. 출력은 MIT @mlightcad/data-model을 따르며 렌더링과 플러그인은 변경 없이 유지됩니다.',
+  supportTitle: '지원',
+  supportRows: [
+    { area: '버그 수정', detail: '가능한 한 신속히 처리' },
+    { area: '업그레이드 패키지', detail: '첫해 포함, 이후 연간 기부' },
+    { area: '통합 지원', detail: '합리적 범위의 이메일 지원' },
+    { area: '응답 시간', detail: '보고된 버그는 보통 영업일 1일 이내' },
+  ],
+  faqTitle: 'FAQ',
+  faqs: [
+    {
+      q: '화이트라벨 제품에 사용할 수 있나요?',
+      a: '예. 클로즈드소스 화이트라벨 상용 앱에 임베드하여 SaaS 또는 온프레미스 고객에게 제공할 수 있습니다.',
+    },
+    {
+      q: '우리 앱을 오픈소스화해야 하나요?',
+      a: '아니요. 상용 파서 라이선스는 클로즈드소스 사용을 허용합니다. 사용하는 오픈소스 cad-viewer 구성 요소는 각 라이선스(코어는 MIT)를 따릅니다.',
+    },
+    {
+      q: '연간 기부를 중단하면?',
+      a: '이미 받은 버전에 대한 영구 권리는 유지됩니다. 갱신 전까지 새 업그레이드 패키지만 받지 못합니다.',
+    },
+    {
+      q: '3D 엔티티를 지원하나요?',
+      a: '부분적으로 지원합니다. 3DSOLID는 와이어프레임 또는 바운딩 박스 폴백으로 추출할 수 있으며, 완전한 B-rep 테셀레이션은 아직 없습니다.',
+    },
+  ],
+  relatedTitle: '관련',
+  related: [
+    {
+      name: '전체 제품 문서',
+      desc: '범위, 라이선스, 가격, 체험, 통합을 다룬 상용 가이드.',
+      href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+    },
+    {
+      name: 'realdwg-web-example',
+      desc: '브라우저에서 상용 DWG 파서를 보여주는 샘플 앱.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
+    },
+    {
+      name: 'API 문서',
+      desc: 'cad-viewer, data-model, 컨버터 통합 API 레퍼런스.',
+      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+    },
+  ],
+  imageAlts: {
+    scope: 'DWG가 상용 컨버터 패키지와 data-model로 흐르는 개념도',
+    license: '영구 라이선스 표시가 있는 상용 패키지',
+    trial: '회사 이메일에서 GitHub 조직 접근까지의 체험 경로',
+    integration: '공유 매니저 버스에 DWG 컨버터 등록',
+    support: '버그 수정, 업그레이드, 이메일 지원을 덮는 방패',
+    faq: '라이선스 FAQ 패널',
+    related: '라이선스 문서, 예제, API로 연결된 파서 허브',
+  },
+}
+
+export const ko: Dictionary = {
+  meta: {
+    title: 'MLightCAD — 최초의 오픈소스 브라우저 CAD 에디터',
+    description:
+      'cad-viewer: 백엔드 없이 브라우저에서 완전히 동작하는 최초의 DWG/DXF 뷰어 겸 에디터 — 그리고 최초의 오픈소스 DXF/DWG 웹 편집 툴킷.',
+    keywords:
+      'MLightCAD, cad-viewer, DWG 뷰어, DXF 뷰어, 브라우저 CAD, WebGL CAD, 오픈소스 CAD, DWG 에디터, DXF 에디터, 제로 백엔드',
+  },
+  nav: {
+    product: '제품',
+    cadViewer: 'cad-viewer',
+    dwgParser: 'DWG 파서',
+    features: '기능',
+    plugins: '플러그인',
+    docs: '문서',
+    github: 'GitHub',
+    demo: '라이브 데모',
+    language: '언어',
+  },
+  hero: {
+    brand: 'MLightCAD',
+    meta: '오픈소스 · WEBGL · 제로 백엔드',
+    headline: '브라우저를 떠나지 않는 최초의 오픈 CAD 스택.',
+    subline:
+      'DXF/DWG 파싱·렌더링·편집을 모두 기기에서 — 백엔드 없음, 업로드 파이프라인 없음, 프라이버시 타협 없음.',
+    ctaDemo: '라이브 데모 체험',
+    ctaGithub: 'GitHub에서 보기',
+    firsts: [
+      '브라우저에서 완전히 백엔드 없이 동작하는 최초의 DWG/DXF 뷰어 겸 에디터',
+      '최초의 오픈소스 DXF/DWG 웹 편집 툴킷',
+    ],
+  },
+  flagship: {
+    eyebrow: '플래그십',
+    title: 'cad-viewer',
+    lead: '프로덕션급 WebGL CAD 런타임: DWG/DXF 파싱, 지오메트리, 보기, 편집 — 모두 최신 브라우저 탭 안에서.',
+    firstsLabel: '업계 최초',
+    firsts: [
+      '백엔드 서비스 없이 브라우저에서 완전히 동작하는 최초의 DWG/DXF 뷰어 겸 에디터.',
+      '웹에서 실제 DXF/DWG 편집을 위한 최초의 오픈소스 툴킷 — 읽기 전용 미리보기가 아닙니다.',
+    ],
+    ctaDemo: '데모 열기',
+    ctaDocs: 'API 문서',
+  },
+  features: {
+    eyebrow: '기능',
+    title: '프라이버시, 이식성, 제품 팀을 위해.',
+    lead: '모든 기능은 하나의 원칙을 따릅니다: CAD 서버 없이도 본격적인 CAD 작업이 가능해야 합니다.',
+    items: [
+      {
+        id: 'privacy',
+        title: '아키텍처로 보장하는 프라이버시',
+        body: '도면은 클라이언트에서 파싱·렌더링됩니다. 업로드, 스테이징, 원격 미러가 없습니다 — 기밀성은 정책이 아니라 구조적 보장입니다.',
+        image: '/assets/features/privacy.svg',
+        imageAlt: '도면이 로컬 기기에 남는 개념도',
+      },
+      {
+        id: 'integration',
+        title: '인프라 제로, 깊은 통합',
+        body: '백엔드나 변환 팜 없이 제품에 CAD를 넣을 수 있습니다. 모듈형 플러그인으로 UI, 내보내기, AI 에이전트를 일급 확장으로 조합하세요.',
+        image: '/assets/features/integration.svg',
+        imageAlt: '호스트 앱이 CAD 코어와 플러그인에 연결',
+      },
+      {
+        id: 'html-export',
+        title: '단일 파일 오프라인 HTML 내보내기',
+        body: '라이브 도면을 임베디드 뷰어가 있는 자체 완결 .html로 — 팬, 줌, 범위, 레이어, 거리 측정, 다국어 UI. 수신자는 최신 브라우저에서 엽니다. 설치·cad-viewer 인스턴스·서버 불필요. 동일 샘플 도면에서 보기 모드 오프라인 HTML은 AutoCAD 2020보다 약 83% 적은 메모리로 팬, 줌, 레이어, 측정을 지원합니다.',
+        image: '/assets/features/html-export.svg',
+        imageAlt: 'DWG가 휴대용 HTML 파일로 변환',
+        actions: [
+          {
+            label: '데모 HTML 열기',
+            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            variant: 'primary',
+          },
+          {
+            label: '데모 HTML 다운로드',
+            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            download: 'canteen.html',
+            variant: 'ghost',
+          },
+        ],
+      },
+      {
+        id: 'workflows',
+        title: '오프라인과 온라인, 같은 엔진',
+        body: '에어갭 검토와 연결된 제품 워크플로를 하나의 런타임으로. 네트워크가 없어도 로컬 편집, 복구 후 플랫폼과 동기화 — CAD 코어를 다시 쓸 필요 없습니다.',
+        image: '/assets/features/workflows.svg',
+        imageAlt: '오프라인과 온라인 워크플로 루프',
+      },
+      {
+        id: 'edit',
+        title: '진짜 에디터 — 수동 뷰어가 아님',
+        body: '팬·줌을 넘어 선택·수정·작성이 가능합니다. AutoCAD 풍 명령면으로 웹 제품에 실제 도면 작업을 제공합니다.',
+        image: '/assets/features/edit.svg',
+        imageAlt: '도면의 그립과 편집 작업',
+      },
+    ],
+  },
+  plugins: {
+    eyebrow: '생태계',
+    title: '공식 플러그인',
+    lead: '공유 플러그인 버스에서 UI, 내보내기, AI를 조합 — 제품에 필요한 것만 로드.',
+    imageAlt: 'UI, Agent, HTML, PDF, SVG 모듈이 있는 CAD 코어',
+    items: [
+      { name: 'cad-simple-ui-plugin', role: '툴바 & 레이어 관리 (프레임워크 무관 DOM)' },
+      { name: 'cad-agent-plugin', role: '그리기 도구가 있는 자연어 CAD 에이전트' },
+      { name: 'cad-html-plugin', role: '자체 완결 오프라인 HTML 내보내기' },
+      { name: 'cad-pdf-plugin', role: '벡터 PDF 내보내기 및 PDF→CAD 가져오기' },
+      { name: 'cad-svg-plugin', role: '벡터 SVG 내보내기' },
+    ],
+  },
+  resources: {
+    eyebrow: '리소스',
+    title: '문서, 데모, 커뮤니티',
+    lead: '라이브 뷰어로 시작한 뒤 API 레퍼런스와 프로젝트 Wiki로.',
+    links: [
+      {
+        name: '라이브 데모',
+        desc: '브라우저의 풀기능 뷰어',
+        href: 'https://mlightcad.github.io/cad-viewer/',
+      },
+      {
+        name: 'API 문서',
+        desc: 'Read the Docs 버전 문서',
+        href: 'https://cad-viewer.readthedocs.io/en/latest/',
+      },
+      {
+        name: '최신 문서',
+        desc: 'GitHub Pages (개발 / 최신)',
+        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      },
+      {
+        name: 'Wiki',
+        desc: '가이드와 아키텍처 노트',
+        href: 'https://github.com/mlightcad/cad-viewer/wiki',
+      },
+      {
+        name: 'GitHub',
+        desc: 'mlightcad/cad-viewer',
+        href: 'https://github.com/mlightcad/cad-viewer',
+      },
+      {
+        name: 'X',
+        desc: '@mlightcad',
+        href: 'https://x.com/mlightcad',
+      },
+      {
+        name: 'YouTube',
+        desc: '@mlightcad',
+        href: 'https://www.youtube.com/@mlightcad',
+      },
+      {
+        name: 'Medium',
+        desc: '@mlightcad',
+        href: 'https://medium.com/@mlightcad',
+      },
+    ],
+  },
+  footer: {
+    tagline: '웹을 위한 오픈소스 CAD 인프라.',
+    rights: '© 2026 MLightCAD',
+  },
+  parser: parserKo,
+}

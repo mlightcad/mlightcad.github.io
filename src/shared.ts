@@ -1,4 +1,4 @@
-import { detectLocale, setLocale, t, type Locale } from './i18n'
+import { detectLocale, isLocale, LOCALE_META, setLocale, t, type Locale } from './i18n'
 
 export let locale: Locale = detectLocale()
 setLocale(locale)
@@ -36,6 +36,21 @@ export function observeReveals(root: ParentNode = document): void {
   nodes.forEach((n) => revealObserver?.observe(n))
 }
 
+function syncLangSwitcher(dict: ReturnType<typeof t>): void {
+  const meta = LOCALE_META[locale]
+  document.querySelectorAll<HTMLElement>('[data-lang-current]').forEach((el) => {
+    el.textContent = meta.nativeLabel
+  })
+  document.querySelectorAll<HTMLButtonElement>('[data-lang-toggle]').forEach((btn) => {
+    btn.setAttribute('aria-label', dict.nav.language)
+  })
+  document.querySelectorAll<HTMLButtonElement>('[data-locale]').forEach((btn) => {
+    const selected = btn.dataset.locale === locale
+    btn.setAttribute('aria-selected', String(selected))
+    btn.classList.toggle('is-active', selected)
+  })
+}
+
 export function applyCommonI18n(dict: ReturnType<typeof t>): void {
   document.querySelectorAll<HTMLElement>('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n
@@ -58,20 +73,22 @@ export function applyCommonI18n(dict: ReturnType<typeof t>): void {
     if (typeof value === 'string') img.alt = value
   })
 
-  document.querySelectorAll<HTMLButtonElement>('[data-locale]').forEach((btn) => {
-    btn.setAttribute('aria-pressed', String(btn.dataset.locale === locale))
-  })
+  syncLangSwitcher(dict)
 }
 
 export function setupLocaleToggle(onChange: (next: Locale) => void): void {
   document.querySelectorAll<HTMLButtonElement>('[data-locale]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const next = btn.dataset.locale as Locale
-      if (next === 'en' || next === 'zh') {
-        locale = next
-        setLocale(locale)
-        onChange(next)
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      const next = btn.dataset.locale
+      if (!isLocale(next) || next === locale) {
+        closeDropdowns()
+        return
       }
+      locale = next
+      setLocale(locale)
+      closeDropdowns()
+      onChange(next)
     })
   })
 }

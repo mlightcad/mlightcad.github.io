@@ -1,0 +1,316 @@
+import type { Dictionary } from './types'
+import type { ParserCopy } from './parser'
+
+const parserJa: ParserCopy = {
+  metaTitle: 'プロプライエタリ DWG パーサー — MLightCAD',
+  metaDescription:
+    'クローズドソース製品向け商用 DWG パーサー：永久ライセンス、GPL 配布不要、cad-viewer の LibreDWG を置き換え可能。',
+  metaKeywords:
+    'DWG パーサー, 商用 DWG, LibreDWG 代替, 商用 DWG 変換, cad-viewer, クローズドソース CAD, 永久ライセンス',
+  eyebrow: '商用製品',
+  title: 'プロプライエタリ DWG パーサー',
+  lead: 'オープンソース LibreDWG スタックの商用代替 — GPL-3.0 コードを顧客へ配布できないクローズドソース製品、ホワイトラベル、SaaS / オンプレミスビューア向け。',
+  contactCta: 'トライアルライセンスを申請',
+  docsCta: 'ライセンス文書全文',
+  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+  scopeTitle: '範囲',
+  scopeLead: 'デフォルトのオープンソース DWG コンバーターをそのまま置き換えられます。',
+  scopeRows: [
+    { label: '形式', value: 'DWG' },
+    { label: 'パッケージ', value: '@mlight-cad/dwg-converter' },
+    { label: '提供形態', value: 'プリビルド npm パッケージ（ソースなし）' },
+  ],
+  benefitsTitle: '選ばれる理由',
+  benefits: [
+    'LibreDWG ベースの WASM スタックより低いメモリ使用量',
+    'より大きな DWG に対応 — libredwg-web のヒープ制限に縛られない',
+    '本番図面向けのより正確な解析',
+    'GPL 依存を外すと cad-viewer の残りを MIT のみに保てる',
+  ],
+  licenseTitle: 'ライセンス',
+  receiveTitle: '提供内容',
+  receive: [
+    'プリビルド npm パッケージ（コンパイル済み / バンドル済み）。ソースコードは含まれません。',
+    '製品とデプロイでパッケージを使用する永久ライセンス。',
+  ],
+  permittedTitle: '許可される利用',
+  permitted: [
+    'クローズドソースアプリ（デスクトップ、モバイル、Web）への埋め込みと再配布',
+    'SaaS、オンプレミス、ホワイトラベル環境でのデプロイ',
+    'ユーザー数・テナント・プロジェクト・ファイル数無制限 — シート課金やファイル課金なし',
+  ],
+  restrictionsTitle: '制限',
+  restrictions: [
+    'パーサーを独立した DWG 解析ライブラリや SDK として再配布・転売してはなりません。',
+  ],
+  pricingTitle: '価格',
+  pricingRows: [
+    { item: '永久ライセンス（一回限りの寄付）', amount: '$3,000 USD' },
+    { item: 'アップグレードパッケージ — 初年度', amount: '含む' },
+    { item: 'アップグレードパッケージ — 2年目以降', amount: '$1,500 / 年' },
+  ],
+  pricingNote:
+    'ロイヤリティ、シート課金、利用上限はありません。初年度以降も取得済みバージョンは無償で継続利用可能。年次寄付は新しいアップグレードパッケージ取得のためのみです。',
+  trialTitle: 'トライアルライセンス',
+  trialLead: '企業・組織は購入前にトライアルを申請できます。個人申請は現在受け付けていません。',
+  trialCta: 'トライアルライセンスを申請',
+  trialSteps: [
+    '会社情報と利用目的を記入したトライアル申請フォームを送信',
+    'GitHub ユーザー名を記載 — mlight-cad 組織経由でアクセス付与',
+    '承認後、GitHub 組織招待を受け取り @mlight-cad/dwg-converter をインストール',
+  ],
+  trialNote: 'GitHub の realdwg-web-example デモでも公開評価が可能です。',
+  trialForm: {
+    title: 'トライアルライセンス申請',
+    lead: '企業・組織のみ対象です。申請を審査し、メールでご連絡します。',
+    close: '閉じる',
+    companySection: '会社情報',
+    useSection: '利用目的',
+    companyName: '会社 / 組織名',
+    companyNamePlaceholder: '会社名',
+    website: 'ウェブサイト',
+    websitePlaceholder: 'https://example.com',
+    websiteOptional: '任意',
+    country: '国 / 地域',
+    countryPlaceholder: '国または地域',
+    contactName: '担当者名',
+    contactNamePlaceholder: 'お名前',
+    contactEmail: '連絡先メール',
+    contactEmailPlaceholder: '業務用メール',
+    githubUsername: 'GitHub ユーザー名',
+    githubUsernamePlaceholder: 'your-github-username',
+    productName: '製品 / プロジェクト名',
+    productNamePlaceholder: '簡潔な名称',
+    deploymentModel: 'デプロイ形態',
+    deploymentModelPlaceholder: '例：SaaS、オンプレミス、デスクトップ、ホワイトラベル',
+    useCase: 'ユースケースの簡単な説明',
+    useCasePlaceholder: 'パーサーの利用計画を 1〜3 文で',
+    submit: '申請を送信',
+    submitting: '送信中…',
+    success: '申請を受け付けました。審査後、メールでご連絡します。',
+    error: '送信できませんでした。再試行するか mlight.lee@outlook.com へメールしてください。',
+    requiredHint: '* は必須項目です',
+  },
+  integrationTitle: '統合',
+  integrationLead:
+    'AcDbDatabaseConverterManager 経由で AcDbDatabaseConverter として登録 — LibreDWG と同じ経路。出力は MIT の @mlightcad/data-model に準拠し、描画とプラグインは変更不要です。',
+  supportTitle: 'サポート',
+  supportRows: [
+    { area: 'バグ修正', detail: '可能な限り迅速に対応' },
+    { area: 'アップグレードパッケージ', detail: '初年度含む、以降は年次寄付' },
+    { area: '統合サポート', detail: '合理的な範囲のメールサポート' },
+    { area: '応答時間', detail: '報告されたバグは通常 1 営業日以内' },
+  ],
+  faqTitle: 'FAQ',
+  faqs: [
+    {
+      q: 'ホワイトラベル製品で使えますか？',
+      a: 'はい。クローズドソースのホワイトラベル商用アプリに埋め込み、SaaS やオンプレミス顧客へ提供できます。',
+    },
+    {
+      q: '自社アプリをオープンソースにする必要がありますか？',
+      a: 'いいえ。プロプライエタリパーサーのライセンスはクローズドソース利用を許可します。利用するオープンソース cad-viewer コンポーネントは各々のライセンス（コアは MIT）に従います。',
+    },
+    {
+      q: '年次寄付を止めたらどうなりますか？',
+      a: '既に受け取ったバージョンの永久利用権は残ります。更新するまで新しいアップグレードパッケージは届きません。',
+    },
+    {
+      q: '3D エンティティに対応していますか？',
+      a: '部分的です。3DSOLID はワイヤフレームまたはバウンディングボックスのベストエフォートで抽出可能。完全な B-rep テッセレーションは未対応です。',
+    },
+  ],
+  relatedTitle: '関連',
+  related: [
+    {
+      name: '製品ドキュメント全文',
+      desc: '範囲、ライセンス、価格、トライアル、統合を網羅した商用ガイド。',
+      href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+    },
+    {
+      name: 'realdwg-web-example',
+      desc: 'ブラウザでプロプライエタリ DWG パーサーを示すサンプルアプリ。',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
+    },
+    {
+      name: 'API ドキュメント',
+      desc: 'cad-viewer、data-model、コンバーター統合の API リファレンス。',
+      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+    },
+  ],
+  imageAlts: {
+    scope: 'DWG がプロプライエタリ変換パッケージと data-model へ流れる概念図',
+    license: '永久ライセンス印の商用パッケージ',
+    trial: '会社メールから GitHub 組織アクセスへのトライアル経路',
+    integration: '共有マネージャーバスへの DWG コンバーター登録',
+    support: 'バグ修正・アップグレード・メールサポートの盾',
+    faq: 'ライセンス関連のよくある質問パネル',
+    related: 'ライセンス文書・サンプル・API につながるパーサーハブ',
+  },
+}
+
+export const ja: Dictionary = {
+  meta: {
+    title: 'MLightCAD — 初のオープンソース ブラウザ CAD エディター',
+    description:
+      'cad-viewer：バックエンド不要でブラウザ内だけで動作する初の完全 DWG/DXF ビューア兼エディター — そして初のオープンソース DXF/DWG Web 編集ツールキット。',
+    keywords:
+      'MLightCAD, cad-viewer, DWG ビューア, DXF ビューア, ブラウザ CAD, WebGL CAD, オープンソース CAD, DWG エディター, DXF エディター, ゼロバックエンド',
+  },
+  nav: {
+    product: '製品',
+    cadViewer: 'cad-viewer',
+    dwgParser: 'DWG パーサー',
+    features: '機能',
+    plugins: 'プラグイン',
+    docs: 'ドキュメント',
+    github: 'GitHub',
+    demo: 'ライブデモ',
+    language: '言語',
+  },
+  hero: {
+    brand: 'MLightCAD',
+    meta: 'オープンソース · WEBGL · ゼロバックエンド',
+    headline: 'ブラウザから離れない、初のオープン CAD スタック。',
+    subline:
+      'DXF/DWG の解析・描画・編集をすべて端末上で — バックエンドなし、アップロードなし、プライバシーの妥協なし。',
+    ctaDemo: 'ライブデモを試す',
+    ctaGithub: 'GitHub で見る',
+    firsts: [
+      'ブラウザ内で完全にバックエンド不要の初の DWG/DXF ビューア兼エディター',
+      '初のオープンソース DXF/DWG Web 編集ツールキット',
+    ],
+  },
+  flagship: {
+    eyebrow: 'フラッグシップ',
+    title: 'cad-viewer',
+    lead: '本番向け WebGL CAD ランタイム：DWG/DXF 解析、ジオメトリ、表示、編集 — すべてモダンなブラウザタブ内で。',
+    firstsLabel: '業界初',
+    firsts: [
+      'バックエンドサービスゼロでブラウザ内完結する初の DWG/DXF ビューア兼エディター。',
+      'Web 上での本格的な DXF/DWG 編集向け初のオープンソースツールキット — 読み取り専用プレビューではない。',
+    ],
+    ctaDemo: 'デモを開く',
+    ctaDocs: 'API ドキュメント',
+  },
+  features: {
+    eyebrow: '機能',
+    title: 'プライバシー、可搬性、プロダクトチームのために。',
+    lead: 'すべての能力はひとつの原則に沿っています：CAD サーバーを立てなくても本格的な CAD 作業が可能であること。',
+    items: [
+      {
+        id: 'privacy',
+        title: 'アーキテクチャによるプライバシー',
+        body: '図面はクライアントで解析・描画されます。アップロードもステージングもリモートミラーもありません — 機密性はポリシーではなく構造的な保証です。',
+        image: '/assets/features/privacy.svg',
+        imageAlt: '図面がローカル端末に留まる概念図',
+      },
+      {
+        id: 'integration',
+        title: 'インフラゼロ、深い統合',
+        body: 'バックエンドや変換ファームを用意せずに製品へ CAD を組み込めます。モジュール型プラグインで UI、エクスポート、AI エージェントを一等拡張として組み合わせられます。',
+        image: '/assets/features/integration.svg',
+        imageAlt: 'ホストアプリが CAD コアとプラグインに接続',
+      },
+      {
+        id: 'html-export',
+        title: '単一ファイルのオフライン HTML エクスポート',
+        body: 'ライブ図面を埋め込みビューア付きの自己完結 .html に — パン、ズーム、範囲、レイヤー、距離計測、多言語 UI。受け手は任意のモダンブラウザで開けます。インストール不要、cad-viewer インスタンス不要、サーバー不要。同一サンプル図面で、閲覧モードのオフライン HTML は AutoCAD 2020 より約 83% 少ないメモリでパン、ズーム、レイヤー、計測をサポートします。',
+        image: '/assets/features/html-export.svg',
+        imageAlt: 'DWG が可搬 HTML ファイルへ変換される様子',
+        actions: [
+          {
+            label: 'デモ HTML を開く',
+            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            variant: 'primary',
+          },
+          {
+            label: 'デモ HTML をダウンロード',
+            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            download: 'canteen.html',
+            variant: 'ghost',
+          },
+        ],
+      },
+      {
+        id: 'workflows',
+        title: 'オフラインもオンラインも同じエンジン',
+        body: 'エアギャップレビューと接続された製品フローをひとつのランタイムで。ネットワークがなくてもローカル編集、復帰後にプラットフォームへ同期 — CAD コアの書き換えは不要です。',
+        image: '/assets/features/workflows.svg',
+        imageAlt: 'オフラインとオンラインのワークフーループ',
+      },
+      {
+        id: 'edit',
+        title: '真のエディター — 受動的なビューアではない',
+        body: 'パンとズームを超えて、選択・変更・作成が可能。AutoCAD 風のコマンド面で、Web 製品に本格的な作図を届けます。',
+        image: '/assets/features/edit.svg',
+        imageAlt: '図面上のグリップと編集操作',
+      },
+    ],
+  },
+  plugins: {
+    eyebrow: 'エコシステム',
+    title: '公式プラグイン',
+    lead: '共有プラグインバス上で UI、エクスポート、AI を組み合わせ — 製品ごとに必要なものだけ読み込み。',
+    imageAlt: 'UI、Agent、HTML、PDF、SVG モジュールを持つ CAD コア',
+    items: [
+      { name: 'cad-simple-ui-plugin', role: 'ツールバー & レイヤー管理（フレームワーク非依存 DOM）' },
+      { name: 'cad-agent-plugin', role: '描画ツール付き自然言語 CAD エージェント' },
+      { name: 'cad-html-plugin', role: '自己完結オフライン HTML エクスポート' },
+      { name: 'cad-pdf-plugin', role: 'ベクター PDF エクスポートと PDF→CAD インポート' },
+      { name: 'cad-svg-plugin', role: 'ベクター SVG エクスポート' },
+    ],
+  },
+  resources: {
+    eyebrow: 'リソース',
+    title: 'ドキュメント、デモ、コミュニティ',
+    lead: 'ライブビューアから始め、API リファレンスとプロジェクト Wiki へ。',
+    links: [
+      {
+        name: 'ライブデモ',
+        desc: 'ブラウザ内のフル機能ビューア',
+        href: 'https://mlightcad.github.io/cad-viewer/',
+      },
+      {
+        name: 'API ドキュメント',
+        desc: 'Read the Docs のバージョン付きドキュメント',
+        href: 'https://cad-viewer.readthedocs.io/en/latest/',
+      },
+      {
+        name: '最新ドキュメント',
+        desc: 'GitHub Pages（開発 / 最新）',
+        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      },
+      {
+        name: 'Wiki',
+        desc: 'ガイドとアーキテクチャノート',
+        href: 'https://github.com/mlightcad/cad-viewer/wiki',
+      },
+      {
+        name: 'GitHub',
+        desc: 'mlightcad/cad-viewer',
+        href: 'https://github.com/mlightcad/cad-viewer',
+      },
+      {
+        name: 'X',
+        desc: '@mlightcad',
+        href: 'https://x.com/mlightcad',
+      },
+      {
+        name: 'YouTube',
+        desc: '@mlightcad',
+        href: 'https://www.youtube.com/@mlightcad',
+      },
+      {
+        name: 'Medium',
+        desc: '@mlightcad',
+        href: 'https://medium.com/@mlightcad',
+      },
+    ],
+  },
+  footer: {
+    tagline: 'Web のためのオープンソース CAD インフラ。',
+    rights: '© 2026 MLightCAD',
+  },
+  parser: parserJa,
+}

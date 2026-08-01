@@ -311,7 +311,8 @@ button {
   z-index: 30;
 }
 
-.nav__dropdown.is-open .nav__menu {
+.nav__dropdown.is-open .nav__menu,
+[data-dropdown].is-open .nav__menu {
   display: block;
 }
 
@@ -333,21 +334,54 @@ button {
 }
 
 .lang {
-  display: inline-flex;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-  overflow: hidden;
+  position: relative;
 }
 
-.lang__btn {
-  padding: 0.3rem 0.55rem;
+.lang__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.65rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   color: var(--steel);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  cursor: pointer;
 }
 
-.lang__btn[aria-pressed='true'] {
+.lang__toggle:hover,
+.lang.is-open .lang__toggle {
+  color: var(--paper);
+  border-color: color-mix(in srgb, var(--cyan) 45%, var(--line));
+}
+
+.lang__menu {
+  left: auto;
+  right: 0;
+  min-width: 10.5rem;
+  max-height: min(70vh, 22rem);
+  overflow-y: auto;
+}
+
+.lang__option {
+  display: block;
+  width: 100%;
+  padding: 0.55rem 0.9rem;
+  text-align: left;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--steel);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lang__option:hover,
+.lang__option.is-active {
   background: var(--cyan-dim);
   color: var(--cyan);
 }
@@ -1335,13 +1369,26 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
     padding: 0 0 0.5rem 0.75rem;
   }
 
-  .nav__dropdown.is-open .nav__menu {
+  .nav__dropdown.is-open .nav__menu,
+  [data-dropdown].is-open .nav__menu {
     display: block;
   }
 
   .nav__menu a {
     padding: 0.55rem 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .lang__menu {
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    right: 0;
+    left: auto;
+    min-width: 10.5rem;
+    max-height: min(60vh, 20rem);
+    padding: 0.4rem 0;
+    background: rgba(18, 24, 33, 0.96);
+    border: 1px solid var(--line);
   }
 
   .btn--nav-demo {

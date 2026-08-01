@@ -33,9 +33,44 @@
       </li>
     </ul>
     <div class="nav__actions">
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" class="lang__btn" data-locale="en" aria-pressed="true">EN</button>
-        <button type="button" class="lang__btn" data-locale="zh" aria-pressed="false">中文</button>
+      <div class="lang" data-dropdown data-lang-dropdown>
+        <button
+          type="button"
+          class="lang__toggle"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          data-drop-toggle
+          data-lang-toggle
+        >
+          <span data-lang-current>English</span>
+          <span class="nav__chev" aria-hidden="true"></span>
+        </button>
+        <ul class="nav__menu lang__menu" role="listbox" data-drop-menu data-lang-menu>
+          <li>
+            <button type="button" class="lang__option" role="option" data-locale="en">English</button>
+          </li>
+          <li>
+            <button type="button" class="lang__option" role="option" data-locale="zh">中文</button>
+          </li>
+          <li>
+            <button type="button" class="lang__option" role="option" data-locale="ja">日本語</button>
+          </li>
+          <li>
+            <button type="button" class="lang__option" role="option" data-locale="ko">한국어</button>
+          </li>
+          <li>
+            <button type="button" class="lang__option" role="option" data-locale="es">Español</button>
+          </li>
+          <li>
+            <button type="button" class="lang__option" role="option" data-locale="pt">Português</button>
+          </li>
+          <li>
+            <button type="button" class="lang__option" role="option" data-locale="ru">Русский</button>
+          </li>
+          <li>
+            <button type="button" class="lang__option" role="option" data-locale="cs">Čeština</button>
+          </li>
+        </ul>
       </div>
       <a
         class="btn btn--primary btn--nav btn--nav-demo"

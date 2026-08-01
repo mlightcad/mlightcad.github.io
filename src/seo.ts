@@ -1,4 +1,4 @@
-import type { Locale } from './i18n'
+import { LOCALE_META, LOCALES, type Locale } from './i18n'
 
 export const SITE_URL = 'https://mlightcad.com'
 export const SITE_NAME = 'MLightCAD'
@@ -25,6 +25,12 @@ function upsertLink(rel: string, href: string): void {
   el.setAttribute('href', href)
 }
 
+function clearAlternateLocales(): void {
+  document.head
+    .querySelectorAll('meta[property="og:locale:alternate"]')
+    .forEach((el) => el.remove())
+}
+
 export interface PageMetaOptions {
   title: string
   description: string
@@ -48,11 +54,10 @@ export function applyPageMeta(options: PageMetaOptions): void {
   } = options
 
   const url = new URL(path, SITE_URL).toString()
-  const ogLocale = locale === 'zh' ? 'zh_CN' : 'en_US'
-  const altLocale = locale === 'zh' ? 'en_US' : 'zh_CN'
+  const ogLocale = LOCALE_META[locale].ogLocale
 
   document.title = title
-  document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en'
+  document.documentElement.lang = LOCALE_META[locale].htmlLang
 
   upsertMeta('name', 'description', description)
   if (keywords) upsertMeta('name', 'keywords', keywords)
@@ -70,7 +75,15 @@ export function applyPageMeta(options: PageMetaOptions): void {
   upsertMeta('property', 'og:image', image)
   upsertMeta('property', 'og:image:alt', title)
   upsertMeta('property', 'og:locale', ogLocale)
-  upsertMeta('property', 'og:locale:alternate', altLocale)
+
+  clearAlternateLocales()
+  for (const alt of LOCALES) {
+    if (alt === locale) continue
+    const el = document.createElement('meta')
+    el.setAttribute('property', 'og:locale:alternate')
+    el.setAttribute('content', LOCALE_META[alt].ogLocale)
+    document.head.appendChild(el)
+  }
 
   upsertMeta('name', 'twitter:card', 'summary_large_image')
   upsertMeta('name', 'twitter:title', title)
