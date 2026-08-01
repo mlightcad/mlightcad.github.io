@@ -75,10 +75,6 @@ export interface Dictionary {
   }
   footer: {
     tagline: string
-    license: string
-    parser: string
-    parserHref: string
-    contact: string
     rights: string
   }
   parser: ParserCopy

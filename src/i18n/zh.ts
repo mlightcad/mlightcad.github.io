@@ -22,8 +22,8 @@ export const zh: Dictionary = {
   hero: {
     brand: 'MLightCAD',
     meta: '开源 · WEBGL · 零后端',
-    headline: '首个从不离开浏览器的开源 CAD 栈。',
-    subline: '在本机完成 DXF/DWG 解析、渲染与编辑 — 无后端、无上传链路，隐私无需妥协。',
+    headline: '首个纯浏览器端的开源 CAD 技术栈。',
+    subline: '在浏览器内完成 DXF/DWG 解析、渲染与编辑 — 无后端、无上传链路，隐私无需妥协。',
     ctaDemo: '试用在线演示',
     ctaGithub: '查看 GitHub',
     firsts: [
@@ -165,12 +165,7 @@ export const zh: Dictionary = {
   },
   footer: {
     tagline: '面向 Web 的开源 CAD 基础设施。',
-    license:
-      'cad-viewer 主体为 MIT。默认 DWG 加载路径依赖 GPL 的 LibreDWG 相关包 — 闭源商业产品请参阅专有解析器方案。',
-    parser: '专有 DWG 解析器',
-    parserHref: '/dwg-parser.html',
-    contact: 'mlight.lee@outlook.com',
-    rights: 'MLightCAD',
+    rights: '© 2026 MLightCAD',
   },
   parser: parserZh,
 }

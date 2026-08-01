@@ -8,6 +8,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -25,6 +26,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: clip;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: 1.05rem;
@@ -417,13 +419,15 @@ button {
   position: relative;
   min-height: calc(100vh - var(--nav-h));
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
   padding: var(--space-6) 0 var(--space-6);
 }
 
 .hero__frame {
   position: relative;
-  width: min(100%, 52rem);
+  width: 100%;
   padding: clamp(1.5rem, 4vw, 2.75rem);
   border: 1px solid rgba(61, 220, 255, 0.18);
   /* No backdrop-filter: it forces overflow clipping and cuts Syne descenders (g). */
@@ -436,6 +440,7 @@ button {
     0 0 0 1px rgba(61, 220, 255, 0.04),
     0 30px 80px rgba(0, 0, 0, 0.35);
   overflow: visible;
+  container-type: inline-size;
 }
 
 .hero__frame .hero__corners {
@@ -558,16 +563,20 @@ body.is-ready .hero__frame {
 
 .hero__brand {
   margin: 0 0 var(--space-3);
+  max-width: 100%;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(3.4rem, 11vw, 7rem);
+  /* Fit the wordmark inside the frame — vw alone overshoots on narrow screens. */
+  font-size: clamp(1.6rem, 8.2vw, 7rem);
+  font-size: clamp(1.6rem, 10.2cqi, 7rem);
   line-height: 1.15;
   letter-spacing: -0.05em;
   color: var(--paper);
   text-shadow: 0 0 40px rgba(61, 220, 255, 0.12);
   /* Syne's g has a shallow descender by design — give the line box room. */
   padding-bottom: 0.12em;
-  overflow: visible;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 .hero__brand em {
@@ -621,7 +630,7 @@ body.is-ready .hero__brand em::after {
 
 .hero__headline {
   margin: 0 0 var(--space-3);
-  max-width: 22ch;
+  max-width: 38ch;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.4rem, 3.4vw, 2.15rem);
@@ -631,7 +640,7 @@ body.is-ready .hero__brand em::after {
 
 .hero__sub {
   margin: 0 0 var(--space-4);
-  max-width: 48ch;
+  max-width: 72ch;
   color: var(--steel);
   font-size: 1.1rem;
 }
@@ -672,7 +681,7 @@ body.is-ready .hero__brand em::after {
   padding: 0;
   display: grid;
   gap: 0.75rem;
-  max-width: 54ch;
+  max-width: 80ch;
 }
 
 .firsts li {
@@ -1235,33 +1244,38 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   font-size: 0.95rem;
 }
 
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.footer__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+  text-decoration: none;
+}
+
+.footer__brand span {
+  color: var(--cyan);
+}
+
 .footer__tagline {
-  margin: 0 0 var(--space-3);
+  margin: 0;
   font-family: var(--font-display);
   font-size: 1.2rem;
   color: var(--paper);
   letter-spacing: -0.02em;
 }
 
-.footer__license {
-  margin: 0 0 var(--space-4);
-  max-width: 70ch;
-}
-
-.footer__meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3) var(--space-4);
-  align-items: center;
-  padding-top: var(--space-4);
-  border-top: 1px solid var(--line);
+.footer__copy {
+  margin: 0;
   font-family: var(--font-mono);
   font-size: 0.8rem;
-}
-
-.footer__meta a {
-  color: var(--cyan);
-  text-decoration: none;
 }
 
 .nav__toggle {
@@ -1289,6 +1303,7 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
 
   .nav__toggle {
     display: inline-flex;
+    margin-left: auto;
   }
 
   .nav__links.is-open {
@@ -1340,11 +1355,7 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   padding-top: var(--space-5);
   padding-bottom: var(--space-5);
   border-top: 0;
-  align-items: flex-end;
-}
-
-.parser-hero .hero__frame {
-  width: min(100%, 48rem);
+  align-items: stretch;
 }
 
 .parser-hero .section__title {
@@ -1353,6 +1364,10 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
 
 .parser-hero .section__title::after {
   margin-top: 0.65rem;
+}
+
+.parser-hero .section__lead {
+  max-width: 72ch;
 }
 
 .parser-body {
