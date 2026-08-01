@@ -3,19 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MLightCAD — The first open-source browser CAD editor</title>
     <meta
       name="description"
+      content="cad-viewer: the first fully backend-free DWG/DXF viewer and editor that runs entirely in the browser — and the first open-source DXF/DWG web editing toolkit."
+    />
+    <meta
+      name="keywords"
+      content="MLightCAD, cad-viewer, DWG viewer, DXF viewer, browser CAD, WebGL CAD, open source CAD, DWG editor, DXF editor, zero backend"
+    />
+    <meta name="author" content="MLightCAD" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="canonical" href="https://mlightcad.com/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MLightCAD" />
+    <meta property="og:title" content="MLightCAD — The first open-source browser CAD editor" />
+    <meta
+      property="og:description"
+      content="cad-viewer: the first fully backend-free DWG/DXF viewer and editor that runs entirely in the browser — and the first open-source DXF/DWG web editing toolkit."
+    />
+    <meta property="og:url" content="https://mlightcad.com/" />
+    <meta property="og:image" content="https://mlightcad.com/og.png" />
+    <meta property="og:image:alt" content="MLightCAD — open-source browser CAD editor" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MLightCAD — The first open-source browser CAD editor" />
+    <meta
+      name="twitter:description"
       content="cad-viewer: the first fully backend-free DWG/DXF viewer and editor that runs entirely in the browser."
     />
-    <meta name="theme-color" content="#0B0F14" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="twitter:image" content="https://mlightcad.com/og.png" />
+    <meta name="twitter:image:alt" content="MLightCAD — open-source browser CAD editor" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://mlightcad.com/#organization",
+            "name": "MLightCAD",
+            "url": "https://mlightcad.com/",
+            "logo": "https://mlightcad.com/favicon.svg",
+            "sameAs": ["https://github.com/mlightcad"]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://mlightcad.com/#website",
+            "url": "https://mlightcad.com/",
+            "name": "MLightCAD",
+            "description": "Open-source browser CAD stack for viewing and editing DWG/DXF entirely on-device.",
+            "publisher": { "@id": "https://mlightcad.com/#organization" },
+            "inLanguage": ["en", "zh-CN"]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://mlightcad.com/#cad-viewer",
+            "name": "cad-viewer",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "url": "https://mlightcad.com/",
+            "description": "Fully backend-free DWG/DXF viewer and editor that runs entirely in the browser.",
+            "author": { "@id": "https://mlightcad.com/#organization" }
+          }
+        ]
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
-    <title>MLightCAD — The first open-source browser CAD editor</title>
   </head>
   <body data-page="home">
     <canvas id="bg-canvas" aria-hidden="true"></canvas>

@@ -1,6 +1,7 @@
 import './styles/main.css'
 import { scrambleMeta, setupPageFX } from './fx'
 import { t } from './i18n'
+import { applyPageMeta } from './seo'
 import { mountShell } from './shell'
 import {
   applyCommonI18n,
@@ -13,9 +14,13 @@ import {
 
 function applyI18n(): void {
   const dict = t(locale)
-  document.title = dict.meta.title
-  const meta = document.querySelector('meta[name="description"]')
-  if (meta) meta.setAttribute('content', dict.meta.description)
+  applyPageMeta({
+    title: dict.meta.title,
+    description: dict.meta.description,
+    keywords: dict.meta.keywords,
+    locale,
+    path: '/',
+  })
 
   applyCommonI18n(dict)
 

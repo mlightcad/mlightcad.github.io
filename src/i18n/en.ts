@@ -6,6 +6,8 @@ export const en: Dictionary = {
     title: 'MLightCAD — The first open-source browser CAD editor',
     description:
       'cad-viewer: the first fully backend-free DWG/DXF viewer and editor that runs entirely in the browser — and the first open-source DXF/DWG web editing toolkit.',
+    keywords:
+      'MLightCAD, cad-viewer, DWG viewer, DXF viewer, browser CAD, WebGL CAD, open source CAD, DWG editor, DXF editor, zero backend',
   },
   nav: {
     product: 'Product',

@@ -40,6 +40,7 @@ export interface TrialFormCopy {
 export interface ParserCopy {
   metaTitle: string
   metaDescription: string
+  metaKeywords: string
   eyebrow: string
   title: string
   lead: string
@@ -90,6 +91,8 @@ export const parserEn: ParserCopy = {
   metaTitle: 'Proprietary DWG Parser — MLightCAD',
   metaDescription:
     'Commercial DWG parser for closed-source products: perpetual license, no GPL distribution, drop-in replacement for LibreDWG in cad-viewer.',
+  metaKeywords:
+    'DWG parser, proprietary DWG, LibreDWG alternative, commercial DWG converter, cad-viewer, closed-source CAD, perpetual license',
   eyebrow: 'Commercial product',
   title: 'Proprietary DWG Parser',
   lead: 'A commercial alternative to the open-source LibreDWG stack — built for closed-source products, white-label deployments, and SaaS / on-premise viewers that cannot ship GPL-3.0 code to customers.',
@@ -236,6 +239,8 @@ export const parserZh: ParserCopy = {
   metaTitle: '专有 DWG 解析器 — MLightCAD',
   metaDescription:
     '面向闭源产品的商业 DWG 解析器：永久授权、避免分发 GPL，可替换 cad-viewer 中的 LibreDWG 默认路径。',
+  metaKeywords:
+    'DWG 解析器, 商业 DWG, LibreDWG 替代, 商业 DWG 转换, cad-viewer, 闭源 CAD, 永久授权',
   eyebrow: '商业产品',
   title: '专有 DWG 解析器',
   lead: '开源 LibreDWG 栈的商业替代方案 — 面向无法向客户分发 GPL-3.0 代码的闭源产品、白标部署，以及 SaaS / 本地化 CAD 查看器。',

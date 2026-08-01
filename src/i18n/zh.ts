@@ -6,6 +6,8 @@ export const zh: Dictionary = {
     title: 'MLightCAD — 首个开源浏览器端 CAD 编辑栈',
     description:
       'cad-viewer：首个完全不依赖后端、可在浏览器内直接运行的 DWG/DXF 查看与编辑器，也是首个开源的 DXF/DWG Web 端编辑工具。',
+    keywords:
+      'MLightCAD, cad-viewer, DWG 查看器, DXF 查看器, 浏览器 CAD, WebGL CAD, 开源 CAD, DWG 编辑器, DXF 编辑器, 零后端',
   },
   nav: {
     product: '产品',
