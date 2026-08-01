@@ -168,6 +168,18 @@ function applyI18n(): void {
   const scrambleEl = document.querySelector<HTMLElement>('[data-scramble]')
   window.setTimeout(() => scrambleText(scrambleEl, dict.parser.eyebrow), 450)
   observeReveals()
+  scrollToHash()
+}
+
+/** Sections are injected after load; restore deep links like #scope. */
+function scrollToHash(): void {
+  const id = decodeURIComponent(location.hash.replace(/^#/, ''))
+  if (!id) return
+  const target = document.getElementById(id)
+  if (!target) return
+  requestAnimationFrame(() => {
+    target.scrollIntoView()
+  })
 }
 
 mountShell('parser')
