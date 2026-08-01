@@ -11,6 +11,7 @@ import {
   setupNav,
   setupWebGL,
 } from './shared'
+import { refreshTryDrawingI18n, setupTryDrawing } from './try-drawing'
 
 function applyI18n(): void {
   const dict = t(locale)
@@ -86,6 +87,7 @@ function applyI18n(): void {
   const brandEl = document.querySelector<HTMLElement>('[data-i18n="hero.brand"]')
   if (brandEl) brandEl.innerHTML = 'MLight<em>CAD</em>'
 
+  refreshTryDrawingI18n()
   window.setTimeout(() => scrambleMeta(dict.hero.meta), 450)
   observeReveals()
 }
@@ -94,5 +96,6 @@ mountShell('home')
 applyI18n()
 setupLocaleToggle(() => applyI18n())
 setupNav()
+setupTryDrawing()
 setupPageFX({ boot: true })
 void setupWebGL()

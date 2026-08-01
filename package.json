@@ -10,12 +10,17 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/three": "^0.185.1",
+    "@types/three": "^0.172.0",
     "typescript": "~5.9.3",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vite-plugin-static-copy": "^3.1.1"
   },
   "dependencies": {
+    "@mlight-cad/dwg-converter": "^1.12.2",
+    "@mlightcad/cad-simple-ui-plugin": "^1.5.9",
+    "@mlightcad/cad-simple-viewer": "^1.5.9",
+    "@mlightcad/data-model": "^1.12.2",
     "@supabase/supabase-js": "^2.111.0",
-    "three": "^0.180.0"
+    "three": "^0.172.0"
   }
 }

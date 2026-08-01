@@ -73,6 +73,13 @@ export function applyCommonI18n(dict: ReturnType<typeof t>): void {
     if (typeof value === 'string') img.alt = value
   })
 
+  document.querySelectorAll<HTMLElement>('[data-i18n-aria]').forEach((el) => {
+    const key = el.dataset.i18nAria
+    if (!key) return
+    const value = getByPath(dict, key)
+    if (typeof value === 'string') el.setAttribute('aria-label', value)
+  })
+
   syncLangSwitcher(dict)
 }
 

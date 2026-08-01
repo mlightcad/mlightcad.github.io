@@ -54,6 +54,28 @@ export interface Dictionary {
     ctaDemo: string
     ctaDocs: string
   }
+  tryDrawing: {
+    barIdle: string
+    barLoading: string
+    title: string
+    body: string
+    open: string
+    trust: string
+    dragHint: string
+    caption: string
+    captionOpen: string
+    statusLoading: string
+    statusLoadingViewer: string
+    statusInit: string
+    statusParsing: string
+    errorType: string
+    errorInit: string
+    errorOpen: string
+    retry: string
+    fullscreen: string
+    exitFullscreen: string
+    close: string
+  }
   features: {
     eyebrow: string
     title: string

@@ -228,21 +228,83 @@
               A production-grade WebGL CAD runtime for DWG/DXF in the browser.
             </p>
             <div class="flagship__grid">
-              <figure class="flagship__media viewport-chrome reveal">
-                <div class="viewport-chrome__bar" aria-hidden="true">
-                  <span></span><span></span><span></span>
-                  <em>cad-viewer · live</em>
+              <figure class="flagship__media viewport-chrome reveal" data-try-drawing>
+                <div class="viewport-chrome__bar">
+                  <span aria-hidden="true"></span><span aria-hidden="true"></span
+                  ><span aria-hidden="true"></span>
+                  <em data-try-drawing-title>try your drawing</em>
+                  <div class="try-drawing__bar-actions">
+                    <button
+                      type="button"
+                      class="try-drawing__icon-btn"
+                      data-try-drawing-fullscreen
+                      hidden
+                      aria-pressed="false"
+                      data-i18n-aria="tryDrawing.fullscreen"
+                      aria-label="Fullscreen"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path
+                          d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"
+                          stroke="currentColor"
+                          stroke-width="1.4"
+                          stroke-linecap="square"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      type="button"
+                      class="try-drawing__icon-btn"
+                      data-try-drawing-close
+                      hidden
+                      data-i18n-aria="tryDrawing.close"
+                      aria-label="Close drawing"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <path
+                          d="M3 3l10 10M13 3L3 13"
+                          stroke="currentColor"
+                          stroke-width="1.4"
+                          stroke-linecap="square"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-                <div class="viewport-chrome__stage">
-                  <img
-                    src="/assets/cad-viewer.gif"
-                    alt="cad-viewer demo: pan, zoom, and edit DWG/DXF in the browser"
-                    width="960"
-                    height="600"
-                    loading="lazy"
-                  />
+                <div class="viewport-chrome__stage try-drawing" data-try-drawing-root data-state="idle">
+                  <div class="try-drawing__idle" data-try-drawing-idle>
+                    <div class="try-drawing__dropzone" data-try-drawing-dropzone>
+                      <p class="try-drawing__title" data-i18n="tryDrawing.title">Open a drawing</p>
+                      <p class="try-drawing__body" data-i18n="tryDrawing.body">
+                        Drop a DWG or DXF here. It never leaves this tab.
+                      </p>
+                      <button type="button" class="btn btn--primary" data-try-drawing-open data-i18n="tryDrawing.open">
+                        Open file
+                      </button>
+                      <p class="try-drawing__trust" data-i18n="tryDrawing.trust">On-device · no server</p>
+                      <p class="try-drawing__drag-hint" data-i18n="tryDrawing.dragHint">Release to open</p>
+                    </div>
+                  </div>
+                  <div class="try-drawing__loading" data-try-drawing-loading hidden>
+                    <div class="try-drawing__progress" aria-hidden="true"></div>
+                    <p class="try-drawing__status" data-try-drawing-status>Reading drawing…</p>
+                  </div>
+                  <div class="try-drawing__error" data-try-drawing-error hidden>
+                    <p data-try-drawing-error-msg></p>
+                    <button type="button" class="btn btn--ghost" data-try-drawing-retry data-i18n="tryDrawing.retry">
+                      Try another file
+                    </button>
+                  </div>
+                  <div class="try-drawing__viewer" data-try-drawing-viewer hidden>
+                    <section class="try-drawing__canvas-area" aria-label="Drawing canvas">
+                      <div data-try-drawing-container></div>
+                    </section>
+                  </div>
+                  <input type="file" accept=".dxf,.dwg,application/dxf,image/vnd.dwg" data-try-drawing-input hidden />
                 </div>
-                <figcaption>cad-viewer · WebGL · in-browser</figcaption>
+                <figcaption data-try-drawing-caption>
+                  .dwg · .dxf · parsed in-browser · no upload
+                </figcaption>
               </figure>
               <div>
                 <p class="eco__label reveal" data-i18n="flagship.firstsLabel">Industry firsts</p>
@@ -254,7 +316,7 @@
                     target="_blank"
                     rel="noopener"
                     data-i18n="flagship.ctaDemo"
-                    >Open Demo</a
+                    >Full demo</a
                   >
                   <a
                     class="btn btn--ghost"
