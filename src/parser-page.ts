@@ -1,6 +1,7 @@
 import './styles/main.css'
 import { scrambleText, setupPageFX } from './fx'
 import { t } from './i18n'
+import { applyPageMeta } from './seo'
 import { mountShell } from './shell'
 import {
   applyCommonI18n,
@@ -150,10 +151,14 @@ function renderParserBody(): void {
 
 function applyI18n(): void {
   const dict = t(locale)
-  document.title = dict.parser.metaTitle
-  const meta = document.querySelector('meta[name="description"]')
-  if (meta) meta.setAttribute('content', dict.parser.metaDescription)
-  document.documentElement.lang = locale === 'zh' ? 'zh-CN' : 'en'
+  applyPageMeta({
+    title: dict.parser.metaTitle,
+    description: dict.parser.metaDescription,
+    keywords: dict.parser.metaKeywords,
+    locale,
+    path: '/dwg-parser.html',
+    type: 'product',
+  })
 
   applyCommonI18n(dict)
   renderParserBody()
