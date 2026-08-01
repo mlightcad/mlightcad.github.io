@@ -11,8 +11,8 @@ const parserKo: ParserCopy = {
   title: '상용 DWG 파서',
   lead: '오픈소스 LibreDWG 스택의 상용 대안 — GPL-3.0 코드를 고객에게 배포할 수 없는 클로즈드소스 제품, 화이트라벨, SaaS / 온프레미스 뷰어용.',
   contactCta: '체험 라이선스 신청',
-  docsCta: '전체 라이선스 문서',
-  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+  demoCta: '라이브 데모 체험',
+  demoHref: 'https://mlightcad.com/realdwg-web-example/',
   scopeTitle: '범위',
   scopeLead: '기본 오픈소스 DWG 컨버터를 드롭인 방식으로 교체합니다.',
   scopeRows: [
@@ -135,7 +135,7 @@ const parserKo: ParserCopy = {
     {
       name: 'API 문서',
       desc: 'cad-viewer, data-model, 컨버터 통합 API 레퍼런스.',
-      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      href: 'https://mlightcad.com/realdwg-web/',
     },
   ],
   imageAlts: {

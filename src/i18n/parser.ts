@@ -45,8 +45,8 @@ export interface ParserCopy {
   title: string
   lead: string
   contactCta: string
-  docsCta: string
-  docsHref: string
+  demoCta: string
+  demoHref: string
   scopeTitle: string
   scopeLead: string
   scopeRows: { label: string; value: string }[]
@@ -97,8 +97,8 @@ export const parserEn: ParserCopy = {
   title: 'Proprietary DWG Parser',
   lead: 'A commercial alternative to the open-source LibreDWG stack — built for closed-source products, white-label deployments, and SaaS / on-premise viewers that cannot ship GPL-3.0 code to customers.',
   contactCta: 'Apply for Trial License',
-  docsCta: 'Full license document',
-  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+  demoCta: 'Try Live Demo',
+  demoHref: 'https://mlightcad.com/realdwg-web-example/',
   scopeTitle: 'Scope',
   scopeLead: 'Drop-in replacement for the default open-source DWG converter.',
   scopeRows: [
@@ -221,7 +221,7 @@ export const parserEn: ParserCopy = {
     {
       name: 'API Docs',
       desc: 'API reference for cad-viewer, data-model, and converter integration.',
-      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      href: 'https://mlightcad.com/realdwg-web/',
     },
   ],
   imageAlts: {
@@ -245,8 +245,8 @@ export const parserZh: ParserCopy = {
   title: '专有 DWG 解析器',
   lead: '开源 LibreDWG 栈的商业替代方案 — 面向无法向客户分发 GPL-3.0 代码的闭源产品、白标部署，以及 SaaS / 本地化 CAD 查看器。',
   contactCta: '申请试用授权',
-  docsCta: '完整授权文档',
-  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.zh-CN.md',
+  demoCta: '试用在线演示',
+  demoHref: 'https://mlightcad.com/realdwg-web-example/',
   scopeTitle: '范围',
   scopeLead: '可替换默认开源 DWG 转换器的即插即用方案。',
   scopeRows: [
@@ -369,7 +369,7 @@ export const parserZh: ParserCopy = {
     {
       name: 'API 文档',
       desc: 'cad-viewer、data-model 与转换器集成的 API 参考。',
-      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      href: 'https://mlightcad.com/realdwg-web/',
     },
   ],
   imageAlts: {

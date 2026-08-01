@@ -74,7 +74,94 @@
     <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
     <div class="site">
-      <div data-site-header></div>
+      <header class="nav">
+        <div class="nav__inner">
+          <a class="nav__brand" href="/">MLight<span>CAD</span></a>
+          <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" data-nav-toggle>
+            <span></span>
+          </button>
+          <ul class="nav__links" data-nav-links>
+            <li class="nav__dropdown" data-dropdown>
+              <button type="button" class="nav__drop-btn" aria-expanded="false" aria-haspopup="true" data-drop-toggle>
+                <span data-i18n="nav.product">Product</span>
+                <span class="nav__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="nav__menu" data-drop-menu>
+                <li>
+                  <a href="/#product" data-i18n="nav.cadViewer">cad-viewer</a>
+                </li>
+                <li>
+                  <a href="/dwg-parser.html" data-i18n="nav.dwgParser">DWG Parser</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#scope" data-i18n="parser.scopeTitle">Scope</a></li>
+            <li>
+              <a href="https://mlightcad.com/realdwg-web/" target="_blank" rel="noopener" data-i18n="nav.docs"
+                >Docs</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/mlightcad/realdwg-web-example"
+                target="_blank"
+                rel="noopener"
+                data-i18n="nav.github"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+          <div class="nav__actions">
+            <div class="lang" data-dropdown data-lang-dropdown>
+              <button
+                type="button"
+                class="lang__toggle"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                data-drop-toggle
+                data-lang-toggle
+              >
+                <span data-lang-current>English</span>
+                <span class="nav__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="nav__menu lang__menu" role="listbox" data-drop-menu data-lang-menu>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="en">English</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="zh">中文</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="ja">日本語</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="ko">한국어</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="es">Español</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="pt">Português</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="ru">Русский</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="cs">Čeština</button>
+                </li>
+              </ul>
+            </div>
+            <a
+              class="btn btn--primary btn--nav btn--nav-demo"
+              href="https://mlightcad.com/realdwg-web-example/"
+              target="_blank"
+              rel="noopener"
+              data-i18n="nav.demo"
+              >Live Demo</a
+            >
+          </div>
+        </div>
+      </header>
 
       <main>
         <section class="hero parser-hero shell">
@@ -84,6 +171,15 @@
             <h1 class="section__title hero-enter" data-i18n="parser.title">Proprietary DWG Parser</h1>
             <p class="section__lead hero-enter" data-i18n="parser.lead"></p>
             <div class="hero__ctas hero-enter">
+              <a
+                class="btn btn--ghost"
+                href="https://mlightcad.com/realdwg-web-example/"
+                target="_blank"
+                rel="noopener"
+                data-i18n="parser.demoCta"
+                data-i18n-href="parser.demoHref"
+                >Try Live Demo</a
+              >
               <button
                 type="button"
                 class="btn btn--primary btn--glow"
@@ -92,15 +188,6 @@
               >
                 Apply for Trial License
               </button>
-              <a
-                class="btn btn--ghost"
-                href="https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md"
-                target="_blank"
-                rel="noopener"
-                data-i18n="parser.docsCta"
-                data-i18n-href="parser.docsHref"
-                >Full license document</a
-              >
             </div>
           </div>
           <div class="hud" aria-hidden="true">

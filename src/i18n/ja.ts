@@ -11,8 +11,8 @@ const parserJa: ParserCopy = {
   title: 'プロプライエタリ DWG パーサー',
   lead: 'オープンソース LibreDWG スタックの商用代替 — GPL-3.0 コードを顧客へ配布できないクローズドソース製品、ホワイトラベル、SaaS / オンプレミスビューア向け。',
   contactCta: 'トライアルライセンスを申請',
-  docsCta: 'ライセンス文書全文',
-  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+  demoCta: 'ライブデモを試す',
+  demoHref: 'https://mlightcad.com/realdwg-web-example/',
   scopeTitle: '範囲',
   scopeLead: 'デフォルトのオープンソース DWG コンバーターをそのまま置き換えられます。',
   scopeRows: [
@@ -135,7 +135,7 @@ const parserJa: ParserCopy = {
     {
       name: 'API ドキュメント',
       desc: 'cad-viewer、data-model、コンバーター統合の API リファレンス。',
-      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      href: 'https://mlightcad.com/realdwg-web/',
     },
   ],
   imageAlts: {
