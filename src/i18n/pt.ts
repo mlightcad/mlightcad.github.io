@@ -1,0 +1,316 @@
+import type { Dictionary } from './types'
+import type { ParserCopy } from './parser'
+
+const parserPt: ParserCopy = {
+  metaTitle: 'Parser DWG proprietário — MLightCAD',
+  metaDescription:
+    'Parser DWG comercial para produtos de código fechado: licença perpétua, sem distribuição GPL, substituição direta do LibreDWG no cad-viewer.',
+  metaKeywords:
+    'parser DWG, DWG proprietário, alternativa LibreDWG, conversor DWG comercial, cad-viewer, CAD código fechado, licença perpétua',
+  eyebrow: 'Produto comercial',
+  title: 'Parser DWG proprietário',
+  lead: 'Uma alternativa comercial ao stack open source LibreDWG — feita para produtos de código fechado, implantações white-label e visualizadores SaaS / on-premise que não podem distribuir código GPL-3.0 aos clientes.',
+  contactCta: 'Solicitar licença de avaliação',
+  docsCta: 'Documento de licença completo',
+  docsHref: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+  scopeTitle: 'Escopo',
+  scopeLead: 'Substituição direta do conversor DWG open source padrão.',
+  scopeRows: [
+    { label: 'Formato', value: 'DWG' },
+    { label: 'Pacote', value: '@mlight-cad/dwg-converter' },
+    { label: 'Entrega', value: 'Pacote npm pré-compilado (sem código-fonte)' },
+  ],
+  benefitsTitle: 'Por que as equipes escolhem',
+  benefits: [
+    'Menor uso de memória que o stack WASM baseado em LibreDWG',
+    'Suporte a arquivos DWG maiores — sem as limitações de heap do libredwg-web',
+    'Análise mais precisa para desenhos de produção',
+    'Mantém o restante do stack cad-viewer apenas MIT quando as dependências GPL são removidas',
+  ],
+  licenseTitle: 'Licenciamento',
+  receiveTitle: 'O que você recebe',
+  receive: [
+    'Um pacote npm pré-compilado (compilado / empacotado). O código-fonte não está incluído.',
+    'Uma licença perpétua para usar o pacote em seus produtos e implantações.',
+  ],
+  permittedTitle: 'Uso permitido',
+  permitted: [
+    'Integrar e redistribuir dentro de sua aplicação de código fechado (desktop, mobile ou web)',
+    'Implantar em ambientes SaaS, on-premise e white-label',
+    'Usuários, tenants, projetos ou arquivos ilimitados — sem taxas por assento ou por arquivo',
+  ],
+  restrictionsTitle: 'Restrições',
+  restrictions: [
+    'Você não pode redistribuir ou revender o parser como biblioteca ou SDK de análise DWG independente.',
+  ],
+  pricingTitle: 'Preços',
+  pricingRows: [
+    { item: 'Licença perpétua (doação única)', amount: '$3,000 USD' },
+    { item: 'Pacotes de upgrade — primeiro ano', amount: 'Incluído' },
+    { item: 'Pacotes de upgrade — após o primeiro ano', amount: '$1,500 / ano' },
+  ],
+  pricingNote:
+    'Sem royalties, sem taxas por assento, sem limites de uso. Após o primeiro ano você pode continuar usando a versão que possui sem pagar; a doação anual é apenas para novos pacotes de upgrade.',
+  trialTitle: 'Licença de avaliação',
+  trialLead: 'Empresas e organizações podem solicitar uma avaliação antes da compra. Solicitações pessoais / individuais não são aceitas no momento.',
+  trialCta: 'Solicitar licença de avaliação',
+  trialSteps: [
+    'Envie o formulário de solicitação de avaliação com informações da empresa e uso pretendido',
+    'Inclua um nome de usuário do GitHub — o acesso é concedido via a organização mlight-cad',
+    'Após aprovação, aceite o convite da organização no GitHub e instale @mlight-cad/dwg-converter',
+  ],
+  trialNote: 'A avaliação pública também está disponível via o projeto demo realdwg-web-example no GitHub.',
+  trialForm: {
+    title: 'Solicitar licença de avaliação',
+    lead: 'Somente para empresas e organizações. Analisaremos sua solicitação e responderemos por e-mail.',
+    close: 'Fechar',
+    companySection: 'Informações da empresa',
+    useSection: 'Uso pretendido',
+    companyName: 'Nome da empresa / organização',
+    companyNamePlaceholder: 'Nome da sua empresa',
+    website: 'Site',
+    websitePlaceholder: 'https://example.com',
+    websiteOptional: 'opcional',
+    country: 'País / região',
+    countryPlaceholder: 'País ou região',
+    contactName: 'Nome do contato',
+    contactNamePlaceholder: 'Seu nome',
+    contactEmail: 'E-mail de contato',
+    contactEmailPlaceholder: 'Seu e-mail corporativo',
+    githubUsername: 'Nome de usuário do GitHub',
+    githubUsernamePlaceholder: 'your-github-username',
+    productName: 'Nome do produto / projeto',
+    productNamePlaceholder: 'Nome breve',
+    deploymentModel: 'Modelo de implantação',
+    deploymentModelPlaceholder: 'ex.: SaaS, on-premise, desktop, white-label',
+    useCase: 'Breve descrição do caso de uso',
+    useCasePlaceholder: '1–3 frases sobre como você planeja usar o parser',
+    submit: 'Enviar solicitação',
+    submitting: 'Enviando…',
+    success: 'Solicitação enviada. Analisaremos e responderemos por e-mail.',
+    error: 'Não foi possível enviar a solicitação. Tente novamente ou envie e-mail para mlight.lee@outlook.com.',
+    requiredHint: 'Campos obrigatórios estão marcados com *',
+  },
+  integrationTitle: 'Integração',
+  integrationLead:
+    'Registre como AcDbDatabaseConverter via AcDbDatabaseConverterManager — o mesmo caminho do LibreDWG. A saída segue o @mlightcad/data-model sob MIT; renderização e plugins permanecem inalterados.',
+  supportTitle: 'Suporte',
+  supportRows: [
+    { area: 'Correção de bugs', detail: 'Tratados o mais rápido possível' },
+    { area: 'Pacotes de upgrade', detail: 'Primeiro ano incluído; depois com doação anual' },
+    { area: 'Suporte de integração', detail: 'Suporte razoável por e-mail' },
+    { area: 'Tempo de resposta', detail: 'Normalmente em um dia útil para bugs reportados' },
+  ],
+  faqTitle: 'Perguntas frequentes',
+  faqs: [
+    {
+      q: 'Podemos usar em um produto white-label?',
+      a: 'Sim. Integre em uma aplicação comercial de código fechado e white-label para clientes SaaS ou on-premise.',
+    },
+    {
+      q: 'Precisamos open source da nossa aplicação?',
+      a: 'Não. A licença do parser proprietário permite uso de código fechado. Os componentes open source do cad-viewer que você usa permanecem sob suas próprias licenças (MIT para o stack principal).',
+    },
+    {
+      q: 'E se pararmos a doação anual?',
+      a: 'Você mantém direitos perpétuos sobre as versões já recebidas. Simplesmente não receberá novos pacotes de upgrade até renovar.',
+    },
+    {
+      q: 'Suporta entidades 3D?',
+      a: 'Parcialmente. 3DSOLID pode ser extraído com wireframe de melhor esforço ou fallback de caixa delimitadora; tesselação B-rep completa ainda não está disponível.',
+    },
+  ],
+  relatedTitle: 'Relacionado',
+  related: [
+    {
+      name: 'Documentação completa do produto',
+      desc: 'Guia comercial completo cobrindo escopo, licenciamento, preços, avaliação e integração.',
+      href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
+    },
+    {
+      name: 'realdwg-web-example',
+      desc: 'Aplicativo de exemplo que demonstra o parser DWG proprietário no navegador.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
+    },
+    {
+      name: 'Documentação da API',
+      desc: 'Referência da API para cad-viewer, data-model e integração do conversor.',
+      href: 'https://mlightcad.github.io/cad-viewer/docs/',
+    },
+  ],
+  imageAlts: {
+    scope: 'Arquivo DWG fluindo para o pacote conversor proprietário e data-model',
+    license: 'Pacote comercial selado com marca de licença perpétua',
+    trial: 'Caminho de avaliação do e-mail da empresa ao acesso à organização no GitHub',
+    integration: 'Registro do conversor DWG no barramento compartilhado do manager',
+    support: 'Escudo cobrindo correção de bugs, upgrades e suporte por e-mail',
+    faq: 'Painéis de perguntas e respostas sobre temas comuns de licença',
+    related: 'Hub do parser ligado a documentos de licença, exemplo e referência da API',
+  },
+}
+
+export const pt: Dictionary = {
+  meta: {
+    title: 'MLightCAD — O primeiro editor CAD open source no navegador',
+    description:
+      'cad-viewer: o primeiro visualizador e editor DWG/DXF totalmente sem backend que roda inteiramente no navegador — e o primeiro toolkit open source de edição DXF/DWG na web.',
+    keywords:
+      'MLightCAD, cad-viewer, visualizador DWG, visualizador DXF, CAD navegador, WebGL CAD, CAD open source, editor DWG, editor DXF, zero backend',
+  },
+  nav: {
+    product: 'Produto',
+    cadViewer: 'cad-viewer',
+    dwgParser: 'Parser DWG',
+    features: 'Recursos',
+    plugins: 'Plugins',
+    docs: 'Documentação',
+    github: 'GitHub',
+    demo: 'Demo ao vivo',
+    language: 'Idioma',
+  },
+  hero: {
+    brand: 'MLightCAD',
+    meta: 'OPEN SOURCE · WEBGL · ZERO BACKEND',
+    headline: 'O primeiro stack CAD open source que nunca sai do navegador.',
+    subline:
+      'Analise, renderize e edite DXF/DWG inteiramente no dispositivo — sem backend, sem pipeline de upload, sem comprometer a privacidade.',
+    ctaDemo: 'Experimentar demo ao vivo',
+    ctaGithub: 'Ver no GitHub',
+    firsts: [
+      'Primeiro visualizador e editor DWG/DXF totalmente sem backend no navegador',
+      'Primeiro toolkit open source de edição DXF/DWG na web',
+    ],
+  },
+  flagship: {
+    eyebrow: 'Produto principal',
+    title: 'cad-viewer',
+    lead: 'Um runtime CAD WebGL de nível de produção: análise DWG/DXF, geometria, visualização e edição — tudo dentro de uma aba do navegador moderno.',
+    firstsLabel: 'Primeiras da indústria',
+    firsts: [
+      'O primeiro visualizador e editor DWG/DXF que roda completamente no navegador com zero serviços backend.',
+      'O primeiro toolkit open source para edição real de DXF/DWG na web — não uma prévia somente leitura.',
+    ],
+    ctaDemo: 'Abrir demo',
+    ctaDocs: 'Documentação da API',
+  },
+  features: {
+    eyebrow: 'Recursos',
+    title: 'Feito para privacidade, portabilidade e equipes de produto.',
+    lead: 'Cada capacidade é projetada em torno de um único princípio: trabalho CAD sério deve ser possível sem montar um servidor CAD.',
+    items: [
+      {
+        id: 'privacy',
+        title: 'Privacidade por arquitetura',
+        body: 'Desenhos são analisados e renderizados inteiramente no cliente. Nada é enviado, armazenado em staging ou espelhado em um host remoto — confidencialidade é uma garantia estrutural, não uma caixa de política.',
+        image: '/assets/features/privacy.svg',
+        imageAlt: 'Cadeado conceitual: desenhos permanecem no dispositivo local',
+      },
+      {
+        id: 'integration',
+        title: 'Zero infraestrutura, integração profunda',
+        body: 'Integre CAD ao seu produto sem provisionar backends ou farms de conversão. Uma arquitetura modular de plugins permite compor UI, exportação e agentes de IA como extensões de primeira classe.',
+        image: '/assets/features/integration.svg',
+        imageAlt: 'Aplicativo host conectado ao núcleo CAD e plugins',
+      },
+      {
+        id: 'html-export',
+        title: 'Exportação HTML offline em um único arquivo',
+        body: 'Transforme um desenho ao vivo em um artefato .html autocontido com visualizador embutido — pan, zoom, extensões, camadas, medição de distância e UI EN/ZH. Destinatários abrem em qualquer navegador moderno: sem instalação, sem instância cad-viewer, sem servidor. No modo visualização, o HTML offline usa cerca de 83% menos memória que o AutoCAD 2020 no mesmo desenho de amostra, mantendo pan, zoom, camadas e medição.',
+        image: '/assets/features/html-export.svg',
+        imageAlt: 'DWG transformando-se em arquivo HTML portátil',
+        actions: [
+          {
+            label: 'Abrir HTML de demo',
+            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            variant: 'primary',
+          },
+          {
+            label: 'Baixar HTML de demo',
+            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            download: 'canteen.html',
+            variant: 'ghost',
+          },
+        ],
+      },
+      {
+        id: 'workflows',
+        title: 'Offline e online, o mesmo motor',
+        body: 'Suporte a revisão air-gapped e fluxos de produto conectados com um único runtime. Edite localmente quando a rede cair; sincronize com sua plataforma quando voltar — sem reescrever o núcleo CAD.',
+        image: '/assets/features/workflows.svg',
+        imageAlt: 'Loop de fluxo de trabalho offline e online',
+      },
+      {
+        id: 'edit',
+        title: 'Um editor de verdade — não um visualizador passivo',
+        body: 'Vá além de pan e zoom. Selecione, modifique e crie geometria com uma superfície de comandos inspirada no AutoCAD — para que produtos web entreguem trabalho de desenho real, não apenas prévias somente leitura.',
+        image: '/assets/features/edit.svg',
+        imageAlt: 'Pontos de grip e operações de edição em um desenho',
+      },
+    ],
+  },
+  plugins: {
+    eyebrow: 'Ecossistema',
+    title: 'Plugins oficiais',
+    lead: 'Componha UI, exportação e IA em torno de um barramento de plugins compartilhado — carregue apenas o que cada produto precisa.',
+    imageAlt: 'Núcleo CAD com módulos plug-in de UI, agente, HTML, PDF e SVG',
+    items: [
+      { name: 'cad-simple-ui-plugin', role: 'Barra de ferramentas e gerenciador de camadas (DOM agnóstico ao framework)' },
+      { name: 'cad-agent-plugin', role: 'Agente CAD em linguagem natural com ferramentas de desenho' },
+      { name: 'cad-html-plugin', role: 'Exportar HTML offline autocontido' },
+      { name: 'cad-pdf-plugin', role: 'Exportação PDF vetorial e importação PDF para CAD' },
+      { name: 'cad-svg-plugin', role: 'Exportação SVG vetorial' },
+    ],
+  },
+  resources: {
+    eyebrow: 'Recursos',
+    title: 'Documentação, demo e comunidade',
+    lead: 'Comece pelo visualizador ao vivo, depois explore a referência da API e a wiki do projeto.',
+    links: [
+      {
+        name: 'Demo ao vivo',
+        desc: 'Visualizador completo no navegador',
+        href: 'https://mlightcad.github.io/cad-viewer/',
+      },
+      {
+        name: 'Documentação da API',
+        desc: 'Documentação versionada no Read the Docs',
+        href: 'https://cad-viewer.readthedocs.io/en/latest/',
+      },
+      {
+        name: 'Documentação mais recente',
+        desc: 'GitHub Pages (dev / latest)',
+        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+      },
+      {
+        name: 'Wiki',
+        desc: 'Guias e notas de arquitetura',
+        href: 'https://github.com/mlightcad/cad-viewer/wiki',
+      },
+      {
+        name: 'GitHub',
+        desc: 'mlightcad/cad-viewer',
+        href: 'https://github.com/mlightcad/cad-viewer',
+      },
+      {
+        name: 'X',
+        desc: '@mlightcad',
+        href: 'https://x.com/mlightcad',
+      },
+      {
+        name: 'YouTube',
+        desc: '@mlightcad',
+        href: 'https://www.youtube.com/@mlightcad',
+      },
+      {
+        name: 'Medium',
+        desc: '@mlightcad',
+        href: 'https://medium.com/@mlightcad',
+      },
+    ],
+  },
+  footer: {
+    tagline: 'Infraestrutura CAD open source para a web.',
+    rights: '© 2026 MLightCAD',
+  },
+  parser: parserPt,
+}

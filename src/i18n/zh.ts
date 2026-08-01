@@ -18,8 +18,7 @@ export const zh: Dictionary = {
     docs: '文档',
     github: 'GitHub',
     demo: '在线演示',
-    langEn: 'EN',
-    langZh: '中文',
+    language: '语言',
   },
   hero: {
     brand: 'MLightCAD',

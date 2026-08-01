@@ -18,8 +18,7 @@ export const en: Dictionary = {
     docs: 'Docs',
     github: 'GitHub',
     demo: 'Live Demo',
-    langEn: 'EN',
-    langZh: '中文',
+    language: 'Language',
   },
   hero: {
     brand: 'MLightCAD',

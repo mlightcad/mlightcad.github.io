@@ -1,4 +1,4 @@
-/** Shared shape for proprietary DWG parser page copy (EN / ZH). */
+/** Shared shape for proprietary DWG parser page copy. */
 
 export interface ParserFaq {
   q: string
