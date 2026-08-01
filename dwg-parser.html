@@ -25,56 +25,7 @@
     <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
 
     <div class="site">
-      <header class="nav">
-        <div class="nav__inner">
-          <a class="nav__brand" href="/">MLight<span>CAD</span></a>
-          <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" data-nav-toggle>
-            <span></span>
-          </button>
-          <ul class="nav__links" data-nav-links>
-            <li class="nav__dropdown" data-dropdown>
-              <button type="button" class="nav__drop-btn" aria-expanded="false" aria-haspopup="true" data-drop-toggle>
-                <span data-i18n="nav.product">Product</span>
-                <span class="nav__chev" aria-hidden="true"></span>
-              </button>
-              <ul class="nav__menu" data-drop-menu>
-                <li>
-                  <a href="/#product" data-i18n="nav.cadViewer">cad-viewer</a>
-                </li>
-                <li>
-                  <a href="/dwg-parser.html" data-i18n="nav.dwgParser" aria-current="page">DWG Parser</a>
-                </li>
-              </ul>
-            </li>
-            <li><a href="/#features" data-i18n="nav.features">Features</a></li>
-            <li><a href="/#plugins" data-i18n="nav.plugins">Plugins</a></li>
-            <li>
-              <a href="https://cad-viewer.readthedocs.io/en/latest/" target="_blank" rel="noopener" data-i18n="nav.docs"
-                >Docs</a
-              >
-            </li>
-            <li>
-              <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener" data-i18n="nav.github"
-                >GitHub</a
-              >
-            </li>
-          </ul>
-          <div class="nav__actions">
-            <div class="lang" role="group" aria-label="Language">
-              <button type="button" class="lang__btn" data-locale="en" aria-pressed="true">EN</button>
-              <button type="button" class="lang__btn" data-locale="zh" aria-pressed="false">中文</button>
-            </div>
-            <a
-              class="btn btn--primary btn--nav btn--nav-demo"
-              href="https://mlightcad.github.io/cad-viewer/"
-              target="_blank"
-              rel="noopener"
-              data-i18n="nav.demo"
-              >Live Demo</a
-            >
-          </div>
-        </div>
-      </header>
+      <div data-site-header></div>
 
       <main>
         <section class="hero parser-hero shell">
@@ -111,17 +62,7 @@
         <div class="shell parser-body" data-parser-body></div>
       </main>
 
-      <footer class="footer">
-        <div class="shell">
-          <p class="footer__tagline" data-i18n="footer.tagline">Open-source CAD infrastructure for the web.</p>
-          <p class="footer__license" data-i18n="footer.license"></p>
-          <div class="footer__meta">
-            <a href="/dwg-parser.html" data-i18n="footer.parser">Proprietary DWG parser</a>
-            <a href="mailto:mlight.lee@outlook.com" data-i18n="footer.contact">mlight.lee@outlook.com</a>
-            <span data-i18n="footer.rights">MLightCAD</span>
-          </div>
-        </div>
-      </footer>
+      <div data-site-footer></div>
     </div>
 
     <script type="module" src="/src/parser-page.ts"></script>

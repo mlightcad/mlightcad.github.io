@@ -161,12 +161,7 @@ export const en: Dictionary = {
   },
   footer: {
     tagline: 'Open-source CAD infrastructure for the web.',
-    license:
-      'cad-viewer is primarily MIT. Default DWG loading uses GPL LibreDWG packages — see commercial parser options for closed-source products.',
-    parser: 'Proprietary DWG parser',
-    parserHref: '/dwg-parser.html',
-    contact: 'mlight.lee@outlook.com',
-    rights: 'MLightCAD',
+    rights: '© 2026 MLightCAD',
   },
   parser: parserEn,
 }

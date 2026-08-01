@@ -137,6 +137,12 @@ export async function setupWebGL(): Promise<void> {
 export function markActiveNav(page: 'home' | 'parser'): void {
   document.querySelectorAll<HTMLAnchorElement>('.nav__menu a').forEach((a) => {
     const isParser = a.getAttribute('href')?.includes('dwg-parser')
-    a.classList.toggle('is-current', page === 'parser' ? !!isParser : !isParser && !!a.getAttribute('href')?.includes('product'))
+    const current =
+      page === 'parser'
+        ? !!isParser
+        : !isParser && !!a.getAttribute('href')?.includes('product')
+    a.classList.toggle('is-current', current)
+    if (current) a.setAttribute('aria-current', 'page')
+    else a.removeAttribute('aria-current')
   })
 }

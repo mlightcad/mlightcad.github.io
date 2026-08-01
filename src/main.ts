@@ -1,10 +1,10 @@
 import './styles/main.css'
 import { scrambleMeta, setupPageFX } from './fx'
 import { t } from './i18n'
+import { mountShell } from './shell'
 import {
   applyCommonI18n,
   locale,
-  markActiveNav,
   observeReveals,
   setupLocaleToggle,
   setupNav,
@@ -85,9 +85,9 @@ function applyI18n(): void {
   observeReveals()
 }
 
+mountShell('home')
 applyI18n()
 setupLocaleToggle(() => applyI18n())
 setupNav()
-markActiveNav('home')
 setupPageFX({ boot: true })
 void setupWebGL()
