@@ -170,7 +170,7 @@ export const ja: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: 'オープンソース · WEBGL · ゼロバックエンド',
+    meta: 'オープンソース · データ保護 · ゼロバックエンド',
     headline: 'ブラウザから離れない、初のオープン CAD スタック。',
     subline:
       'DXF/DWG の解析・描画・編集をすべて端末上で — バックエンドなし、アップロードなし、プライバシーの妥協なし。',

@@ -22,7 +22,7 @@ export const zh: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: '开源 · WEBGL · 零后端',
+    meta: '开源 · 数据安全 · 零后端',
     headline: '首个纯浏览器端的开源 CAD 技术栈。',
     subline: '在浏览器内完成 DXF/DWG 解析、渲染与编辑 — 无后端、无上传链路，隐私无需妥协。',
     ctaDemo: '试用在线演示',

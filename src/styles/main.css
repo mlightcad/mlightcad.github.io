@@ -1205,6 +1205,11 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   display: flex;
   flex-direction: column;
   background: var(--ink);
+  overflow: hidden;
+  /* Escape .reveal motion so fixed covers the real viewport */
+  transform: none;
+  filter: none;
+  opacity: 1;
 }
 
 .flagship__media.is-fullscreen .viewport-chrome__stage,
@@ -1218,8 +1223,29 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   display: none;
 }
 
-body.try-drawing-fullscreen {
+/*
+ * Fullscreen lives inside .site (z-index: 2). Root chrome such as
+ * .scroll-progress (z-index: 40) would otherwise paint above it, and the
+ * viewport scrollbar usually belongs to html — not body.
+ */
+html.try-drawing-fullscreen,
+html.try-drawing-fullscreen body {
   overflow: hidden;
+  overscroll-behavior: none;
+}
+
+html.try-drawing-fullscreen .scroll-progress,
+html.try-drawing-fullscreen .fx-spot,
+html.try-drawing-fullscreen .fx-cross {
+  display: none;
+}
+
+html.try-drawing-fullscreen .site {
+  z-index: 80;
+}
+
+html.try-drawing-fullscreen #bg-canvas {
+  visibility: hidden;
 }
 
 .feature-list {
