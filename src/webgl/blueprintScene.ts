@@ -14,6 +14,7 @@ import {
 } from 'three'
 
 export interface BlueprintSceneHandle {
+  setPaused: (paused: boolean) => void
   destroy: () => void
 }
 
@@ -201,6 +202,7 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
 
   let raf = 0
   let running = true
+  let paused = false
   let t0 = performance.now()
   let lastSpawn = 0
   let lastClientX = -1
@@ -208,6 +210,11 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
   let pointerActive = false
   const pointerWorld = new Vector3()
   const targetPointer = new Vector3()
+
+  const stopLoop = () => {
+    cancelAnimationFrame(raf)
+    raf = 0
+  }
 
   const screenToWorld = (clientX: number, clientY: number, out: Vector3) => {
     const ndcX = (clientX / window.innerWidth) * 2 - 1
@@ -267,7 +274,7 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
   }
 
   const onPointerMove = (event: PointerEvent) => {
-    if (reduced) return
+    if (reduced || paused) return
     pointerActive = true
     screenToWorld(event.clientX, event.clientY, targetPointer)
 
@@ -332,36 +339,62 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
   }
 
   const loop = (now: number) => {
-    if (!running) return
+    if (!running || paused) {
+      raf = 0
+      return
+    }
     renderFrame(now)
+    raf = requestAnimationFrame(loop)
+  }
+
+  const startLoop = () => {
+    if (!running || paused || reduced || document.hidden || raf) return
+    t0 = performance.now()
     raf = requestAnimationFrame(loop)
   }
 
   const onVisibility = () => {
     if (document.hidden) {
-      cancelAnimationFrame(raf)
-    } else if (!reduced && running) {
-      t0 = performance.now()
-      raf = requestAnimationFrame(loop)
+      stopLoop()
+    } else {
+      startLoop()
     }
+  }
+
+  const onResize = () => {
+    if (paused) return
+    resize()
   }
 
   resize()
   renderFrame(performance.now())
   if (!reduced) {
-    raf = requestAnimationFrame(loop)
+    startLoop()
     window.addEventListener('pointermove', onPointerMove, { passive: true })
     document.documentElement.addEventListener('mouseleave', onPointerLeave)
   }
 
-  window.addEventListener('resize', resize)
+  window.addEventListener('resize', onResize)
   document.addEventListener('visibilitychange', onVisibility)
 
   return {
+    setPaused: (next: boolean) => {
+      if (paused === next) return
+      paused = next
+      if (paused) {
+        stopLoop()
+        pointerActive = false
+      } else {
+        resize()
+        renderFrame(performance.now())
+        startLoop()
+      }
+    },
     destroy: () => {
       running = false
-      cancelAnimationFrame(raf)
-      window.removeEventListener('resize', resize)
+      paused = true
+      stopLoop()
+      window.removeEventListener('resize', onResize)
       window.removeEventListener('pointermove', onPointerMove)
       document.documentElement.removeEventListener('mouseleave', onPointerLeave)
       document.removeEventListener('visibilitychange', onVisibility)

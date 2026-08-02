@@ -170,7 +170,7 @@ export const cs: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: 'OPEN SOURCE · WEBGL · ZERO BACKEND',
+    meta: 'OPEN SOURCE · BEZPEČNÁ DATA · ZERO BACKEND',
     headline: 'První open source CAD stack, který nikdy neopustí prohlížeč.',
     subline:
       'Parsování, vykreslování a editace DXF/DWG celé na zařízení — bez backendu, bez upload pipeline, bez kompromisů v soukromí.',

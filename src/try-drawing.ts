@@ -1,5 +1,5 @@
 import { t } from './i18n'
-import { locale } from './shared'
+import { locale, setBackgroundWebGLPaused } from './shared'
 
 type ViewerModule = typeof import('./try-drawing/viewer')
 
@@ -104,10 +104,13 @@ export function setupTryDrawing(): void {
 
   const setFullscreen = (on: boolean): void => {
     els.chrome.classList.toggle('is-fullscreen', on)
+    document.documentElement.classList.toggle('try-drawing-fullscreen', on)
     document.body.classList.toggle('try-drawing-fullscreen', on)
     els.fullscreenBtn.setAttribute('aria-pressed', String(on))
     els.fullscreenBtn.setAttribute('aria-label', on ? copy().exitFullscreen : copy().fullscreen)
     viewerMod?.setViewerChromeVisible(on)
+    // Stop the decorative background renderer while the CAD viewer owns the screen.
+    setBackgroundWebGLPaused(on)
   }
 
   const openPicker = (): void => {

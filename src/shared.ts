@@ -143,14 +143,27 @@ export function setupNav(): void {
   })
 }
 
+type BlueprintSceneHandle = import('./webgl/blueprintScene').BlueprintSceneHandle
+
+let backgroundScene: BlueprintSceneHandle | null = null
+
+/** Pause/resume the homepage background WebGL loop (e.g. while CAD viewer is fullscreen). */
+export function setBackgroundWebGLPaused(paused: boolean): void {
+  backgroundScene?.setPaused(paused)
+}
+
 export async function setupWebGL(): Promise<void> {
   const canvas = document.querySelector<HTMLCanvasElement>('#bg-canvas')
   if (!canvas) return
   try {
     const { createBlueprintScene } = await import('./webgl/blueprintScene')
     const handle = createBlueprintScene(canvas)
+    backgroundScene = handle
     if (import.meta.hot) {
-      import.meta.hot.dispose(() => handle.destroy())
+      import.meta.hot.dispose(() => {
+        if (backgroundScene === handle) backgroundScene = null
+        handle.destroy()
+      })
     }
   } catch (err) {
     console.warn('WebGL background unavailable', err)

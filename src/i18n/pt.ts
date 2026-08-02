@@ -170,7 +170,7 @@ export const pt: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: 'OPEN SOURCE · WEBGL · ZERO BACKEND',
+    meta: 'OPEN SOURCE · DADOS SEGUROS · ZERO BACKEND',
     headline: 'O primeiro stack CAD open source que nunca sai do navegador.',
     subline:
       'Analise, renderize e edite DXF/DWG inteiramente no dispositivo — sem backend, sem pipeline de upload, sem comprometer a privacidade.',

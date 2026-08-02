@@ -170,7 +170,7 @@ export const ko: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: '오픈소스 · WEBGL · 제로 백엔드',
+    meta: '오픈소스 · 데이터 보안 · 제로 백엔드',
     headline: '브라우저를 떠나지 않는 최초의 오픈 CAD 스택.',
     subline:
       'DXF/DWG 파싱·렌더링·편집을 모두 기기에서 — 백엔드 없음, 업로드 파이프라인 없음, 프라이버시 타협 없음.',

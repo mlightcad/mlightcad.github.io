@@ -22,7 +22,7 @@ export const en: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: 'OPEN SOURCE · WEBGL · ZERO BACKEND',
+    meta: 'OPEN SOURCE · DATA SAFE · ZERO BACKEND',
     headline: 'The first open CAD stack that never leaves the browser.',
     subline:
       'Parse, render, and edit DXF/DWG entirely on-device — no backend, no upload pipeline, no compromise on privacy.',
