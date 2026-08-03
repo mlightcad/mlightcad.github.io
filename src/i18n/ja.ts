@@ -206,7 +206,6 @@ export const ja: Dictionary = {
     statusLoading: '図面を読み込み中…',
     statusLoadingViewer: 'ビューアを読み込み中…',
     statusInit: 'ビューアを起動中…',
-    statusParsing: 'この端末で解析中…',
     errorType: 'DWG または DXF ファイルを選択してください。',
     errorInit: 'ビューアを起動できませんでした。更新して再試行してください。',
     errorOpen: '{name} を開けませんでした。',

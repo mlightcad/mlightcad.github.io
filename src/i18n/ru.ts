@@ -206,7 +206,6 @@ export const ru: Dictionary = {
     statusLoading: 'Чтение чертежа…',
     statusLoadingViewer: 'Загрузка просмотрщика…',
     statusInit: 'Запуск просмотрщика…',
-    statusParsing: 'Разбор на этом устройстве…',
     errorType: 'Выберите файл DWG или DXF.',
     errorInit: 'Не удалось запустить просмотрщик. Обновите страницу и попробуйте снова.',
     errorOpen: 'Не удалось открыть {name}.',

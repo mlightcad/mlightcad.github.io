@@ -22,6 +22,12 @@ export default defineConfig({
       },
     },
   },
+  optimizeDeps: {
+    // Prebundling rewrites import.meta.url into .vite/deps, so the companion
+    // `import(new URL('./dwg-parser-main.js', import.meta.url))` resolves to a
+    // missing file. Serve the package from node_modules instead (prod build OK).
+    exclude: ['@mlight-cad/dwg-converter'],
+  },
   plugins: [
     viteStaticCopy({
       targets: [

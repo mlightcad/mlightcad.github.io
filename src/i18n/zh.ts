@@ -57,7 +57,6 @@ export const zh: Dictionary = {
     statusLoading: '正在读取图纸…',
     statusLoadingViewer: '正在加载查看器…',
     statusInit: '正在启动查看器…',
-    statusParsing: '正在本机解析…',
     errorType: '请选择 DWG 或 DXF 文件。',
     errorInit: '无法启动查看器。请刷新后重试。',
     errorOpen: '无法打开 {name}。',

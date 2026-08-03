@@ -206,7 +206,6 @@ export const pt: Dictionary = {
     statusLoading: 'A ler desenho…',
     statusLoadingViewer: 'A carregar visualizador…',
     statusInit: 'A iniciar visualizador…',
-    statusParsing: 'A analisar neste dispositivo…',
     errorType: 'Escolha um ficheiro DWG ou DXF.',
     errorInit: 'Não foi possível iniciar o visualizador. Atualize e tente novamente.',
     errorOpen: 'Não foi possível abrir {name}.',

@@ -67,7 +67,6 @@ export interface Dictionary {
     statusLoading: string
     statusLoadingViewer: string
     statusInit: string
-    statusParsing: string
     errorType: string
     errorInit: string
     errorOpen: string

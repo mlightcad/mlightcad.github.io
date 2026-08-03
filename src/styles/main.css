@@ -1252,10 +1252,17 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   flex-direction: column;
   background: var(--ink);
   overflow: hidden;
-  /* Escape .reveal motion so fixed covers the real viewport */
+  /* Escape .reveal motion so fixed covers the real viewport.
+     Inline transform during FLIP (.is-fullscreen-animating) overrides this. */
   transform: none;
   filter: none;
   opacity: 1;
+}
+
+.flagship__media.is-fullscreen-animating {
+  pointer-events: none;
+  /* Keep scaled content clipped to the expanding card */
+  overflow: hidden;
 }
 
 .flagship__media.is-fullscreen .viewport-chrome__stage,
