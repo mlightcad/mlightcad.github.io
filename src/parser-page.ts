@@ -59,6 +59,8 @@ function renderParserBody(): void {
   const supportRows = p.supportRows
     .map((row) => `<tr><th>${row.area}</th><td>${row.detail}</td></tr>`)
     .join('')
+  const table = (className: string, rows: string) =>
+    `<div class="doc-table-wrap"><table class="doc-table${className ? ` ${className}` : ''}">${rows}</table></div>`
   const faqs = p.faqs
     .map((faq) => `<details class="faq"><summary>${faq.q}</summary><p>${faq.a}</p></details>`)
     .join('')
@@ -78,7 +80,7 @@ function renderParserBody(): void {
       [
         `<h2>${p.scopeTitle}</h2>`,
         `<p>${p.scopeLead}</p>`,
-        `<table class="doc-table">${scopeRows}</table>`,
+        table('', scopeRows),
         `<h3>${p.benefitsTitle}</h3>`,
         listHtml(p.benefits),
       ].join('\n'),
@@ -97,7 +99,7 @@ function renderParserBody(): void {
         `<h3>${p.restrictionsTitle}</h3>`,
         listHtml(p.restrictions),
         `<h3>${p.pricingTitle}</h3>`,
-        `<table class="doc-table doc-table--pricing">${pricingRows}</table>`,
+        table('doc-table--pricing', pricingRows),
         `<p class="doc-note">${p.pricingNote}</p>`,
       ].join('\n'),
     ),
@@ -130,7 +132,7 @@ function renderParserBody(): void {
       '/assets/parser/support.svg',
       p.imageAlts.support,
       false,
-      [`<h2>${p.supportTitle}</h2>`, `<table class="doc-table">${supportRows}</table>`].join('\n'),
+      [`<h2>${p.supportTitle}</h2>`, table('', supportRows)].join('\n'),
     ),
     sectionShell(
       'faq',
