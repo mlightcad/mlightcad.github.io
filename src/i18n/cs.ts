@@ -206,7 +206,6 @@ export const cs: Dictionary = {
     statusLoading: 'Načítání výkresu…',
     statusLoadingViewer: 'Načítání prohlížeče…',
     statusInit: 'Spouštění prohlížeče…',
-    statusParsing: 'Parsování v tomto zařízení…',
     errorType: 'Vyberte soubor DWG nebo DXF.',
     errorInit: 'Nepodařilo se spustit prohlížeč. Obnovte stránku a zkuste to znovu.',
     errorOpen: 'Nepodařilo se otevřít {name}.',

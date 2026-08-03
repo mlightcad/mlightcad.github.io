@@ -73,10 +73,14 @@ export function setupTryDrawing(): void {
 
   if (!els.root || !els.dropzone || !els.input || !els.canvasHost) return
 
+  const FULLSCREEN_MS = 420
+
   let state: UiState = 'idle'
   let viewerMod: ViewerModule | null = null
   let currentFileName = ''
   let dragDepth = 0
+  let loadGen = 0
+  let fullscreenAnimGen = 0
 
   const setState = (next: UiState): void => {
     state = next
@@ -86,8 +90,9 @@ export function setupTryDrawing(): void {
     els.error.hidden = next !== 'error'
     // Keep the viewer mounted (and measurable) while loading so WebGL can size itself.
     els.viewer.hidden = next !== 'viewing' && next !== 'loading'
-    els.fullscreenBtn.hidden = next !== 'viewing'
-    els.closeBtn.hidden = next !== 'viewing'
+    const showActions = next === 'viewing' || next === 'loading'
+    els.fullscreenBtn.hidden = !showActions
+    els.closeBtn.hidden = !showActions
     els.root.dataset.state = next === 'loading' && !els.viewer.hidden ? 'viewing' : next
     els.chrome.classList.toggle('is-viewing', next === 'viewing' || next === 'loading')
 
@@ -102,7 +107,18 @@ export function setupTryDrawing(): void {
     }
   }
 
-  const setFullscreen = (on: boolean): void => {
+  const prefersReducedMotion = (): boolean =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  const clearFullscreenAnimStyles = (): void => {
+    els.chrome.classList.remove('is-fullscreen-animating')
+    els.chrome.style.transition = ''
+    els.chrome.style.transform = ''
+    els.chrome.style.transformOrigin = ''
+    els.chrome.style.willChange = ''
+  }
+
+  const applyFullscreenState = (on: boolean): void => {
     els.chrome.classList.toggle('is-fullscreen', on)
     document.documentElement.classList.toggle('try-drawing-fullscreen', on)
     document.body.classList.toggle('try-drawing-fullscreen', on)
@@ -113,9 +129,73 @@ export function setupTryDrawing(): void {
     setBackgroundWebGLPaused(on)
   }
 
+  const setFullscreen = (on: boolean): void => {
+    const already = els.chrome.classList.contains('is-fullscreen')
+    if (already === on) {
+      // Sync chrome if the viewer finished init after fullscreen entered during load.
+      viewerMod?.setViewerChromeVisible(on)
+      setBackgroundWebGLPaused(on)
+      return
+    }
+
+    const animGen = ++fullscreenAnimGen
+    clearFullscreenAnimStyles()
+
+    if (prefersReducedMotion()) {
+      applyFullscreenState(on)
+      return
+    }
+
+    const first = els.chrome.getBoundingClientRect()
+    applyFullscreenState(on)
+    const last = els.chrome.getBoundingClientRect()
+
+    if (first.width < 1 || first.height < 1 || last.width < 1 || last.height < 1) return
+
+    const dx = first.left - last.left
+    const dy = first.top - last.top
+    const sx = first.width / last.width
+    const sy = first.height / last.height
+
+    if (Math.abs(dx) < 0.5 && Math.abs(dy) < 0.5 && Math.abs(sx - 1) < 0.01 && Math.abs(sy - 1) < 0.01) {
+      return
+    }
+
+    els.chrome.classList.add('is-fullscreen-animating')
+    els.chrome.style.transformOrigin = 'top left'
+    els.chrome.style.willChange = 'transform'
+    els.chrome.style.transition = 'none'
+    els.chrome.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`
+    void els.chrome.offsetWidth
+
+    els.chrome.style.transition = `transform ${FULLSCREEN_MS}ms var(--ease)`
+    els.chrome.style.transform = 'translate(0px, 0px) scale(1)'
+
+    const finish = (): void => {
+      if (animGen !== fullscreenAnimGen) return
+      clearFullscreenAnimStyles()
+    }
+
+    els.chrome.addEventListener(
+      'transitionend',
+      (e) => {
+        if (e.target === els.chrome && e.propertyName === 'transform') finish()
+      },
+      { once: true },
+    )
+    window.setTimeout(finish, FULLSCREEN_MS + 80)
+  }
+
   const openPicker = (): void => {
     if (state === 'loading') return
     els.input.click()
+  }
+
+  const failOpen = (gen: number, message: string): void => {
+    if (gen !== loadGen) return
+    els.errorMsg.textContent = message
+    setFullscreen(false)
+    setState('error')
   }
 
   const loadFile = async (file: File): Promise<void> => {
@@ -127,29 +207,35 @@ export function setupTryDrawing(): void {
       return
     }
 
+    const gen = ++loadGen
     currentFileName = file.name
     els.status.textContent = copy().statusLoading
     setState('loading')
+    // Expand while the file is still opening so the loading UI fills the screen.
+    setFullscreen(true)
 
     try {
       if (!viewerMod) {
         els.status.textContent = copy().statusLoadingViewer
         viewerMod = await import('./try-drawing/viewer')
+        if (gen !== loadGen) return
       }
 
       els.status.textContent = copy().statusInit
       const ready = await viewerMod.ensureViewer(els.viewer, els.canvasHost)
+      if (gen !== loadGen) return
       if (!ready) {
-        els.errorMsg.textContent = copy().errorInit
-        setState('error')
+        failOpen(gen, copy().errorInit)
         return
       }
 
-      els.status.textContent = copy().statusParsing
+      // cad-simple-viewer shows its own busy indicator while parsing.
+      els.loading.hidden = true
+
       const success = await viewerMod.openLocalDrawing(file)
+      if (gen !== loadGen) return
       if (!success) {
-        els.errorMsg.textContent = copy().errorOpen.replace('{name}', file.name)
-        setState('error')
+        failOpen(gen, copy().errorOpen.replace('{name}', file.name))
         return
       }
 
@@ -157,10 +243,11 @@ export function setupTryDrawing(): void {
         .replace('{name}', file.name)
         .replace('{size}', formatSize(file.size))
       setState('viewing')
+      // Sync CAD chrome with current fullscreen (user may have exited during load).
+      setFullscreen(els.chrome.classList.contains('is-fullscreen'))
     } catch (error) {
       console.error('Failed to open drawing:', error)
-      els.errorMsg.textContent = copy().errorOpen.replace('{name}', file.name)
-      setState('error')
+      failOpen(gen, copy().errorOpen.replace('{name}', file.name))
     }
   }
 
@@ -213,6 +300,7 @@ export function setupTryDrawing(): void {
   })
 
   els.closeBtn.addEventListener('click', () => {
+    loadGen += 1
     setFullscreen(false)
     setState('idle')
   })

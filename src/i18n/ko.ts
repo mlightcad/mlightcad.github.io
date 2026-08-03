@@ -206,7 +206,6 @@ export const ko: Dictionary = {
     statusLoading: '도면 읽는 중…',
     statusLoadingViewer: '뷰어 로드 중…',
     statusInit: '뷰어 시작 중…',
-    statusParsing: '이 기기에서 파싱 중…',
     errorType: 'DWG 또는 DXF 파일을 선택하세요.',
     errorInit: '뷰어를 시작할 수 없습니다. 새로고침 후 다시 시도하세요.',
     errorOpen: '{name}을(를) 열 수 없습니다.',

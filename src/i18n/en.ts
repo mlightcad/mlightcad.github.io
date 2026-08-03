@@ -58,7 +58,6 @@ export const en: Dictionary = {
     statusLoading: 'Reading drawing…',
     statusLoadingViewer: 'Loading viewer…',
     statusInit: 'Starting viewer…',
-    statusParsing: 'Parsing on this device…',
     errorType: 'Please choose a DWG or DXF file.',
     errorInit: 'Could not start the viewer. Try again after a refresh.',
     errorOpen: 'Could not open {name}.',
