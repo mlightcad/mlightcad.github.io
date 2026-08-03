@@ -5,16 +5,16 @@ Brand site for [MLightCAD](https://github.com/mlightcad), featuring [cad-viewer]
 ## Develop
 
 ```bash
-npm install
+pnpm install
 cp .env.example .env   # then fill in Supabase keys (needed for trial form)
-npm run dev
+pnpm dev
 ```
 
 ## Build
 
 ```bash
-npm run build
-npm run preview
+pnpm build
+pnpm preview
 ```
 
 Deployed to GitHub Pages at https://mlightcad.github.io/ via `.github/workflows/deploy.yml`.
