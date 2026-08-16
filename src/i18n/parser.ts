@@ -1,10 +1,14 @@
 /** Shared shape for proprietary DWG parser page copy. */
 
+/** One FAQ item on the parser page. */
 export interface ParserFaq {
+  /** Question shown in the disclosure summary. */
   q: string
+  /** Answer shown when the item is expanded. */
   a: string
 }
 
+/** Localized labels for the trial-license application dialog. */
 export interface TrialFormCopy {
   title: string
   lead: string
@@ -37,6 +41,7 @@ export interface TrialFormCopy {
   requiredHint: string
 }
 
+/** Localized copy for the DWG parser product page (string fields are translation values). */
 export interface ParserCopy {
   metaTitle: string
   metaDescription: string
@@ -67,15 +72,19 @@ export interface ParserCopy {
   trialCta: string
   trialSteps: string[]
   trialNote: string
+  /** Copy for the trial-license dialog. */
   trialForm: TrialFormCopy
   integrationTitle: string
   integrationLead: string
   supportTitle: string
   supportRows: { area: string; detail: string }[]
   faqTitle: string
+  /** FAQ disclosure items. */
   faqs: ParserFaq[]
   relatedTitle: string
+  /** Related-product links. */
   related: { name: string; desc: string; href: string }[]
+  /** Alt text for the section illustrations. */
   imageAlts: {
     scope: string
     license: string

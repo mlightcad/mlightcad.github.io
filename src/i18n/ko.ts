@@ -1,5 +1,6 @@
-import type { Dictionary } from './types'
+import { iframePluginKo } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import type { Dictionary } from './types'
 
 const parserKo: ParserCopy = {
   metaTitle: '상용 DWG 파서 — MLightCAD',
@@ -161,6 +162,7 @@ export const ko: Dictionary = {
     product: '제품',
     cadViewer: 'cad-viewer',
     dwgParser: 'DWG 파서',
+    iframePlugin: 'iframe 플러그인',
     features: '기능',
     plugins: '플러그인',
     docs: '문서',
@@ -225,6 +227,13 @@ export const ko: Dictionary = {
         body: '도면은 클라이언트에서 파싱·렌더링됩니다. 업로드, 스테이징, 원격 미러가 없습니다 — 기밀성은 정책이 아니라 구조적 보장입니다.',
         image: '/assets/features/privacy.svg',
         imageAlt: '도면이 로컬 기기에 남는 개념도',
+        actions: [
+          {
+            label: '아키텍처 개요',
+            href: 'https://github.com/mlightcad/cad-viewer/wiki/architecture-overview',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'integration',
@@ -232,6 +241,13 @@ export const ko: Dictionary = {
         body: '백엔드나 변환 팜 없이 제품에 CAD를 넣을 수 있습니다. 모듈형 플러그인으로 UI, 내보내기, AI 에이전트를 일급 확장으로 조합하세요.',
         image: '/assets/features/integration.svg',
         imageAlt: '호스트 앱이 CAD 코어와 플러그인에 연결',
+        actions: [
+          {
+            label: 'iframe 플러그인 안내',
+            href: '/iframe-plugin.html',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'html-export',
@@ -293,6 +309,11 @@ export const ko: Dictionary = {
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
+        name: 'iframe 플러그인',
+        desc: '사이트에 DWG/DXF 임베드',
+        href: '/iframe-plugin.html',
+      },
+      {
         name: 'API 문서',
         desc: 'Read the Docs 버전 문서',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
@@ -334,4 +355,5 @@ export const ko: Dictionary = {
     rights: '© 2026 MLightCAD',
   },
   parser: parserKo,
+  iframePlugin: iframePluginKo,
 }

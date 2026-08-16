@@ -3,8 +3,21 @@ import { AcApDocManager } from '@mlightcad/cad-simple-viewer'
 
 const SIMPLE_UI_PLUGIN_NAME = 'SimpleUiPlugin'
 
+/** Toolbar controls exposed by the simple-UI plugin. */
 interface SimpleUiChrome {
+  /**
+   * Show or hide the toolbar.
+   *
+   * @param visible - Whether the toolbar should be shown.
+   * @returns Whether the plugin applied the change.
+   */
   setToolbarVisible(visible: boolean): boolean
+  /**
+   * Collapse or expand the toolbar.
+   *
+   * @param collapsed - Whether the toolbar should be collapsed.
+   * @returns Whether the plugin applied the change.
+   */
   setToolbarCollapsed(collapsed: boolean): boolean
 }
 

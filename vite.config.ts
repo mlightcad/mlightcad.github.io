@@ -19,6 +19,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         parser: resolve(__dirname, 'dwg-parser.html'),
+        embed: resolve(__dirname, 'embed.html'),
+        iframePlugin: resolve(__dirname, 'iframe-plugin.html'),
       },
     },
   },

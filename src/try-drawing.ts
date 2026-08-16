@@ -1,40 +1,73 @@
 import { t } from './i18n'
 import { locale, setBackgroundWebGLPaused } from './shared'
 
+/** Lazily loaded CAD viewer module. */
 type ViewerModule = typeof import('./try-drawing/viewer')
 
+/** Visual state of the homepage try-drawing widget. */
 type UiState = 'idle' | 'loading' | 'viewing' | 'error'
 
+/** DOM nodes owned by the try-drawing widget. */
 interface TryDrawingElements {
+  /** Outer widget root used for data-state. */
   root: HTMLElement
+  /** Chrome frame that expands to fullscreen. */
   chrome: HTMLElement
+  /** Title shown in the widget bar. */
   title: HTMLElement
+  /** Idle drop-target panel. */
   idle: HTMLElement
+  /** Drop zone that accepts DWG/DXF files. */
   dropzone: HTMLElement
+  /** Loading status panel. */
   loading: HTMLElement
+  /** Loading status text. */
   status: HTMLElement
+  /** Error panel. */
   error: HTMLElement
+  /** Error message body. */
   errorMsg: HTMLElement
+  /** Viewer host shown while loading or viewing. */
   viewer: HTMLElement
+  /** Canvas container passed to cad-simple-viewer. */
   canvasHost: HTMLElement
+  /** Hidden file input. */
   input: HTMLInputElement
+  /** Open-file button. */
   openBtn: HTMLButtonElement
+  /** Retry button shown after an error. */
   retryBtn: HTMLButtonElement
+  /** Fullscreen toggle. */
   fullscreenBtn: HTMLButtonElement
+  /** Close / reset button. */
   closeBtn: HTMLButtonElement
+  /** Caption under the widget. */
   caption: HTMLElement
 }
 
+/** Localized copy for the try-drawing widget. */
 function copy() {
   return t(locale).tryDrawing
 }
 
+/**
+ * Format a byte size for the open-file caption.
+ *
+ * @param bytes - File size in bytes.
+ * @returns Human-readable size string.
+ */
 function formatSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }
 
+/**
+ * Whether the file name looks like a DWG or DXF drawing.
+ *
+ * @param file - Candidate file from the picker or drop target.
+ * @returns `true` when the extension is `.dwg` or `.dxf`.
+ */
 function isCadFile(file: File): boolean {
   const name = file.name.toLowerCase()
   return name.endsWith('.dxf') || name.endsWith('.dwg')
@@ -82,6 +115,11 @@ export function setupTryDrawing(): void {
   let loadGen = 0
   let fullscreenAnimGen = 0
 
+  /**
+   * Apply widget UI for the given state.
+   *
+   * @param next - Target visual state.
+   */
   const setState = (next: UiState): void => {
     state = next
     const c = copy()
@@ -107,9 +145,11 @@ export function setupTryDrawing(): void {
     }
   }
 
+  /** Whether the user prefers reduced motion. */
   const prefersReducedMotion = (): boolean =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+  /** Clear inline FLIP animation styles on the chrome frame. */
   const clearFullscreenAnimStyles = (): void => {
     els.chrome.classList.remove('is-fullscreen-animating')
     els.chrome.style.transition = ''
@@ -118,6 +158,11 @@ export function setupTryDrawing(): void {
     els.chrome.style.willChange = ''
   }
 
+  /**
+   * Toggle fullscreen class names, CAD chrome, and the background WebGL loop.
+   *
+   * @param on - Whether the widget should occupy the viewport.
+   */
   const applyFullscreenState = (on: boolean): void => {
     els.chrome.classList.toggle('is-fullscreen', on)
     document.documentElement.classList.toggle('try-drawing-fullscreen', on)
@@ -129,6 +174,11 @@ export function setupTryDrawing(): void {
     setBackgroundWebGLPaused(on)
   }
 
+  /**
+   * Enter or leave fullscreen, optionally animating with FLIP.
+   *
+   * @param on - Target fullscreen state.
+   */
   const setFullscreen = (on: boolean): void => {
     const already = els.chrome.classList.contains('is-fullscreen')
     if (already === on) {
@@ -171,6 +221,9 @@ export function setupTryDrawing(): void {
     els.chrome.style.transition = `transform ${FULLSCREEN_MS}ms var(--ease)`
     els.chrome.style.transform = 'translate(0px, 0px) scale(1)'
 
+    /**
+     * Drop leftover FLIP styles after the transition ends or times out.
+     */
     const finish = (): void => {
       if (animGen !== fullscreenAnimGen) return
       clearFullscreenAnimStyles()
@@ -186,11 +239,18 @@ export function setupTryDrawing(): void {
     window.setTimeout(finish, FULLSCREEN_MS + 80)
   }
 
+  /** Open the hidden file picker unless a load is already in progress. */
   const openPicker = (): void => {
     if (state === 'loading') return
     els.input.click()
   }
 
+  /**
+   * Abort a stale load and show the error panel.
+   *
+   * @param gen - Load generation that produced the failure.
+   * @param message - Localized error text.
+   */
   const failOpen = (gen: number, message: string): void => {
     if (gen !== loadGen) return
     els.errorMsg.textContent = message
@@ -198,6 +258,11 @@ export function setupTryDrawing(): void {
     setState('error')
   }
 
+  /**
+   * Parse and display a local DWG/DXF file in the widget.
+   *
+   * @param file - Drawing chosen by the user.
+   */
   const loadFile = async (file: File): Promise<void> => {
     if (state === 'loading') return
 

@@ -1,5 +1,6 @@
 import type { Locale } from './types'
 
+/** Display and metadata details for one site locale. */
 export interface LocaleMeta {
   /** BCP 47 / HTML lang */
   htmlLang: string
@@ -31,6 +32,12 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
   cs: { htmlLang: 'cs', ogLocale: 'cs_CZ', nativeLabel: 'Čeština' },
 }
 
+/**
+ * Type guard for {@link Locale}.
+ *
+ * @param value - Candidate string from storage, the DOM, or the URL.
+ * @returns Whether `value` is a supported site locale.
+ */
 export function isLocale(value: string | null | undefined): value is Locale {
   return !!value && (LOCALES as readonly string[]).includes(value)
 }

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iframe Plugin — Embed DWG/DXF on Your Site | MLightCAD</title>
+    <meta
+      name="description"
+      content="Embed MLightCAD’s browser DWG/DXF viewer with an iframe. Control language, toolbar, command line, and review/write open mode via query parameters."
+    />
+    <meta
+      name="keywords"
+      content="iframe CAD viewer, embed DWG, embed DXF, browser CAD embed, MLightCAD"
+    />
+    <meta name="author" content="MLightCAD" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="canonical" href="https://mlightcad.com/iframe-plugin.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MLightCAD" />
+    <meta property="og:title" content="iframe Plugin — Embed DWG/DXF on Your Site | MLightCAD" />
+    <meta
+      property="og:description"
+      content="Embed MLightCAD’s browser DWG/DXF viewer with an iframe. Control language, toolbar, command line, and open mode via query parameters."
+    />
+    <meta property="og:url" content="https://mlightcad.com/iframe-plugin.html" />
+    <meta property="og:image" content="https://mlightcad.com/og.png" />
+    <meta property="og:image:alt" content="MLightCAD iframe plugin" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="iframe Plugin — MLightCAD" />
+    <meta
+      name="twitter:description"
+      content="Embed DWG/DXF viewing on your site with a single iframe."
+    />
+    <meta name="twitter:image" content="https://mlightcad.com/og.png" />
+  </head>
+  <body data-page="iframe-plugin">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="fx-spot" data-spot aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--x" data-cross-x aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--y" data-cross-y aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+    <div class="site">
+      <header class="nav">
+        <div class="nav__inner">
+          <a class="nav__brand" href="/">MLight<span>CAD</span></a>
+          <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" data-nav-toggle>
+            <span></span>
+          </button>
+          <ul class="nav__links" data-nav-links>
+            <li class="nav__dropdown" data-dropdown>
+              <button type="button" class="nav__drop-btn" aria-expanded="false" aria-haspopup="true" data-drop-toggle>
+                <span data-i18n="nav.product">Product</span>
+                <span class="nav__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="nav__menu" data-drop-menu>
+                <li>
+                  <a href="/#product" data-i18n="nav.cadViewer">cad-viewer</a>
+                </li>
+                <li>
+                  <a href="/dwg-parser.html" data-i18n="nav.dwgParser">DWG Parser</a>
+                </li>
+                <li>
+                  <a href="/iframe-plugin.html" data-i18n="nav.iframePlugin">iframe Plugin</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#example" data-i18n="iframePlugin.exampleTitle">Drop-in embed</a></li>
+            <li><a href="#params" data-i18n="iframePlugin.paramsTitle">Query parameters</a></li>
+            <li>
+              <a href="https://cad-viewer.readthedocs.io/en/latest/" target="_blank" rel="noopener" data-i18n="nav.docs"
+                >Docs</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener" data-i18n="nav.github"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+          <div class="nav__actions">
+            <div class="lang" data-dropdown data-lang-dropdown>
+              <button
+                type="button"
+                class="lang__toggle"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                data-drop-toggle
+                data-lang-toggle
+              >
+                <span data-lang-current>English</span>
+                <span class="nav__chev" aria-hidden="true"></span>
+              </button>
+              <ul class="nav__menu lang__menu" role="listbox" data-drop-menu data-lang-menu>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="en">English</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="zh">中文</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="ja">日本語</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="ko">한국어</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="es">Español</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="pt">Português</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="ru">Русский</button>
+                </li>
+                <li>
+                  <button type="button" class="lang__option" role="option" data-locale="cs">Čeština</button>
+                </li>
+              </ul>
+            </div>
+            <a
+              class="btn btn--primary btn--nav btn--nav-demo"
+              href="https://mlightcad.github.io/cad-viewer/"
+              target="_blank"
+              rel="noopener"
+              data-i18n="nav.demo"
+              >Live Demo</a
+            >
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero parser-hero shell">
+          <div class="hero__frame" data-tilt>
+            <div class="hero__corners" aria-hidden="true"></div>
+            <p class="hero__meta hero-enter" data-scramble data-i18n="iframePlugin.eyebrow">Integration</p>
+            <h1 class="section__title hero-enter" data-i18n="iframePlugin.title">iframe Plugin</h1>
+            <p class="section__lead hero-enter" data-i18n="iframePlugin.lead"></p>
+          </div>
+        </section>
+        <div class="shell parser-body iframe-plugin-body" data-iframe-plugin-body></div>
+      </main>
+
+      <div data-site-footer></div>
+    </div>
+
+    <script type="module" src="/src/iframe-plugin-page.ts"></script>
+  </body>
+</html>

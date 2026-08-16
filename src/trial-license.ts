@@ -1,18 +1,29 @@
 import type { TrialFormCopy } from './i18n/parser'
 import { getSupabase, isSupabaseConfigured } from './supabase'
 
+/** Payload stored for a trial-license application. */
 export interface TrialApplication {
+  /** Applicant company name. */
   companyName: string
+  /** Company website, optional. */
   website: string
+  /** Country of the company. */
   country: string
+  /** Contact person name. */
   contactName: string
+  /** Contact email address. */
   contactEmail: string
+  /** GitHub username without a leading `@`. */
   githubUsername: string
+  /** Product that will use the parser. */
   productName: string
+  /** How the product is deployed. */
   deploymentModel: string
+  /** Intended use case. */
   useCase: string
 }
 
+/** Dialog / form submission state. */
 type Status = 'idle' | 'submitting' | 'success' | 'error'
 
 let dialog: HTMLDialogElement | null = null
@@ -23,6 +34,15 @@ let copy: TrialFormCopy | null = null
 let status: Status = 'idle'
 let listenersBound = false
 
+/**
+ * Render one labeled input or textarea for the trial form.
+ *
+ * @param name - Form field name matching {@link TrialApplication}.
+ * @param label - Visible field label.
+ * @param placeholder - Input placeholder text.
+ * @param opts - Field options (required, type, optional hint, textarea rows).
+ * @returns HTML for a labeled control.
+ */
 function field(
   name: keyof TrialApplication,
   label: string,
@@ -54,6 +74,12 @@ function field(
   ].join('\n')
 }
 
+/**
+ * Build the trial-license `<dialog>` markup.
+ *
+ * @param f - Localized form copy.
+ * @returns Dialog HTML.
+ */
 function buildDialogHtml(f: TrialFormCopy): string {
   return [
     `<dialog class="trial-dialog" data-trial-dialog aria-labelledby="trial-dialog-title">`,
@@ -98,8 +124,15 @@ function buildDialogHtml(f: TrialFormCopy): string {
   ].join('\n')
 }
 
+/**
+ * Read and trim trial form values.
+ *
+ * @param form - The trial application form.
+ * @returns Application payload.
+ */
 function readForm(form: HTMLFormElement): TrialApplication {
   const data = new FormData(form)
+  /** Read a trimmed string field from the form. */
   const value = (key: keyof TrialApplication) => String(data.get(key) ?? '').trim()
   return {
     companyName: value('companyName'),
@@ -114,6 +147,12 @@ function readForm(form: HTMLFormElement): TrialApplication {
   }
 }
 
+/**
+ * Validate required fields and website format.
+ *
+ * @param app - Submitted application.
+ * @returns The first invalid field name, or `null` when valid.
+ */
 function validate(app: TrialApplication): string | null {
   if (!app.companyName) return 'companyName'
   if (!app.country) return 'country'
@@ -134,6 +173,12 @@ function validate(app: TrialApplication): string | null {
   return null
 }
 
+/**
+ * Update the status line and submit button for the current form state.
+ *
+ * @param next - Target status.
+ * @param message - Optional status message for success or error.
+ */
 function setStatus(next: Status, message?: string): void {
   status = next
   if (!statusEl || !submitBtn || !copy) return
@@ -155,11 +200,22 @@ function setStatus(next: Status, message?: string): void {
   submitBtn.textContent = next === 'submitting' ? copy.submitting : copy.submit
 }
 
+/**
+ * Prefix a website with `https://` when the user omitted a scheme.
+ *
+ * @param website - Raw website field value.
+ * @returns Normalized URL, or an empty string.
+ */
 function normalizeWebsite(website: string): string {
   if (!website) return ''
   return website.includes('://') ? website : `https://${website}`
 }
 
+/**
+ * Insert the application into Supabase.
+ *
+ * @param app - Validated application payload.
+ */
 async function submitApplication(app: TrialApplication): Promise<void> {
   if (!isSupabaseConfigured()) {
     throw new Error('Supabase is not configured')
@@ -182,6 +238,11 @@ async function submitApplication(app: TrialApplication): Promise<void> {
   if (error) throw error
 }
 
+/**
+ * Validate and submit the trial form.
+ *
+ * @param event - Form submit event.
+ */
 function onSubmit(event: Event): void {
   event.preventDefault()
   if (!formEl || !copy || status === 'submitting') return
@@ -207,10 +268,20 @@ function onSubmit(event: Event): void {
     })
 }
 
+/**
+ * Close the dialog when the backdrop (the dialog element itself) is clicked.
+ *
+ * @param event - Click event on the dialog.
+ */
 function onBackdropClick(event: MouseEvent): void {
   if (event.target === dialog) closeTrialDialog()
 }
 
+/**
+ * Cache dialog controls and bind submit / close listeners.
+ *
+ * @param el - The trial dialog element.
+ */
 function wireDialog(el: HTMLDialogElement): void {
   dialog = el
   formEl = el.querySelector('[data-trial-form]')

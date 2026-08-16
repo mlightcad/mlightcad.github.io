@@ -1,5 +1,6 @@
-import type { Dictionary } from './types'
+import { iframePluginCs } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import type { Dictionary } from './types'
 
 const parserCs: ParserCopy = {
   metaTitle: 'Proprietární parser DWG — MLightCAD',
@@ -161,6 +162,7 @@ export const cs: Dictionary = {
     product: 'Produkt',
     cadViewer: 'cad-viewer',
     dwgParser: 'Parser DWG',
+    iframePlugin: 'iframe plugin',
     features: 'Funkce',
     plugins: 'Pluginy',
     docs: 'Dokumentace',
@@ -225,6 +227,13 @@ export const cs: Dictionary = {
         body: 'Výkresy se parsují a vykreslují celé na klientovi. Nic se nenahrává, nestaginguje ani nezrcadlí na vzdáleném hostu — důvěrnost je strukturální záruka, ne zaškrtávací políčko v politice.',
         image: '/assets/features/privacy.svg',
         imageAlt: 'Konceptuální zámek: výkresy zůstávají na lokálním zařízení',
+        actions: [
+          {
+            label: 'Přehled architektury',
+            href: 'https://github.com/mlightcad/cad-viewer/wiki/architecture-overview',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'integration',
@@ -232,6 +241,13 @@ export const cs: Dictionary = {
         body: 'Integrujte CAD do produktu bez backendů nebo conversion farms. Modulární plugin architektura umožňuje skládat UI, export a AI agenty jako plnohodnotná rozšíření.',
         image: '/assets/features/integration.svg',
         imageAlt: 'Host aplikace propojená s CAD jádrem a pluginy',
+        actions: [
+          {
+            label: 'Průvodce iframe pluginem',
+            href: '/iframe-plugin.html',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'html-export',
@@ -293,6 +309,11 @@ export const cs: Dictionary = {
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
+        name: 'iframe plugin',
+        desc: 'Vložení DWG/DXF na web',
+        href: '/iframe-plugin.html',
+      },
+      {
         name: 'Dokumentace API',
         desc: 'Verzovaná dokumentace na Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
@@ -334,4 +355,5 @@ export const cs: Dictionary = {
     rights: '© 2026 MLightCAD',
   },
   parser: parserCs,
+  iframePlugin: iframePluginCs,
 }

@@ -1,3 +1,4 @@
+import { iframePluginZh } from './iframePlugin'
 import { parserZh } from './parser'
 import type { Dictionary } from './types'
 
@@ -13,6 +14,7 @@ export const zh: Dictionary = {
     product: '产品',
     cadViewer: 'cad-viewer',
     dwgParser: 'DWG 解析器',
+    iframePlugin: 'iframe 插件',
     features: '特性',
     plugins: '插件',
     docs: '文档',
@@ -76,6 +78,13 @@ export const zh: Dictionary = {
         body: '图纸在客户端完成解析与渲染。不会上传、暂存或镜像到远端主机 — 机密性是结构保证，而不是条款里的一句话。',
         image: '/assets/features/privacy.svg',
         imageAlt: '概念图：图纸留在本地设备',
+        actions: [
+          {
+            label: '查看架构介绍',
+            href: 'https://github.com/mlightcad/cad-viewer/wiki/architecture-overview',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'integration',
@@ -83,6 +92,13 @@ export const zh: Dictionary = {
         body: '把 CAD 能力嵌进你的产品，无需搭建后端或转换集群。模块化插件体系让界面、导出与 AI Agent 都能作为一等扩展组合使用。',
         image: '/assets/features/integration.svg',
         imageAlt: '宿主应用连接 CAD 核心与插件',
+        actions: [
+          {
+            label: '查看 iframe 插件说明',
+            href: '/iframe-plugin.html',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'html-export',
@@ -144,6 +160,11 @@ export const zh: Dictionary = {
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
+        name: 'iframe 插件',
+        desc: '在网站中嵌入 DWG/DXF',
+        href: '/iframe-plugin.html',
+      },
+      {
         name: 'API 文档',
         desc: 'Read the Docs 版本化文档',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
@@ -190,4 +211,5 @@ export const zh: Dictionary = {
     rights: '© 2026 MLightCAD',
   },
   parser: parserZh,
+  iframePlugin: iframePluginZh,
 }

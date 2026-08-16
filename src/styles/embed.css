@@ -1,0 +1,84 @@
+/* Minimal chrome for the iframe embed target — keep out of marketing CSS. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b0f14;
+  color: #e8edf4;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+.embed-page {
+  height: 100%;
+}
+
+.embed {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #0b0f14;
+}
+
+.embed__host {
+  position: absolute;
+  inset: 0;
+}
+
+.embed__canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.embed__panel {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: rgba(11, 15, 20, 0.92);
+  pointer-events: none;
+}
+
+.embed__panel[hidden] {
+  display: none !important;
+}
+
+.embed__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.embed__body {
+  margin: 0;
+  max-width: 36rem;
+  color: #9aa7b8;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.embed__body code {
+  padding: 0.1em 0.35em;
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.08);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.88em;
+  color: #d7e2ef;
+}
+
+.embed__panel--error .embed__title {
+  color: #ffb4a8;
+}

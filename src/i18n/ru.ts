@@ -1,5 +1,6 @@
-import type { Dictionary } from './types'
+import { iframePluginRu } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import type { Dictionary } from './types'
 
 const parserRu: ParserCopy = {
   metaTitle: 'Проприетарный парсер DWG — MLightCAD',
@@ -161,6 +162,7 @@ export const ru: Dictionary = {
     product: 'Продукт',
     cadViewer: 'cad-viewer',
     dwgParser: 'Парсер DWG',
+    iframePlugin: 'iframe-плагин',
     features: 'Возможности',
     plugins: 'Плагины',
     docs: 'Документация',
@@ -225,6 +227,13 @@ export const ru: Dictionary = {
         body: 'Чертежи разбираются и рендерятся целиком на клиенте. Ничего не загружается, не staging-ится и не зеркалируется на удалённом хосте — конфиденциальность это структурная гарантия, а не галочка в политике.',
         image: '/assets/features/privacy.svg',
         imageAlt: 'Концептуальный замок: чертежи остаются на локальном устройстве',
+        actions: [
+          {
+            label: 'Обзор архитектуры',
+            href: 'https://github.com/mlightcad/cad-viewer/wiki/architecture-overview',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'integration',
@@ -232,6 +241,13 @@ export const ru: Dictionary = {
         body: 'Встраивайте CAD в продукт без backend и conversion farms. Модульная архитектура плагинов позволяет собирать UI, экспорт и AI-агентов как полноценные расширения.',
         image: '/assets/features/integration.svg',
         imageAlt: 'Host-приложение, подключённое к CAD-ядру и плагинам',
+        actions: [
+          {
+            label: 'Руководство по iframe-плагину',
+            href: '/iframe-plugin.html',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'html-export',
@@ -293,6 +309,11 @@ export const ru: Dictionary = {
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
+        name: 'iframe-плагин',
+        desc: 'Встраивание DWG/DXF на сайт',
+        href: '/iframe-plugin.html',
+      },
+      {
         name: 'Документация API',
         desc: 'Версионированная документация на Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
@@ -334,4 +355,5 @@ export const ru: Dictionary = {
     rights: '© 2026 MLightCAD',
   },
   parser: parserRu,
+  iframePlugin: iframePluginRu,
 }
