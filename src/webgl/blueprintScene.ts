@@ -13,8 +13,15 @@ import {
   WebGLRenderer,
 } from 'three'
 
+/** Lifecycle handle for the homepage blueprint background. */
 export interface BlueprintSceneHandle {
+  /**
+   * Pause or resume the render loop (for example while the CAD viewer is fullscreen).
+   *
+   * @param paused - Whether the scene should stop animating.
+   */
   setPaused: (paused: boolean) => void
+  /** Dispose WebGL resources and remove listeners. */
   destroy: () => void
 }
 
@@ -26,10 +33,24 @@ const RIPPLE_MIN_MOVE = 14
 const RIPPLE_DURATION = 1.35
 const RIPPLE_MAX_RADIUS = 7.5
 
+/**
+ * Whether the user prefers reduced motion.
+ *
+ * @returns `true` when `(prefers-reduced-motion: reduce)` matches.
+ */
 function prefersReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
+/**
+ * Build a sparse XY grid of line segments.
+ *
+ * @param size - Total grid extent.
+ * @param step - Spacing between grid lines.
+ * @param color - Line color.
+ * @param opacity - Line opacity.
+ * @returns Grid mesh.
+ */
 function buildSparseGrid(size: number, step: number, color: number, opacity: number): LineSegments {
   const half = size / 2
   const positions: number[] = []
@@ -52,6 +73,12 @@ function buildSparseGrid(size: number, step: number, color: number, opacity: num
   )
 }
 
+/**
+ * Build the construction-drawing motif (axes, ticks, circles, rays).
+ *
+ * @param color - Line color.
+ * @returns Group containing the motif.
+ */
 function buildConstruction(color: number): Group {
   const group = new Group()
   const material = new LineBasicMaterial({
@@ -97,6 +124,13 @@ function buildConstruction(color: number): Group {
   return group
 }
 
+/**
+ * Create a circle made of line segments.
+ *
+ * @param radius - Circle radius.
+ * @param segments - Number of segments around the circle.
+ * @returns Circle geometry.
+ */
 function createCircleGeometry(radius: number, segments: number): BufferGeometry {
   const positions = new Float32Array(segments * 2 * 3)
   for (let i = 0; i < segments; i++) {
@@ -115,6 +149,13 @@ function createCircleGeometry(radius: number, segments: number): BufferGeometry 
   return geometry
 }
 
+/**
+ * Update an existing circle geometry to a new radius in place.
+ *
+ * @param geometry - Circle geometry from {@link createCircleGeometry}.
+ * @param radius - New radius.
+ * @param segments - Segment count that matches the geometry.
+ */
 function setCircleRadius(geometry: BufferGeometry, radius: number, segments: number): void {
   const attr = geometry.getAttribute('position')
   for (let i = 0; i < segments; i++) {
@@ -127,13 +168,24 @@ function setCircleRadius(geometry: BufferGeometry, radius: number, segments: num
   attr.needsUpdate = true
 }
 
+/** One expanding cursor ripple. */
 interface Ripple {
+  /** Circle mesh for this ripple. */
   mesh: LineSegments
+  /** Birth time in seconds. */
   born: number
+  /** World X at spawn. */
   x: number
+  /** World Y at spawn. */
   y: number
 }
 
+/**
+ * Create the decorative blueprint WebGL background on the given canvas.
+ *
+ * @param canvas - Full-viewport background canvas.
+ * @returns Handle used to pause or destroy the scene.
+ */
 export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneHandle {
   const reduced = prefersReducedMotion()
   const scene = new Scene()
@@ -211,11 +263,19 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
   const pointerWorld = new Vector3()
   const targetPointer = new Vector3()
 
+  /** Cancel the scheduled animation frame. */
   const stopLoop = () => {
     cancelAnimationFrame(raf)
     raf = 0
   }
 
+  /**
+   * Convert a pointer position in CSS pixels to scene XY.
+   *
+   * @param clientX - Pointer X in the viewport.
+   * @param clientY - Pointer Y in the viewport.
+   * @param out - Vector written with the world position.
+   */
   const screenToWorld = (clientX: number, clientY: number, out: Vector3) => {
     const ndcX = (clientX / window.innerWidth) * 2 - 1
     const ndcY = -(clientY / window.innerHeight) * 2 + 1
@@ -224,6 +284,7 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
     out.z = 0
   }
 
+  /** Take a ripple mesh from the pool, or allocate a new one. */
   const acquireRippleMesh = (): LineSegments => {
     const pooled = ripplePool.pop()
     if (pooled) {
@@ -241,12 +302,24 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
     )
   }
 
+  /**
+   * Hide a ripple and return its mesh to the pool.
+   *
+   * @param ripple - Ripple to recycle.
+   */
   const releaseRipple = (ripple: Ripple) => {
     ripple.mesh.visible = false
     ripplesRoot.remove(ripple.mesh)
     ripplePool.push(ripple.mesh)
   }
 
+  /**
+   * Spawn a ripple at a world position, evicting the oldest if the cap is hit.
+   *
+   * @param x - World X.
+   * @param y - World Y.
+   * @param now - Birth time in seconds.
+   */
   const spawnRipple = (x: number, y: number, now: number) => {
     if (ripples.length >= MAX_RIPPLES) {
       const oldest = ripples.shift()
@@ -260,6 +333,7 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
     ripples.push({ mesh, born: now, x, y })
   }
 
+  /** Fit the orthographic camera and renderer to the viewport. */
   const resize = () => {
     const width = window.innerWidth
     const height = window.innerHeight
@@ -273,6 +347,11 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
     camera.updateProjectionMatrix()
   }
 
+  /**
+   * Track the pointer in world space and spawn ripples after enough movement.
+   *
+   * @param event - Pointer move event.
+   */
   const onPointerMove = (event: PointerEvent) => {
     if (reduced || paused) return
     pointerActive = true
@@ -294,10 +373,16 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
     }
   }
 
+  /** Fade the cursor ring when the pointer leaves the document. */
   const onPointerLeave = () => {
     pointerActive = false
   }
 
+  /**
+   * Advance animation and render one frame.
+   *
+   * @param now - `performance.now()` timestamp.
+   */
   const renderFrame = (now: number) => {
     const elapsed = (now - t0) * 0.001
     const t = now * 0.001
@@ -338,6 +423,11 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
     renderer.render(scene, camera)
   }
 
+  /**
+   * Animation-frame callback that renders and reschedules itself.
+   *
+   * @param now - `performance.now()` timestamp.
+   */
   const loop = (now: number) => {
     if (!running || paused) {
       raf = 0
@@ -347,12 +437,14 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
     raf = requestAnimationFrame(loop)
   }
 
+  /** Start the render loop unless paused, reduced-motion, or the tab is hidden. */
   const startLoop = () => {
     if (!running || paused || reduced || document.hidden || raf) return
     t0 = performance.now()
     raf = requestAnimationFrame(loop)
   }
 
+  /** Pause the loop when the tab is hidden; resume when it becomes visible. */
   const onVisibility = () => {
     if (document.hidden) {
       stopLoop()
@@ -361,6 +453,7 @@ export function createBlueprintScene(canvas: HTMLCanvasElement): BlueprintSceneH
     }
   }
 
+  /** Recalculate camera bounds on window resize unless the scene is paused. */
   const onResize = () => {
     if (paused) return
     resize()

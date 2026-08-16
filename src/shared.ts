@@ -36,6 +36,11 @@ export function observeReveals(root: ParentNode = document): void {
   nodes.forEach((n) => revealObserver?.observe(n))
 }
 
+/**
+ * Refresh language-switcher labels and selected state for the active locale.
+ *
+ * @param dict - Dictionary for the current locale.
+ */
 function syncLangSwitcher(dict: ReturnType<typeof t>): void {
   const meta = LOCALE_META[locale]
   document.querySelectorAll<HTMLElement>('[data-lang-current]').forEach((el) => {
@@ -100,6 +105,7 @@ export function setupLocaleToggle(onChange: (next: Locale) => void): void {
   })
 }
 
+/** Close every open nav / language dropdown. */
 function closeDropdowns(): void {
   document.querySelectorAll<HTMLElement>('[data-dropdown]').forEach((dd) => {
     dd.classList.remove('is-open')
@@ -143,6 +149,7 @@ export function setupNav(): void {
   })
 }
 
+/** Handle returned by the lazily loaded background WebGL scene. */
 type BlueprintSceneHandle = import('./webgl/blueprintScene').BlueprintSceneHandle
 
 let backgroundScene: BlueprintSceneHandle | null = null

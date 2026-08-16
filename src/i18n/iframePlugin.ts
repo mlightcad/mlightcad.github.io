@@ -1,11 +1,16 @@
 /** Shared shape for iframe embed plugin docs page. */
 
+/** One query-parameter row in the iframe plugin docs table. */
 export interface IframePluginParam {
+  /** Parameter name as used in the embed URL. */
   name: string
+  /** Default value shown in the table. */
   defaultValue: string
+  /** Localized description of the parameter. */
   desc: string
 }
 
+/** Localized copy for the iframe plugin docs page (string fields are translation values). */
 export interface IframePluginCopy {
   metaTitle: string
   metaDescription: string
@@ -31,9 +36,11 @@ export interface IframePluginCopy {
   playgroundUrlRequired: string
   paramsTitle: string
   paramsLead: string
+  /** Query-parameter table rows. */
   params: IframePluginParam[]
   modesTitle: string
   modesLead: string
+  /** Open-mode rows for the modes table. */
   modes: { name: string; desc: string }[]
   notesTitle: string
   notes: string[]
@@ -42,6 +49,7 @@ export interface IframePluginCopy {
   compareDemoCta: string
   compareDemoHref: string
   relatedTitle: string
+  /** Related-product links shown at the bottom of the page. */
   related: { name: string; desc: string; href: string }[]
 }
 
@@ -58,6 +66,14 @@ const PARAM_DEFAULTS = {
   theme: 'dark',
 } as const
 
+/**
+ * Build the related-links list with shared destinations.
+ *
+ * @param live - Live demo label and description.
+ * @param docs - API docs label and description.
+ * @param github - GitHub label and description.
+ * @returns Related links with fixed hrefs.
+ */
 function related(
   live: { name: string; desc: string },
   docs: { name: string; desc: string },
@@ -70,6 +86,12 @@ function related(
   ]
 }
 
+/**
+ * Pair each known embed parameter with a localized description.
+ *
+ * @param descs - Description text keyed by parameter name.
+ * @returns Rows for the query-parameter table.
+ */
 function params(descs: Record<keyof typeof PARAM_DEFAULTS, string>): IframePluginParam[] {
   return (Object.keys(PARAM_DEFAULTS) as (keyof typeof PARAM_DEFAULTS)[]).map((name) => ({
     name,

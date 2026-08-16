@@ -1,7 +1,17 @@
+/**
+ * Whether the user prefers reduced motion.
+ *
+ * @returns `true` when `(prefers-reduced-motion: reduce)` matches.
+ */
 function reducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
+/**
+ * Whether the primary pointing device is precise (mouse / trackpad).
+ *
+ * @returns `true` when `(pointer: fine)` matches.
+ */
 function finePointer(): boolean {
   return window.matchMedia('(pointer: fine)').matches
 }
@@ -20,6 +30,7 @@ export function setupPointerFX(): void {
   let cx = window.innerWidth * 0.5
   let cy = window.innerHeight * 0.4
 
+  /** Write pointer CSS variables and move the crosshair / spotlight. */
   const paint = () => {
     raf = 0
     root.style.setProperty('--px', `${cx / window.innerWidth}`)
@@ -54,6 +65,7 @@ export function setupPointerFX(): void {
 export function setupScrollChrome(): void {
   const bar = document.querySelector<HTMLElement>('[data-scroll-progress]')
   const nav = document.querySelector('.nav')
+  /** Update the scroll-progress bar and nav scrolled state. */
   const update = () => {
     const max = document.documentElement.scrollHeight - window.innerHeight
     const p = max > 0 ? (window.scrollY / max) * 100 : 0
@@ -160,6 +172,7 @@ export function scrambleText(el: HTMLElement | null, text?: string): void {
   let frame = 0
   const total = 16 + Math.min(target.length, 28)
 
+  /** Advance one scramble animation frame. */
   const tick = () => {
     frame++
     const progress = frame / total
@@ -196,6 +209,7 @@ export function setupBootLine(): void {
   window.setTimeout(() => boot.classList.add('is-done'), 1600)
 }
 
+/** Options for {@link setupPageFX}. */
 export interface PageFXOptions {
   /** Home-only boot sequence */
   boot?: boolean

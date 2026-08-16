@@ -15,17 +15,30 @@ import {
 const SAMPLE_DWG =
   'https://cdn.jsdelivr.net/gh/mlightcad/cad-data@main/data/canteen.dwg'
 
+/** Query-parameter state for the iframe playground. */
 interface PlaygroundState {
+  /** Absolute URL of the DWG/DXF file to open. */
   url: string
+  /** Open mode (`review`, `read`, or `write`). */
   mode: string
+  /** Initial view (`extents` or `saved`). */
   view: string
+  /** Viewer UI locale (`en`, `zh`, `tr`, or `cs`). */
   lang: string
+  /** UI theme (`dark` or `light`). */
   theme: string
+  /** Whether the toolbar is shown. */
   toolbar: boolean
+  /** Whether the command line is shown. */
   commandline: boolean
 }
 
-/** Viewer UI locales are en/zh/tr/cs; map the site locale onto that set. */
+/**
+ * Map a site locale onto a viewer UI locale (`en`, `zh`, `tr`, or `cs`).
+ *
+ * @param siteLocale - Active marketing-site locale.
+ * @returns Viewer locale used by the playground.
+ */
 function defaultPlaygroundLang(siteLocale: string): string {
   if (siteLocale === 'zh' || siteLocale === 'cs' || siteLocale === 'tr') return siteLocale
   return 'en'
@@ -41,16 +54,35 @@ const playground: PlaygroundState = {
   commandline: false,
 }
 
+/**
+ * Render a simple unordered list.
+ *
+ * @param items - List item text.
+ * @returns HTML for a `.doc-list`.
+ */
 function listHtml(items: string[]): string {
   return `<ul class="doc-list">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`
 }
 
+/**
+ * Render `<option>` elements for a select.
+ *
+ * @param values - Option values and labels.
+ * @param selected - Currently selected value.
+ * @returns HTML for the options.
+ */
 function optionHtml(values: string[], selected: string): string {
   return values
     .map((value) => `<option value="${value}"${value === selected ? ' selected' : ''}>${value}</option>`)
     .join('')
 }
 
+/**
+ * Build a same-origin `/embed.html?...` path from playground state.
+ *
+ * @param state - Current playground fields.
+ * @returns Site-relative embed URL.
+ */
 function buildEmbedPath(state: PlaygroundState): string {
   const q = new URLSearchParams()
   q.set('url', state.url.trim())
@@ -63,10 +95,22 @@ function buildEmbedPath(state: PlaygroundState): string {
   return `/embed.html?${q.toString()}`
 }
 
+/**
+ * Resolve the embed path against the current origin.
+ *
+ * @param state - Current playground fields.
+ * @returns Absolute embed URL for the iframe snippet.
+ */
 function buildEmbedAbsoluteUrl(state: PlaygroundState): string {
   return new URL(buildEmbedPath(state), window.location.origin).toString()
 }
 
+/**
+ * Generate a copy-paste iframe snippet for the current playground state.
+ *
+ * @param state - Current playground fields.
+ * @returns HTML snippet.
+ */
 function buildSnippet(state: PlaygroundState): string {
   const src = buildEmbedAbsoluteUrl(state)
   return [
@@ -79,6 +123,7 @@ function buildSnippet(state: PlaygroundState): string {
   ].join('\n')
 }
 
+/** Copy playground field values from the form into {@link playground}. */
 function readPlaygroundFromDom(): void {
   const url = document.querySelector<HTMLInputElement>('[data-play-url]')
   const mode = document.querySelector<HTMLSelectElement>('[data-play-mode]')
@@ -98,6 +143,11 @@ function readPlaygroundFromDom(): void {
   playground.commandline = commandline.checked
 }
 
+/**
+ * Refresh the generated snippet, and optionally reload the preview iframe.
+ *
+ * @param loadPreview - When `true`, set the preview iframe `src`.
+ */
 function syncSnippetAndPreview(loadPreview: boolean): void {
   const snippet = document.querySelector<HTMLElement>('[data-play-snippet]')
   const frame = document.querySelector<HTMLIFrameElement>('[data-play-frame]')
@@ -107,11 +157,13 @@ function syncSnippetAndPreview(loadPreview: boolean): void {
   }
 }
 
+/** Bind playground form events once after the body is rendered. */
 function bindPlayground(): void {
   const form = document.querySelector<HTMLFormElement>('[data-play-form]')
   if (!form || form.dataset.bound === '1') return
   form.dataset.bound = '1'
 
+  /** Keep snippet text in sync as the user edits fields. */
   const onChange = (): void => {
     readPlaygroundFromDom()
     syncSnippetAndPreview(false)
@@ -144,6 +196,7 @@ function bindPlayground(): void {
   })
 }
 
+/** Render the iframe plugin docs body, including the live playground. */
 function renderBody(): void {
   const root = document.querySelector('[data-iframe-plugin-body]')
   if (!root) return
@@ -241,6 +294,7 @@ function renderBody(): void {
   bindPlayground()
 }
 
+/** Apply locale to meta tags, nav, and the docs body. */
 function applyI18n(): void {
   readPlaygroundFromDom()
   playground.lang = defaultPlaygroundLang(locale)

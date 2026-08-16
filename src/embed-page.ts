@@ -9,13 +9,21 @@ import {
   parseViewerLocale,
 } from './try-drawing/viewer'
 
+/** Localized idle / error copy for the embed viewer. */
 type EmbedCopy = {
+  /** Idle panel heading. */
   idleTitle: string
+  /** Idle panel body. */
   idleBody: string
+  /** Error panel heading. */
   errorTitle: string
+  /** Message when the URL is not a DWG/DXF path. */
   badType: string
+  /** Message when the viewer fails to start. */
   initFailed: string
+  /** Message when the drawing cannot be opened. */
   openFailed: string
+  /** Message when the fetch looks like a CORS / network failure. */
   corsHint: string
 }
 
@@ -61,10 +69,22 @@ const COPY: Record<'en' | 'zh' | 'tr' | 'cs', EmbedCopy> = {
   },
 }
 
+/**
+ * Pick embed copy for a viewer locale, falling back to English.
+ *
+ * @param lang - Viewer locale from the query string.
+ * @returns Copy for that locale.
+ */
 function pickCopy(lang: string): EmbedCopy {
   return COPY[lang as keyof typeof COPY] ?? COPY.en
 }
 
+/**
+ * Whether the URL path looks like a DWG or DXF file.
+ *
+ * @param url - Absolute drawing URL.
+ * @returns `true` when the path ends with `.dwg` or `.dxf`.
+ */
 function isCadUrl(url: string): boolean {
   try {
     const path = new URL(url).pathname.toLowerCase()
@@ -74,11 +94,19 @@ function isCadUrl(url: string): boolean {
   }
 }
 
+/**
+ * Show the idle panel, the error panel, or neither.
+ *
+ * @param idle - Idle overlay element.
+ * @param error - Error overlay element.
+ * @param which - Which overlay to display.
+ */
 function setPanel(idle: HTMLElement, error: HTMLElement, which: 'idle' | 'error' | 'none'): void {
   idle.hidden = which !== 'idle'
   error.hidden = which !== 'error'
 }
 
+/** Parse embed query parameters and open the drawing when a URL is present. */
 async function main(): Promise<void> {
   const host = document.querySelector<HTMLElement>('[data-embed-host]')
   const container = document.querySelector<HTMLElement>('[data-embed-container]')

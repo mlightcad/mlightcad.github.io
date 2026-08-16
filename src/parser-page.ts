@@ -13,6 +13,12 @@ import {
 } from './shared'
 import { bindTrialTriggers, ensureTrialDialog } from './trial-license'
 
+/**
+ * Render a simple unordered list.
+ *
+ * @param items - List item text.
+ * @returns HTML for a `.doc-list`.
+ */
 function listHtml(items: string[]): string {
   return `<ul class="doc-list">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`
 }
@@ -25,6 +31,16 @@ const INTEGRATION_SNIPPET = [
   'AcDbDatabaseConverterManager.instance.register(AcDbFileType.DWG, converter)',
 ].join('\n')
 
+/**
+ * Wrap copy in a media+text documentation section.
+ *
+ * @param id - Section element id (also used as the deep-link hash).
+ * @param image - Illustration path.
+ * @param alt - Image alt text.
+ * @param reverse - When `true`, flip the media/copy columns.
+ * @param body - Inner HTML for the copy column.
+ * @returns Section markup.
+ */
 function sectionShell(
   id: string,
   image: string,
@@ -45,6 +61,7 @@ function sectionShell(
   ].join('\n')
 }
 
+/** Render parser-page sections from the active locale dictionary. */
 function renderParserBody(): void {
   const root = document.querySelector('[data-parser-body]')
   if (!root) return
@@ -59,6 +76,13 @@ function renderParserBody(): void {
   const supportRows = p.supportRows
     .map((row) => `<tr><th>${row.area}</th><td>${row.detail}</td></tr>`)
     .join('')
+  /**
+   * Wrap table rows in the shared docs table chrome.
+   *
+   * @param className - Extra class for the `<table>` (for example pricing).
+   * @param rows - Inner HTML for table rows.
+   * @returns Wrapped table markup.
+   */
   const table = (className: string, rows: string) =>
     `<div class="doc-table-wrap"><table class="doc-table${className ? ` ${className}` : ''}">${rows}</table></div>`
   const faqs = p.faqs
@@ -151,6 +175,7 @@ function renderParserBody(): void {
   ].join('\n')
 }
 
+/** Apply locale to meta tags, nav, parser body, and the trial dialog. */
 function applyI18n(): void {
   const dict = t(locale)
   applyPageMeta({

@@ -13,6 +13,7 @@ import {
 } from './shared'
 import { refreshTryDrawingI18n, setupTryDrawing } from './try-drawing'
 
+/** Apply homepage copy, feature/plugin/resource lists, and try-drawing i18n. */
 function applyI18n(): void {
   const dict = t(locale)
   applyPageMeta({

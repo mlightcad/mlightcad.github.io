@@ -18,17 +18,26 @@ import { getSimpleUiPlugin, registerPlugins } from './register'
 
 let initialized = false
 
+/** Drawing open mode accepted by the embed query string. */
 export type ViewerOpenMode = 'read' | 'review' | 'write'
 
+/** Chrome and locale options when creating or reusing the CAD viewer. */
 export interface EnsureViewerOptions {
+  /** UI theme applied to the host element. */
   theme?: AcEdUiTheme
+  /** Viewer UI locale (`en`, `zh`, `tr`, or `cs`). */
   lang?: AcApLocale
+  /** Whether to show the toolbar. */
   toolbar?: boolean
+  /** Whether to show the command line. */
   commandLine?: boolean
 }
 
+/** Options forwarded to `openDocument`. */
 export interface OpenDrawingOptions {
+  /** Access mode for the opened drawing. */
   mode?: AcEdOpenMode
+  /** Initial view framing after open. */
   openViewMode?: AcApOpenViewMode
 }
 
@@ -39,6 +48,12 @@ const DEFAULT_OPEN: AcApOpenDatabaseOptions = {
   progressiveRendering: false,
 }
 
+/**
+ * Show or hide the command line and toolbar, keeping settings and the simple-UI plugin in sync.
+ *
+ * @param commandLine - Whether the command line is visible.
+ * @param toolbar - Whether the toolbar is visible (and expanded when shown).
+ */
 function applyChromeVisibility(commandLine: boolean, toolbar: boolean): void {
   const settings = AcApSettingManager.instance
   settings.isShowCommandLine = commandLine
@@ -142,6 +157,12 @@ export async function ensureViewer(
   }
 }
 
+/**
+ * Read a local file into an `ArrayBuffer`.
+ *
+ * @param file - File chosen by the user.
+ * @returns File bytes.
+ */
 function readFile(file: File): Promise<ArrayBuffer> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
@@ -151,6 +172,13 @@ function readFile(file: File): Promise<ArrayBuffer> {
   })
 }
 
+/**
+ * Merge caller options onto the default open-document settings.
+ *
+ * @param options - Per-open overrides.
+ * @param fallbackMode - Mode used when `options.mode` is omitted.
+ * @returns Options passed to `openDocument`.
+ */
 function openOptions(options: OpenDrawingOptions, fallbackMode: AcEdOpenMode): AcApOpenDatabaseOptions {
   return {
     ...DEFAULT_OPEN,
@@ -159,6 +187,12 @@ function openOptions(options: OpenDrawingOptions, fallbackMode: AcEdOpenMode): A
   }
 }
 
+/**
+ * Derive a drawing file name from a remote URL path.
+ *
+ * @param url - Absolute drawing URL.
+ * @returns Last path segment, or `drawing.dwg` when parsing fails.
+ */
 function fileNameFromUrl(url: string): string {
   try {
     const path = new URL(url).pathname
