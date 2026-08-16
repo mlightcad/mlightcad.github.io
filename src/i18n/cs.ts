@@ -309,6 +309,11 @@ export const cs: Dictionary = {
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
+        name: 'iframe plugin',
+        desc: 'Vložení DWG/DXF na web',
+        href: '/iframe-plugin.html',
+      },
+      {
         name: 'Dokumentace API',
         desc: 'Verzovaná dokumentace na Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',

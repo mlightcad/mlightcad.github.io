@@ -19,7 +19,7 @@ type EmbedCopy = {
   corsHint: string
 }
 
-const COPY: Record<'en' | 'zh', EmbedCopy> = {
+const COPY: Record<'en' | 'zh' | 'tr' | 'cs', EmbedCopy> = {
   en: {
     idleTitle: 'Waiting for a drawing',
     idleBody: 'Pass a public DWG/DXF URL with the url query parameter.',
@@ -39,10 +39,30 @@ const COPY: Record<'en' | 'zh', EmbedCopy> = {
     openFailed: '无法从给定 URL 打开图纸。',
     corsHint: '拉取文件失败。文件所在服务器需允许本站跨域（CORS），或将文件放在同源站点。',
   },
+  tr: {
+    idleTitle: 'Bir çizim bekleniyor',
+    idleBody: 'url sorgu parametresiyle herkese açık bir DWG/DXF URL’si geçin.',
+    errorTitle: 'Çizim açılamadı',
+    badType: 'Yalnızca .dwg ve .dxf dosyaları desteklenir.',
+    initFailed: 'Görüntüleyici başlatılamadı.',
+    openFailed: 'Verilen URL’den çizim açılamadı.',
+    corsHint:
+      'Dosya alınamadı. Dosya sunucusu bu origin için CORS’a izin vermeli veya dosyayı aynı siteden sunmalıdır.',
+  },
+  cs: {
+    idleTitle: 'Čeká se na výkres',
+    idleBody: 'Předajte veřejnou URL souboru DWG/DXF parametrem url.',
+    errorTitle: 'Výkres se nepodařilo otevřít',
+    badType: 'Podporovány jsou pouze soubory .dwg a .dxf.',
+    initFailed: 'Prohlížeč se nepodařilo spustit.',
+    openFailed: 'Výkres se z dané URL nepodařilo otevřít.',
+    corsHint:
+      'Stažení souboru selhalo. Hostitel souboru musí povolit CORS pro tento origin, nebo soubor servírovat ze stejného webu.',
+  },
 }
 
 function pickCopy(lang: string): EmbedCopy {
-  return lang === 'zh' ? COPY.zh : COPY.en
+  return COPY[lang as keyof typeof COPY] ?? COPY.en
 }
 
 function isCadUrl(url: string): boolean {

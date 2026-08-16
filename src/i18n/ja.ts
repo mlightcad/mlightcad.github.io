@@ -309,6 +309,11 @@ export const ja: Dictionary = {
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
+        name: 'iframe プラグイン',
+        desc: 'サイトに DWG/DXF を埋め込む',
+        href: '/iframe-plugin.html',
+      },
+      {
         name: 'API ドキュメント',
         desc: 'Read the Docs のバージョン付きドキュメント',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',

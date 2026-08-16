@@ -309,6 +309,11 @@ export const ko: Dictionary = {
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
+        name: 'iframe 플러그인',
+        desc: '사이트에 DWG/DXF 임베드',
+        href: '/iframe-plugin.html',
+      },
+      {
         name: 'API 문서',
         desc: 'Read the Docs 버전 문서',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',

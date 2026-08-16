@@ -25,11 +25,17 @@ interface PlaygroundState {
   commandline: boolean
 }
 
+/** Viewer UI locales are en/zh/tr/cs; map the site locale onto that set. */
+function defaultPlaygroundLang(siteLocale: string): string {
+  if (siteLocale === 'zh' || siteLocale === 'cs' || siteLocale === 'tr') return siteLocale
+  return 'en'
+}
+
 const playground: PlaygroundState = {
   url: SAMPLE_DWG,
   mode: 'review',
   view: 'extents',
-  lang: 'en',
+  lang: defaultPlaygroundLang(locale),
   theme: 'dark',
   toolbar: false,
   commandline: false,
@@ -142,7 +148,6 @@ function renderBody(): void {
   const root = document.querySelector('[data-iframe-plugin-body]')
   if (!root) return
   const p = t(locale).iframePlugin
-  playground.lang = playground.lang || locale
 
   const paramRows = p.params
     .map(
@@ -238,6 +243,7 @@ function renderBody(): void {
 
 function applyI18n(): void {
   readPlaygroundFromDom()
+  playground.lang = defaultPlaygroundLang(locale)
   const dict = t(locale)
   const p = dict.iframePlugin
   applyPageMeta({
