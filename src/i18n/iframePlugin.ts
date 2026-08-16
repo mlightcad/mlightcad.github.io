@@ -58,6 +58,7 @@ const COMPARE_DEMO_HREF =
 
 const PARAM_DEFAULTS = {
   url: '—',
+  filename: '—',
   mode: 'review',
   view: 'extents',
   lang: 'en',
@@ -129,7 +130,8 @@ export const iframePluginEn: IframePluginCopy = {
   paramsTitle: 'Query parameters',
   paramsLead: 'Append these to https://mlightcad.com/embed.html',
   params: params({
-    url: 'Required to auto-open. Absolute HTTPS URL of a .dwg or .dxf file.',
+    url: 'Required to auto-open from the network. Absolute HTTPS URL of a drawing. Path need not end in .dwg/.dxf if filename is set.',
+    filename: 'Optional. Drawing name with .dwg or .dxf when the url path has no extension (Google Drive media URLs). Alias: name.',
     mode: 'Open mode: review (measure/annotate, no edit), read, or write.',
     view: 'Initial view: extents (zoom to fit) or saved (file default VPORT). Aliases: openView, viewport.',
     lang: 'Viewer UI locale: en, zh, tr, or cs.',
@@ -157,6 +159,7 @@ export const iframePluginEn: IframePluginCopy = {
   notes: [
     'Supported formats: .dwg and .dxf.',
     'The file URL must be reachable from the visitor’s browser. If the file is on another origin, that host must send CORS headers allowing this site.',
+    'Private or authenticated files (Google Drive, etc.) should be fetched by the host page and opened with postMessage: { type: "mlightcad-embed:open", filename, buffer } after the embed posts { type: "mlightcad-embed:ready" }.',
     'Archives (zip/rar) are not fetched by this plugin — point url at the drawing file itself.',
     'For a full product UI, use the live cad-viewer demo instead of this minimal embed.',
   ],
@@ -201,7 +204,8 @@ export const iframePluginZh: IframePluginCopy = {
   paramsTitle: '查询参数',
   paramsLead: '附加到 https://mlightcad.com/embed.html',
   params: params({
-    url: '自动打开时必填。指向 .dwg 或 .dxf 的绝对 HTTPS 地址。',
+    url: '从网络自动打开时必填。图纸的绝对 HTTPS 地址。若设置了 filename，url 路径不必以 .dwg/.dxf 结尾。',
+    filename: '可选。当 url 路径没有扩展名时提供带 .dwg 或 .dxf 的文件名（例如 Google Drive media URL）。别名：name。',
     mode: '打开模式：review（可测量/批注，不可改图）、read 或 write。',
     view: '初始视图：extents（缩放到全图范围）或 saved（使用文件中保存的默认视口）。别名：openView、viewport。',
     lang: '查看器界面语言：en、zh、tr 或 cs。',
@@ -220,6 +224,7 @@ export const iframePluginZh: IframePluginCopy = {
   notes: [
     '支持格式：.dwg 与 .dxf。',
     '文件 URL 须能被访问者浏览器直接拉取。若文件在其他域名，该站点需配置 CORS 允许本站访问。',
+    '私有或需登录的文件（如 Google Drive）应由宿主页面下载后，通过 postMessage 打开：embed 发出 { type: "mlightcad-embed:ready" } 后，发送 { type: "mlightcad-embed:open", filename, buffer }。',
     '本插件不会解压 zip/rar，请让 url 直接指向图纸文件。',
     '若需要完整产品界面，请使用完整版 cad-viewer 演示，而非此精简嵌入页。',
   ],
@@ -264,7 +269,8 @@ export const iframePluginJa: IframePluginCopy = {
   paramsTitle: 'クエリパラメータ',
   paramsLead: 'https://mlightcad.com/embed.html に追加します',
   params: params({
-    url: '自動オープン時は必須。.dwg / .dxf の絶対 HTTPS URL。',
+    url: 'ネットワークから自動オープンする場合は必須。図面の絶対 HTTPS URL。filename があればパス末尾は .dwg/.dxf でなくてよい。',
+    filename: '任意。url パスに拡張子がない場合の .dwg / .dxf ファイル名（Google Drive media URL など）。別名: name。',
     mode: 'オープンモード: review（計測/注釈、編集不可）、read、write。',
     view: '初期表示: extents（全体表示）または saved（ファイルの既定 VPORT）。別名: openView、viewport。',
     lang: 'ビューア UI 言語: en、zh、tr、cs。',
@@ -283,6 +289,7 @@ export const iframePluginJa: IframePluginCopy = {
   notes: [
     '対応形式: .dwg と .dxf。',
     'ファイル URL は訪問者のブラウザから到達できる必要があります。別オリジンの場合、このサイト向け CORS が必要です。',
+    '非公開・認証付きファイル（Google Drive など）は親ページで取得し、embed が { type: "mlightcad-embed:ready" } を送ったあと { type: "mlightcad-embed:open", filename, buffer } で postMessage してください。',
     'zip/rar は取得しません。url は図面ファイルそのものを指してください。',
     'フル UI が必要な場合は、この最小埋め込みではなく live cad-viewer デモを使用してください。',
   ],
@@ -327,7 +334,8 @@ export const iframePluginKo: IframePluginCopy = {
   paramsTitle: '쿼리 파라미터',
   paramsLead: 'https://mlightcad.com/embed.html 에 추가',
   params: params({
-    url: '자동 열기 시 필수. .dwg / .dxf 절대 HTTPS URL.',
+    url: '네트워크에서 자동 열 때 필수. 도면의 절대 HTTPS URL. filename이 있으면 경로가 .dwg/.dxf로 끝나지 않아도 됩니다.',
+    filename: '선택. url 경로에 확장자가 없을 때 .dwg 또는 .dxf 파일 이름(Google Drive media URL 등). 별칭: name.',
     mode: '열기 모드: review(측정/주석, 편집 불가), read, write.',
     view: '초기 뷰: extents(전체 맞춤) 또는 saved(파일 기본 VPORT). 별칭: openView, viewport.',
     lang: '뷰어 UI 언어: en, zh, tr, cs.',
@@ -346,6 +354,7 @@ export const iframePluginKo: IframePluginCopy = {
   notes: [
     '지원 형식: .dwg, .dxf.',
     '파일 URL은 방문자의 브라우저에서 접근 가능해야 합니다. 다른 오리진이면 이 사이트에 대한 CORS가 필요합니다.',
+    '비공개/인증 파일(Google Drive 등)은 호스트 페이지에서 받은 뒤, embed가 { type: "mlightcad-embed:ready" }를 보낸 다음 { type: "mlightcad-embed:open", filename, buffer }로 postMessage하세요.',
     'zip/rar는 가져오지 않습니다. url은 도면 파일 자체를 가리켜야 합니다.',
     '전체 UI가 필요하면 이 최소 임베드 대신 live cad-viewer 데모를 사용하세요.',
   ],
@@ -390,7 +399,8 @@ export const iframePluginEs: IframePluginCopy = {
   paramsTitle: 'Parámetros de consulta',
   paramsLead: 'Añádalos a https://mlightcad.com/embed.html',
   params: params({
-    url: 'Obligatorio para abrir automáticamente. URL HTTPS absoluta de un .dwg o .dxf.',
+    url: 'Obligatorio para abrir desde la red. URL HTTPS absoluta del dibujo. Si hay filename, la ruta no tiene que terminar en .dwg/.dxf.',
+    filename: 'Opcional. Nombre .dwg o .dxf cuando la ruta de url no tiene extensión (p. ej. URLs media de Google Drive). Alias: name.',
     mode: 'Modo de apertura: review (medir/anotar, sin editar), read o write.',
     view: 'Vista inicial: extents (ajustar) o saved (VPORT por defecto del archivo). Alias: openView, viewport.',
     lang: 'Idioma de la UI del visor: en, zh, tr o cs.',
@@ -412,6 +422,7 @@ export const iframePluginEs: IframePluginCopy = {
   notes: [
     'Formatos admitidos: .dwg y .dxf.',
     'La URL del archivo debe ser accesible desde el navegador del visitante. Si está en otro origen, ese host debe permitir CORS a este sitio.',
+    'Archivos privados o autenticados (Google Drive, etc.) debe obtenerlos la página anfitriona y abrirlos con postMessage: { type: "mlightcad-embed:open", filename, buffer } tras { type: "mlightcad-embed:ready" }.',
     'No se descargan zip/rar: url debe apuntar al archivo del dibujo.',
     'Para una UI completa, use la demo de cad-viewer en lugar de este incrustado mínimo.',
   ],
@@ -456,7 +467,8 @@ export const iframePluginPt: IframePluginCopy = {
   paramsTitle: 'Parâmetros de consulta',
   paramsLead: 'Acrescente a https://mlightcad.com/embed.html',
   params: params({
-    url: 'Obrigatório para abrir automaticamente. URL HTTPS absoluta de um .dwg ou .dxf.',
+    url: 'Obrigatório para abrir pela rede. URL HTTPS absoluta do desenho. Com filename, o caminho não precisa terminar em .dwg/.dxf.',
+    filename: 'Opcional. Nome .dwg ou .dxf quando o caminho de url não tem extensão (ex.: URLs media do Google Drive). Alias: name.',
     mode: 'Modo de abertura: review (medir/anotar, sem editar), read ou write.',
     view: 'Vista inicial: extents (ajustar) ou saved (VPORT padrão do arquivo). Aliases: openView, viewport.',
     lang: 'Idioma da UI do visualizador: en, zh, tr ou cs.',
@@ -478,6 +490,7 @@ export const iframePluginPt: IframePluginCopy = {
   notes: [
     'Formatos suportados: .dwg e .dxf.',
     'A URL do arquivo deve ser acessível pelo navegador do visitante. Se estiver em outra origem, esse host precisa permitir CORS para este site.',
+    'Arquivos privados ou autenticados (Google Drive etc.) devem ser baixados pela página hospedeira e abertos com postMessage: { type: "mlightcad-embed:open", filename, buffer } após { type: "mlightcad-embed:ready" }.',
     'zip/rar não são baixados — aponte url para o arquivo do desenho.',
     'Para uma UI completa, use a demo do cad-viewer em vez deste embed mínimo.',
   ],
@@ -522,7 +535,8 @@ export const iframePluginRu: IframePluginCopy = {
   paramsTitle: 'Параметры запроса',
   paramsLead: 'Добавьте к https://mlightcad.com/embed.html',
   params: params({
-    url: 'Обязателен для автооткрытия. Абсолютный HTTPS URL файла .dwg или .dxf.',
+    url: 'Обязателен для открытия по сети. Абсолютный HTTPS URL чертежа. Если задан filename, путь не обязан оканчиваться на .dwg/.dxf.',
+    filename: 'Необязательно. Имя .dwg или .dxf, если в пути url нет расширения (например media URL Google Drive). Псевдоним: name.',
     mode: 'Режим открытия: review (измерение/аннотации, без правки), read или write.',
     view: 'Начальный вид: extents (вписать) или saved (сохранённый VPORT). Псевдонимы: openView, viewport.',
     lang: 'Язык UI просмотрщика: en, zh, tr или cs.',
@@ -544,6 +558,7 @@ export const iframePluginRu: IframePluginCopy = {
   notes: [
     'Поддерживаемые форматы: .dwg и .dxf.',
     'URL файла должен быть доступен из браузера посетителя. Если файл на другом origin, хост должен отдавать CORS для этого сайта.',
+    'Закрытые или требующие входа файлы (Google Drive и т. п.) должна загрузить страница-хост и открыть через postMessage: { type: "mlightcad-embed:open", filename, buffer } после { type: "mlightcad-embed:ready" }.',
     'zip/rar не загружаются — url должен указывать на сам файл чертежа.',
     'Для полного UI используйте live-демо cad-viewer, а не этот минимальный embed.',
   ],
@@ -588,7 +603,8 @@ export const iframePluginCs: IframePluginCopy = {
   paramsTitle: 'Query parametry',
   paramsLead: 'Přidejte k https://mlightcad.com/embed.html',
   params: params({
-    url: 'Povinné pro automatické otevření. Absolutní HTTPS URL souboru .dwg nebo .dxf.',
+    url: 'Povinné pro otevření ze sítě. Absolutní HTTPS URL výkresu. Pokud je filename, cesta nemusí končit na .dwg/.dxf.',
+    filename: 'Volitelné. Název .dwg nebo .dxf, když cesta url nemá příponu (např. Google Drive media URL). Alias: name.',
     mode: 'Režim otevření: review (měření/anotace, bez úprav), read nebo write.',
     view: 'Počáteční pohled: extents (přizpůsobit) nebo saved (výchozí VPORT souboru). Alias: openView, viewport.',
     lang: 'Jazyk UI prohlížeče: en, zh, tr nebo cs.',
@@ -610,6 +626,7 @@ export const iframePluginCs: IframePluginCopy = {
   notes: [
     'Podporované formáty: .dwg a .dxf.',
     'URL souboru musí být dostupná z prohlížeče návštěvníka. Pokud je na jiném originu, hostitel musí povolit CORS pro tento web.',
+    'Soukromé nebo autentizované soubory (Google Drive aj.) stáhne hostitelská stránka a otevře přes postMessage: { type: "mlightcad-embed:open", filename, buffer } po { type: "mlightcad-embed:ready" }.',
     'zip/rar se nenačítají — url musí ukazovat přímo na soubor výkresu.',
     'Pro plné UI použijte live demo cad-viewer místo tohoto minimálního embedu.',
   ],
