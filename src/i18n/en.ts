@@ -1,3 +1,4 @@
+import { iframePluginEn } from './iframePlugin'
 import { parserEn } from './parser'
 import type { Dictionary } from './types'
 
@@ -13,6 +14,7 @@ export const en: Dictionary = {
     product: 'Product',
     cadViewer: 'cad-viewer',
     dwgParser: 'DWG Parser',
+    iframePlugin: 'iframe Plugin',
     features: 'Features',
     plugins: 'Plugins',
     docs: 'Docs',
@@ -77,6 +79,13 @@ export const en: Dictionary = {
         body: 'Drawings are parsed and rendered entirely on the client. Nothing is uploaded, staged, or mirrored on a remote host — confidentiality is a structural guarantee, not a policy checkbox.',
         image: '/assets/features/privacy.svg',
         imageAlt: 'Conceptual lock: drawings stay on the local device',
+        actions: [
+          {
+            label: 'Architecture overview',
+            href: 'https://github.com/mlightcad/cad-viewer/wiki/architecture-overview',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'integration',
@@ -84,6 +93,13 @@ export const en: Dictionary = {
         body: 'Ship CAD inside your product without provisioning backends or conversion farms. A modular plugin architecture lets you compose UI, export, and AI agents as first-class extensions.',
         image: '/assets/features/integration.svg',
         imageAlt: 'Host app connecting to CAD core and plugins',
+        actions: [
+          {
+            label: 'iframe Plugin guide',
+            href: '/iframe-plugin.html',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'html-export',
@@ -145,6 +161,11 @@ export const en: Dictionary = {
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
+        name: 'iframe Plugin',
+        desc: 'Embed DWG/DXF on your website',
+        href: '/iframe-plugin.html',
+      },
+      {
         name: 'API Docs',
         desc: 'Versioned docs on Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
@@ -186,4 +207,5 @@ export const en: Dictionary = {
     rights: '© 2026 MLightCAD',
   },
   parser: parserEn,
+  iframePlugin: iframePluginEn,
 }

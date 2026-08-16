@@ -1,5 +1,6 @@
-import type { Dictionary } from './types'
+import { iframePluginJa } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import type { Dictionary } from './types'
 
 const parserJa: ParserCopy = {
   metaTitle: 'プロプライエタリ DWG パーサー — MLightCAD',
@@ -161,6 +162,7 @@ export const ja: Dictionary = {
     product: '製品',
     cadViewer: 'cad-viewer',
     dwgParser: 'DWG パーサー',
+    iframePlugin: 'iframe プラグイン',
     features: '機能',
     plugins: 'プラグイン',
     docs: 'ドキュメント',
@@ -225,6 +227,13 @@ export const ja: Dictionary = {
         body: '図面はクライアントで解析・描画されます。アップロードもステージングもリモートミラーもありません — 機密性はポリシーではなく構造的な保証です。',
         image: '/assets/features/privacy.svg',
         imageAlt: '図面がローカル端末に留まる概念図',
+        actions: [
+          {
+            label: 'アーキテクチャ概要',
+            href: 'https://github.com/mlightcad/cad-viewer/wiki/architecture-overview',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'integration',
@@ -232,6 +241,13 @@ export const ja: Dictionary = {
         body: 'バックエンドや変換ファームを用意せずに製品へ CAD を組み込めます。モジュール型プラグインで UI、エクスポート、AI エージェントを一等拡張として組み合わせられます。',
         image: '/assets/features/integration.svg',
         imageAlt: 'ホストアプリが CAD コアとプラグインに接続',
+        actions: [
+          {
+            label: 'iframe プラグイン案内',
+            href: '/iframe-plugin.html',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'html-export',
@@ -334,4 +350,5 @@ export const ja: Dictionary = {
     rights: '© 2026 MLightCAD',
   },
   parser: parserJa,
+  iframePlugin: iframePluginJa,
 }

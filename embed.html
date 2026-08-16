@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MLightCAD Embed Viewer</title>
+    <meta name="description" content="Embeddable DWG/DXF viewer for iframes." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body class="embed-page">
+    <div class="embed" data-embed>
+      <div class="embed__host" data-embed-host>
+        <div class="embed__canvas" data-embed-container></div>
+      </div>
+      <div class="embed__panel embed__panel--idle" data-embed-idle hidden>
+        <p class="embed__title" data-embed-idle-title>Waiting for a drawing</p>
+        <p class="embed__body" data-embed-idle-body>
+          Pass a public DWG/DXF URL with the <code>url</code> query parameter.
+        </p>
+      </div>
+      <div class="embed__panel embed__panel--error" data-embed-error hidden>
+        <p class="embed__title" data-embed-error-title>Could not open drawing</p>
+        <p class="embed__body" data-embed-error-msg></p>
+      </div>
+    </div>
+    <script type="module" src="/src/embed-page.ts"></script>
+  </body>
+</html>

@@ -1,5 +1,6 @@
-import type { Dictionary } from './types'
+import { iframePluginPt } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import type { Dictionary } from './types'
 
 const parserPt: ParserCopy = {
   metaTitle: 'Parser DWG proprietário — MLightCAD',
@@ -161,6 +162,7 @@ export const pt: Dictionary = {
     product: 'Produto',
     cadViewer: 'cad-viewer',
     dwgParser: 'Parser DWG',
+    iframePlugin: 'Plugin iframe',
     features: 'Recursos',
     plugins: 'Plugins',
     docs: 'Documentação',
@@ -225,6 +227,13 @@ export const pt: Dictionary = {
         body: 'Desenhos são analisados e renderizados inteiramente no cliente. Nada é enviado, armazenado em staging ou espelhado em um host remoto — confidencialidade é uma garantia estrutural, não uma caixa de política.',
         image: '/assets/features/privacy.svg',
         imageAlt: 'Cadeado conceitual: desenhos permanecem no dispositivo local',
+        actions: [
+          {
+            label: 'Visão geral da arquitetura',
+            href: 'https://github.com/mlightcad/cad-viewer/wiki/architecture-overview',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'integration',
@@ -232,6 +241,13 @@ export const pt: Dictionary = {
         body: 'Integre CAD ao seu produto sem provisionar backends ou farms de conversão. Uma arquitetura modular de plugins permite compor UI, exportação e agentes de IA como extensões de primeira classe.',
         image: '/assets/features/integration.svg',
         imageAlt: 'Aplicativo host conectado ao núcleo CAD e plugins',
+        actions: [
+          {
+            label: 'Guia do plugin iframe',
+            href: '/iframe-plugin.html',
+            variant: 'primary',
+          },
+        ],
       },
       {
         id: 'html-export',
@@ -334,4 +350,5 @@ export const pt: Dictionary = {
     rights: '© 2026 MLightCAD',
   },
   parser: parserPt,
+  iframePlugin: iframePluginPt,
 }

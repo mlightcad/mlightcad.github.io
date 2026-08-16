@@ -45,7 +45,8 @@ function applyI18n(): void {
             ?.map((action) => {
               const variant = action.variant === 'ghost' ? 'btn--ghost' : 'btn--primary btn--glow'
               const download = action.download ? ` download="${action.download}"` : ''
-              const target = action.download ? '' : ' target="_blank" rel="noopener"'
+              const isExternal = /^https?:\/\//i.test(action.href)
+              const target = action.download || !isExternal ? '' : ' target="_blank" rel="noopener"'
               return `<a class="btn ${variant}" href="${action.href}"${target}${download}>${action.label}</a>`
             })
             .join('') ?? ''

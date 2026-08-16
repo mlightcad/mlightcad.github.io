@@ -1,3 +1,4 @@
+import type { IframePluginCopy } from './iframePlugin'
 import type { ParserCopy } from './parser'
 
 export type Locale = 'en' | 'zh' | 'ja' | 'ko' | 'es' | 'pt' | 'ru' | 'cs'
@@ -29,6 +30,7 @@ export interface Dictionary {
     product: string
     cadViewer: string
     dwgParser: string
+    iframePlugin: string
     features: string
     plugins: string
     docs: string
@@ -99,4 +101,5 @@ export interface Dictionary {
     rights: string
   }
   parser: ParserCopy
+  iframePlugin: IframePluginCopy
 }
