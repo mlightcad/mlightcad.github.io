@@ -8,7 +8,7 @@ import {
   AcApOpenViewMode,
   AcApSettingManager,
   AcEdOpenMode,
-  applyUiTheme,
+  acedApplyUiTheme,
   type AcApLocale,
   type AcApOpenDatabaseOptions,
   type AcEdUiTheme,
@@ -115,7 +115,7 @@ export async function ensureViewer(
 ): Promise<boolean> {
   if (initialized) {
     const theme = options.theme ?? 'dark'
-    applyUiTheme(theme, host)
+    acedApplyUiTheme(theme, host)
     if (options.lang) AcApI18n.setCurrentLocale(options.lang)
     if (options.toolbar != null || options.commandLine != null) {
       applyChromeVisibility(options.commandLine ?? false, options.toolbar ?? false)
@@ -128,7 +128,7 @@ export async function ensureViewer(
     const commandLine = options.commandLine ?? false
     const toolbar = options.toolbar ?? false
 
-    applyUiTheme(theme, host)
+    acedApplyUiTheme(theme, host)
     if (options.lang) AcApI18n.setCurrentLocale(options.lang)
 
     AcApSettingManager.instance.isShowCommandLine = commandLine
@@ -187,16 +187,47 @@ function openOptions(options: OpenDrawingOptions, fallbackMode: AcEdOpenMode): A
   }
 }
 
+/** Whether a file name looks like a DWG or DXF drawing. */
+export function isCadFileName(name: string): boolean {
+  const lower = name.trim().toLowerCase()
+  return lower.endsWith('.dwg') || lower.endsWith('.dxf')
+}
+
 /**
- * Derive a drawing file name from a remote URL path.
+ * Whether a remote URL (and optional file-name hint) refers to a DWG/DXF file.
+ *
+ * Checks the URL pathname, hash, nested `filename`/`name` query params, and
+ * an explicit hint so hosts like Google Drive media URLs can still open.
+ */
+export function isCadDrawingRef(url: string, fileNameHint?: string): boolean {
+  if (fileNameHint && isCadFileName(fileNameHint)) return true
+  try {
+    const parsed = new URL(url)
+    if (isCadFileName(parsed.pathname)) return true
+    const hashName = decodeURIComponent(parsed.hash.replace(/^#/, ''))
+    if (hashName && isCadFileName(hashName)) return true
+    const nested = parsed.searchParams.get('filename') ?? parsed.searchParams.get('name')
+    if (nested && isCadFileName(nested)) return true
+  } catch {
+    return false
+  }
+  return false
+}
+
+/**
+ * Derive a drawing file name from a remote URL.
  *
  * @param url - Absolute drawing URL.
- * @returns Last path segment, or `drawing.dwg` when parsing fails.
+ * @returns Best-effort `.dwg`/`.dxf` name, or `drawing.dwg`.
  */
 function fileNameFromUrl(url: string): string {
   try {
-    const path = new URL(url).pathname
-    const base = path.split('/').filter(Boolean).pop()
+    const parsed = new URL(url)
+    const nested = parsed.searchParams.get('filename') ?? parsed.searchParams.get('name')
+    if (nested && isCadFileName(nested)) return nested
+    const hashName = decodeURIComponent(parsed.hash.replace(/^#/, ''))
+    if (hashName && isCadFileName(hashName)) return hashName
+    const base = parsed.pathname.split('/').filter(Boolean).pop()
     if (base) return decodeURIComponent(base)
   } catch {
     /* ignore */
@@ -216,15 +247,36 @@ export async function openLocalDrawing(
 export async function openDrawingFromUrl(
   url: string,
   options: OpenDrawingOptions = {},
+  fileName?: string,
 ): Promise<boolean> {
   const response = await fetch(url)
   if (!response.ok) {
     throw new Error(`Failed to fetch drawing (${response.status})`)
   }
   const fileContent = await response.arrayBuffer()
-  const name = fileNameFromUrl(url)
+  const name = fileName && isCadFileName(fileName) ? fileName : fileNameFromUrl(url)
   return AcApDocManager.instance.openDocument(
     name,
+    fileContent,
+    openOptions(options, AcEdOpenMode.Review),
+  )
+}
+
+/**
+ * Open a drawing already fetched by the host page (for example Google Drive).
+ *
+ * @param fileName - Original file name; must end with `.dwg` or `.dxf`.
+ * @param fileContent - Drawing bytes.
+ * @param options - Open-document options.
+ * @returns Whether `openDocument` succeeded.
+ */
+export async function openDrawingFromBuffer(
+  fileName: string,
+  fileContent: ArrayBuffer,
+  options: OpenDrawingOptions = {},
+): Promise<boolean> {
+  return AcApDocManager.instance.openDocument(
+    fileName,
     fileContent,
     openOptions(options, AcEdOpenMode.Review),
   )

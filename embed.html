@@ -12,12 +12,15 @@
   <body class="embed-page">
     <div class="embed" data-embed>
       <div class="embed__host" data-embed-host>
-        <div class="embed__canvas" data-embed-container></div>
+        <section class="embed__canvas-area" aria-label="Drawing canvas">
+          <div class="embed__canvas" data-embed-container></div>
+        </section>
       </div>
       <div class="embed__panel embed__panel--idle" data-embed-idle hidden>
         <p class="embed__title" data-embed-idle-title>Waiting for a drawing</p>
         <p class="embed__body" data-embed-idle-body>
-          Pass a public DWG/DXF URL with the <code>url</code> query parameter.
+          Pass a public DWG/DXF URL with the <code>url</code> query parameter,
+          or <code>postMessage</code> the file from the parent page.
         </p>
       </div>
       <div class="embed__panel embed__panel--error" data-embed-error hidden>
