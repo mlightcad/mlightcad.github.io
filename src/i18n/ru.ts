@@ -89,7 +89,7 @@ const parserRu: ParserCopy = {
     submit: 'Отправить заявку',
     submitting: 'Отправка…',
     success: 'Заявка отправлена. Мы рассмотрим её и ответим по электронной почте.',
-    error: 'Не удалось отправить заявку. Попробуйте снова или напишите на mlight.lee@outlook.com.',
+    error: 'Не удалось отправить заявку. Попробуйте снова или напишите на support@mlightcad.com.',
     requiredHint: 'Обязательные поля отмечены *',
   },
   integrationTitle: 'Интеграция',

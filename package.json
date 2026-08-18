@@ -21,8 +21,8 @@
     "@fontsource/ibm-plex-sans": "^5.3.0",
     "@fontsource/syne": "^5.3.0",
     "@mlight-cad/dwg-converter": "^1.13.0",
-    "@mlightcad/cad-simple-ui-plugin": "^1.6.0",
-    "@mlightcad/cad-simple-viewer": "^1.6.0",
+    "@mlightcad/cad-simple-ui-plugin": "^1.6.1",
+    "@mlightcad/cad-simple-viewer": "^1.6.1",
     "@mlightcad/data-model": "^1.13.0",
     "@supabase/supabase-js": "^2.111.0",
     "three": "^0.172.0"

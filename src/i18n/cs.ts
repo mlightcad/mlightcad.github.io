@@ -89,7 +89,7 @@ const parserCs: ParserCopy = {
     submit: 'Odeslat žádost',
     submitting: 'Odesílání…',
     success: 'Žádost odeslána. Posoudíme ji a odpovíme e-mailem.',
-    error: 'Žádost se nepodařilo odeslat. Zkuste to znovu nebo napište na mlight.lee@outlook.com.',
+    error: 'Žádost se nepodařilo odeslat. Zkuste to znovu nebo napište na support@mlightcad.com.',
     requiredHint: 'Povinná pole jsou označena *',
   },
   integrationTitle: 'Integrace',

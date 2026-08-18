@@ -89,7 +89,7 @@ const parserKo: ParserCopy = {
     submit: '신청 제출',
     submitting: '제출 중…',
     success: '신청이 접수되었습니다. 검토 후 이메일로 회신합니다.',
-    error: '제출할 수 없습니다. 다시 시도하거나 mlight.lee@outlook.com으로 메일을 보내 주세요.',
+    error: '제출할 수 없습니다. 다시 시도하거나 support@mlightcad.com으로 메일을 보내 주세요.',
     requiredHint: '* 표시는 필수 항목입니다',
   },
   integrationTitle: '통합',

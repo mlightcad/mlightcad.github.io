@@ -89,7 +89,7 @@ const parserEs: ParserCopy = {
     submit: 'Enviar solicitud',
     submitting: 'Enviando…',
     success: 'Solicitud enviada. La revisaremos y responderemos por correo electrónico.',
-    error: 'No se pudo enviar la solicitud. Inténtelo de nuevo o escriba a mlight.lee@outlook.com.',
+    error: 'No se pudo enviar la solicitud. Inténtelo de nuevo o escriba a support@mlightcad.com.',
     requiredHint: 'Los campos obligatorios están marcados con *',
   },
   integrationTitle: 'Integración',

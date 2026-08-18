@@ -89,7 +89,7 @@ const parserJa: ParserCopy = {
     submit: '申請を送信',
     submitting: '送信中…',
     success: '申請を受け付けました。審査後、メールでご連絡します。',
-    error: '送信できませんでした。再試行するか mlight.lee@outlook.com へメールしてください。',
+    error: '送信できませんでした。再試行するか support@mlightcad.com へメールしてください。',
     requiredHint: '* は必須項目です',
   },
   integrationTitle: '統合',
