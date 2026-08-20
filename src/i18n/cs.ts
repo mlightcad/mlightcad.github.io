@@ -159,10 +159,12 @@ export const cs: Dictionary = {
       'MLightCAD, cad-viewer, prohlížeč DWG, prohlížeč DXF, CAD v prohlížeči, WebGL CAD, open source CAD, editor DWG, editor DXF, zero backend',
   },
   nav: {
-    product: 'Produkt',
+    product: 'Produkty',
     cadViewer: 'cad-viewer',
     dwgParser: 'Parser DWG',
+    integration: 'Integrace',
     iframePlugin: 'iframe plugin',
+    googleDrive: 'Integrace Google Drive',
     features: 'Funkce',
     plugins: 'Pluginy',
     docs: 'Dokumentace',
