@@ -49,7 +49,9 @@ export interface Dictionary {
     product: string
     cadViewer: string
     dwgParser: string
+    integration: string
     iframePlugin: string
+    googleDrive: string
     features: string
     plugins: string
     docs: string
