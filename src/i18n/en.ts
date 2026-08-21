@@ -46,8 +46,6 @@ export const en: Dictionary = {
       'The first DWG/DXF viewer and editor that runs completely in the browser with zero backend services.',
       'The first open-source toolkit for real DXF/DWG editing on the web — not a read-only preview.',
     ],
-    ctaDemo: 'Full demo',
-    ctaDocs: 'API Docs',
   },
   tryDrawing: {
     barIdle: 'try your drawing',
@@ -106,19 +104,18 @@ export const en: Dictionary = {
       {
         id: 'html-export',
         title: 'One-file offline HTML export',
-        body: 'Turn a live drawing into a self-contained .html artifact with an embedded viewer — pan, zoom, extents, layers, distance measure, and EN/ZH UI. Recipients open it in any modern browser: no install, no cad-viewer instance, no server. In view mode the offline HTML uses about 83% less memory than AutoCAD 2020 on the same sample drawing, while still supporting pan, zoom, layers, and measure.',
+        body: 'Turn a live drawing into a self-contained .html artifact with an embedded viewer — pan, zoom, extents, layers, distance measure, and UI in English, Chinese, Turkish, and Czech. Recipients open it in any modern browser: no install, no cad-viewer instance, no server. In view mode the offline HTML uses about 83% less memory than AutoCAD 2020 on the same sample drawing, while still supporting pan, zoom, layers, and measure.',
         image: '/assets/features/html-export.svg',
         imageAlt: 'DWG transforming into a portable HTML file',
         actions: [
           {
-            label: 'Open demo HTML',
-            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            label: 'Convert to HTML',
+            href: '/cad-viewer/cad-simple-viewer/html-converter.html',
             variant: 'primary',
           },
           {
-            label: 'Down demo HTML',
+            label: 'Open demo HTML',
             href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-            download: 'canteen.html',
             variant: 'ghost',
           },
         ],

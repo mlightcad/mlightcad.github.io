@@ -194,8 +194,6 @@ export const ko: Dictionary = {
       '백엔드 서비스 없이 브라우저에서 완전히 동작하는 최초의 DWG/DXF 뷰어 겸 에디터.',
       '웹에서 실제 DXF/DWG 편집을 위한 최초의 오픈소스 툴킷 — 읽기 전용 미리보기가 아닙니다.',
     ],
-    ctaDemo: '전체 데모',
-    ctaDocs: 'API 문서',
   },
   tryDrawing: {
     barIdle: '도면 직접 열어보기',
@@ -254,19 +252,18 @@ export const ko: Dictionary = {
       {
         id: 'html-export',
         title: '단일 파일 오프라인 HTML 내보내기',
-        body: '라이브 도면을 임베디드 뷰어가 있는 자체 완결 .html로 — 팬, 줌, 범위, 레이어, 거리 측정, 다국어 UI. 수신자는 최신 브라우저에서 엽니다. 설치·cad-viewer 인스턴스·서버 불필요. 동일 샘플 도면에서 보기 모드 오프라인 HTML은 AutoCAD 2020보다 약 83% 적은 메모리로 팬, 줌, 레이어, 측정을 지원합니다.',
+        body: '라이브 도면을 임베디드 뷰어가 있는 자체 완결 .html로 — 팬, 줌, 범위, 레이어, 거리 측정, 영어·중국어·터키어·체코어 UI. 수신자는 최신 브라우저에서 엽니다. 설치·cad-viewer 인스턴스·서버 불필요. 동일 샘플 도면에서 보기 모드 오프라인 HTML은 AutoCAD 2020보다 약 83% 적은 메모리로 팬, 줌, 레이어, 측정을 지원합니다.',
         image: '/assets/features/html-export.svg',
         imageAlt: 'DWG가 휴대용 HTML 파일로 변환',
         actions: [
           {
-            label: '데모 HTML 열기',
-            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            label: '도면 변환',
+            href: '/cad-viewer/cad-simple-viewer/html-converter.html',
             variant: 'primary',
           },
           {
-            label: '데모 HTML 다운로드',
+            label: '데모 HTML 열기',
             href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-            download: 'canteen.html',
             variant: 'ghost',
           },
         ],

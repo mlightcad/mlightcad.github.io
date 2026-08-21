@@ -45,8 +45,6 @@ export const zh: Dictionary = {
       '首个完全不依赖任何后端服务、可在浏览器中完整运行的 DWG/DXF 查看器与编辑器。',
       '首个面向 Web 的开源 DXF/DWG 真正编辑工具包 — 不是只读预览。',
     ],
-    ctaDemo: '完整演示',
-    ctaDocs: 'API 文档',
   },
   tryDrawing: {
     barIdle: '试用你的图纸',
@@ -105,19 +103,18 @@ export const zh: Dictionary = {
       {
         id: 'html-export',
         title: '单文件离线 HTML 导出',
-        body: '将当前图纸导出为自包含 .html：内嵌轻量查看器，支持平移、缩放、范围、图层、测距与中英文界面。任意现代浏览器离线打开 — 无需安装、无需 cad-viewer 实例、无需服务器。同一张样例图纸上，查看模式离线 HTML 的内存占用约为 AutoCAD 2020 的约 17%，仍支持平移、缩放、图层与测距。',
+        body: '将当前图纸导出为自包含 .html：内嵌轻量查看器，支持平移、缩放、范围、图层、测距，以及英、中、土耳其、捷克四种界面语言。任意现代浏览器离线打开 — 无需安装、无需 cad-viewer 实例、无需服务器。同一张样例图纸上，查看模式离线 HTML 的内存占用约为 AutoCAD 2020 的约 17%，仍支持平移、缩放、图层与测距。',
         image: '/assets/features/html-export.svg',
         imageAlt: 'DWG 转化为可移植 HTML 文件',
         actions: [
           {
-            label: '打开演示 HTML',
-            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            label: '转换图纸',
+            href: '/cad-viewer/cad-simple-viewer/html-converter.html',
             variant: 'primary',
           },
           {
-            label: '下载 canteen.html',
+            label: '打开演示 HTML',
             href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-            download: 'canteen.html',
             variant: 'ghost',
           },
         ],

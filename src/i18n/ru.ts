@@ -194,8 +194,6 @@ export const ru: Dictionary = {
       'Первый просмотрщик и редактор DWG/DXF, полностью работающий в браузере без backend-сервисов.',
       'Первый open source набор инструментов для реального редактирования DXF/DWG в вебе — не read-only превью.',
     ],
-    ctaDemo: 'Полное демо',
-    ctaDocs: 'Документация API',
   },
   tryDrawing: {
     barIdle: 'откройте свой чертёж',
@@ -254,19 +252,18 @@ export const ru: Dictionary = {
       {
         id: 'html-export',
         title: 'Офлайн HTML-экспорт в одном файле',
-        body: 'Превратите живой чертёж в самодостаточный .html с встроенным просмотрщиком — pan, zoom, extents, слои, измерение расстояний и UI EN/ZH. Получатели открывают в любом современном браузере: без установки, без экземпляра cad-viewer, без сервера. В режиме просмотра офлайн HTML использует примерно на 83% меньше памяти, чем AutoCAD 2020 на том же образце чертежа, сохраняя pan, zoom, слои и измерение.',
+        body: 'Превратите живой чертёж в самодостаточный .html с встроенным просмотрщиком — pan, zoom, extents, слои, измерение расстояний и интерфейсом на английском, китайском, турецком и чешском. Получатели открывают в любом современном браузере: без установки, без экземпляра cad-viewer, без сервера. В режиме просмотра офлайн HTML использует примерно на 83% меньше памяти, чем AutoCAD 2020 на том же образце чертежа, сохраняя pan, zoom, слои и измерение.',
         image: '/assets/features/html-export.svg',
         imageAlt: 'DWG, превращающийся в переносимый HTML-файл',
         actions: [
           {
-            label: 'Открыть demo HTML',
-            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            label: 'Конвертировать в HTML',
+            href: '/cad-viewer/cad-simple-viewer/html-converter.html',
             variant: 'primary',
           },
           {
-            label: 'Скачать demo HTML',
+            label: 'Открыть demo HTML',
             href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-            download: 'canteen.html',
             variant: 'ghost',
           },
         ],

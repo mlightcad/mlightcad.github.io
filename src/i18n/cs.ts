@@ -194,8 +194,6 @@ export const cs: Dictionary = {
       'První prohlížeč a editor DWG/DXF, který běží kompletně v prohlížeči s nulovými backend službami.',
       'První open source toolkit pro skutečnou editaci DXF/DWG na webu — ne read-only náhled.',
     ],
-    ctaDemo: 'Plné demo',
-    ctaDocs: 'Dokumentace API',
   },
   tryDrawing: {
     barIdle: 'vyzkoušejte svůj výkres',
@@ -254,19 +252,18 @@ export const cs: Dictionary = {
       {
         id: 'html-export',
         title: 'Offline HTML export v jednom souboru',
-        body: 'Převeďte živý výkres na samostatný .html artefakt s vestavěným prohlížečem — pan, zoom, extents, vrstvy, měření vzdálenosti a UI EN/ZH. Příjemci otevřou v jakémkoli moderním prohlížeči: bez instalace, bez instance cad-viewer, bez serveru. V režimu prohlížení offline HTML spotřebuje přibližně o 83 % méně paměti než AutoCAD 2020 na stejném vzorovém výkresu, přičemž stále podporuje pan, zoom, vrstvy a měření.',
+        body: 'Převeďte živý výkres na samostatný .html artefakt s vestavěným prohlížečem — pan, zoom, extents, vrstvy, měření vzdálenosti a rozhraním v angličtině, čínštině, turečtině a češtině. Příjemci otevřou v jakémkoli moderním prohlížeči: bez instalace, bez instance cad-viewer, bez serveru. V režimu prohlížení offline HTML spotřebuje přibližně o 83 % méně paměti než AutoCAD 2020 na stejném vzorovém výkresu, přičemž stále podporuje pan, zoom, vrstvy a měření.',
         image: '/assets/features/html-export.svg',
         imageAlt: 'DWG se mění v přenositelný HTML soubor',
         actions: [
           {
-            label: 'Otevřít demo HTML',
-            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            label: 'Převést do HTML',
+            href: '/cad-viewer/cad-simple-viewer/html-converter.html',
             variant: 'primary',
           },
           {
-            label: 'Stáhnout demo HTML',
+            label: 'Otevřít demo HTML',
             href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-            download: 'canteen.html',
             variant: 'ghost',
           },
         ],

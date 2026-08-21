@@ -76,8 +76,6 @@ export interface Dictionary {
     lead: string
     firstsLabel: string
     firsts: string[]
-    ctaDemo: string
-    ctaDocs: string
   }
   /** In-browser “try your drawing” widget copy. */
   tryDrawing: {
