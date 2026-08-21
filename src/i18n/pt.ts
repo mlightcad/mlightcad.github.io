@@ -194,8 +194,6 @@ export const pt: Dictionary = {
       'O primeiro visualizador e editor DWG/DXF que roda completamente no navegador com zero serviços backend.',
       'O primeiro toolkit open source para edição real de DXF/DWG na web — não uma prévia somente leitura.',
     ],
-    ctaDemo: 'Demo completa',
-    ctaDocs: 'Documentação da API',
   },
   tryDrawing: {
     barIdle: 'teste o seu desenho',
@@ -254,19 +252,18 @@ export const pt: Dictionary = {
       {
         id: 'html-export',
         title: 'Exportação HTML offline em um único arquivo',
-        body: 'Transforme um desenho ao vivo em um artefato .html autocontido com visualizador embutido — pan, zoom, extensões, camadas, medição de distância e UI EN/ZH. Destinatários abrem em qualquer navegador moderno: sem instalação, sem instância cad-viewer, sem servidor. No modo visualização, o HTML offline usa cerca de 83% menos memória que o AutoCAD 2020 no mesmo desenho de amostra, mantendo pan, zoom, camadas e medição.',
+        body: 'Transforme um desenho ao vivo em um artefato .html autocontido com visualizador embutido — pan, zoom, extensões, camadas, medição de distância e UI em inglês, chinês, turco e tcheco. Destinatários abrem em qualquer navegador moderno: sem instalação, sem instância cad-viewer, sem servidor. No modo visualização, o HTML offline usa cerca de 83% menos memória que o AutoCAD 2020 no mesmo desenho de amostra, mantendo pan, zoom, camadas e medição.',
         image: '/assets/features/html-export.svg',
         imageAlt: 'DWG transformando-se em arquivo HTML portátil',
         actions: [
           {
-            label: 'Abrir HTML de demo',
-            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            label: 'Converter para HTML',
+            href: '/cad-viewer/cad-simple-viewer/html-converter.html',
             variant: 'primary',
           },
           {
-            label: 'Baixar HTML de demo',
+            label: 'Abrir HTML de demo',
             href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-            download: 'canteen.html',
             variant: 'ghost',
           },
         ],

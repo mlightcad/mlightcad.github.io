@@ -33,8 +33,6 @@ interface TryDrawingElements {
   canvasHost: HTMLElement
   /** Hidden file input. */
   input: HTMLInputElement
-  /** Open-file button. */
-  openBtn: HTMLButtonElement
   /** Retry button shown after an error. */
   retryBtn: HTMLButtonElement
   /** Fullscreen toggle. */
@@ -97,7 +95,6 @@ export function setupTryDrawing(): void {
     viewer: chrome.querySelector('[data-try-drawing-viewer]')!,
     canvasHost: chrome.querySelector('[data-try-drawing-container]')!,
     input: chrome.querySelector('[data-try-drawing-input]')!,
-    openBtn: chrome.querySelector('[data-try-drawing-open]')!,
     retryBtn: chrome.querySelector('[data-try-drawing-retry]')!,
     fullscreenBtn: chrome.querySelector('[data-try-drawing-fullscreen]')!,
     closeBtn: chrome.querySelector('[data-try-drawing-close]')!,
@@ -316,9 +313,11 @@ export function setupTryDrawing(): void {
     }
   }
 
-  els.openBtn.addEventListener('click', (e) => {
-    e.stopPropagation()
-    openPicker()
+  document.querySelectorAll<HTMLButtonElement>('[data-try-drawing-open]').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation()
+      openPicker()
+    })
   })
 
   els.retryBtn.addEventListener('click', () => {

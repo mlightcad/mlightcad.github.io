@@ -194,8 +194,6 @@ export const ja: Dictionary = {
       'バックエンドサービスゼロでブラウザ内完結する初の DWG/DXF ビューア兼エディター。',
       'Web 上での本格的な DXF/DWG 編集向け初のオープンソースツールキット — 読み取り専用プレビューではない。',
     ],
-    ctaDemo: 'フルデモ',
-    ctaDocs: 'API ドキュメント',
   },
   tryDrawing: {
     barIdle: '図面を試す',
@@ -254,19 +252,18 @@ export const ja: Dictionary = {
       {
         id: 'html-export',
         title: '単一ファイルのオフライン HTML エクスポート',
-        body: 'ライブ図面を埋め込みビューア付きの自己完結 .html に — パン、ズーム、範囲、レイヤー、距離計測、多言語 UI。受け手は任意のモダンブラウザで開けます。インストール不要、cad-viewer インスタンス不要、サーバー不要。同一サンプル図面で、閲覧モードのオフライン HTML は AutoCAD 2020 より約 83% 少ないメモリでパン、ズーム、レイヤー、計測をサポートします。',
+        body: 'ライブ図面を埋め込みビューア付きの自己完結 .html に — パン、ズーム、範囲、レイヤー、距離計測、英語・中国語・トルコ語・チェコ語の UI。受け手は任意のモダンブラウザで開けます。インストール不要、cad-viewer インスタンス不要、サーバー不要。同一サンプル図面で、閲覧モードのオフライン HTML は AutoCAD 2020 より約 83% 少ないメモリでパン、ズーム、レイヤー、計測をサポートします。',
         image: '/assets/features/html-export.svg',
         imageAlt: 'DWG が可搬 HTML ファイルへ変換される様子',
         actions: [
           {
-            label: 'デモ HTML を開く',
-            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            label: '図面を変換',
+            href: '/cad-viewer/cad-simple-viewer/html-converter.html',
             variant: 'primary',
           },
           {
-            label: 'デモ HTML をダウンロード',
+            label: 'デモ HTML を開く',
             href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-            download: 'canteen.html',
             variant: 'ghost',
           },
         ],

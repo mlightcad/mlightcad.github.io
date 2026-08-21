@@ -194,8 +194,6 @@ export const es: Dictionary = {
       'El primer visor y editor DWG/DXF que funciona completamente en el navegador con cero servicios backend.',
       'El primer toolkit open source para edición real de DXF/DWG en la web — no una vista previa de solo lectura.',
     ],
-    ctaDemo: 'Demo completa',
-    ctaDocs: 'Documentación de la API',
   },
   tryDrawing: {
     barIdle: 'prueba tu dibujo',
@@ -254,19 +252,18 @@ export const es: Dictionary = {
       {
         id: 'html-export',
         title: 'Exportación HTML offline en un solo archivo',
-        body: 'Convierta un plano en vivo en un artefacto .html autocontenido con visor integrado — pan, zoom, extensiones, capas, medición de distancia e interfaz EN/ZH. Los destinatarios lo abren en cualquier navegador moderno: sin instalación, sin instancia de cad-viewer, sin servidor. En modo vista, el HTML offline usa aproximadamente un 83 % menos de memoria que AutoCAD 2020 con el mismo plano de muestra, manteniendo pan, zoom, capas y medición.',
+        body: 'Convierta un plano en vivo en un artefacto .html autocontenido con visor integrado — pan, zoom, extensiones, capas, medición de distancia e interfaz en inglés, chino, turco y checo. Los destinatarios lo abren en cualquier navegador moderno: sin instalación, sin instancia de cad-viewer, sin servidor. En modo vista, el HTML offline usa aproximadamente un 83 % menos de memoria que AutoCAD 2020 con el mismo plano de muestra, manteniendo pan, zoom, capas y medición.',
         image: '/assets/features/html-export.svg',
         imageAlt: 'DWG transformándose en un archivo HTML portable',
         actions: [
           {
-            label: 'Abrir HTML de demo',
-            href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
+            label: 'Convertir a HTML',
+            href: '/cad-viewer/cad-simple-viewer/html-converter.html',
             variant: 'primary',
           },
           {
-            label: 'Descargar HTML de demo',
+            label: 'Abrir HTML de demo',
             href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-            download: 'canteen.html',
             variant: 'ghost',
           },
         ],
