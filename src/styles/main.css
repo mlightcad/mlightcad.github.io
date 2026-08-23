@@ -1774,6 +1774,41 @@ html.try-drawing-fullscreen #bg-canvas {
   max-width: 72ch;
 }
 
+.parser-hero .hero__grid {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.parser-hero .hero__copy {
+  min-width: 0;
+}
+
+.parser-hero .hero__visual {
+  margin: 0;
+}
+
+.parser-hero .hero__visual img {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+@media (min-width: 900px) {
+  .parser-hero .hero__grid {
+    grid-template-columns: 1fr min(42%, 420px);
+    gap: var(--space-5);
+  }
+
+  .parser-hero .hero__copy .section__lead {
+    max-width: none;
+  }
+}
+
+body.is-ready .parser-hero .hero__visual.hero-enter {
+  animation-delay: 0.38s;
+}
+
 .parser-body {
   padding-bottom: var(--space-7);
   display: grid;
