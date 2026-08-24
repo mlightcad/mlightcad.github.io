@@ -1,6 +1,12 @@
 import './styles/main.css'
 import { scrambleText, setupPageFX } from './fx'
 import { t } from './i18n'
+import {
+  fetchLocalizedPrices,
+  isPaddleConfigured,
+  openCheckout,
+  type PaddleProduct,
+} from './paddle'
 import { applyPageMeta } from './seo'
 import { mountShell } from './shell'
 import {
@@ -11,7 +17,6 @@ import {
   setupNav,
   setupWebGL,
 } from './shared'
-import { bindTrialTriggers, ensureTrialDialog } from './trial-license'
 
 /**
  * Render a simple unordered list.
@@ -61,6 +66,82 @@ function sectionShell(
   ].join('\n')
 }
 
+/**
+ * Show a top-of-viewport toast when returning from Paddle checkout.
+ * Auto-dismisses after ~8s and strips the success query from the URL.
+ */
+function showPurchaseToast(message: string, closeLabel: string): void {
+  const params = new URLSearchParams(window.location.search)
+  if (params.get('purchase') !== 'success') return
+
+  params.delete('purchase')
+  params.delete('product')
+  const clean = `${window.location.pathname}${params.toString() ? `?${params}` : ''}${window.location.hash}`
+  window.history.replaceState({}, '', clean)
+
+  document.querySelector('.purchase-toast')?.remove()
+
+  const toast = document.createElement('div')
+  toast.className = 'purchase-toast'
+  toast.setAttribute('role', 'status')
+
+  const text = document.createElement('p')
+  text.className = 'purchase-toast__text'
+  text.textContent = message
+
+  const closeBtn = document.createElement('button')
+  closeBtn.type = 'button'
+  closeBtn.className = 'purchase-toast__close'
+  closeBtn.setAttribute('aria-label', closeLabel)
+  closeBtn.innerHTML = '<span aria-hidden="true">×</span>'
+
+  toast.append(text, closeBtn)
+  document.body.appendChild(toast)
+
+  let hideTimer = 0
+  let removeTimer = 0
+  const dismiss = () => {
+    window.clearTimeout(hideTimer)
+    window.clearTimeout(removeTimer)
+    toast.classList.remove('purchase-toast--visible')
+    removeTimer = window.setTimeout(() => toast.remove(), 350)
+  }
+
+  closeBtn.addEventListener('click', dismiss)
+
+  // Enter animation on next frame so the transition runs.
+  requestAnimationFrame(() => {
+    toast.classList.add('purchase-toast--visible')
+  })
+
+  hideTimer = window.setTimeout(dismiss, 8000)
+}
+
+/** Wire Buy buttons and refresh localized Paddle prices. */
+function bindPricingActions(): void {
+  document.querySelectorAll<HTMLButtonElement>('[data-paddle-buy]').forEach((btn) => {
+    if (btn.dataset.paddleBound === '1') return
+    btn.dataset.paddleBound = '1'
+    btn.addEventListener('click', () => {
+      const product = btn.dataset.paddleBuy as PaddleProduct | undefined
+      if (product !== 'perpetual' && product !== 'annual') return
+      void openCheckout(product)
+    })
+  })
+
+  if (!isPaddleConfigured()) return
+
+  void fetchLocalizedPrices().then((prices) => {
+    ;( ['perpetual', 'annual'] as const).forEach((key) => {
+      const formatted = prices[key]
+      if (!formatted) return
+      document.querySelectorAll<HTMLElement>(`[data-price-key="${key}"]`).forEach((el) => {
+        el.textContent = formatted
+      })
+    })
+  })
+}
+
 /** Render parser-page sections from the active locale dictionary. */
 function renderParserBody(): void {
   const root = document.querySelector('[data-parser-body]')
@@ -71,7 +152,10 @@ function renderParserBody(): void {
     .map((row) => `<tr><th>${row.label}</th><td>${row.value}</td></tr>`)
     .join('')
   const pricingRows = p.pricingRows
-    .map((row) => `<tr><td>${row.item}</td><td>${row.amount}</td></tr>`)
+    .map((row) => {
+      const amountAttrs = row.priceKey ? ` data-price-key="${row.priceKey}"` : ''
+      return `<tr><td>${row.item}</td><td${amountAttrs}>${row.amount}</td></tr>`
+    })
     .join('')
   const supportRows = p.supportRows
     .map((row) => `<tr><th>${row.area}</th><td>${row.detail}</td></tr>`)
@@ -94,6 +178,14 @@ function renderParserBody(): void {
         `<li><a href="${link.href}" target="_blank" rel="noopener"><strong>${link.name}</strong><span>${link.desc}</span></a></li>`,
     )
     .join('')
+
+  const buyDisabled = isPaddleConfigured() ? '' : ' disabled'
+  const buyCtAs = [
+    `<p class="doc-cta doc-cta--row">`,
+    `  <button type="button" class="btn btn--primary btn--glow" data-paddle-buy="perpetual"${buyDisabled}>${p.buyPerpetualCta}</button>`,
+    `  <button type="button" class="btn btn--ghost" data-paddle-buy="annual"${buyDisabled}>${p.buyAnnualCta}</button>`,
+    `</p>`,
+  ].join('\n')
 
   root.innerHTML = [
     sectionShell(
@@ -125,6 +217,7 @@ function renderParserBody(): void {
         `<h3>${p.pricingTitle}</h3>`,
         table('doc-table--pricing', pricingRows),
         `<p class="doc-note">${p.pricingNote}</p>`,
+        buyCtAs,
       ].join('\n'),
     ),
     sectionShell(
@@ -137,7 +230,8 @@ function renderParserBody(): void {
         `<p>${p.trialLead}</p>`,
         listHtml(p.trialSteps),
         `<p class="doc-note">${p.trialNote}</p>`,
-        `<p class="doc-cta"><button type="button" class="btn btn--primary btn--glow" data-trial-open>${p.trialCta}</button></p>`,
+        // Mailto for now; restore ensureTrialDialog + bindTrialTriggers from ./trial-license later.
+        `<p class="doc-cta"><a class="btn btn--primary btn--glow" href="${p.contactHref}">${p.trialCta}</a></p>`,
       ].join('\n'),
     ),
     sectionShell(
@@ -173,9 +267,12 @@ function renderParserBody(): void {
       [`<h2>${p.relatedTitle}</h2>`, `<ul class="related-list">${related}</ul>`].join('\n'),
     ),
   ].join('\n')
+
+  bindPricingActions()
+  showPurchaseToast(p.purchaseSuccess, p.trialForm.close)
 }
 
-/** Apply locale to meta tags, nav, parser body, and the trial dialog. */
+/** Apply locale to meta tags, nav, and parser body. */
 function applyI18n(): void {
   const dict = t(locale)
   applyPageMeta({
@@ -189,8 +286,6 @@ function applyI18n(): void {
 
   applyCommonI18n(dict)
   renderParserBody()
-  ensureTrialDialog(dict.parser.trialForm)
-  bindTrialTriggers()
 
   const scrambleEl = document.querySelector<HTMLElement>('[data-scramble]')
   window.setTimeout(() => scrambleText(scrambleEl, dict.parser.eyebrow), 450)

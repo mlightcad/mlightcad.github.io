@@ -1,3 +1,11 @@
+/**
+ * Trial-license application dialog + Supabase submit.
+ *
+ * Temporarily unused: the parser page CTA uses mailto instead.
+ * Keep this module (and the `trial_license_applications` migration) so the
+ * in-page form can be re-enabled without rewriting.
+ */
+
 import type { TrialFormCopy } from './i18n/parser'
 import { getSupabase, isSupabaseConfigured } from './supabase'
 
