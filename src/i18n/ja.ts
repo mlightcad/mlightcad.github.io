@@ -146,6 +146,7 @@ const parserJa: ParserCopy = {
   imageAlts: {
     scope: 'DWG がプロプライエタリ変換パッケージと data-model へ流れる概念図',
     license: '永久ライセンス印の商用パッケージ',
+    pricing: '永久買い切り価格と任意の年次アップグレードパッケージ',
     trial: '会社メールから GitHub 組織アクセスへのトライアル経路',
     integration: '共有マネージャーバスへの DWG コンバーター登録',
     support: 'バグ修正・アップグレード・メールサポートの盾',
@@ -355,6 +356,9 @@ export const ja: Dictionary = {
   },
   footer: {
     tagline: 'Web のためのオープンソース CAD インフラ。',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    refunds: 'Refund Policy',
     rights: '© 2026 MLightCAD',
   },
   parser: parserJa,

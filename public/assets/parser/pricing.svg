@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.4">
+    <path d="M0 80h640M0 160h640M0 240h640M0 320h640"/>
+    <path d="M120 0v400M240 0v400M400 0v400M520 0v400"/>
+  </g>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">SIMPLE PRICING</text>
+  <rect x="100" y="88" width="200" height="220" rx="4" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <text x="124" y="120" fill="#3DDCFF" font-family="monospace" font-size="11" letter-spacing="1">PERPETUAL</text>
+  <text x="124" y="168" fill="#E8EEF5" font-family="monospace" font-size="28" font-weight="700">$3,000</text>
+  <text x="124" y="192" fill="#8B9BB4" font-family="monospace" font-size="10">ONE-TIME</text>
+  <path d="M124 216h152" stroke="#4A5A70"/>
+  <text x="124" y="240" fill="#8B9BB4" font-family="monospace" font-size="10">YEAR 1 UPGRADES</text>
+  <text x="124" y="258" fill="#E8A54B" font-family="monospace" font-size="11">INCLUDED</text>
+  <text x="124" y="286" fill="#8B9BB4" font-family="monospace" font-size="10">NO PER-SEAT FEES</text>
+  <rect x="340" y="88" width="200" height="220" rx="4" stroke="#E8A54B" stroke-width="1.5" fill="#121821"/>
+  <text x="364" y="120" fill="#E8A54B" font-family="monospace" font-size="11" letter-spacing="1">ANNUAL</text>
+  <text x="364" y="168" fill="#E8EEF5" font-family="monospace" font-size="28" font-weight="700">$1,500</text>
+  <text x="364" y="192" fill="#8B9BB4" font-family="monospace" font-size="10">PER YEAR</text>
+  <path d="M364 216h152" stroke="#4A5A70"/>
+  <text x="364" y="240" fill="#8B9BB4" font-family="monospace" font-size="10">UPGRADE PACKAGES</text>
+  <text x="364" y="258" fill="#3DDCFF" font-family="monospace" font-size="11">AFTER YEAR 1</text>
+  <text x="364" y="286" fill="#8B9BB4" font-family="monospace" font-size="10">OPTIONAL RENEWAL</text>
+  <rect x="160" y="328" width="320" height="40" stroke="#4A5A70" fill="#0B0F14"/>
+  <text x="188" y="354" fill="#8B9BB4" font-family="monospace" font-size="11">NO ROYALTIES - NO USAGE CAPS</text>
+</svg>

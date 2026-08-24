@@ -207,6 +207,9 @@ export const zh: Dictionary = {
   },
   footer: {
     tagline: '面向 Web 的开源 CAD 基础设施。',
+    terms: '服务条款',
+    privacy: '隐私政策',
+    refunds: '退款政策',
     rights: '© 2026 MLightCAD',
   },
   parser: parserZh,

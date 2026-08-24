@@ -203,6 +203,9 @@ export const en: Dictionary = {
   },
   footer: {
     tagline: 'Open-source CAD infrastructure for the web.',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    refunds: 'Refund Policy',
     rights: '© 2026 MLightCAD',
   },
   parser: parserEn,

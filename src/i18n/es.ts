@@ -146,6 +146,7 @@ const parserEs: ParserCopy = {
   imageAlts: {
     scope: 'Archivo DWG fluyendo hacia el paquete convertidor propietario y data-model',
     license: 'Paquete comercial sellado con marca de licencia perpetua',
+    pricing: 'Precio único perpetuo y paquetes de actualización anuales opcionales',
     trial: 'Ruta de prueba desde el correo de la empresa hasta el acceso a la organización de GitHub',
     integration: 'Registro del convertidor DWG en el bus compartido del manager',
     support: 'Escudo que cubre corrección de errores, actualizaciones y soporte por correo',
@@ -355,6 +356,9 @@ export const es: Dictionary = {
   },
   footer: {
     tagline: 'Infraestructura CAD open source para la web.',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    refunds: 'Refund Policy',
     rights: '© 2026 MLightCAD',
   },
   parser: parserEs,

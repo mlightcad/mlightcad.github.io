@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service — MLightCAD</title>
+    <meta
+      name="description"
+      content="Terms of service for MLightCAD websites, open-source projects, and commercial software licenses sold through Paddle."
+    />
+    <meta name="author" content="MLightCAD" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="canonical" href="https://mlightcad.com/terms.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body data-legal="terms">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="fx-spot" data-spot aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--x" data-cross-x aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--y" data-cross-y aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+    <div class="site">
+      <div data-site-nav></div>
+
+      <main>
+        <section class="hero parser-hero shell">
+          <div class="hero__frame" data-tilt>
+            <div class="hero__corners" aria-hidden="true"></div>
+            <p class="hero__meta hero-enter" data-scramble data-legal-eyebrow>Legal</p>
+            <h1 class="section__title hero-enter" data-legal-title>Terms of Service</h1>
+            <p class="section__lead hero-enter doc-note" data-legal-updated>Last updated: August 24, 2026</p>
+          </div>
+        </section>
+        <article class="shell legal-body parser-body" data-legal-body></article>
+      </main>
+
+      <div data-site-footer></div>
+    </div>
+
+    <script type="module" src="/src/legal-page.ts"></script>
+  </body>
+</html>
