@@ -124,6 +124,9 @@ export interface Dictionary {
   /** Site footer copy. */
   footer: {
     tagline: string
+    terms: string
+    privacy: string
+    refunds: string
     rights: string
   }
   /** DWG parser product page copy. */

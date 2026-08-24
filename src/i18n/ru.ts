@@ -146,6 +146,7 @@ const parserRu: ParserCopy = {
   imageAlts: {
     scope: 'Файл DWG, поступающий в проприетарный пакет конвертера и data-model',
     license: 'Запечатанный коммерческий пакет с отметкой бессрочной лицензии',
+    pricing: 'Разовая цена бессрочной лицензии и опциональные годовые пакеты обновлений',
     trial: 'Путь пробной лицензии от корпоративной почты до доступа к организации GitHub',
     integration: 'Регистрация конвертера DWG на общей шине manager',
     support: 'Щит, покрывающий исправление ошибок, обновления и поддержку по почте',
@@ -355,6 +356,9 @@ export const ru: Dictionary = {
   },
   footer: {
     tagline: 'Open source CAD-инфраструктура для веба.',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    refunds: 'Refund Policy',
     rights: '© 2026 MLightCAD',
   },
   parser: parserRu,

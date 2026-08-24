@@ -146,6 +146,7 @@ const parserKo: ParserCopy = {
   imageAlts: {
     scope: 'DWG가 상용 컨버터 패키지와 data-model로 흐르는 개념도',
     license: '영구 라이선스 표시가 있는 상용 패키지',
+    pricing: '영구 일회성 가격과 선택적 연간 업그레이드 패키지',
     trial: '회사 이메일에서 GitHub 조직 접근까지의 체험 경로',
     integration: '공유 매니저 버스에 DWG 컨버터 등록',
     support: '버그 수정, 업그레이드, 이메일 지원을 덮는 방패',
@@ -355,6 +356,9 @@ export const ko: Dictionary = {
   },
   footer: {
     tagline: '웹을 위한 오픈소스 CAD 인프라.',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    refunds: 'Refund Policy',
     rights: '© 2026 MLightCAD',
   },
   parser: parserKo,

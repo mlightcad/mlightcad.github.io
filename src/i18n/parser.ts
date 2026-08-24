@@ -97,6 +97,7 @@ export interface ParserCopy {
   imageAlts: {
     scope: string
     license: string
+    pricing: string
     trial: string
     integration: string
     support: string
@@ -257,6 +258,7 @@ export const parserEn: ParserCopy = {
   imageAlts: {
     scope: 'DWG file flowing into the proprietary converter package and data-model',
     license: 'Sealed commercial package with perpetual license mark',
+    pricing: 'Perpetual one-time price and optional annual upgrade packages',
     trial: 'Trial path from company email to GitHub org access',
     integration: 'Registering the DWG converter on the shared manager bus',
     support: 'Shield covering bug fixes, upgrades, and email support',
@@ -409,6 +411,7 @@ export const parserZh: ParserCopy = {
   imageAlts: {
     scope: 'DWG 文件进入专有转换包并输出到 data-model',
     license: '带永久授权标记的封装商业包',
+    pricing: '永久授权一次性价格与可选年度升级包',
     trial: '从公司邮件到 GitHub 组织试用访问的路径',
     integration: '在共享 Manager 总线上注册 DWG 转换器',
     support: '覆盖缺陷修复、升级与邮件支持的护盾',

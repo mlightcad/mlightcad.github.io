@@ -146,6 +146,7 @@ const parserCs: ParserCopy = {
   imageAlts: {
     scope: 'Soubor DWG proudící do proprietárního převodníku a data-model',
     license: 'Upečený komerční balíček se značkou věčné licence',
+    pricing: 'Jednorázová cena věčné licence a volitelné roční upgrade balíčky',
     trial: 'Cesta zkušební licence od firemního e-mailu k přístupu do organizace GitHub',
     integration: 'Registrace převodníku DWG na sdílené manager sběrnici',
     support: 'Štít pokrývající opravy chyb, upgrady a e-mailovou podporu',
@@ -355,6 +356,9 @@ export const cs: Dictionary = {
   },
   footer: {
     tagline: 'Open source CAD infrastruktura pro web.',
+    terms: 'Terms of Service',
+    privacy: 'Privacy Policy',
+    refunds: 'Refund Policy',
     rights: '© 2026 MLightCAD',
   },
   parser: parserCs,
