@@ -1,2 +1,11 @@
-# A string used to distinguish different Supabase projects on the same host. Not used by this site directly.
+# A string used to distinguish different Supabase projects on the same host.
 project_id = "mlightcad-homepage"
+
+[api]
+enabled = true
+
+[db]
+port = 54322
+
+[functions.paddle-webhook]
+verify_jwt = false

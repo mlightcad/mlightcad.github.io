@@ -31,9 +31,13 @@ jobs:
         run: pnpm install --frozen-lockfile
       - run: pnpm build
         env:
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
           VITE_DWG_LICENSE_KEY: ${{ secrets.VITE_DWG_LICENSE_KEY }}
+          VITE_PADDLE_ENV: ${{ secrets.VITE_PADDLE_ENV }}
+          VITE_PADDLE_CLIENT_TOKEN: ${{ secrets.VITE_PADDLE_CLIENT_TOKEN }}
+          VITE_PADDLE_PRICE_PERPETUAL: ${{ secrets.VITE_PADDLE_PRICE_PERPETUAL }}
+          VITE_PADDLE_PRICE_ANNUAL: ${{ secrets.VITE_PADDLE_PRICE_ANNUAL }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

@@ -50,6 +50,8 @@ export interface ParserCopy {
   title: string
   lead: string
   contactCta: string
+  /** mailto: URL for the trial-license CTA. */
+  contactHref: string
   demoCta: string
   demoHref: string
   scopeTitle: string
@@ -65,14 +67,21 @@ export interface ParserCopy {
   restrictionsTitle: string
   restrictions: string[]
   pricingTitle: string
-  pricingRows: { item: string; amount: string }[]
+  /** Pricing table rows; `priceKey` marks amounts refreshed by Paddle PricePreview. */
+  pricingRows: { item: string; amount: string; priceKey?: 'perpetual' | 'annual' }[]
   pricingNote: string
+  /** Overlay checkout CTA for the perpetual license. */
+  buyPerpetualCta: string
+  /** Overlay checkout CTA for annual updates. */
+  buyAnnualCta: string
+  /** Banner shown after a successful Paddle checkout redirect. */
+  purchaseSuccess: string
   trialTitle: string
   trialLead: string
   trialCta: string
   trialSteps: string[]
   trialNote: string
-  /** Copy for the trial-license dialog. */
+  /** Copy for the trial-license dialog (kept for future Supabase restore). */
   trialForm: TrialFormCopy
   integrationTitle: string
   integrationLead: string
@@ -96,6 +105,10 @@ export interface ParserCopy {
   }
 }
 
+/** Shared mailto target for trial-license applications. */
+const TRIAL_MAILTO =
+  'mailto:support@mlightcad.com?subject=Trial%20License%20Application'
+
 export const parserEn: ParserCopy = {
   metaTitle: 'Proprietary DWG Parser — MLightCAD',
   metaDescription:
@@ -106,6 +119,7 @@ export const parserEn: ParserCopy = {
   title: 'Proprietary DWG Parser',
   lead: 'A commercial alternative to the open-source LibreDWG stack — built for closed-source products, white-label deployments, and SaaS / on-premise viewers that cannot ship GPL-3.0 code to customers.',
   contactCta: 'Apply for Trial License',
+  contactHref: TRIAL_MAILTO,
   demoCta: 'Try Live Demo',
   demoHref: 'https://mlightcad.com/realdwg-web-example/',
   scopeTitle: 'Scope',
@@ -140,17 +154,24 @@ export const parserEn: ParserCopy = {
   ],
   pricingTitle: 'Pricing',
   pricingRows: [
-    { item: 'Perpetual license (one-time donation)', amount: '$3,000 USD' },
+    { item: 'Perpetual license (one-time donation)', amount: '$3,000 USD', priceKey: 'perpetual' },
     { item: 'Upgrade packages — first year', amount: 'Included' },
-    { item: 'Upgrade packages — after first year', amount: '$1,500 / year' },
+    {
+      item: 'Upgrade packages — after first year',
+      amount: '$1,500 / year',
+      priceKey: 'annual',
+    },
   ],
   pricingNote:
     'No royalties, no per-seat fees, no usage caps. After year one you may keep using the version you have without paying; the annual donation is only for new upgrade packages.',
+  buyPerpetualCta: 'Buy perpetual license',
+  buyAnnualCta: 'Buy annual updates',
+  purchaseSuccess: 'Payment received. We will email you with access instructions shortly.',
   trialTitle: 'Trial license',
   trialLead: 'Companies and organizations can apply for a trial before purchase. Personal / individual applications are not accepted at this time.',
   trialCta: 'Apply for Trial License',
   trialSteps: [
-    'Submit the trial application form with company information and intended use',
+    'Email support@mlightcad.com with your company information and intended use',
     'Include a GitHub username — access is granted via the mlight-cad organization',
     'After approval, accept the GitHub org invite and install @mlight-cad/dwg-converter',
   ],
@@ -254,6 +275,7 @@ export const parserZh: ParserCopy = {
   title: '专有 DWG 解析器',
   lead: '开源 LibreDWG 栈的商业替代方案 — 面向无法向客户分发 GPL-3.0 代码的闭源产品、白标部署，以及 SaaS / 本地化 CAD 查看器。',
   contactCta: '申请试用授权',
+  contactHref: TRIAL_MAILTO,
   demoCta: '试用在线演示',
   demoHref: 'https://mlightcad.com/realdwg-web-example/',
   scopeTitle: '范围',
@@ -288,17 +310,20 @@ export const parserZh: ParserCopy = {
   ],
   pricingTitle: '定价',
   pricingRows: [
-    { item: '永久授权（一次性捐赠）', amount: '3,000 美元' },
+    { item: '永久授权（一次性捐赠）', amount: '3,000 美元', priceKey: 'perpetual' },
     { item: '升级包 — 首年', amount: '包含' },
-    { item: '升级包 — 首年后', amount: '1,500 美元 / 年' },
+    { item: '升级包 — 首年后', amount: '1,500 美元 / 年', priceKey: 'annual' },
   ],
   pricingNote:
     '无版税、无按席位费用、无用量上限。首年后可继续使用已获得版本而无需付费；年度捐赠仅用于获取新的升级包。',
+  buyPerpetualCta: '购买永久授权',
+  buyAnnualCta: '购买年度升级',
+  purchaseSuccess: '付款已收到。我们将尽快通过邮件发送开通说明。',
   trialTitle: '试用授权',
   trialLead: '公司与组织可在购买前申请试用。暂不接受个人开发者申请。',
   trialCta: '申请试用授权',
   trialSteps: [
-    '填写试用申请表，提供公司信息与用途说明',
+    '发送邮件至 support@mlightcad.com，提供公司信息与用途说明',
     '须提供 GitHub 用户名 — 通过 mlight-cad 组织开通访问',
     '获批后接受组织邀请，安装 @mlight-cad/dwg-converter',
   ],

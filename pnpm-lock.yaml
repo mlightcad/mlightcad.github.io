@@ -18,24 +18,30 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       '@mlight-cad/dwg-converter':
-        specifier: ^1.14.1
-        version: 1.14.1(@mlightcad/data-model@1.14.1)
+        specifier: ^1.14.2
+        version: 1.14.2(@mlightcad/data-model@1.14.2)
       '@mlightcad/cad-simple-ui-plugin':
-        specifier: ^1.6.2
-        version: 1.6.2(@mlightcad/cad-simple-viewer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.14.1)
+        specifier: ^1.6.3
+        version: 1.6.3(@mlightcad/cad-simple-viewer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.14.2)
       '@mlightcad/cad-simple-viewer':
-        specifier: ^1.6.2
-        version: 1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)
+        specifier: ^1.6.3
+        version: 1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)
       '@mlightcad/data-model':
-        specifier: ^1.14.1
-        version: 1.14.1
+        specifier: ^1.14.2
+        version: 1.14.2
+      '@paddle/paddle-js':
+        specifier: ^1.6.4
+        version: 1.6.4
       '@supabase/supabase-js':
-        specifier: ^2.111.0
-        version: 2.111.0
+        specifier: ^2.112.3
+        version: 2.112.3
       three:
         specifier: ^0.172.0
         version: 0.172.0
     devDependencies:
+      '@paddle/paddle-node-sdk':
+        specifier: ^3.10.0
+        version: 3.10.0
       '@types/three':
         specifier: ^0.172.0
         version: 0.172.0
@@ -220,43 +226,43 @@ packages:
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
 
-  '@mlight-cad/dwg-converter@1.14.1':
-    resolution: {integrity: sha512-ikdbGzXH+/NjAtsMPHjNQlNoZCg2oud8PFbM1rjvILSQKTI95mpI6zR/8dXUwSfEoX8/jzV6Za3g3UtFFujwjw==, tarball: https://npm.pkg.github.com/download/@mlight-cad/dwg-converter/1.14.1/3e92849ea570d4b15d9cc338ec21193cf17710e4}
+  '@mlight-cad/dwg-converter@1.14.2':
+    resolution: {integrity: sha512-OvseqZRatYkYnSFHrteydSwLQML0gUzB4nFYHjm7Omx5IBLNHju/xt6gjNsTcn3dLIGRXBxZ9oHVcPDSAHqsNg==, tarball: https://npm.pkg.github.com/download/@mlight-cad/dwg-converter/1.14.2/b2cd71c0ea5c2a41299a0d4e023516541ebbb9d4}
     engines: {pnpm: '>=10'}
     peerDependencies:
-      '@mlightcad/data-model': 1.14.1
+      '@mlightcad/data-model': 1.14.2
 
-  '@mlightcad/cad-simple-ui-plugin@1.6.2':
-    resolution: {integrity: sha512-OXem3JxM0LEf4e6iMlgVyMgecR99CGrGyBlR4aG+uAw/f2SkJmtYUW7VT2vmK++iJM3aqc0KycFbqJwrxbXTlQ==}
+  '@mlightcad/cad-simple-ui-plugin@1.6.3':
+    resolution: {integrity: sha512-VCPWBa8xhJhpPClfySzDIy9l0uJhbc05HrAhnSX85BCHr0aBsAVoedWjAXEMLySfDw0m5xagpITBbLMggICNaw==}
     peerDependencies:
-      '@mlightcad/cad-simple-viewer': 1.6.2
-      '@mlightcad/data-model': ^1.14.1
+      '@mlightcad/cad-simple-viewer': 1.6.3
+      '@mlightcad/data-model': ^1.14.2
 
-  '@mlightcad/cad-simple-viewer@1.6.2':
-    resolution: {integrity: sha512-lCmJQ7yuEaU71+lRvflicveunGvxapCfKhJMVYKKkoE15AGhgv4pRNH9U3POSdYnB2xOpOPunVJMTS3P8EQDug==}
+  '@mlightcad/cad-simple-viewer@1.6.3':
+    resolution: {integrity: sha512-yCubR85fHYOjmtXHFMjQv1uX6F+7ePOGDfwlG8bW6Ylnqu9TK4JUXKsOzJ6qIRUay2bq/GrFQYlhVMXGUkhL9A==}
     peerDependencies:
-      '@mlightcad/data-model': ^1.14.1
+      '@mlightcad/data-model': ^1.14.2
       '@mlightcad/mtext-renderer': ^0.12.4
-      '@mlightcad/three-renderer': 1.6.2
+      '@mlightcad/three-renderer': 1.6.3
       lodash-es: 4.17.21
       three: ^0.172.0
 
-  '@mlightcad/common@1.14.1':
-    resolution: {integrity: sha512-CT3rXoUTl88oyLEctI5Z8aWGisqFXqZjT2KofiNmU4okUW02GEMUx0I3/wEQhm2PB2dHLhUcpaCYqQLe3lrt6g==}
+  '@mlightcad/common@1.14.2':
+    resolution: {integrity: sha512-P2E0SoL2+8wb4iIomRbx8403xR49ZEIgDSYDsKAMx0G9Ofpw/xkqb1EkyqVKGO+WRmhQGGFxVbFK1/YNvHaaAQ==}
 
-  '@mlightcad/data-model@1.14.1':
-    resolution: {integrity: sha512-D1VFrJoZYHT2TRhHXsr5BdpZWuqxuEReD0SERzno2yVU/Ti2Hgw+wUgbX6OUv2zYBKK9TiGOf7Hx6fTaPqiXWw==}
+  '@mlightcad/data-model@1.14.2':
+    resolution: {integrity: sha512-hf3rOeKyzEIJ491XR+fkZX8J/rJBxXOF6PhatsBG/04OMd3YwgHIGJZod0twLmLaZye3DtWs0vjyI7uQ7RUKpQ==}
 
-  '@mlightcad/geometry-engine@3.14.1':
-    resolution: {integrity: sha512-aBmiFAXWfIuc4pKMlTyBFwWJ0V/mMLlnasb5YoZRXMHzuqlnl625xYJOBoRBNZBfD3wIYaEJPmE7zVqOhS5MgQ==}
+  '@mlightcad/geometry-engine@3.14.2':
+    resolution: {integrity: sha512-flAZEkMk8OlDoq+nThCp7G5mXWwkx73hvenvsPCR0qiOCWnMHiccdZSKbAU80LQ+c0J3RfE1CBvFRqOYf5D9/Q==}
     peerDependencies:
-      '@mlightcad/common': 1.14.1
+      '@mlightcad/common': 1.14.2
 
-  '@mlightcad/graphic-interface@3.14.1':
-    resolution: {integrity: sha512-f2vPkDAbyU7bPhHx1i8EFkamowxRsEjg0KLkkp5/nEcP+HKKNeryetcSYCIxafhyV2oLAsjaYL7j4mLu3bQWOg==}
+  '@mlightcad/graphic-interface@3.14.2':
+    resolution: {integrity: sha512-mXjTLo2w9TKkDlJHxDTlM9vbmdAmwj+9Yee5+BH4qdmbkJIVGagP0q3h356XOD6K9zFMJCjQpkV+EKrmFkrvyg==}
     peerDependencies:
-      '@mlightcad/common': 1.14.1
-      '@mlightcad/geometry-engine': 3.14.1
+      '@mlightcad/common': 1.14.2
+      '@mlightcad/geometry-engine': 3.14.2
 
   '@mlightcad/mtext-parser@1.5.0':
     resolution: {integrity: sha512-Yl/IQmSIGV1UUl/TyUptoOpNBunywcEE7yh4k9SFDXljHDTTI92VmqkVFxf4eYzhoWF4MNXIl4qgQV1P1Rbn6g==}
@@ -269,10 +275,10 @@ packages:
   '@mlightcad/shx-parser@1.4.5':
     resolution: {integrity: sha512-wFY0X7vnuq1IYdP6JRggb7LHcKho1P8zmcWGtXa6XYthwyKZCUoZCswTXr7J26pbzyhBB7KsiCcCL48iwIevdQ==}
 
-  '@mlightcad/three-renderer@1.6.2':
-    resolution: {integrity: sha512-hxQvP++XaQJkvg17Dx89FpMPGXVn5++h3o2DXO/DA20AYCKQND4UMduKX03guEGss6RPBIgWpbAfYTGVRO94eQ==}
+  '@mlightcad/three-renderer@1.6.3':
+    resolution: {integrity: sha512-JqxwgkZKlElsRK6esEL4DYC4yXlWiURO7MLbieWRZRSkx/+denybkhHR5rQ+lj2myqcDCsNXLqwni5fh2e1qpw==}
     peerDependencies:
-      '@mlightcad/data-model': ^1.14.1
+      '@mlightcad/data-model': ^1.14.2
       '@mlightcad/mtext-renderer': ^0.12.4
       '@velipso/polybool': ^1.1.1
       three: ^0.172.0
@@ -283,6 +289,13 @@ packages:
     cpu: [x64]
     os: [linux]
     libc: [glibc]
+
+  '@paddle/paddle-js@1.6.4':
+    resolution: {integrity: sha512-ncfnS6I8mCX6krZ3Sgz2iAYivGmhdI81yt9mT6prtPj4Ipd9J3M12LCJRUFL4FB7BYeeuV04c33RSEnbZUBCaA==}
+
+  '@paddle/paddle-node-sdk@3.10.0':
+    resolution: {integrity: sha512-njqp+L6e/2aR99EYh/Ulyu6B9sIyVERTFclGOznKmLZcy11pAwHoHyIgq1BUH1ybQH+YmJQmrrUQC/Rfg8JAAw==}
+    engines: {node: '>=20'}
 
   '@rollup/rollup-android-arm-eabi@4.62.4':
     resolution: {integrity: sha512-RrPokAb7dmbxFoeO3TloqHyOjgye8RkBhSqmp4aJMIex4c9r46ZstPnleDQOq1t46VOVjwIuwNogIqbodV1Vvg==}
@@ -422,32 +435,37 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@supabase/auth-js@2.111.0':
-    resolution: {integrity: sha512-hbRLgyQZEX0SDyF4LYXpv94qOIQyFATfpT5SIs2V0SisHnisVRkYgiPQWzv80l4S2mO3qof78rmoH9j5zoFsYQ==}
+  '@supabase/auth-js@2.112.3':
+    resolution: {integrity: sha512-NA0rsgAlWZPvbhw8aUdmgfpHVgUAcd8zK5ov43l++o1bLIPXZhRiAlRobhwF5AatQuovpqxsMH50F4oyyV4XZw==}
     engines: {node: '>=22.0.0'}
 
-  '@supabase/functions-js@2.111.0':
-    resolution: {integrity: sha512-RW/OCsd6MO592zU8ifzP8/f8XzxxIdpb+Up5XaOtE26Fw+3zTp475WX7+GuuktiD1WF8pFUDe6khUPbMp77RCw==}
+  '@supabase/functions-js@2.112.3':
+    resolution: {integrity: sha512-gfv481mTOVWtZIJgXupxZpni2V2UWPf6jeF/jOK7HdMHdH+mt6sU0sHHwf0POsPip8ltlulu9OUHgwVzl5ddRw==}
     engines: {node: '>=22.0.0'}
 
   '@supabase/phoenix@0.4.5':
     resolution: {integrity: sha512-aAn9H9ovVyeApKy11OWOrrOGq8DV68yWeH4ud2lN9fzn4aO8Zb5GLL9m1pUg9nLqIcT+ZDfAcsZe0E/nqdv2lw==}
 
-  '@supabase/postgrest-js@2.111.0':
-    resolution: {integrity: sha512-pcqeDsnWP0lx9GawduYxNZJHeuTm53O7L0SC8RF8tniV3GWIPY6me6OTdnwzdwNUmNy1dzUVtSyIfE6+OflzPQ==}
+  '@supabase/postgrest-js@2.112.3':
+    resolution: {integrity: sha512-+Mf6uCpzr00bqxwX8hTK2X2L9eAL/1vuOjdEjx6upz9ulb0RmQT16XeU/JkMUlVHw/B46ZnPa2busY4Kd9YCzw==}
     engines: {node: '>=22.0.0'}
 
-  '@supabase/realtime-js@2.111.0':
-    resolution: {integrity: sha512-6oRf/vZyRwg8f8GbFSJkrD2w4HAu/yTvyMViHXHS+H5hNJzdXCrUR7cP5oW7daT3YlRnzRPY9LcGSJKZAmfMSg==}
+  '@supabase/realtime-js@2.112.3':
+    resolution: {integrity: sha512-E6wljXWs7DUOloyIB69i3YFInWE6IyCvgTAbQ0KYxOHv26FdA1KzEXTuzxrYEdf70t406Z9BRwUlGyclGF2FXA==}
     engines: {node: '>=22.0.0'}
 
-  '@supabase/storage-js@2.111.0':
-    resolution: {integrity: sha512-UEViNmTzVOxE8dqUA81wls+n9xgmlvSFfhfwo6QxrO4kQOytCYyw3ciYFoi4XoD4Jl95NJ3jnndHN5iIudWzqw==}
+  '@supabase/storage-js@2.112.3':
+    resolution: {integrity: sha512-oSK61tzlUvg+BWPqpKQCu9qqonsO26btaoAR9D6Gest2aj7xUqToj9rKyaoYOJczkhg9BjqA1REbYy9tPI4bDA==}
     engines: {node: '>=22.0.0'}
 
-  '@supabase/supabase-js@2.111.0':
-    resolution: {integrity: sha512-9q0/AULthQnWeiDh1vGyjoJZbSY04bu6qHcWit70pqEYn5Kv/dkCPY62Ja1123jEnJbB9Vd2pjY7Kvk/lK3peA==}
+  '@supabase/supabase-js@2.112.3':
+    resolution: {integrity: sha512-Jv1bxVQmEJNkjvPEhFaKjPzsh+Ozyew6lWGD+SoYcsclDEP1z7yEvKvfUQfzy0DkxRIQnZNxmmWtAzw5XLTQoA==}
     engines: {node: '>=22.0.0'}
+    peerDependencies:
+      '@opentelemetry/api': '>=1.0.0'
+    peerDependenciesMeta:
+      '@opentelemetry/api':
+        optional: true
 
   '@tweenjs/tween.js@23.1.3':
     resolution: {integrity: sha512-vJmvvwFxYuGnF2axRtPYocag6Clbb5YS7kLL+SO/TeVFzHqDIWrNKYtcsPMibjDx9O+bu+psAy9NKfWklassUA==}
@@ -758,42 +776,42 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@mlight-cad/dwg-converter@1.14.1(@mlightcad/data-model@1.14.1)':
+  '@mlight-cad/dwg-converter@1.14.2(@mlightcad/data-model@1.14.2)':
     dependencies:
-      '@mlightcad/data-model': 1.14.1
+      '@mlightcad/data-model': 1.14.2
 
-  '@mlightcad/cad-simple-ui-plugin@1.6.2(@mlightcad/cad-simple-viewer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.14.1)':
+  '@mlightcad/cad-simple-ui-plugin@1.6.3(@mlightcad/cad-simple-viewer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.14.2)':
     dependencies:
-      '@mlightcad/cad-simple-viewer': 1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)
-      '@mlightcad/data-model': 1.14.1
+      '@mlightcad/cad-simple-viewer': 1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)
+      '@mlightcad/data-model': 1.14.2
 
-  '@mlightcad/cad-simple-viewer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)':
+  '@mlightcad/cad-simple-viewer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@mlightcad/three-renderer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)':
     dependencies:
-      '@mlightcad/data-model': 1.14.1
+      '@mlightcad/data-model': 1.14.2
       '@mlightcad/mtext-renderer': 0.12.4(three@0.172.0)
-      '@mlightcad/three-renderer': 1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)
+      '@mlightcad/three-renderer': 1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)
       lodash-es: 4.17.21
       three: 0.172.0
 
-  '@mlightcad/common@1.14.1':
+  '@mlightcad/common@1.14.2':
     dependencies:
       loglevel: 1.9.2
 
-  '@mlightcad/data-model@1.14.1':
+  '@mlightcad/data-model@1.14.2':
     dependencies:
-      '@mlightcad/common': 1.14.1
-      '@mlightcad/geometry-engine': 3.14.1(@mlightcad/common@1.14.1)
-      '@mlightcad/graphic-interface': 3.14.1(@mlightcad/common@1.14.1)(@mlightcad/geometry-engine@3.14.1(@mlightcad/common@1.14.1))
+      '@mlightcad/common': 1.14.2
+      '@mlightcad/geometry-engine': 3.14.2(@mlightcad/common@1.14.2)
+      '@mlightcad/graphic-interface': 3.14.2(@mlightcad/common@1.14.2)(@mlightcad/geometry-engine@3.14.2(@mlightcad/common@1.14.2))
       uid: 2.0.2
 
-  '@mlightcad/geometry-engine@3.14.1(@mlightcad/common@1.14.1)':
+  '@mlightcad/geometry-engine@3.14.2(@mlightcad/common@1.14.2)':
     dependencies:
-      '@mlightcad/common': 1.14.1
+      '@mlightcad/common': 1.14.2
 
-  '@mlightcad/graphic-interface@3.14.1(@mlightcad/common@1.14.1)(@mlightcad/geometry-engine@3.14.1(@mlightcad/common@1.14.1))':
+  '@mlightcad/graphic-interface@3.14.2(@mlightcad/common@1.14.2)(@mlightcad/geometry-engine@3.14.2(@mlightcad/common@1.14.2))':
     dependencies:
-      '@mlightcad/common': 1.14.1
-      '@mlightcad/geometry-engine': 3.14.1(@mlightcad/common@1.14.1)
+      '@mlightcad/common': 1.14.2
+      '@mlightcad/geometry-engine': 3.14.2(@mlightcad/common@1.14.2)
 
   '@mlightcad/mtext-parser@1.5.0': {}
 
@@ -808,15 +826,19 @@ snapshots:
 
   '@mlightcad/shx-parser@1.4.5': {}
 
-  '@mlightcad/three-renderer@1.6.2(@mlightcad/data-model@1.14.1)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)':
+  '@mlightcad/three-renderer@1.6.3(@mlightcad/data-model@1.14.2)(@mlightcad/mtext-renderer@0.12.4(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)':
     dependencies:
-      '@mlightcad/data-model': 1.14.1
+      '@mlightcad/data-model': 1.14.2
       '@mlightcad/mtext-renderer': 0.12.4(three@0.172.0)
       '@velipso/polybool': 1.1.1
       three: 0.172.0
 
   '@napi-rs/lzma-linux-x64-gnu@1.5.1':
     optional: true
+
+  '@paddle/paddle-js@1.6.4': {}
+
+  '@paddle/paddle-node-sdk@3.10.0': {}
 
   '@rollup/rollup-android-arm-eabi@4.62.4':
     optional: true
@@ -893,37 +915,37 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.62.4':
     optional: true
 
-  '@supabase/auth-js@2.111.0':
+  '@supabase/auth-js@2.112.3':
     dependencies:
       tslib: 2.8.1
 
-  '@supabase/functions-js@2.111.0':
+  '@supabase/functions-js@2.112.3':
     dependencies:
       tslib: 2.8.1
 
   '@supabase/phoenix@0.4.5': {}
 
-  '@supabase/postgrest-js@2.111.0':
+  '@supabase/postgrest-js@2.112.3':
     dependencies:
       tslib: 2.8.1
 
-  '@supabase/realtime-js@2.111.0':
+  '@supabase/realtime-js@2.112.3':
     dependencies:
       '@supabase/phoenix': 0.4.5
       tslib: 2.8.1
 
-  '@supabase/storage-js@2.111.0':
+  '@supabase/storage-js@2.112.3':
     dependencies:
       iceberg-js: 0.8.1
       tslib: 2.8.1
 
-  '@supabase/supabase-js@2.111.0':
+  '@supabase/supabase-js@2.112.3':
     dependencies:
-      '@supabase/auth-js': 2.111.0
-      '@supabase/functions-js': 2.111.0
-      '@supabase/postgrest-js': 2.111.0
-      '@supabase/realtime-js': 2.111.0
-      '@supabase/storage-js': 2.111.0
+      '@supabase/auth-js': 2.112.3
+      '@supabase/functions-js': 2.112.3
+      '@supabase/postgrest-js': 2.112.3
+      '@supabase/realtime-js': 2.112.3
+      '@supabase/storage-js': 2.112.3
 
   '@tweenjs/tween.js@23.1.3': {}
 
