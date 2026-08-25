@@ -179,12 +179,20 @@ function renderParserBody(): void {
     )
     .join('')
 
-  const buyDisabled = isPaddleConfigured() ? '' : ' disabled'
+  const paddleReady = isPaddleConfigured()
+  const buyDisabled = paddleReady ? '' : ' disabled'
+  const checkoutUnavailableNote = paddleReady
+    ? ''
+    : `<p class="doc-checkout-unavailable" role="status">${p.checkoutUnavailable.replace(
+        'support@mlightcad.com',
+        `<a href="${p.contactHref}">support@mlightcad.com</a>`,
+      )}</p>`
   const buyCtAs = [
     `<p class="doc-cta doc-cta--row">`,
     `  <button type="button" class="btn btn--primary btn--glow" data-paddle-buy="perpetual"${buyDisabled}>${p.buyPerpetualCta}</button>`,
     `  <button type="button" class="btn btn--ghost" data-paddle-buy="annual"${buyDisabled}>${p.buyAnnualCta}</button>`,
     `</p>`,
+    checkoutUnavailableNote,
   ].join('\n')
 
   root.innerHTML = [

@@ -1,3 +1,4 @@
+import { cadDiffViewerCs } from './cadDiffViewer'
 import { iframePluginCs } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import type { Dictionary } from './types'
@@ -55,6 +56,8 @@ const parserCs: ParserCopy = {
     'Bez licenčních poplatků, bez poplatků za místo, bez limitů využití. Po prvním roce můžete dál používat verzi, kterou máte, bez platby; roční dar slouží pouze k získání nových upgrade balíčků.',
   buyPerpetualCta: 'Koupit věčnou licenci',
   buyAnnualCta: 'Koupit roční upgrady',
+  checkoutUnavailable:
+    'Online pokladna je dočasně nedostupná. Pro dokončení nákupu napište na support@mlightcad.com.',
   purchaseSuccess: 'Platba přijata. Brzy vám e-mailem pošleme pokyny k přístupu.',
   trialTitle: 'Zkušební licence',
   trialLead: 'Firmy a organizace mohou před nákupem požádat o zkušební licenci. Osobní / individuální žádosti se v tuto chvíli nepřijímají.',
@@ -165,7 +168,8 @@ export const cs: Dictionary = {
   },
   nav: {
     product: 'Produkty',
-    cadViewer: 'cad-viewer',
+    cadViewer: 'CAD-Viewer',
+    cadDiffViewer: 'CAD Diff Viewer',
     dwgParser: 'Parser DWG',
     integration: 'Integrace',
     iframePlugin: 'iframe plugin',
@@ -192,7 +196,7 @@ export const cs: Dictionary = {
   },
   flagship: {
     eyebrow: 'Vlajkový produkt',
-    title: 'cad-viewer',
+    title: 'CAD-Viewer',
     lead: 'Production-grade WebGL CAD runtime: parsování DWG/DXF, geometrie, prohlížení a editace — vše uvnitř karty moderního prohlížeče.',
     firstsLabel: 'První v oboru',
     firsts: [
@@ -363,4 +367,5 @@ export const cs: Dictionary = {
   },
   parser: parserCs,
   iframePlugin: iframePluginCs,
+  cadDiffViewer: cadDiffViewerCs,
 }

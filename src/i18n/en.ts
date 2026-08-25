@@ -1,3 +1,4 @@
+import { cadDiffViewerEn } from './cadDiffViewer'
 import { iframePluginEn } from './iframePlugin'
 import { parserEn } from './parser'
 import type { Dictionary } from './types'
@@ -12,7 +13,8 @@ export const en: Dictionary = {
   },
   nav: {
     product: 'Products',
-    cadViewer: 'cad-viewer',
+    cadViewer: 'CAD-Viewer',
+    cadDiffViewer: 'CAD Diff Viewer',
     dwgParser: 'DWG Parser',
     integration: 'Integration',
     iframePlugin: 'iframe Plugin',
@@ -39,7 +41,7 @@ export const en: Dictionary = {
   },
   flagship: {
     eyebrow: 'Flagship',
-    title: 'cad-viewer',
+    title: 'CAD-Viewer',
     lead: 'A production-grade WebGL CAD runtime: DWG/DXF parsing, geometry, viewing, and editing — all inside a modern browser tab.',
     firstsLabel: 'Industry firsts',
     firsts: [
@@ -210,4 +212,5 @@ export const en: Dictionary = {
   },
   parser: parserEn,
   iframePlugin: iframePluginEn,
+  cadDiffViewer: cadDiffViewerEn,
 }

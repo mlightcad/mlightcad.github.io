@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CAD Diff Viewer — Compare DWG/DXF Revisions in the Browser | MLightCAD</title>
+    <meta
+      name="description"
+      content="Compare DWG/DXF drawing revisions in the browser. Spot added, deleted, and changed geometry instantly — fully client-side, no AutoCAD, no upload server."
+    />
+    <meta
+      name="keywords"
+      content="CAD diff, DWG compare, DXF compare, drawing review, browser CAD, cad-diff-viewer, MLightCAD"
+    />
+    <meta name="author" content="MLightCAD" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="canonical" href="https://mlightcad.com/cad-diff-viewer.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MLightCAD" />
+    <meta property="og:title" content="CAD Diff Viewer — Compare DWG/DXF Revisions in the Browser | MLightCAD" />
+    <meta
+      property="og:description"
+      content="Compare DWG/DXF drawing revisions in the browser. Spot added, deleted, and changed geometry instantly — fully client-side."
+    />
+    <meta property="og:url" content="https://mlightcad.com/cad-diff-viewer.html" />
+    <meta property="og:image" content="https://mlightcad.com/og.png" />
+    <meta property="og:image:alt" content="CAD Diff Viewer — MLightCAD" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CAD Diff Viewer — MLightCAD" />
+    <meta
+      name="twitter:description"
+      content="Compare DWG/DXF revisions in the browser — see added, deleted, and changed geometry at a glance."
+    />
+    <meta name="twitter:image" content="https://mlightcad.com/og.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CAD Diff Viewer",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Web",
+        "url": "https://mlightcad.com/cad-diff-viewer.html",
+        "description": "Browser-native DWG/DXF revision comparison with visual diff, side-by-side and overlay modes.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "MLightCAD",
+          "url": "https://mlightcad.com/"
+        }
+      }
+    </script>
+  </head>
+  <body data-page="cad-diff-viewer">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="fx-spot" data-spot aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--x" data-cross-x aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--y" data-cross-y aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+    <div class="site">
+      <div data-site-nav></div>
+
+      <main>
+        <section class="hero parser-hero shell">
+          <div class="hero__frame" data-tilt>
+            <div class="hero__corners" aria-hidden="true"></div>
+            <div class="hero__grid">
+              <div class="hero__copy">
+                <p class="hero__meta hero-enter" data-scramble data-i18n="cadDiffViewer.eyebrow">Open source</p>
+                <h1 class="section__title hero-enter" data-i18n="cadDiffViewer.title">CAD Diff Viewer</h1>
+                <p class="section__lead hero-enter" data-i18n="cadDiffViewer.lead"></p>
+                <div class="hero__ctas hero-enter">
+                  <a
+                    class="btn btn--primary btn--glow"
+                    href="https://mlightcad.com/cad-viewer/cad-diff-viewer/"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="cadDiffViewer.demoCta"
+                    data-i18n-href="cadDiffViewer.demoHref"
+                    >Try Live Demo</a
+                  >
+                  <a
+                    class="btn btn--ghost"
+                    href="https://github.com/mlightcad/cad-viewer"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="cadDiffViewer.githubCta"
+                    data-i18n-href="cadDiffViewer.githubHref"
+                    >View on GitHub</a
+                  >
+                </div>
+              </div>
+              <figure class="hero__visual hero-enter">
+                <img
+                  src="/assets/diff-viewer/hero.jpg"
+                  alt="CAD Diff Viewer"
+                  width="640"
+                  height="400"
+                  loading="eager"
+                  decoding="async"
+                  data-i18n-alt="cadDiffViewer.heroImageAlt"
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+        <div class="shell parser-body" data-diff-viewer-body></div>
+      </main>
+
+      <div data-site-footer></div>
+    </div>
+
+    <script type="module" src="/src/cad-diff-viewer-page.ts"></script>
+  </body>
+</html>
