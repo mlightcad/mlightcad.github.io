@@ -40,7 +40,8 @@ export interface CadDiffViewerCopy {
 }
 
 const DEMO_HREF = 'https://mlightcad.com/cad-viewer/cad-diff-viewer/'
-const GITHUB_HREF = 'https://github.com/mlightcad/cad-viewer'
+const GITHUB_HREF =
+  'https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer'
 const NPM_HREF = 'https://www.npmjs.com/package/@mlightcad/cad-diff-viewer'
 const DOCS_HREF =
   'https://cad-viewer.readthedocs.io/en/latest/modules/_mlightcad_cad-diff-viewer.html'
@@ -156,7 +157,10 @@ export const cadDiffViewerEn: CadDiffViewerCopy = {
     viewer: { name: 'CAD-Viewer', desc: 'Full browser DWG/DXF viewer & editor' },
     npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
     docs: { name: 'API Docs', desc: 'Integration reference on Read the Docs' },
-    github: { name: 'GitHub', desc: 'mlightcad/cad-viewer' },
+    github: {
+      name: 'GitHub',
+      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
+    },
   }),
 }
 
@@ -238,7 +242,10 @@ export const cadDiffViewerZh: CadDiffViewerCopy = {
     viewer: { name: 'CAD-Viewer', desc: '完整浏览器 DWG/DXF 查看与编辑' },
     npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
     docs: { name: 'API 文档', desc: 'Read the Docs 集成参考' },
-    github: { name: 'GitHub', desc: 'mlightcad/cad-viewer' },
+    github: {
+      name: 'GitHub',
+      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
+    },
   }),
 }
 
@@ -322,7 +329,10 @@ export const cadDiffViewerJa: CadDiffViewerCopy = {
     viewer: { name: 'CAD-Viewer', desc: 'ブラウザ完結の DWG/DXF ビューア＆エディタ' },
     npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
     docs: { name: 'API ドキュメント', desc: 'Read the Docs の統合リファレンス' },
-    github: { name: 'GitHub', desc: 'mlightcad/cad-viewer' },
+    github: {
+      name: 'GitHub',
+      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
+    },
   }),
 }
 
@@ -406,7 +416,10 @@ export const cadDiffViewerKo: CadDiffViewerCopy = {
     viewer: { name: 'CAD-Viewer', desc: '브라우저 DWG/DXF 뷰어 & 에디터' },
     npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
     docs: { name: 'API 문서', desc: 'Read the Docs 통합 레퍼런스' },
-    github: { name: 'GitHub', desc: 'mlightcad/cad-viewer' },
+    github: {
+      name: 'GitHub',
+      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
+    },
   }),
 }
 
@@ -490,7 +503,10 @@ export const cadDiffViewerEs: CadDiffViewerCopy = {
     viewer: { name: 'CAD-Viewer', desc: 'Visor y editor DWG/DXF completo en el navegador' },
     npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
     docs: { name: 'Docs API', desc: 'Referencia de integración en Read the Docs' },
-    github: { name: 'GitHub', desc: 'mlightcad/cad-viewer' },
+    github: {
+      name: 'GitHub',
+      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
+    },
   }),
 }
 
@@ -574,7 +590,10 @@ export const cadDiffViewerPt: CadDiffViewerCopy = {
     viewer: { name: 'CAD-Viewer', desc: 'Visualizador e editor DWG/DXF completo no navegador' },
     npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
     docs: { name: 'Docs da API', desc: 'Referência de integração no Read the Docs' },
-    github: { name: 'GitHub', desc: 'mlightcad/cad-viewer' },
+    github: {
+      name: 'GitHub',
+      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
+    },
   }),
 }
 
@@ -658,7 +677,10 @@ export const cadDiffViewerRu: CadDiffViewerCopy = {
     viewer: { name: 'CAD-Viewer', desc: 'Полный браузерный DWG/DXF просмотрщик и редактор' },
     npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
     docs: { name: 'API Docs', desc: 'Справка по интеграции на Read the Docs' },
-    github: { name: 'GitHub', desc: 'mlightcad/cad-viewer' },
+    github: {
+      name: 'GitHub',
+      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
+    },
   }),
 }
 
@@ -742,6 +764,9 @@ export const cadDiffViewerCs: CadDiffViewerCopy = {
     viewer: { name: 'CAD-Viewer', desc: 'Plný prohlížečový DWG/DXF prohlížeč a editor' },
     npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
     docs: { name: 'API docs', desc: 'Integrační reference na Read the Docs' },
-    github: { name: 'GitHub', desc: 'mlightcad/cad-viewer' },
+    github: {
+      name: 'GitHub',
+      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
+    },
   }),
 }

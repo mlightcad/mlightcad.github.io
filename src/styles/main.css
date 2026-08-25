@@ -2842,7 +2842,8 @@ body.trial-dialog-open {
     gap: 0.35rem;
   }
 
-  .related-list span {
+  .related-list span,
+  .resource-grid span {
     overflow-wrap: anywhere;
   }
 
