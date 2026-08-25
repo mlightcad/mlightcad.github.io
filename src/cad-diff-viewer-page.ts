@@ -80,7 +80,7 @@ function renderBody(): void {
   const related = d.related
     .map(
       (link) =>
-        `<li><a href="${link.href}" target="_blank" rel="noopener"><strong>${link.name}</strong><span>${link.desc}</span></a></li>`,
+        `<a href="${link.href}" target="_blank" rel="noopener"><strong>${link.name}</strong><span>${link.desc}</span></a>`,
     )
     .join('')
 
@@ -110,7 +110,7 @@ function renderBody(): void {
     `</section>`,
     `<section class="doc-block reveal" id="related">`,
     `  <h2>${d.relatedTitle}</h2>`,
-    `  <ul class="related-list">${related}</ul>`,
+    `  <div class="resource-grid">${related}</div>`,
     `</section>`,
   ].join('\n')
 }
