@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.3">
+    <path d="M40 40h560M40 360h560M40 40v320M600 40v320"/>
+  </g>
+  <!-- Four use-case tiles -->
+  <rect x="56" y="80" width="250" height="120" rx="4" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <path d="M88 120h60M88 140h90M88 160h50" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="88" y="188" fill="#E8EEF5" font-family="sans-serif" font-size="13">Design teams</text>
+  <rect x="334" y="80" width="250" height="120" rx="4" stroke="#E8A54B" stroke-width="1.5" fill="#14100A"/>
+  <rect x="366" y="108" width="70" height="44" rx="3" stroke="#E8A54B" stroke-width="1.2" fill="#0B0F14"/>
+  <rect x="450" y="108" width="100" height="44" rx="3" stroke="#8B9BB4" stroke-width="1.2" fill="#0B0F14"/>
+  <text x="366" y="188" fill="#E8EEF5" font-family="sans-serif" font-size="13">SaaS / PR review</text>
+  <rect x="56" y="220" width="250" height="120" rx="4" stroke="#22C55E" stroke-width="1.5" fill="#0C1410"/>
+  <circle cx="100" cy="268" r="18" stroke="#22C55E" stroke-width="1.5" fill="none"/>
+  <circle cx="140" cy="268" r="18" stroke="#22C55E" stroke-width="1.5" fill="none"/>
+  <path d="M118 268h4M158 268h40" stroke="#8B9BB4" stroke-width="1.2"/>
+  <text x="88" y="320" fill="#E8EEF5" font-family="sans-serif" font-size="13">AEC / MEP review</text>
+  <rect x="334" y="220" width="250" height="120" rx="4" stroke="#8B9BB4" stroke-width="1.5" fill="#0F1820"/>
+  <path d="M390 268v-16c0-16 13-29 29-29s29 13 29 29v16" stroke="#8B9BB4" stroke-width="1.5"/>
+  <rect x="382" y="268" width="74" height="28" rx="4" stroke="#3DDCFF" stroke-width="1.5" fill="#0B0F14"/>
+  <text x="366" y="320" fill="#E8EEF5" font-family="sans-serif" font-size="13">Privacy-first orgs</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">WHO IT'S FOR</text>
+</svg>

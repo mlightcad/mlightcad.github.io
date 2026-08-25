@@ -178,17 +178,20 @@ export async function setupWebGL(): Promise<void> {
   }
 }
 
-export function markActiveNav(page: 'home' | 'parser' | 'iframe-plugin'): void {
+export function markActiveNav(page: 'home' | 'parser' | 'iframe-plugin' | 'cad-diff-viewer'): void {
   document.querySelectorAll<HTMLAnchorElement>('.nav__menu a').forEach((a) => {
     const href = a.getAttribute('href') ?? ''
     const isParser = href.includes('dwg-parser')
+    const isDiffViewer = href.includes('cad-diff-viewer')
     const isIframe = href.includes('iframe-plugin')
     const current =
       page === 'parser'
         ? isParser
-        : page === 'iframe-plugin'
-          ? isIframe
-          : !isParser && !isIframe && href.includes('product')
+        : page === 'cad-diff-viewer'
+          ? isDiffViewer
+          : page === 'iframe-plugin'
+            ? isIframe
+            : !isParser && !isDiffViewer && !isIframe && href.includes('product')
     a.classList.toggle('is-current', current)
     if (current) a.setAttribute('aria-current', 'page')
     else a.removeAttribute('aria-current')

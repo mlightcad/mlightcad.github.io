@@ -1,3 +1,4 @@
+import { cadDiffViewerKo } from './cadDiffViewer'
 import { iframePluginKo } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import type { Dictionary } from './types'
@@ -55,6 +56,8 @@ const parserKo: ParserCopy = {
     '로열티, 좌석 요금, 사용량 한도가 없습니다. 첫해 이후에도 이미 받은 버전은 무료로 계속 사용할 수 있으며, 연간 기부는 새 업그레이드 패키지용입니다.',
   buyPerpetualCta: '영구 라이선스 구매',
   buyAnnualCta: '연간 업그레이드 구매',
+  checkoutUnavailable:
+    '온라인 결제를 일시적으로 이용할 수 없습니다. 구매는 support@mlightcad.com 으로 이메일을 보내 주세요.',
   purchaseSuccess: '결제가 완료되었습니다. 곧 이메일로 접근 안내를 보내 드립니다.',
   trialTitle: '체험 라이선스',
   trialLead: '기업 및 조직은 구매 전 체험을 신청할 수 있습니다. 개인 신청은 현재 받지 않습니다.',
@@ -165,7 +168,8 @@ export const ko: Dictionary = {
   },
   nav: {
     product: '제품',
-    cadViewer: 'cad-viewer',
+    cadViewer: 'CAD-Viewer',
+    cadDiffViewer: 'CAD Diff Viewer',
     dwgParser: 'DWG 파서',
     integration: '통합',
     iframePlugin: 'iframe 플러그인',
@@ -192,7 +196,7 @@ export const ko: Dictionary = {
   },
   flagship: {
     eyebrow: '플래그십',
-    title: 'cad-viewer',
+    title: 'CAD-Viewer',
     lead: '프로덕션급 WebGL CAD 런타임: DWG/DXF 파싱, 지오메트리, 보기, 편집 — 모두 최신 브라우저 탭 안에서.',
     firstsLabel: '업계 최초',
     firsts: [
@@ -363,4 +367,5 @@ export const ko: Dictionary = {
   },
   parser: parserKo,
   iframePlugin: iframePluginKo,
+  cadDiffViewer: cadDiffViewerKo,
 }

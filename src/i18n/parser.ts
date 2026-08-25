@@ -74,6 +74,8 @@ export interface ParserCopy {
   buyPerpetualCta: string
   /** Overlay checkout CTA for annual updates. */
   buyAnnualCta: string
+  /** Shown when Paddle env vars are missing and buy buttons are disabled. */
+  checkoutUnavailable: string
   /** Banner shown after a successful Paddle checkout redirect. */
   purchaseSuccess: string
   trialTitle: string
@@ -167,6 +169,8 @@ export const parserEn: ParserCopy = {
     'No royalties, no per-seat fees, no usage caps. After year one you may keep using the version you have without paying; the annual donation is only for new upgrade packages.',
   buyPerpetualCta: 'Buy perpetual license',
   buyAnnualCta: 'Buy annual updates',
+  checkoutUnavailable:
+    'Online checkout is temporarily unavailable. Please email support@mlightcad.com to complete your purchase.',
   purchaseSuccess: 'Payment received. We will email you with access instructions shortly.',
   trialTitle: 'Trial license',
   trialLead: 'Companies and organizations can apply for a trial before purchase. Personal / individual applications are not accepted at this time.',
@@ -320,6 +324,7 @@ export const parserZh: ParserCopy = {
     '无版税、无按席位费用、无用量上限。首年后可继续使用已获得版本而无需付费；年度捐赠仅用于获取新的升级包。',
   buyPerpetualCta: '购买永久授权',
   buyAnnualCta: '购买年度升级',
+  checkoutUnavailable: '在线购买暂不可用，请发送邮件至 support@mlightcad.com 完成购买。',
   purchaseSuccess: '付款已收到。我们将尽快通过邮件发送开通说明。',
   trialTitle: '试用授权',
   trialLead: '公司与组织可在购买前申请试用。暂不接受个人开发者申请。',

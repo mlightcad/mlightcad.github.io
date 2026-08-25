@@ -1,3 +1,4 @@
+import type { CadDiffViewerCopy } from './cadDiffViewer'
 import type { IframePluginCopy } from './iframePlugin'
 import type { ParserCopy } from './parser'
 
@@ -48,6 +49,7 @@ export interface Dictionary {
   nav: {
     product: string
     cadViewer: string
+    cadDiffViewer: string
     dwgParser: string
     integration: string
     iframePlugin: string
@@ -133,4 +135,6 @@ export interface Dictionary {
   parser: ParserCopy
   /** iframe plugin docs page copy. */
   iframePlugin: IframePluginCopy
+  /** CAD Diff Viewer product page copy. */
+  cadDiffViewer: CadDiffViewerCopy
 }

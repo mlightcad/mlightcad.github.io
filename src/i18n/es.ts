@@ -1,3 +1,4 @@
+import { cadDiffViewerEs } from './cadDiffViewer'
 import { iframePluginEs } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import type { Dictionary } from './types'
@@ -55,6 +56,8 @@ const parserEs: ParserCopy = {
     'Sin regalías, sin tarifas por asiento, sin límites de uso. Después del primer año puede seguir usando la versión que tiene sin pagar; la donación anual es solo para nuevos paquetes de actualización.',
   buyPerpetualCta: 'Comprar licencia perpetua',
   buyAnnualCta: 'Comprar actualizaciones anuales',
+  checkoutUnavailable:
+    'El pago en línea no está disponible temporalmente. Escriba a support@mlightcad.com para completar la compra.',
   purchaseSuccess: 'Pago recibido. Le enviaremos por correo las instrucciones de acceso en breve.',
   trialTitle: 'Licencia de prueba',
   trialLead: 'Empresas y organizaciones pueden solicitar una prueba antes de la compra. No se aceptan solicitudes personales / individuales en este momento.',
@@ -165,7 +168,8 @@ export const es: Dictionary = {
   },
   nav: {
     product: 'Productos',
-    cadViewer: 'cad-viewer',
+    cadViewer: 'CAD-Viewer',
+    cadDiffViewer: 'CAD Diff Viewer',
     dwgParser: 'Parser DWG',
     integration: 'Integración',
     iframePlugin: 'Plugin iframe',
@@ -192,7 +196,7 @@ export const es: Dictionary = {
   },
   flagship: {
     eyebrow: 'Producto estrella',
-    title: 'cad-viewer',
+    title: 'CAD-Viewer',
     lead: 'Un runtime CAD WebGL de nivel de producción: análisis DWG/DXF, geometría, visualización y edición — todo dentro de una pestaña del navegador moderno.',
     firstsLabel: 'Primeras en la industria',
     firsts: [
@@ -363,4 +367,5 @@ export const es: Dictionary = {
   },
   parser: parserEs,
   iframePlugin: iframePluginEs,
+  cadDiffViewer: cadDiffViewerEs,
 }

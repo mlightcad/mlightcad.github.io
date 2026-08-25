@@ -1,3 +1,4 @@
+import { cadDiffViewerJa } from './cadDiffViewer'
 import { iframePluginJa } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import type { Dictionary } from './types'
@@ -55,6 +56,8 @@ const parserJa: ParserCopy = {
     'ロイヤリティ、シート課金、利用上限はありません。初年度以降も取得済みバージョンは無償で継続利用可能。年次寄付は新しいアップグレードパッケージ取得のためのみです。',
   buyPerpetualCta: '永久ライセンスを購入',
   buyAnnualCta: '年次アップグレードを購入',
+  checkoutUnavailable:
+    'オンライン決済は現在ご利用いただけません。購入は support@mlightcad.com までメールでお問い合わせください。',
   purchaseSuccess: 'お支払いを受け付けました。アクセス手順をメールでご案内します。',
   trialTitle: 'トライアルライセンス',
   trialLead: '企業・組織は購入前にトライアルを申請できます。個人申請は現在受け付けていません。',
@@ -165,7 +168,8 @@ export const ja: Dictionary = {
   },
   nav: {
     product: '製品',
-    cadViewer: 'cad-viewer',
+    cadViewer: 'CAD-Viewer',
+    cadDiffViewer: 'CAD Diff Viewer',
     dwgParser: 'DWG パーサー',
     integration: '連携',
     iframePlugin: 'iframe プラグイン',
@@ -192,7 +196,7 @@ export const ja: Dictionary = {
   },
   flagship: {
     eyebrow: 'フラッグシップ',
-    title: 'cad-viewer',
+    title: 'CAD-Viewer',
     lead: '本番向け WebGL CAD ランタイム：DWG/DXF 解析、ジオメトリ、表示、編集 — すべてモダンなブラウザタブ内で。',
     firstsLabel: '業界初',
     firsts: [
@@ -363,4 +367,5 @@ export const ja: Dictionary = {
   },
   parser: parserJa,
   iframePlugin: iframePluginJa,
+  cadDiffViewer: cadDiffViewerJa,
 }

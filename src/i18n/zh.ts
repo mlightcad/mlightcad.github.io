@@ -1,3 +1,4 @@
+import { cadDiffViewerZh } from './cadDiffViewer'
 import { iframePluginZh } from './iframePlugin'
 import { parserZh } from './parser'
 import type { Dictionary } from './types'
@@ -12,7 +13,8 @@ export const zh: Dictionary = {
   },
   nav: {
     product: '产品',
-    cadViewer: 'cad-viewer',
+    cadViewer: 'CAD-Viewer',
+    cadDiffViewer: 'CAD Diff Viewer',
     dwgParser: 'DWG 解析器',
     integration: '集成',
     iframePlugin: 'iframe 插件',
@@ -38,7 +40,7 @@ export const zh: Dictionary = {
   },
   flagship: {
     eyebrow: '旗舰产品',
-    title: 'cad-viewer',
+    title: 'CAD-Viewer',
     lead: '面向生产的 WebGL CAD 运行时：DWG/DXF 解析、几何、查看与编辑 — 全部发生在现代浏览器标签页内。',
     firstsLabel: '行业第一',
     firsts: [
@@ -214,4 +216,5 @@ export const zh: Dictionary = {
   },
   parser: parserZh,
   iframePlugin: iframePluginZh,
+  cadDiffViewer: cadDiffViewerZh,
 }

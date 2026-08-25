@@ -1,3 +1,4 @@
+import { cadDiffViewerRu } from './cadDiffViewer'
 import { iframePluginRu } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import type { Dictionary } from './types'
@@ -55,6 +56,8 @@ const parserRu: ParserCopy = {
     'Без роялти, без оплаты за место, без лимитов использования. После первого года можно продолжать использовать полученную версию без оплаты; ежегодное пожертвование нужно только для новых пакетов обновлений.',
   buyPerpetualCta: 'Купить бессрочную лицензию',
   buyAnnualCta: 'Купить годовые обновления',
+  checkoutUnavailable:
+    'Онлайн-оплата временно недоступна. Для покупки напишите на support@mlightcad.com.',
   purchaseSuccess: 'Оплата получена. Мы скоро отправим инструкции по доступу на электронную почту.',
   trialTitle: 'Пробная лицензия',
   trialLead: 'Компании и организации могут запросить пробную лицензию перед покупкой. Заявки от частных лиц в настоящее время не принимаются.',
@@ -165,7 +168,8 @@ export const ru: Dictionary = {
   },
   nav: {
     product: 'Продукты',
-    cadViewer: 'cad-viewer',
+    cadViewer: 'CAD-Viewer',
+    cadDiffViewer: 'CAD Diff Viewer',
     dwgParser: 'Парсер DWG',
     integration: 'Интеграция',
     iframePlugin: 'iframe-плагин',
@@ -192,7 +196,7 @@ export const ru: Dictionary = {
   },
   flagship: {
     eyebrow: 'Флагман',
-    title: 'cad-viewer',
+    title: 'CAD-Viewer',
     lead: 'Production-grade WebGL CAD runtime: разбор DWG/DXF, геометрия, просмотр и редактирование — всё внутри вкладки современного браузера.',
     firstsLabel: 'Первые в отрасли',
     firsts: [
@@ -363,4 +367,5 @@ export const ru: Dictionary = {
   },
   parser: parserRu,
   iframePlugin: iframePluginRu,
+  cadDiffViewer: cadDiffViewerRu,
 }
