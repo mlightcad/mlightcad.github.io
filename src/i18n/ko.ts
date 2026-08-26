@@ -1,6 +1,7 @@
 import { cadDiffViewerKo } from './cadDiffViewer'
 import { iframePluginKo } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import { tutorialKo } from './tutorial'
 import type { Dictionary } from './types'
 
 const parserKo: ParserCopy = {
@@ -176,6 +177,7 @@ export const ko: Dictionary = {
     googleDrive: 'Google Drive 통합',
     features: '기능',
     plugins: '플러그인',
+    tutorials: '튜토리얼',
     docs: '문서',
     github: 'GitHub',
     demo: '라이브 데모',
@@ -368,4 +370,5 @@ export const ko: Dictionary = {
   parser: parserKo,
   iframePlugin: iframePluginKo,
   cadDiffViewer: cadDiffViewerKo,
+  tutorial: tutorialKo,
 }

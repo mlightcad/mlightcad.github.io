@@ -1,6 +1,7 @@
 import { cadDiffViewerZh } from './cadDiffViewer'
 import { iframePluginZh } from './iframePlugin'
 import { parserZh } from './parser'
+import { tutorialZh } from './tutorial'
 import type { Dictionary } from './types'
 
 export const zh: Dictionary = {
@@ -21,6 +22,7 @@ export const zh: Dictionary = {
     googleDrive: 'Google Drive 集成',
     features: '特性',
     plugins: '插件',
+    tutorials: '教程',
     docs: '文档',
     github: 'GitHub',
     demo: '在线演示',
@@ -217,4 +219,5 @@ export const zh: Dictionary = {
   parser: parserZh,
   iframePlugin: iframePluginZh,
   cadDiffViewer: cadDiffViewerZh,
+  tutorial: tutorialZh,
 }

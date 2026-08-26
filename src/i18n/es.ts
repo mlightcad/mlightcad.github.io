@@ -1,6 +1,7 @@
 import { cadDiffViewerEs } from './cadDiffViewer'
 import { iframePluginEs } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import { tutorialEs } from './tutorial'
 import type { Dictionary } from './types'
 
 const parserEs: ParserCopy = {
@@ -176,6 +177,7 @@ export const es: Dictionary = {
     googleDrive: 'Integración de Google Drive',
     features: 'Funciones',
     plugins: 'Plugins',
+    tutorials: 'Tutoriales',
     docs: 'Documentación',
     github: 'GitHub',
     demo: 'Demo en vivo',
@@ -368,4 +370,5 @@ export const es: Dictionary = {
   parser: parserEs,
   iframePlugin: iframePluginEs,
   cadDiffViewer: cadDiffViewerEs,
+  tutorial: tutorialEs,
 }

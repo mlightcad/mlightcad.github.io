@@ -1,6 +1,7 @@
 import type { CadDiffViewerCopy } from './cadDiffViewer'
 import type { IframePluginCopy } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import type { TutorialCopy } from './tutorial'
 
 /** Supported marketing-site locales. */
 export type Locale = 'en' | 'zh' | 'ja' | 'ko' | 'es' | 'pt' | 'ru' | 'cs'
@@ -56,6 +57,7 @@ export interface Dictionary {
     googleDrive: string
     features: string
     plugins: string
+    tutorials: string
     docs: string
     github: string
     demo: string
@@ -137,4 +139,6 @@ export interface Dictionary {
   iframePlugin: IframePluginCopy
   /** CAD Diff Viewer product page copy. */
   cadDiffViewer: CadDiffViewerCopy
+  /** Product tutorial / video gallery page copy. */
+  tutorial: TutorialCopy
 }
