@@ -360,9 +360,9 @@ export const ko: Dictionary = {
   },
   footer: {
     tagline: '웹을 위한 오픈소스 CAD 인프라.',
-    terms: 'Terms of Service',
-    privacy: 'Privacy Policy',
-    refunds: 'Refund Policy',
+    terms: '서비스 약관',
+    privacy: '개인정보 처리방침',
+    refunds: '환불 정책',
     rights: '© 2026 MLightCAD',
   },
   parser: parserKo,
