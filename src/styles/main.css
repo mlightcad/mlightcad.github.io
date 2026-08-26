@@ -891,11 +891,11 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
 }
 
 .flagship__media figcaption {
-  padding: var(--space-2) var(--space-3);
+  padding: 0;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--steel-dim);
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(61, 220, 255, 0.42);
 }
 
 .viewport-chrome {
@@ -1091,7 +1091,7 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  width: min(100%, 22rem);
+  width: min(100%, 26rem);
   min-height: 11rem;
   padding: var(--space-4);
   border: 2px dashed rgba(61, 220, 255, 0.35);
@@ -1129,18 +1129,31 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
 
 .try-drawing__body {
   margin: 0;
-  max-width: 28ch;
-  font-size: 0.92rem;
+  max-width: 38ch;
+  font-size: 0.95rem;
   line-height: 1.45;
-  color: var(--steel);
+  color: var(--paper);
 }
 
 .try-drawing__trust {
-  margin: 0.25rem 0 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0.15rem 0 0;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(61, 220, 255, 0.65);
+  background: rgba(61, 220, 255, 0.16);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
   color: var(--cyan);
+}
+
+.try-drawing__trust svg {
+  flex-shrink: 0;
 }
 
 .try-drawing__drag-hint {
@@ -1205,6 +1218,102 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   max-width: 32ch;
   color: var(--paper);
   font-size: 0.95rem;
+}
+
+.try-drawing__privacy {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0 0 var(--space-4);
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(61, 220, 255, 0.42);
+  background: rgba(61, 220, 255, 0.1);
+  cursor: default;
+}
+
+.try-drawing__privacy-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--cyan);
+}
+
+.try-drawing__privacy-body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--paper);
+}
+
+.try-drawing__verify {
+  padding: 0.7rem 0.95rem 0.85rem;
+  background: rgba(61, 220, 255, 0.08);
+}
+
+.try-drawing__verify summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.15rem;
+  min-height: 2.75rem;
+  padding: 0.35rem 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  color: var(--amber);
+  text-align: left;
+}
+
+.try-drawing__verify summary::-webkit-details-marker {
+  display: none;
+}
+
+.try-drawing__verify summary::before {
+  content: '+';
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1.1rem;
+  padding-top: 0.05rem;
+  color: var(--amber);
+}
+
+.try-drawing__verify[open] summary::before {
+  content: '-';
+}
+
+.try-drawing__verify summary:hover {
+  color: var(--paper);
+}
+
+.try-drawing__verify summary:focus-visible {
+  outline: 1px solid var(--amber);
+  outline-offset: 2px;
+}
+
+.try-drawing__verify p {
+  margin: 0.45rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--paper);
+}
+
+.try-drawing__caption-meta {
+  display: none;
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+}
+
+.flagship__media.is-viewing .try-drawing__verify {
+  display: none;
+}
+
+.flagship__media.is-viewing .try-drawing__caption-meta {
+  display: block;
 }
 
 .try-drawing__viewer {
@@ -2800,8 +2909,24 @@ body.trial-dialog-open {
   }
 
   .flagship__media figcaption {
-    padding: 0.55rem 0.75rem;
+    padding: 0;
     overflow-wrap: anywhere;
+  }
+
+  .try-drawing__verify {
+    padding: 0.65rem 0.75rem 0.8rem;
+  }
+
+  .try-drawing__caption-meta {
+    padding: 0.55rem 0.75rem;
+  }
+
+  .try-drawing__privacy {
+    padding: 0.75rem;
+  }
+
+  .try-drawing__privacy-title {
+    font-size: 0.92rem;
   }
 
   .parser-hero {

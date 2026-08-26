@@ -89,6 +89,10 @@ export interface Dictionary {
     body: string
     open: string
     trust: string
+    privacyTitle: string
+    privacyBody: string
+    verifySummary: string
+    verifyBody: string
     dragHint: string
     caption: string
     captionOpen: string
