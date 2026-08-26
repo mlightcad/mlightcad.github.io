@@ -178,7 +178,9 @@ export async function setupWebGL(): Promise<void> {
   }
 }
 
-export function markActiveNav(page: 'home' | 'parser' | 'iframe-plugin' | 'cad-diff-viewer'): void {
+export function markActiveNav(
+  page: 'home' | 'parser' | 'iframe-plugin' | 'cad-diff-viewer' | 'tutorial',
+): void {
   document.querySelectorAll<HTMLAnchorElement>('.nav__menu a').forEach((a) => {
     const href = a.getAttribute('href') ?? ''
     const isParser = href.includes('dwg-parser')
@@ -191,7 +193,17 @@ export function markActiveNav(page: 'home' | 'parser' | 'iframe-plugin' | 'cad-d
           ? isDiffViewer
           : page === 'iframe-plugin'
             ? isIframe
-            : !isParser && !isDiffViewer && !isIframe && href.includes('product')
+            : page === 'tutorial'
+              ? false
+              : !isParser && !isDiffViewer && !isIframe && href.includes('product')
+    a.classList.toggle('is-current', current)
+    if (current) a.setAttribute('aria-current', 'page')
+    else a.removeAttribute('aria-current')
+  })
+
+  document.querySelectorAll<HTMLAnchorElement>('.nav__links > li > a').forEach((a) => {
+    const href = a.getAttribute('href') ?? ''
+    const current = page === 'tutorial' && href.includes('tutorial.html')
     a.classList.toggle('is-current', current)
     if (current) a.setAttribute('aria-current', 'page')
     else a.removeAttribute('aria-current')

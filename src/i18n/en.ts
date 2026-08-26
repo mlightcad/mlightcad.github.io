@@ -1,6 +1,7 @@
 import { cadDiffViewerEn } from './cadDiffViewer'
 import { iframePluginEn } from './iframePlugin'
 import { parserEn } from './parser'
+import { tutorialEn } from './tutorial'
 import type { Dictionary } from './types'
 
 export const en: Dictionary = {
@@ -21,6 +22,7 @@ export const en: Dictionary = {
     googleDrive: 'Google Drive Integration',
     features: 'Features',
     plugins: 'Plugins',
+    tutorials: 'Tutorials',
     docs: 'Docs',
     github: 'GitHub',
     demo: 'Live Demo',
@@ -213,4 +215,5 @@ export const en: Dictionary = {
   parser: parserEn,
   iframePlugin: iframePluginEn,
   cadDiffViewer: cadDiffViewerEn,
+  tutorial: tutorialEn,
 }

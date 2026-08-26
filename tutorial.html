@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorials — MLightCAD</title>
+    <meta
+      name="description"
+      content="Watch CAD-Viewer feature walkthroughs: measure drawings and review CAD designs directly in the browser."
+    />
+    <meta
+      name="keywords"
+      content="CAD tutorial, CAD-Viewer, DWG measurement, design review, browser CAD, MLightCAD"
+    />
+    <meta name="author" content="MLightCAD" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="canonical" href="https://mlightcad.com/tutorial.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MLightCAD" />
+    <meta property="og:title" content="Tutorials — MLightCAD" />
+    <meta
+      property="og:description"
+      content="Watch CAD-Viewer feature walkthroughs: measure drawings and review CAD designs directly in the browser."
+    />
+    <meta property="og:url" content="https://mlightcad.com/tutorial.html" />
+    <meta property="og:image" content="https://mlightcad.com/og.png" />
+    <meta property="og:image:alt" content="MLightCAD tutorials" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tutorials — MLightCAD" />
+    <meta
+      name="twitter:description"
+      content="Watch CAD-Viewer feature walkthroughs in the browser."
+    />
+    <meta name="twitter:image" content="https://mlightcad.com/og.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "MLightCAD tutorials",
+        "itemListElement": [
+          {
+            "@type": "VideoObject",
+            "position": 1,
+            "name": "CAD-Viewer Measurement Tools",
+            "description": "Measure CAD drawings directly in the browser.",
+            "thumbnailUrl": "https://i.ytimg.com/vi/zWLs1TCtyBg/hqdefault.jpg",
+            "embedUrl": "https://www.youtube.com/embed/zWLs1TCtyBg",
+            "url": "https://www.youtube.com/watch?v=zWLs1TCtyBg",
+            "publisher": { "@type": "Organization", "name": "MLightCAD" }
+          },
+          {
+            "@type": "VideoObject",
+            "position": 2,
+            "name": "CAD-Viewer Design Review",
+            "description": "Review CAD designs directly in the browser.",
+            "thumbnailUrl": "https://i.ytimg.com/vi/1DPvN3oOI0Q/hqdefault.jpg",
+            "embedUrl": "https://www.youtube.com/embed/1DPvN3oOI0Q",
+            "url": "https://www.youtube.com/watch?v=1DPvN3oOI0Q",
+            "publisher": { "@type": "Organization", "name": "MLightCAD" }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body data-page="tutorial">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="fx-spot" data-spot aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--x" data-cross-x aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--y" data-cross-y aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+    <div class="site">
+      <div data-site-nav></div>
+
+      <main>
+        <section class="hero parser-hero shell">
+          <div class="hero__frame" data-tilt>
+            <div class="hero__corners" aria-hidden="true"></div>
+            <div class="hero__grid">
+              <div class="hero__copy">
+                <p class="hero__meta hero-enter" data-scramble data-i18n="tutorial.eyebrow">Product films</p>
+                <h1 class="section__title hero-enter" data-i18n="tutorial.title">See CAD-Viewer at work</h1>
+                <p class="section__lead hero-enter" data-i18n="tutorial.lead">
+                  Short walkthroughs of real features. New films land here as we ship them.
+                </p>
+              </div>
+              <figure class="hero__visual hero__visual--bloom hero-enter">
+                <img
+                  src="/assets/tutorial/hero.webp"
+                  alt="CAD-Viewer product films: measurement and design review"
+                  width="512"
+                  height="372"
+                  loading="eager"
+                  decoding="async"
+                  data-i18n-alt="tutorial.heroImageAlt"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="hud" aria-hidden="true">
+            <span class="hud__label">UCS</span>
+            <span class="hud__coords" data-hud-coords>X 0.00 &nbsp; Y 0.00</span>
+          </div>
+        </section>
+        <section class="tutorial-catalog shell">
+          <div class="tutorial-grid" data-tutorial-grid></div>
+          <p class="tutorial-more">
+            <span data-i18n="tutorial.moreLead">More walkthroughs will appear in this list.</span>
+            <a href="https://www.youtube.com/@mlightcad" target="_blank" rel="noopener" data-i18n="tutorial.channelCta"
+              >YouTube channel</a
+            >
+          </p>
+        </section>
+      </main>
+
+      <div data-site-footer></div>
+    </div>
+
+    <script type="module" src="/src/tutorial-page.ts"></script>
+  </body>
+</html>

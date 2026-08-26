@@ -1,6 +1,7 @@
 import { cadDiffViewerJa } from './cadDiffViewer'
 import { iframePluginJa } from './iframePlugin'
 import type { ParserCopy } from './parser'
+import { tutorialJa } from './tutorial'
 import type { Dictionary } from './types'
 
 const parserJa: ParserCopy = {
@@ -176,6 +177,7 @@ export const ja: Dictionary = {
     googleDrive: 'Google Drive 連携',
     features: '機能',
     plugins: 'プラグイン',
+    tutorials: 'チュートリアル',
     docs: 'ドキュメント',
     github: 'GitHub',
     demo: 'ライブデモ',
@@ -368,4 +370,5 @@ export const ja: Dictionary = {
   parser: parserJa,
   iframePlugin: iframePluginJa,
   cadDiffViewer: cadDiffViewerJa,
+  tutorial: tutorialJa,
 }
