@@ -25,13 +25,21 @@ export interface TutorialCopy {
   videos: Record<TutorialVideoKey, TutorialVideoCopy>
 }
 
+/** Catalog entry for one YouTube film on `/tutorial.html`. */
+export interface TutorialVideoEntry {
+  youtubeId: string
+  key: TutorialVideoKey
+  /** ISO 8601 publish time from YouTube, for VideoObject JSON-LD. */
+  uploadDate: string
+}
+
 /**
  * YouTube films shown on `/tutorial.html`.
  * To add a video: append an item here and add matching copy under `videos` in every locale below.
  */
-export const TUTORIAL_VIDEOS: { youtubeId: string; key: TutorialVideoKey }[] = [
-  { youtubeId: 'zWLs1TCtyBg', key: 'measurement' },
-  { youtubeId: '1DPvN3oOI0Q', key: 'designReview' },
+export const TUTORIAL_VIDEOS: TutorialVideoEntry[] = [
+  { youtubeId: 'zWLs1TCtyBg', key: 'measurement', uploadDate: '2026-08-25T07:04:04-07:00' },
+  { youtubeId: '1DPvN3oOI0Q', key: 'designReview', uploadDate: '2026-08-25T07:02:04-07:00' },
 ]
 
 /** Public YouTube channel for longer-form and upcoming films. */
