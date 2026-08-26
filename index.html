@@ -186,12 +186,23 @@
                     <div class="try-drawing__dropzone" data-try-drawing-dropzone>
                       <p class="try-drawing__title" data-i18n="tryDrawing.title">Open a drawing</p>
                       <p class="try-drawing__body" data-i18n="tryDrawing.body">
-                        Drop a DWG or DXF here. It never leaves this tab.
+                        Drop a DWG or DXF here. Parsed and rendered in this tab, never uploaded.
                       </p>
                       <button type="button" class="btn btn--primary" data-try-drawing-open data-i18n="tryDrawing.open">
                         Open file
                       </button>
-                      <p class="try-drawing__trust" data-i18n="tryDrawing.trust">On-device · no server</p>
+                      <p class="try-drawing__trust">
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                          <rect x="3" y="7" width="10" height="7" stroke="currentColor" stroke-width="1.4" />
+                          <path
+                            d="M5 7V5a3 3 0 0 1 6 0v2"
+                            stroke="currentColor"
+                            stroke-width="1.4"
+                            stroke-linecap="square"
+                          />
+                        </svg>
+                        <span data-i18n="tryDrawing.trust">Never uploaded · no server</span>
+                      </p>
                       <p class="try-drawing__drag-hint" data-i18n="tryDrawing.dragHint">Release to open</p>
                     </div>
                   </div>
@@ -212,13 +223,32 @@
                   </div>
                   <input type="file" accept=".dxf,.dwg,application/dxf,image/vnd.dwg" data-try-drawing-input hidden />
                 </div>
-                <figcaption data-try-drawing-caption>
-                  .dwg · .dxf · parsed in-browser · no upload
+                <figcaption>
+                  <details class="try-drawing__verify">
+                    <summary data-i18n="tryDrawing.verifySummary">
+                      How to verify with DevTools that the file is not uploaded
+                    </summary>
+                    <p data-i18n="tryDrawing.verifyBody">
+                      Open Developer Tools → Network while using this demo. The DWG file itself is not transmitted to
+                      an external server for processing.
+                    </p>
+                  </details>
+                  <p class="try-drawing__caption-meta" data-try-drawing-caption>
+                    .dwg · .dxf · parsed in-browser · no upload
+                  </p>
                 </figcaption>
               </figure>
               <div>
                 <p class="eco__label reveal" data-i18n="flagship.firstsLabel">Industry firsts</p>
                 <ul class="firsts firsts--stack reveal" data-i18n-firsts="flagship"></ul>
+                <div class="try-drawing__privacy reveal" data-try-drawing-privacy role="note">
+                  <p class="try-drawing__privacy-title" data-i18n="tryDrawing.privacyTitle">
+                    Your drawing never leaves this browser
+                  </p>
+                  <p class="try-drawing__privacy-body" data-i18n="tryDrawing.privacyBody">
+                    Nothing is uploaded or stored on our servers. Parsing and rendering happen in this tab.
+                  </p>
+                </div>
                 <div class="flagship__actions reveal">
                   <button
                     type="button"
