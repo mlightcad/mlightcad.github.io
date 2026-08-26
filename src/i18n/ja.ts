@@ -360,9 +360,9 @@ export const ja: Dictionary = {
   },
   footer: {
     tagline: 'Web のためのオープンソース CAD インフラ。',
-    terms: 'Terms of Service',
-    privacy: 'Privacy Policy',
-    refunds: 'Refund Policy',
+    terms: '利用規約',
+    privacy: 'プライバシーポリシー',
+    refunds: '返金ポリシー',
     rights: '© 2026 MLightCAD',
   },
   parser: parserJa,

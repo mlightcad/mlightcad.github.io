@@ -79,13 +79,6 @@ function renderLegalPage(page: LegalPage): void {
   })
 }
 
-/** Mount shared chrome and render the legal document. */
-function boot(page: LegalPage): void {
-  mountShell('legal')
-  applyLegalI18n(page)
-  setupNav()
-}
-
 /** Refresh localized copy without re-mounting the shared shell. */
 function applyLegalI18n(page: LegalPage): void {
   applyCommonI18n(t(locale))
@@ -96,8 +89,10 @@ const page = detectLegalPage()
 if (!page) {
   console.error('legal-page: missing or invalid data-legal on <body>')
 } else {
-  setupPageFX()
+  mountShell('legal')
+  applyLegalI18n(page)
   setupLocaleToggle(() => applyLegalI18n(page))
+  setupNav()
+  setupPageFX()
   void setupWebGL()
-  boot(page)
 }
