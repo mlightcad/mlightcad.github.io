@@ -13,6 +13,7 @@ import {
   type AcApOpenDatabaseOptions,
   type AcEdUiTheme,
 } from '@mlightcad/cad-simple-viewer'
+import type { AcDbOpenDatabaseError, AcDbOpenDatabaseErrorCode } from '@mlightcad/data-model'
 import { registerPrivateDwgConverter } from './dwgConverter'
 import { getSimpleUiPlugin, registerPlugins } from './register'
 
@@ -39,6 +40,45 @@ export interface OpenDrawingOptions {
   mode?: AcEdOpenMode
   /** Initial view framing after open. */
   openViewMode?: AcApOpenViewMode
+}
+
+/** Structured result from opening a drawing through the viewer. */
+export type OpenDrawingResult =
+  | { ok: true }
+  | { ok: false; errorCode?: AcDbOpenDatabaseErrorCode }
+
+/**
+ * Read a fresh {@link AcDbDatabase.lastOpenError} code after a failed open.
+ *
+ * @param before - `lastOpenError` snapshot taken before `openDocument`.
+ * @returns Machine-readable failure code when a new error was recorded.
+ */
+function freshOpenErrorCode(
+  before: AcDbOpenDatabaseError | null,
+): AcDbOpenDatabaseErrorCode | undefined {
+  const after = AcApDocManager.instance.curDocument.database.lastOpenError
+  if (after != null && after !== before) return after.code
+  return undefined
+}
+
+/**
+ * Run `openDocument` and surface structured failure codes (including license).
+ *
+ * @param fileName - Drawing file name (extension selects DWG vs DXF).
+ * @param fileContent - Drawing bytes.
+ * @param options - Open-document options.
+ * @returns Whether open succeeded, plus `errorCode` when it failed.
+ */
+async function openDocumentWithResult(
+  fileName: string,
+  fileContent: ArrayBuffer,
+  options: AcApOpenDatabaseOptions,
+): Promise<OpenDrawingResult> {
+  const docManager = AcApDocManager.instance
+  const before = docManager.curDocument.database.lastOpenError
+  const success = await docManager.openDocument(fileName, fileContent, options)
+  if (success) return { ok: true }
+  return { ok: false, errorCode: freshOpenErrorCode(before) }
 }
 
 const DEFAULT_OPEN: AcApOpenDatabaseOptions = {
@@ -238,28 +278,27 @@ function fileNameFromUrl(url: string): string {
 export async function openLocalDrawing(
   file: File,
   options: OpenDrawingOptions = {},
-): Promise<boolean> {
-  const docManager = AcApDocManager.instance
+): Promise<OpenDrawingResult> {
   const fileContent = await readFile(file)
-  return docManager.openDocument(file.name, fileContent, openOptions(options, AcEdOpenMode.Write))
+  return openDocumentWithResult(
+    file.name,
+    fileContent,
+    openOptions(options, AcEdOpenMode.Write),
+  )
 }
 
 export async function openDrawingFromUrl(
   url: string,
   options: OpenDrawingOptions = {},
   fileName?: string,
-): Promise<boolean> {
+): Promise<OpenDrawingResult> {
   const response = await fetch(url)
   if (!response.ok) {
     throw new Error(`Failed to fetch drawing (${response.status})`)
   }
   const fileContent = await response.arrayBuffer()
   const name = fileName && isCadFileName(fileName) ? fileName : fileNameFromUrl(url)
-  return AcApDocManager.instance.openDocument(
-    name,
-    fileContent,
-    openOptions(options, AcEdOpenMode.Review),
-  )
+  return openDocumentWithResult(name, fileContent, openOptions(options, AcEdOpenMode.Review))
 }
 
 /**
@@ -268,14 +307,14 @@ export async function openDrawingFromUrl(
  * @param fileName - Original file name; must end with `.dwg` or `.dxf`.
  * @param fileContent - Drawing bytes.
  * @param options - Open-document options.
- * @returns Whether `openDocument` succeeded.
+ * @returns Whether `openDocument` succeeded, plus structured error metadata.
  */
 export async function openDrawingFromBuffer(
   fileName: string,
   fileContent: ArrayBuffer,
   options: OpenDrawingOptions = {},
-): Promise<boolean> {
-  return AcApDocManager.instance.openDocument(
+): Promise<OpenDrawingResult> {
+  return openDocumentWithResult(
     fileName,
     fileContent,
     openOptions(options, AcEdOpenMode.Review),

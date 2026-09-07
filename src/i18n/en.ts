@@ -72,6 +72,10 @@ export const en: Dictionary = {
     errorType: 'Please choose a DWG or DXF file.',
     errorInit: 'Could not start the viewer. Try again after a refresh.',
     errorOpen: 'Could not open {name}.',
+    errorLicenseExpired:
+      'Could not open {name}. The DWG converter evaluation period has expired.',
+    errorLicenseInvalid:
+      'Could not open {name}. The DWG converter license is missing or invalid.',
     retry: 'Try another file',
     fullscreen: 'Fullscreen',
     exitFullscreen: 'Exit fullscreen',

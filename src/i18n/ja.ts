@@ -227,6 +227,10 @@ export const ja: Dictionary = {
     errorType: 'DWG または DXF ファイルを選択してください。',
     errorInit: 'ビューアを起動できませんでした。更新して再試行してください。',
     errorOpen: '{name} を開けませんでした。',
+    errorLicenseExpired:
+      '{name} を開けませんでした。DWG コンバーターの評価期間が終了しています。',
+    errorLicenseInvalid:
+      '{name} を開けませんでした。DWG コンバーターのライセンスが未設定または無効です。',
     retry: '別のファイルを試す',
     fullscreen: '全画面',
     exitFullscreen: '全画面を終了',
