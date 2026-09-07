@@ -227,6 +227,10 @@ export const ru: Dictionary = {
     errorType: 'Выберите файл DWG или DXF.',
     errorInit: 'Не удалось запустить просмотрщик. Обновите страницу и попробуйте снова.',
     errorOpen: 'Не удалось открыть {name}.',
+    errorLicenseExpired:
+      'Не удалось открыть {name}. Истёк пробный период конвертера DWG.',
+    errorLicenseInvalid:
+      'Не удалось открыть {name}. Лицензия конвертера DWG отсутствует или недействительна.',
     retry: 'Выбрать другой файл',
     fullscreen: 'На весь экран',
     exitFullscreen: 'Выйти из полноэкранного режима',

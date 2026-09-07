@@ -227,6 +227,10 @@ export const es: Dictionary = {
     errorType: 'Elige un archivo DWG o DXF.',
     errorInit: 'No se pudo iniciar el visor. Recarga e inténtalo de nuevo.',
     errorOpen: 'No se pudo abrir {name}.',
+    errorLicenseExpired:
+      'No se pudo abrir {name}. El periodo de evaluación del convertidor DWG ha caducado.',
+    errorLicenseInvalid:
+      'No se pudo abrir {name}. La licencia del convertidor DWG falta o no es válida.',
     retry: 'Probar otro archivo',
     fullscreen: 'Pantalla completa',
     exitFullscreen: 'Salir de pantalla completa',

@@ -11,6 +11,7 @@ import {
   parseTheme,
   parseViewerLocale,
   type OpenDrawingOptions,
+  type OpenDrawingResult,
 } from './try-drawing/viewer'
 
 /** Message the embed posts to `window.parent` when it can accept a drawing. */
@@ -32,6 +33,10 @@ type EmbedCopy = {
   initFailed: string
   /** Message when the drawing cannot be opened. */
   openFailed: string
+  /** Message when the DWG converter evaluation period has ended. */
+  licenseExpired: string
+  /** Message when the DWG converter license is missing or invalid. */
+  licenseInvalid: string
   /** Message when the fetch looks like a CORS / network failure. */
   corsHint: string
 }
@@ -45,6 +50,8 @@ const COPY: Record<'en' | 'zh' | 'tr' | 'cs', EmbedCopy> = {
     badType: 'Only .dwg and .dxf files are supported.',
     initFailed: 'Could not start the viewer.',
     openFailed: 'Could not open the drawing from the given URL.',
+    licenseExpired: 'Could not open the drawing. The DWG converter evaluation period has expired.',
+    licenseInvalid: 'Could not open the drawing. The DWG converter license is missing or invalid.',
     corsHint:
       'Fetch failed. The file host must allow CORS from this origin, or serve the file from the same site. Private files should be opened via postMessage instead.',
   },
@@ -56,6 +63,8 @@ const COPY: Record<'en' | 'zh' | 'tr' | 'cs', EmbedCopy> = {
     badType: '仅支持 .dwg 与 .dxf 文件。',
     initFailed: '无法启动查看器。',
     openFailed: '无法从给定 URL 打开图纸。',
+    licenseExpired: '无法打开图纸。DWG 转换器试用期已结束。',
+    licenseInvalid: '无法打开图纸。DWG 转换器许可证缺失或无效。',
     corsHint:
       '拉取文件失败。文件所在服务器需允许本站跨域（CORS），或将文件放在同源站点。私有文件请改用 postMessage 打开。',
   },
@@ -67,6 +76,8 @@ const COPY: Record<'en' | 'zh' | 'tr' | 'cs', EmbedCopy> = {
     badType: 'Yalnızca .dwg ve .dxf dosyaları desteklenir.',
     initFailed: 'Görüntüleyici başlatılamadı.',
     openFailed: 'Verilen URL’den çizim açılamadı.',
+    licenseExpired: 'Çizim açılamadı. DWG dönüştürücü değerlendirme süresi sona erdi.',
+    licenseInvalid: 'Çizim açılamadı. DWG dönüştürücü lisansı eksik veya geçersiz.',
     corsHint:
       'Dosya alınamadı. Dosya sunucusu bu origin için CORS’a izin vermeli veya dosyayı aynı siteden sunmalıdır. Özel dosyalar postMessage ile açılmalıdır.',
   },
@@ -78,6 +89,8 @@ const COPY: Record<'en' | 'zh' | 'tr' | 'cs', EmbedCopy> = {
     badType: 'Podporovány jsou pouze soubory .dwg a .dxf.',
     initFailed: 'Prohlížeč se nepodařilo spustit.',
     openFailed: 'Výkres se z dané URL nepodařilo otevřít.',
+    licenseExpired: 'Výkres se nepodařilo otevřít. Zkušební období převodníku DWG vypršelo.',
+    licenseInvalid: 'Výkres se nepodařilo otevřít. Licence převodníku DWG chybí nebo je neplatná.',
     corsHint:
       'Stažení souboru selhalo. Hostitel souboru musí povolit CORS pro tento origin, nebo soubor servírovat ze stejného webu. Soukromé soubory otevírejte přes postMessage.',
   },
@@ -162,6 +175,13 @@ async function main(): Promise<void> {
     return ready
   }
 
+  const openFailureMessage = (result?: OpenDrawingResult): string => {
+    const code = result && !result.ok ? result.errorCode : undefined
+    if (code === 'license_expired') return copy.licenseExpired
+    if (code === 'license_invalid') return copy.licenseInvalid
+    return copy.openFailed
+  }
+
   const showOpenError = (err: unknown): void => {
     console.error('Embed open failed:', err)
     const message = err instanceof Error ? err.message : String(err)
@@ -181,9 +201,9 @@ async function main(): Promise<void> {
     setPanel(idle, error, 'none')
     if (!(await ensureReady())) return
     try {
-      const ok = await openDrawingFromBuffer(fileName, buffer, openOptions)
-      if (!ok) {
-        errorMsg.textContent = copy.openFailed
+      const result = await openDrawingFromBuffer(fileName, buffer, openOptions)
+      if (!result.ok) {
+        errorMsg.textContent = openFailureMessage(result)
         setPanel(idle, error, 'error')
         return
       }
@@ -227,9 +247,9 @@ async function main(): Promise<void> {
   if (!(await ensureReady())) return
 
   try {
-    const ok = await openDrawingFromUrl(url, openOptions, fileNameHint || undefined)
-    if (!ok) {
-      errorMsg.textContent = copy.openFailed
+    const result = await openDrawingFromUrl(url, openOptions, fileNameHint || undefined)
+    if (!result.ok) {
+      errorMsg.textContent = openFailureMessage(result)
       setPanel(idle, error, 'error')
       return
     }

@@ -102,6 +102,10 @@ export interface Dictionary {
     errorType: string
     errorInit: string
     errorOpen: string
+    /** Shown when the DWG converter evaluation period has ended. */
+    errorLicenseExpired: string
+    /** Shown when the DWG converter license key is missing or invalid. */
+    errorLicenseInvalid: string
     retry: string
     fullscreen: string
     exitFullscreen: string

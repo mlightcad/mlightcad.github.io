@@ -71,6 +71,8 @@ export const zh: Dictionary = {
     errorType: '请选择 DWG 或 DXF 文件。',
     errorInit: '无法启动查看器。请刷新后重试。',
     errorOpen: '无法打开 {name}。',
+    errorLicenseExpired: '无法打开 {name}。DWG 转换器试用期已结束。',
+    errorLicenseInvalid: '无法打开 {name}。DWG 转换器许可证缺失或无效。',
     retry: '换一个文件',
     fullscreen: '全屏',
     exitFullscreen: '退出全屏',

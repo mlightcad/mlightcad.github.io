@@ -4,6 +4,9 @@ import { locale, setBackgroundWebGLPaused } from './shared'
 /** Lazily loaded CAD viewer module. */
 type ViewerModule = typeof import('./try-drawing/viewer')
 
+/** Open result shape from the lazy viewer module (avoid static import). */
+type OpenDrawingResult = Awaited<ReturnType<ViewerModule['openLocalDrawing']>>
+
 /** Visual state of the homepage try-drawing widget. */
 type UiState = 'idle' | 'loading' | 'viewing' | 'error'
 
@@ -76,6 +79,25 @@ let refreshCopy: (() => void) | null = null
 /** Re-apply try-drawing copy after locale changes without clobbering open-file state. */
 export function refreshTryDrawingI18n(): void {
   refreshCopy?.()
+}
+
+/**
+ * Localized message for a failed open, including DWG converter license failures.
+ *
+ * @param fileName - Drawing that failed to open.
+ * @param result - Structured open result when available.
+ * @returns User-facing error text.
+ */
+function openFailureMessage(fileName: string, result?: OpenDrawingResult): string {
+  const c = copy()
+  const code = result && !result.ok ? result.errorCode : undefined
+  if (code === 'license_expired') {
+    return c.errorLicenseExpired.replace('{name}', fileName)
+  }
+  if (code === 'license_invalid') {
+    return c.errorLicenseInvalid.replace('{name}', fileName)
+  }
+  return c.errorOpen.replace('{name}', fileName)
 }
 
 export function setupTryDrawing(): void {
@@ -294,10 +316,10 @@ export function setupTryDrawing(): void {
       // cad-simple-viewer shows its own busy indicator while parsing.
       els.loading.hidden = true
 
-      const success = await viewerMod.openLocalDrawing(file)
+      const result = await viewerMod.openLocalDrawing(file)
       if (gen !== loadGen) return
-      if (!success) {
-        failOpen(gen, copy().errorOpen.replace('{name}', file.name))
+      if (!result.ok) {
+        failOpen(gen, openFailureMessage(file.name, result))
         return
       }
 
@@ -309,7 +331,7 @@ export function setupTryDrawing(): void {
       setFullscreen(els.chrome.classList.contains('is-fullscreen'))
     } catch (error) {
       console.error('Failed to open drawing:', error)
-      failOpen(gen, copy().errorOpen.replace('{name}', file.name))
+      failOpen(gen, openFailureMessage(file.name))
     }
   }
 

@@ -227,6 +227,10 @@ export const cs: Dictionary = {
     errorType: 'Vyberte soubor DWG nebo DXF.',
     errorInit: 'Nepodařilo se spustit prohlížeč. Obnovte stránku a zkuste to znovu.',
     errorOpen: 'Nepodařilo se otevřít {name}.',
+    errorLicenseExpired:
+      'Nepodařilo se otevřít {name}. Zkušební období převodníku DWG vypršelo.',
+    errorLicenseInvalid:
+      'Nepodařilo se otevřít {name}. Licence převodníku DWG chybí nebo je neplatná.',
     retry: 'Zkusit jiný soubor',
     fullscreen: 'Celá obrazovka',
     exitFullscreen: 'Ukončit celou obrazovku',

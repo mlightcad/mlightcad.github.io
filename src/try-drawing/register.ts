@@ -1,4 +1,4 @@
-import { registerSimpleUiPlugin } from '@mlightcad/cad-simple-ui-plugin/register'
+import { acuiRegisterSimpleUiPlugin } from '@mlightcad/cad-simple-ui-plugin/register'
 import { AcApDocManager } from '@mlightcad/cad-simple-viewer'
 
 const SIMPLE_UI_PLUGIN_NAME = 'SimpleUiPlugin'
@@ -26,7 +26,7 @@ let simpleUiRegistered = false
 export async function registerSimpleUi(host: HTMLElement): Promise<void> {
   if (simpleUiRegistered) return
 
-  await registerSimpleUiPlugin(AcApDocManager.instance.pluginManager, {
+  await acuiRegisterSimpleUiPlugin(AcApDocManager.instance.pluginManager, {
     host,
     dockPanel: {
       defaultOpen: false,

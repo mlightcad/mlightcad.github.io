@@ -227,6 +227,10 @@ export const ko: Dictionary = {
     errorType: 'DWG 또는 DXF 파일을 선택하세요.',
     errorInit: '뷰어를 시작할 수 없습니다. 새로고침 후 다시 시도하세요.',
     errorOpen: '{name}을(를) 열 수 없습니다.',
+    errorLicenseExpired:
+      '{name}을(를) 열 수 없습니다. DWG 변환기 평가 기간이 만료되었습니다.',
+    errorLicenseInvalid:
+      '{name}을(를) 열 수 없습니다. DWG 변환기 라이선스가 없거나 유효하지 않습니다.',
     retry: '다른 파일 시도',
     fullscreen: '전체 화면',
     exitFullscreen: '전체 화면 종료',
