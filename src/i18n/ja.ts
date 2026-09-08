@@ -304,6 +304,18 @@ export const ja: Dictionary = {
       },
     ],
   },
+  gallery: {
+    eyebrow: 'デモ図面',
+    title: '図面ギャラリー',
+    leadHtml:
+      '<a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener noreferrer">cad-viewer</a> / <a href="https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-html-plugin" target="_blank" rel="noopener noreferrer">cad-html-plugin</a> で事前レンダリングした CAD 図面 — プレビューを開くか、元の DWG をダウンロード。図面ソース：<a href="https://dwgmodels.com/" target="_blank" rel="noopener noreferrer">dwgmodels.com</a>。',
+    download: 'ダウンロード',
+    loading: '図面を読み込み中…',
+    empty: '図面が見つかりません。',
+    error: '図面を読み込めませんでした。後でもう一度お試しください。',
+    openAria: '図面を開く：{title}',
+    downloadAria: '{file} をダウンロード',
+  },
   plugins: {
     eyebrow: 'エコシステム',
     title: '公式プラグイン',

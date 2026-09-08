@@ -304,6 +304,18 @@ export const es: Dictionary = {
       },
     ],
   },
+  gallery: {
+    eyebrow: 'Dibujos demo',
+    title: 'Galería de dibujos',
+    leadHtml:
+      'Dibujos CAD prerenderizados exportados con <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener noreferrer">cad-viewer</a> / <a href="https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-html-plugin" target="_blank" rel="noopener noreferrer">cad-html-plugin</a> — abra una vista previa en el visor o descargue el DWG original. Dibujos de <a href="https://dwgmodels.com/" target="_blank" rel="noopener noreferrer">dwgmodels.com</a>.',
+    download: 'Descargar',
+    loading: 'Cargando dibujos…',
+    empty: 'No se encontraron dibujos.',
+    error: 'No se pudieron cargar los dibujos. Inténtelo de nuevo más tarde.',
+    openAria: 'Abrir dibujo: {title}',
+    downloadAria: 'Descargar {file}',
+  },
   plugins: {
     eyebrow: 'Ecosistema',
     title: 'Plugins oficiales',

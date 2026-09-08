@@ -304,6 +304,18 @@ export const ru: Dictionary = {
       },
     ],
   },
+  gallery: {
+    eyebrow: 'Демо-чертежи',
+    title: 'Галерея чертежей',
+    leadHtml:
+      'Предварительно отрисованные CAD-чертежи, экспортированные через <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener noreferrer">cad-viewer</a> / <a href="https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-html-plugin" target="_blank" rel="noopener noreferrer">cad-html-plugin</a> — откройте превью во вьюере или скачайте исходный DWG. Источник чертежей: <a href="https://dwgmodels.com/" target="_blank" rel="noopener noreferrer">dwgmodels.com</a>.',
+    download: 'Скачать',
+    loading: 'Загрузка чертежей…',
+    empty: 'Чертежи не найдены.',
+    error: 'Не удалось загрузить чертежи. Попробуйте позже.',
+    openAria: 'Открыть чертеж: {title}',
+    downloadAria: 'Скачать {file}',
+  },
   plugins: {
     eyebrow: 'Экосистема',
     title: 'Официальные плагины',

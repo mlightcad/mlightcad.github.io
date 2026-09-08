@@ -1651,6 +1651,200 @@ html.try-drawing-fullscreen #bg-canvas {
   font-size: 0.95rem;
 }
 
+/* ——— Drawing gallery ——— */
+.drawing-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5) var(--space-4);
+}
+
+.drawing-gallery__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-width: 0;
+  color: inherit;
+}
+
+.drawing-gallery__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.drawing-gallery__title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--paper);
+}
+
+.drawing-gallery__size {
+  flex-shrink: 0;
+  color: var(--steel-dim);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+.drawing-gallery__thumb {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--ink-elevated);
+  border: 1px solid var(--line);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+
+.drawing-gallery__thumb-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.drawing-gallery__thumb-link:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: -2px;
+}
+
+.drawing-gallery__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s var(--ease);
+}
+
+.drawing-gallery__download {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid rgba(232, 238, 245, 0.28);
+  border-radius: 999px;
+  background: rgba(11, 15, 20, 0.78);
+  color: var(--paper);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), background 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+  pointer-events: none;
+}
+
+.drawing-gallery__download svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+}
+
+.drawing-gallery__card:hover .drawing-gallery__download,
+.drawing-gallery__card:focus-within .drawing-gallery__download,
+.drawing-gallery__download:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.drawing-gallery__download:hover,
+.drawing-gallery__download:focus-visible {
+  background: var(--cyan);
+  border-color: transparent;
+  color: var(--ink);
+}
+
+.drawing-gallery__download:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+}
+
+.drawing-gallery__card:hover .drawing-gallery__thumb,
+.drawing-gallery__card:focus-within .drawing-gallery__thumb {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+}
+
+.drawing-gallery__card:hover .drawing-gallery__thumb img,
+.drawing-gallery__card:focus-within .drawing-gallery__thumb img {
+  transform: scale(1.03);
+}
+
+.drawing-gallery__status {
+  margin: var(--space-4) 0 0;
+  color: var(--steel-dim);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.drawing-gallery__status--error {
+  color: #f07178;
+}
+
+.section__lead a {
+  color: var(--cyan);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.section__lead a:hover {
+  color: var(--paper);
+}
+
+@media (hover: none) {
+  .drawing-gallery__download {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .drawing-gallery__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .drawing-gallery__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drawing-gallery__thumb,
+  .drawing-gallery__thumb img,
+  .drawing-gallery__download {
+    transition: none;
+  }
+
+  .drawing-gallery__card:hover .drawing-gallery__thumb,
+  .drawing-gallery__card:focus-within .drawing-gallery__thumb,
+  .drawing-gallery__card:hover .drawing-gallery__thumb img,
+  .drawing-gallery__card:focus-within .drawing-gallery__thumb img {
+    transform: none;
+  }
+}
+
 .eco__group + .eco__group {
   margin-top: var(--space-5);
 }

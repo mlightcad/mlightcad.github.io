@@ -146,6 +146,18 @@ export const zh: Dictionary = {
       },
     ],
   },
+  gallery: {
+    eyebrow: '示例图纸',
+    title: '图纸画廊',
+    leadHtml:
+      '由 <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener noreferrer">cad-viewer</a> / <a href="https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-html-plugin" target="_blank" rel="noopener noreferrer">cad-html-plugin</a> 预渲染导出的 CAD 图纸 — 点击预览在查看器中打开，或下载原始 DWG。图纸来源：<a href="https://dwgmodels.com/" target="_blank" rel="noopener noreferrer">dwgmodels.com</a>。',
+    download: '下载',
+    loading: '正在加载图纸…',
+    empty: '未找到图纸。',
+    error: '无法加载图纸，请稍后重试。',
+    openAria: '打开图纸：{title}',
+    downloadAria: '下载 {file}',
+  },
   plugins: {
     eyebrow: '生态',
     title: '官方插件',

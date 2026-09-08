@@ -118,6 +118,19 @@ export interface Dictionary {
     lead: string
     items: FeatureItem[]
   }
+  /** Drawing gallery section (remote demo-drawings assets). */
+  gallery: {
+    eyebrow: string
+    title: string
+    /** HTML lead with trusted internal links. */
+    leadHtml: string
+    download: string
+    loading: string
+    empty: string
+    error: string
+    openAria: string
+    downloadAria: string
+  }
   /** Plugins section copy. */
   plugins: {
     eyebrow: string
