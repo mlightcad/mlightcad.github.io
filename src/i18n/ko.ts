@@ -304,6 +304,18 @@ export const ko: Dictionary = {
       },
     ],
   },
+  gallery: {
+    eyebrow: '데모 도면',
+    title: '도면 갤러리',
+    leadHtml:
+      '<a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener noreferrer">cad-viewer</a> / <a href="https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-html-plugin" target="_blank" rel="noopener noreferrer">cad-html-plugin</a>로 사전 렌더링된 CAD 도면 — 미리보기를 열거나 원본 DWG를 다운로드하세요. 도면 출처: <a href="https://dwgmodels.com/" target="_blank" rel="noopener noreferrer">dwgmodels.com</a>.',
+    download: '다운로드',
+    loading: '도면 불러오는 중…',
+    empty: '도면을 찾을 수 없습니다.',
+    error: '도면을 불러오지 못했습니다. 나중에 다시 시도해 주세요.',
+    openAria: '도면 열기: {title}',
+    downloadAria: '{file} 다운로드',
+  },
   plugins: {
     eyebrow: '생태계',
     title: '공식 플러그인',

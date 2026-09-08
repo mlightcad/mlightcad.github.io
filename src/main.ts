@@ -5,12 +5,17 @@ import { applyPageMeta } from './seo'
 import { mountShell } from './shell'
 import {
   applyCommonI18n,
+  getByPath,
   locale,
   observeReveals,
   setupLocaleToggle,
   setupNav,
   setupWebGL,
 } from './shared'
+import {
+  refreshDrawingGalleryI18n,
+  setupDrawingGallery,
+} from './drawing-gallery'
 import { refreshTryDrawingI18n, setupTryDrawing } from './try-drawing'
 
 /** Apply homepage copy, feature/plugin/resource lists, and try-drawing i18n. */
@@ -25,6 +30,13 @@ function applyI18n(): void {
   })
 
   applyCommonI18n(dict)
+
+  document.querySelectorAll<HTMLElement>('[data-i18n-html]').forEach((el) => {
+    const key = el.dataset.i18nHtml
+    if (!key) return
+    const value = getByPath(dict, key)
+    if (typeof value === 'string') el.innerHTML = value
+  })
 
   document.querySelectorAll<HTMLElement>('[data-i18n-firsts]').forEach((list) => {
     const scope = list.dataset.i18nFirsts
@@ -90,6 +102,7 @@ function applyI18n(): void {
   if (brandEl) brandEl.innerHTML = 'MLight<em>CAD</em>'
 
   refreshTryDrawingI18n()
+  refreshDrawingGalleryI18n()
   window.setTimeout(() => scrambleMeta(dict.hero.meta), 450)
   observeReveals()
 }
@@ -99,5 +112,6 @@ applyI18n()
 setupLocaleToggle(() => applyI18n())
 setupNav()
 setupTryDrawing()
+setupDrawingGallery()
 setupPageFX({ boot: true })
 void setupWebGL()

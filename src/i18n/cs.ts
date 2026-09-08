@@ -304,6 +304,18 @@ export const cs: Dictionary = {
       },
     ],
   },
+  gallery: {
+    eyebrow: 'Ukázkové výkresy',
+    title: 'Galerie výkresů',
+    leadHtml:
+      'Předrenderované CAD výkresy exportované pomocí <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener noreferrer">cad-viewer</a> / <a href="https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-html-plugin" target="_blank" rel="noopener noreferrer">cad-html-plugin</a> — otevřete náhled ve vieweru nebo stáhněte původní DWG. Zdroj výkresů: <a href="https://dwgmodels.com/" target="_blank" rel="noopener noreferrer">dwgmodels.com</a>.',
+    download: 'Stáhnout',
+    loading: 'Načítání výkresů…',
+    empty: 'Nebyly nalezeny žádné výkresy.',
+    error: 'Výkresy se nepodařilo načíst. Zkuste to prosím později.',
+    openAria: 'Otevřít výkres: {title}',
+    downloadAria: 'Stáhnout {file}',
+  },
   plugins: {
     eyebrow: 'Ekosystém',
     title: 'Oficiální pluginy',

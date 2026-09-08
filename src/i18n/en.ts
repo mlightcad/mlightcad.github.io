@@ -149,6 +149,18 @@ export const en: Dictionary = {
       },
     ],
   },
+  gallery: {
+    eyebrow: 'Demo Drawings',
+    title: 'Drawing Gallery',
+    leadHtml:
+      'Pre-rendered CAD drawings exported with <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener noreferrer">cad-viewer</a> / <a href="https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-html-plugin" target="_blank" rel="noopener noreferrer">cad-html-plugin</a> — open a preview in the viewer, or download the original DWG. Source drawings from <a href="https://dwgmodels.com/" target="_blank" rel="noopener noreferrer">dwgmodels.com</a>.',
+    download: 'Download',
+    loading: 'Loading drawings…',
+    empty: 'No drawings found.',
+    error: 'Could not load drawings. Please try again later.',
+    openAria: 'Open drawing: {title}',
+    downloadAria: 'Download {file}',
+  },
   plugins: {
     eyebrow: 'Ecosystem',
     title: 'Official plugins',
