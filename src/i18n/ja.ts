@@ -21,7 +21,7 @@ const parserJa: ParserCopy = {
   scopeLead: 'デフォルトのオープンソース DWG コンバーターをそのまま置き換えられます。',
   scopeRows: [
     { label: '形式', value: 'DWG' },
-    { label: 'パッケージ', value: '@mlight-cad/dwg-converter' },
+    { label: 'パッケージ', value: '@mlightcad/dwg-converter' },
     { label: '提供形態', value: 'プリビルド npm パッケージ（ソースなし）' },
   ],
   benefitsTitle: '選ばれる理由',
@@ -65,8 +65,8 @@ const parserJa: ParserCopy = {
   trialCta: 'トライアルライセンスを申請',
   trialSteps: [
     'support@mlightcad.com に会社情報と利用目的を記載してメール',
-    'GitHub ユーザー名を記載 — mlight-cad 組織経由でアクセス付与',
-    '承認後、GitHub 組織招待を受け取り @mlight-cad/dwg-converter をインストール',
+    '承認後、トライアル用ライセンスキーとプライベートパッケージのインストール手順をメールで受け取る',
+    '@mlightcad/dwg-converter をインストールし、ライセンスキーを AcDbDwgConverter に渡す',
   ],
   trialNote: 'GitHub の realdwg-web-example デモでも公開評価が可能です。',
   trialForm: {
@@ -151,7 +151,7 @@ const parserJa: ParserCopy = {
     scope: 'DWG がプロプライエタリ変換パッケージと data-model へ流れる概念図',
     license: '永久ライセンス印の商用パッケージ',
     pricing: '永久買い切り価格と任意の年次アップグレードパッケージ',
-    trial: '会社メールから GitHub 組織アクセスへのトライアル経路',
+    trial: '会社メールからライセンスキーとパッケージアクセスへのトライアル経路',
     integration: '共有マネージャーバスへの DWG コンバーター登録',
     support: 'バグ修正・アップグレード・メールサポートの盾',
     faq: 'ライセンス関連のよくある質問パネル',

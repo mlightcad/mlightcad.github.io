@@ -26,7 +26,7 @@ export const zh: LegalBundle = {
       {
         title: '3. 商业授权',
         paragraphs: [
-          '付费产品（含 Proprietary DWG Parser，包名 @mlight-cad/dwg-converter）以商业软件授权形式销售给企业及组织。每次购买均受相应授权条款约束，包括允许的使用范围、限制、交付方式与支持范围。',
+          '付费产品（含 Proprietary DWG Parser，包名 @mlightcad/dwg-converter）以商业软件授权形式销售给企业及组织。每次购买均受相应授权条款约束，包括允许的使用范围、限制、交付方式与支持范围。',
           '除非书面明确说明，商业授权不包含源代码。您不得将专有解析器作为独立库或 SDK 再分发或转售。',
         ],
       },

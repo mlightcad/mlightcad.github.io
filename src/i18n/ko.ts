@@ -21,7 +21,7 @@ const parserKo: ParserCopy = {
   scopeLead: '기본 오픈소스 DWG 컨버터를 드롭인 방식으로 교체합니다.',
   scopeRows: [
     { label: '형식', value: 'DWG' },
-    { label: '패키지', value: '@mlight-cad/dwg-converter' },
+    { label: '패키지', value: '@mlightcad/dwg-converter' },
     { label: '제공', value: '사전 빌드 npm 패키지 (소스 없음)' },
   ],
   benefitsTitle: '선택하는 이유',
@@ -65,8 +65,8 @@ const parserKo: ParserCopy = {
   trialCta: '체험 라이선스 신청',
   trialSteps: [
     'support@mlightcad.com으로 회사 정보와 사용 목적을 이메일로 보내기',
-    'GitHub 사용자명 포함 — mlight-cad 조직을 통해 접근 부여',
-    '승인 후 GitHub 조직 초대를 수락하고 @mlight-cad/dwg-converter 설치',
+    '승인 후 체험 라이선스 키와 비공개 패키지 설치 안내를 이메일로 받기',
+    '@mlightcad/dwg-converter 를 설치하고 라이선스 키를 AcDbDwgConverter 에 전달',
   ],
   trialNote: 'GitHub의 realdwg-web-example 데모로도 공개 평가가 가능합니다.',
   trialForm: {
@@ -151,7 +151,7 @@ const parserKo: ParserCopy = {
     scope: 'DWG가 상용 컨버터 패키지와 data-model로 흐르는 개념도',
     license: '영구 라이선스 표시가 있는 상용 패키지',
     pricing: '영구 일회성 가격과 선택적 연간 업그레이드 패키지',
-    trial: '회사 이메일에서 GitHub 조직 접근까지의 체험 경로',
+    trial: '회사 이메일에서 라이선스 키와 패키지 접근까지의 체험 경로',
     integration: '공유 매니저 버스에 DWG 컨버터 등록',
     support: '버그 수정, 업그레이드, 이메일 지원을 덮는 방패',
     faq: '라이선스 FAQ 패널',

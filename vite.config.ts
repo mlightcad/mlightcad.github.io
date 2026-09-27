@@ -33,14 +33,14 @@ export default defineConfig({
     // Prebundling rewrites import.meta.url into .vite/deps, so the companion
     // `import(new URL('./dwg-parser-main.js', import.meta.url))` resolves to a
     // missing file. Serve the package from node_modules instead (prod build OK).
-    exclude: ['@mlight-cad/dwg-converter'],
+    exclude: ['@mlightcad/dwg-converter'],
   },
   plugins: [
     viteStaticCopy({
       targets: [
         {
           // CJK codepage tables for main-thread DWG parsing.
-          src: './node_modules/@mlight-cad/dwg-converter/dist/dwg-codepage-*.bin',
+          src: './node_modules/@mlightcad/dwg-converter/dist/dwg-codepage-*.bin',
           dest: 'assets',
         },
       ],

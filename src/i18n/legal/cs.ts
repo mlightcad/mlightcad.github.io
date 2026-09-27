@@ -27,7 +27,7 @@ export const cs: LegalBundle = {
       {
         title: '3. Komerční licence',
         paragraphs: [
-          'Placené produkty včetně Proprietary DWG Parser (@mlight-cad/dwg-converter) se prodávají jako komerční licence na software firmám a organizacím. Na každý nákup se vztahuje samostatná licenční smlouva, která stanoví povolené použití, omezení, dodání a rozsah podpory.',
+          'Placené produkty včetně Proprietary DWG Parser (@mlightcad/dwg-converter) se prodávají jako komerční licence na software firmám a organizacím. Na každý nákup se vztahuje samostatná licenční smlouva, která stanoví povolené použití, omezení, dodání a rozsah podpory.',
           'Není-li písemně výslovně uvedeno jinak, komerční licence nezahrnují zdrojový kód. Proprietární parser nesmíte redistribuovat ani přeprodávat jako samostatnou knihovnu nebo SDK.',
         ],
       },

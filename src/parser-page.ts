@@ -30,7 +30,7 @@ function listHtml(items: string[]): string {
 
 const INTEGRATION_SNIPPET = [
   "import { AcDbDatabaseConverterManager, AcDbFileType } from '@mlightcad/data-model'",
-  "import { AcDbDwgConverter } from '@mlight-cad/dwg-converter'",
+  "import { AcDbDwgConverter } from '@mlightcad/dwg-converter'",
   '',
   'const converter = new AcDbDwgConverter({ /* options */ })',
   'AcDbDatabaseConverterManager.instance.register(AcDbFileType.DWG, converter)',

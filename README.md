@@ -5,7 +5,13 @@ Brand site for [MLightCAD](https://github.com/mlightcad), featuring [cad-viewer]
 ## Develop
 
 ```bash
+# Private @mlightcad/dwg-converter is on GitHub Packages (mlightcad org).
+# Public @mlightcad/* packages still come from npmjs — do not point the whole
+# @mlightcad scope at npm.pkg.github.com (see .npmrc).
+export GITHUB_TOKEN=ghp_xxx   # PAT with read:packages (Windows: $env:GITHUB_TOKEN=...)
 pnpm install
+# First-time / after publish: pin the private tarball into the lockfile
+# pnpm add @mlightcad/dwg-converter@1.14.14 --registry https://npm.pkg.github.com
 cp .env.example .env   # fill VITE_PADDLE_* (client token + price ids)
 pnpm dev
 ```
@@ -96,4 +102,7 @@ In each Paddle dashboard → **Developer tools → Notifications**, create a des
 
 ### Fulfillment
 
-Paid orders land in `license_orders` with `fulfillment_status=pending`. Invite the buyer to the GitHub org / send npm access, then mark the row `fulfilled`.
+Paid orders land in `license_orders` with `fulfillment_status=pending`.
+Fulfillment should issue an offline license key and grant private package download
+access (see commercial publishing architecture), then mark the row `fulfilled`.
+

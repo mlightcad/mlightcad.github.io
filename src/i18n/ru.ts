@@ -21,7 +21,7 @@ const parserRu: ParserCopy = {
   scopeLead: 'Прямая замена конвертера DWG open source по умолчанию.',
   scopeRows: [
     { label: 'Формат', value: 'DWG' },
-    { label: 'Пакет', value: '@mlight-cad/dwg-converter' },
+    { label: 'Пакет', value: '@mlightcad/dwg-converter' },
     { label: 'Поставка', value: 'Предсобранный npm-пакет (без исходного кода)' },
   ],
   benefitsTitle: 'Почему команды выбирают его',
@@ -65,8 +65,8 @@ const parserRu: ParserCopy = {
   trialCta: 'Запросить пробную лицензию',
   trialSteps: [
     'Напишите на support@mlightcad.com с информацией о компании и планируемом использовании',
-    'Укажите имя пользователя GitHub — доступ предоставляется через организацию mlight-cad',
-    'После одобрения примите приглашение в организацию GitHub и установите @mlight-cad/dwg-converter',
+    'После одобрения получите по почте пробный license key и инструкции по установке приватного пакета',
+    'Установите @mlightcad/dwg-converter и передайте license key в AcDbDwgConverter',
   ],
   trialNote: 'Публичная оценка также доступна через демо-проект realdwg-web-example на GitHub.',
   trialForm: {
@@ -151,7 +151,7 @@ const parserRu: ParserCopy = {
     scope: 'Файл DWG, поступающий в проприетарный пакет конвертера и data-model',
     license: 'Запечатанный коммерческий пакет с отметкой бессрочной лицензии',
     pricing: 'Разовая цена бессрочной лицензии и опциональные годовые пакеты обновлений',
-    trial: 'Путь пробной лицензии от корпоративной почты до доступа к организации GitHub',
+    trial: 'Путь пробной лицензии от корпоративной почты к license key и доступу к пакету',
     integration: 'Регистрация конвертера DWG на общей шине manager',
     support: 'Щит, покрывающий исправление ошибок, обновления и поддержку по почте',
     faq: 'Панели вопросов и ответов по типичным темам лицензии',
