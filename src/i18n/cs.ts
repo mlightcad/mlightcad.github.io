@@ -21,7 +21,7 @@ const parserCs: ParserCopy = {
   scopeLead: 'Přímá náhrada výchozího open source převodníku DWG.',
   scopeRows: [
     { label: 'Formát', value: 'DWG' },
-    { label: 'Balíček', value: '@mlight-cad/dwg-converter' },
+    { label: 'Balíček', value: '@mlightcad/dwg-converter' },
     { label: 'Dodání', value: 'Předpřipravený npm balíček (bez zdrojového kódu)' },
   ],
   benefitsTitle: 'Proč si ho týmy vybírají',
@@ -65,8 +65,8 @@ const parserCs: ParserCopy = {
   trialCta: 'Požádat o zkušební licenci',
   trialSteps: [
     'Napište na support@mlightcad.com s informacemi o firmě a plánovaném využití',
-    'Uveďte uživatelské jméno GitHub — přístup se uděluje přes organizaci mlight-cad',
-    'Po schválení přijměte pozvánku do organizace GitHub a nainstalujte @mlight-cad/dwg-converter',
+    'Po schválení obdržíte e-mailem zkušební license key a pokyny k instalaci privátního balíčku',
+    'Nainstalujte @mlightcad/dwg-converter a předejte license key do AcDbDwgConverter',
   ],
   trialNote: 'Veřejné vyhodnocení je také k dispozici přes demo projekt realdwg-web-example na GitHubu.',
   trialForm: {
@@ -151,7 +151,7 @@ const parserCs: ParserCopy = {
     scope: 'Soubor DWG proudící do proprietárního převodníku a data-model',
     license: 'Upečený komerční balíček se značkou věčné licence',
     pricing: 'Jednorázová cena věčné licence a volitelné roční upgrade balíčky',
-    trial: 'Cesta zkušební licence od firemního e-mailu k přístupu do organizace GitHub',
+    trial: 'Cesta zkušební licence od firemního e-mailu k license key a přístupu k balíčku',
     integration: 'Registrace převodníku DWG na sdílené manager sběrnici',
     support: 'Štít pokrývající opravy chyb, upgrady a e-mailovou podporu',
     faq: 'Panely otázek a odpovědí k běžným licenčním tématům',

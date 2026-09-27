@@ -129,7 +129,7 @@ export const parserEn: ParserCopy = {
   scopeLead: 'Drop-in replacement for the default open-source DWG converter.',
   scopeRows: [
     { label: 'Format', value: 'DWG' },
-    { label: 'Package', value: '@mlight-cad/dwg-converter' },
+    { label: 'Package', value: '@mlightcad/dwg-converter' },
     { label: 'Delivery', value: 'Pre-built npm package (no source)' },
   ],
   benefitsTitle: 'Why teams choose it',
@@ -177,8 +177,8 @@ export const parserEn: ParserCopy = {
   trialCta: 'Apply for Trial License',
   trialSteps: [
     'Email support@mlightcad.com with your company information and intended use',
-    'Include a GitHub username — access is granted via the mlight-cad organization',
-    'After approval, accept the GitHub org invite and install @mlight-cad/dwg-converter',
+    'After approval, receive a trial license key and private package install instructions by email',
+    'Install @mlightcad/dwg-converter and pass the license key to AcDbDwgConverter',
   ],
   trialNote: 'Public evaluation is also available via the realdwg-web-example demo project on GitHub.',
   trialForm: {
@@ -263,7 +263,7 @@ export const parserEn: ParserCopy = {
     scope: 'DWG file flowing into the proprietary converter package and data-model',
     license: 'Sealed commercial package with perpetual license mark',
     pricing: 'Perpetual one-time price and optional annual upgrade packages',
-    trial: 'Trial path from company email to GitHub org access',
+    trial: 'Trial path from company email to license key and package access',
     integration: 'Registering the DWG converter on the shared manager bus',
     support: 'Shield covering bug fixes, upgrades, and email support',
     faq: 'Question and answer panels for common license topics',
@@ -288,7 +288,7 @@ export const parserZh: ParserCopy = {
   scopeLead: '可替换默认开源 DWG 转换器的即插即用方案。',
   scopeRows: [
     { label: '格式', value: 'DWG' },
-    { label: '包名', value: '@mlight-cad/dwg-converter' },
+    { label: '包名', value: '@mlightcad/dwg-converter' },
     { label: '交付', value: '预构建 npm 包（不含源码）' },
   ],
   benefitsTitle: '核心优势',
@@ -331,8 +331,8 @@ export const parserZh: ParserCopy = {
   trialCta: '申请试用授权',
   trialSteps: [
     '发送邮件至 support@mlightcad.com，提供公司信息与用途说明',
-    '须提供 GitHub 用户名 — 通过 mlight-cad 组织开通访问',
-    '获批后接受组织邀请，安装 @mlight-cad/dwg-converter',
+    '获批后通过邮件收到试用 License Key 与私有包安装说明',
+    '安装 @mlightcad/dwg-converter，并将 License Key 传入 AcDbDwgConverter',
   ],
   trialNote: '也可通过 GitHub 上的 realdwg-web-example 公开演示项目进行能力评估。',
   trialForm: {
@@ -417,7 +417,7 @@ export const parserZh: ParserCopy = {
     scope: 'DWG 文件进入专有转换包并输出到 data-model',
     license: '带永久授权标记的封装商业包',
     pricing: '永久授权一次性价格与可选年度升级包',
-    trial: '从公司邮件到 GitHub 组织试用访问的路径',
+    trial: '从公司邮件到 License Key 与私有包访问的试用路径',
     integration: '在共享 Manager 总线上注册 DWG 转换器',
     support: '覆盖缺陷修复、升级与邮件支持的护盾',
     faq: '常见授权问题的问答面板',

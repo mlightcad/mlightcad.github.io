@@ -11,7 +11,7 @@
   <path d="M200 195h48" stroke="#3DDCFF" stroke-width="1.5"/>
   <polygon points="248,195 236,189 236,201" fill="#3DDCFF"/>
   <rect x="260" y="108" width="140" height="174" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
-  <text x="278" y="140" fill="#3DDCFF" font-family="monospace" font-size="11">@mlight-cad</text>
+  <text x="278" y="140" fill="#3DDCFF" font-family="monospace" font-size="11">@mlightcad</text>
   <text x="286" y="162" fill="#E8EEF5" font-family="monospace" font-size="12">dwg-</text>
   <text x="286" y="180" fill="#E8EEF5" font-family="monospace" font-size="12">converter</text>
   <rect x="284" y="200" width="92" height="48" stroke="#E8A54B" stroke-width="1" fill="#0B0F14"/>

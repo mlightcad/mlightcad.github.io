@@ -27,7 +27,7 @@ export const pt: LegalBundle = {
       {
         title: '3. Licenças comerciais',
         paragraphs: [
-          'Produtos pagos, incluindo o Proprietary DWG Parser (@mlight-cad/dwg-converter), são vendidos como licenças de software comercial para empresas e organizações. Um acordo de licença separado se aplica a cada compra e define o uso permitido, as restrições, a entrega e o escopo do suporte.',
+          'Produtos pagos, incluindo o Proprietary DWG Parser (@mlightcad/dwg-converter), são vendidos como licenças de software comercial para empresas e organizações. Um acordo de licença separado se aplica a cada compra e define o uso permitido, as restrições, a entrega e o escopo do suporte.',
           'Salvo indicação expressa por escrito, as licenças comerciais não incluem o código-fonte. Você não pode redistribuir nem revender o parser proprietário como biblioteca ou SDK independente.',
         ],
       },

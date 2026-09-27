@@ -1,4 +1,4 @@
-import { AcDbDwgConverter } from '@mlight-cad/dwg-converter'
+import { AcDbDwgConverter } from '@mlightcad/dwg-converter'
 import { AcDbDatabaseConverterManager, AcDbFileType } from '@mlightcad/data-model'
 
 let registered = false

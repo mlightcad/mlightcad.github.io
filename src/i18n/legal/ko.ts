@@ -27,7 +27,7 @@ export const ko: LegalBundle = {
       {
         title: '3. 상용 라이선스',
         paragraphs: [
-          'Proprietary DWG Parser(@mlight-cad/dwg-converter)를 포함한 유료 제품은 기업 및 조직을 대상으로 상용 소프트웨어 라이선스로 판매됩니다. 각 구매에는 별도의 라이선스 계약이 적용되며, 허용 사용, 제한, 제공 방식, 지원 범위를 정합니다.',
+          'Proprietary DWG Parser(@mlightcad/dwg-converter)를 포함한 유료 제품은 기업 및 조직을 대상으로 상용 소프트웨어 라이선스로 판매됩니다. 각 구매에는 별도의 라이선스 계약이 적용되며, 허용 사용, 제한, 제공 방식, 지원 범위를 정합니다.',
           '서면으로 명시하지 않는 한 상용 라이선스에 소스 코드는 포함되지 않습니다. 독점 파서를 독립 라이브러리 또는 SDK로 재배포하거나 재판매할 수 없습니다.',
         ],
       },
