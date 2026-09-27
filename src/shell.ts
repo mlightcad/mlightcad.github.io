@@ -5,7 +5,14 @@ import parserNavHtml from './partials/parser-nav.html?raw'
 import { markActiveNav } from './shared'
 
 /** Marketing-site page that owns the shared header/footer shell. */
-export type SitePage = 'home' | 'parser' | 'iframe-plugin' | 'cad-diff-viewer' | 'legal' | 'tutorial'
+export type SitePage =
+  | 'home'
+  | 'parser'
+  | 'iframe-plugin'
+  | 'cad-diff-viewer'
+  | 'legal'
+  | 'tutorial'
+  | 'portal'
 
 /**
  * Replace a placeholder node with the given HTML fragment.
@@ -38,5 +45,5 @@ function navHtmlFor(page: SitePage): string {
 export function mountShell(page: SitePage): void {
   replacePlaceholder('[data-site-nav]', navHtmlFor(page))
   replacePlaceholder('[data-site-footer]', footerHtml)
-  markActiveNav(page === 'legal' ? 'parser' : page)
+  markActiveNav(page === 'legal' || page === 'portal' ? 'parser' : page)
 }

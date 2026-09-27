@@ -64,8 +64,8 @@ const parserPt: ParserCopy = {
   trialLead: 'Empresas e organizações podem solicitar uma avaliação antes da compra. Solicitações pessoais / individuais não são aceitas no momento.',
   trialCta: 'Solicitar licença de avaliação',
   trialSteps: [
-    'Envie um e-mail para support@mlightcad.com com informações da empresa e uso pretendido',
-    'Após aprovação, receba por e-mail uma chave de licença de avaliação e instruções de instalação do pacote privado',
+    'Envie um e-mail para support@mlightcad.com com informações da empresa, uso pretendido e usuário do GitHub',
+    'Após aprovação, receba uma chave de licença de avaliação e acesso ao GitHub Packages',
     'Instale @mlightcad/dwg-converter e passe a chave de licença para AcDbDwgConverter',
   ],
   trialNote: 'A avaliação pública também está disponível via o projeto demo realdwg-web-example no GitHub.',
@@ -386,6 +386,7 @@ export const pt: Dictionary = {
     terms: 'Termos de serviço',
     privacy: 'Política de privacidade',
     refunds: 'Política de reembolso',
+    licenses: 'Portal de licenças',
     rights: '© 2026 MLightCAD',
   },
   parser: parserPt,

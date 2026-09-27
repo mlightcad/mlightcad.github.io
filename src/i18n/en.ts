@@ -231,6 +231,7 @@ export const en: Dictionary = {
     terms: 'Terms of Service',
     privacy: 'Privacy Policy',
     refunds: 'Refund Policy',
+    licenses: 'License Portal',
     rights: '© 2026 MLightCAD',
   },
   parser: parserEn,

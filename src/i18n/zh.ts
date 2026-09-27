@@ -233,6 +233,7 @@ export const zh: Dictionary = {
     terms: '服务条款',
     privacy: '隐私政策',
     refunds: '退款政策',
+    licenses: '授权门户',
     rights: '© 2026 MLightCAD',
   },
   parser: parserZh,

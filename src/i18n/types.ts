@@ -152,6 +152,7 @@ export interface Dictionary {
     terms: string
     privacy: string
     refunds: string
+    licenses: string
     rights: string
   }
   /** DWG parser product page copy. */

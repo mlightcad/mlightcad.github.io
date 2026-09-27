@@ -64,8 +64,8 @@ const parserKo: ParserCopy = {
   trialLead: '기업 및 조직은 구매 전 체험을 신청할 수 있습니다. 개인 신청은 현재 받지 않습니다.',
   trialCta: '체험 라이선스 신청',
   trialSteps: [
-    'support@mlightcad.com으로 회사 정보와 사용 목적을 이메일로 보내기',
-    '승인 후 체험 라이선스 키와 비공개 패키지 설치 안내를 이메일로 받기',
+    'support@mlightcad.com으로 회사 정보, 사용 목적, GitHub 사용자명을 이메일로 보내기',
+    '승인 후 체험 라이선스 키와 GitHub Packages 접근 권한을 받기',
     '@mlightcad/dwg-converter 를 설치하고 라이선스 키를 AcDbDwgConverter 에 전달',
   ],
   trialNote: 'GitHub의 realdwg-web-example 데모로도 공개 평가가 가능합니다.',
@@ -386,6 +386,7 @@ export const ko: Dictionary = {
     terms: '서비스 약관',
     privacy: '개인정보 처리방침',
     refunds: '환불 정책',
+    licenses: '라이선스 포털',
     rights: '© 2026 MLightCAD',
   },
   parser: parserKo,

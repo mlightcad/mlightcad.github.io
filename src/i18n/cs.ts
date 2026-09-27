@@ -64,8 +64,8 @@ const parserCs: ParserCopy = {
   trialLead: 'Firmy a organizace mohou před nákupem požádat o zkušební licenci. Osobní / individuální žádosti se v tuto chvíli nepřijímají.',
   trialCta: 'Požádat o zkušební licenci',
   trialSteps: [
-    'Napište na support@mlightcad.com s informacemi o firmě a plánovaném využití',
-    'Po schválení obdržíte e-mailem zkušební license key a pokyny k instalaci privátního balíčku',
+    'Napište na support@mlightcad.com s informacemi o firmě, plánovaném využití a GitHub uživatelským jménem',
+    'Po schválení obdržíte zkušební license key a přístup k GitHub Packages',
     'Nainstalujte @mlightcad/dwg-converter a předejte license key do AcDbDwgConverter',
   ],
   trialNote: 'Veřejné vyhodnocení je také k dispozici přes demo projekt realdwg-web-example na GitHubu.',
@@ -386,6 +386,7 @@ export const cs: Dictionary = {
     terms: 'Podmínky služby',
     privacy: 'Zásady ochrany osobních údajů',
     refunds: 'Zásady vrácení peněz',
+    licenses: 'Licenční portál',
     rights: '© 2026 MLightCAD',
   },
   parser: parserCs,

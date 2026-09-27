@@ -64,8 +64,8 @@ const parserJa: ParserCopy = {
   trialLead: '企業・組織は購入前にトライアルを申請できます。個人申請は現在受け付けていません。',
   trialCta: 'トライアルライセンスを申請',
   trialSteps: [
-    'support@mlightcad.com に会社情報と利用目的を記載してメール',
-    '承認後、トライアル用ライセンスキーとプライベートパッケージのインストール手順をメールで受け取る',
+    'support@mlightcad.com に会社情報・利用目的・GitHub ユーザー名を記載してメール',
+    '承認後、トライアル用ライセンスキーと GitHub Packages アクセスを受け取る',
     '@mlightcad/dwg-converter をインストールし、ライセンスキーを AcDbDwgConverter に渡す',
   ],
   trialNote: 'GitHub の realdwg-web-example デモでも公開評価が可能です。',
@@ -386,6 +386,7 @@ export const ja: Dictionary = {
     terms: '利用規約',
     privacy: 'プライバシーポリシー',
     refunds: '返金ポリシー',
+    licenses: 'ライセンスポータル',
     rights: '© 2026 MLightCAD',
   },
   parser: parserJa,
