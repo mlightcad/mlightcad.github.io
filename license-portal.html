@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>License Portal — MLightCAD</title>
+    <meta
+      name="description"
+      content="View your Proprietary DWG Parser offline license key."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="canonical" href="https://mlightcad.com/license-portal.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body data-page="portal">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="fx-spot" data-spot aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--x" data-cross-x aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--y" data-cross-y aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+    <div class="site">
+      <div data-site-nav></div>
+
+      <main>
+        <section class="hero parser-hero shell">
+          <div class="hero__frame" data-tilt>
+            <div class="hero__corners" aria-hidden="true"></div>
+            <p class="hero__meta hero-enter" data-scramble data-portal-eyebrow>Account</p>
+            <h1 class="section__title hero-enter" data-portal-title>License portal</h1>
+            <p class="section__lead hero-enter" data-portal-lead>
+              Enter the email used at checkout. We will send a magic link to view your offline
+              license key. Package download access is granted via GitHub Packages.
+            </p>
+          </div>
+        </section>
+
+        <section class="shell parser-body portal-body">
+          <div class="doc-block portal-panel" data-portal-root>
+            <p class="portal-status" data-portal-status hidden></p>
+
+            <form class="portal-form" data-portal-request-form>
+              <label class="portal-label">
+                <span data-portal-email-label>Purchase email</span>
+                <input
+                  class="portal-input"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  data-portal-email
+                  placeholder="you@company.com"
+                />
+              </label>
+              <button class="btn btn--primary" type="submit" data-portal-request-cta>
+                Email magic link
+              </button>
+            </form>
+
+            <div class="portal-session" data-portal-session hidden></div>
+          </div>
+          <p class="portal-support" data-portal-support>Need help? Email support@mlightcad.com</p>
+        </section>
+      </main>
+
+      <div data-site-footer></div>
+    </div>
+
+    <script type="module" src="/src/portal-page.ts"></script>
+  </body>
+</html>

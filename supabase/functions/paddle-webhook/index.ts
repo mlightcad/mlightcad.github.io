@@ -1,33 +1,31 @@
 /**
  * Paddle Billing webhook → Supabase.
  *
- * Use one Supabase project per Paddle environment (sandbox vs live).
- * Same function name and secret *names* in both projects; different *values*.
- *
  * Secrets (supabase secrets set):
  * - PADDLE_API_KEY
  * - PADDLE_WEBHOOK_SECRET
  * - PADDLE_ENV                  (`sandbox` | `production`)
  * - PADDLE_PRICE_PERPETUAL      (price id for that Paddle environment)
  * - PADDLE_PRICE_ANNUAL
+ * - DWG_LICENSE_PRIVATE_KEY     (PKCS#8 PEM; `\n` escapes OK)
+ * - RESEND_API_KEY / RESEND_FROM_EMAIL
+ * - LICENSE_PORTAL_BASE_URL     (optional)
  * - SUPPORT_NOTIFY_EMAIL        (optional)
- * - SUPABASE_URL / SUPABASE_SECRET_KEYS (auto; falls back to SUPABASE_SERVICE_ROLE_KEY)
+ * - SUPABASE_URL / SUPABASE_SECRET_KEYS (auto)
  *
- * Deploy (after `supabase link --project-ref <ref>`):
+ * Deploy:
  *   supabase functions deploy paddle-webhook
- *
- * Notification URL:
- *   https://<project-ref>.supabase.co/functions/v1/paddle-webhook
  */
 
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.1'
 import { Environment, EventName, Paddle } from 'npm:@paddle/paddle-node-sdk@3.10.0'
+import { adminClient, json } from '../_shared/admin.ts'
+import { fulfillPaidOrder } from '../_shared/fulfill.ts'
+import type { ProductType } from '../_shared/license-jwt.ts'
+import { sendEmail } from '../_shared/resend.ts'
 
 const PRICE_PERPETUAL = Deno.env.get('PADDLE_PRICE_PERPETUAL') ?? ''
 const PRICE_ANNUAL = Deno.env.get('PADDLE_PRICE_ANNUAL') ?? ''
 const SUPPORT_EMAIL = Deno.env.get('SUPPORT_NOTIFY_EMAIL') ?? 'support@mlightcad.com'
-
-type ProductType = 'perpetual' | 'annual' | 'unknown'
 
 /** Resolve Paddle API host from secret (defaults to sandbox). */
 function paddleEnvironment(): Environment {
@@ -40,42 +38,6 @@ function productTypeForPrice(priceId: string | null | undefined): ProductType {
   if (PRICE_PERPETUAL && priceId === PRICE_PERPETUAL) return 'perpetual'
   if (PRICE_ANNUAL && priceId === PRICE_ANNUAL) return 'annual'
   return 'unknown'
-}
-
-
-/** JSON response helper. */
-function json(status: number, body: Record<string, unknown>): Response {
-  return new Response(JSON.stringify(body), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}
-
-/**
- * Resolve the platform secret key for admin (BYPASSRLS) access.
- * Prefers `SUPABASE_SECRET_KEYS` JSON (`default`); falls back to legacy service_role.
- */
-function resolveSecretKey(): string | undefined {
-  const raw = Deno.env.get('SUPABASE_SECRET_KEYS')
-  if (raw) {
-    try {
-      const parsed = JSON.parse(raw) as Record<string, string>
-      if (parsed.default) return parsed.default
-    } catch {
-      // Fall through to legacy env.
-    }
-  }
-  return Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? undefined
-}
-
-/** Admin Supabase client (secret key / legacy service_role). */
-function adminClient() {
-  const url = Deno.env.get('SUPABASE_URL')
-  const key = resolveSecretKey()
-  if (!url || !key) {
-    throw new Error('Missing SUPABASE_URL or secret key (SUPABASE_SECRET_KEYS / SUPABASE_SERVICE_ROLE_KEY)')
-  }
-  return createClient(url, key, { auth: { persistSession: false } })
 }
 
 /**
@@ -128,9 +90,15 @@ async function fetchCustomerEmail(paddle: Paddle, customerId: string | null): Pr
   }
 }
 
-/** Log a fulfillment reminder (extend later with Resend / SMTP). */
-function notifySupport(summary: string): void {
+/** Notify support (email when Resend configured; always log). */
+async function notifySupport(summary: string): Promise<void> {
   console.log(`[fulfillment] notify ${SUPPORT_EMAIL}: ${summary}`)
+  await sendEmail({
+    to: SUPPORT_EMAIL,
+    subject: `[MLightCAD] ${summary.slice(0, 80)}`,
+    text: summary,
+    html: `<pre>${summary}</pre>`,
+  })
 }
 
 Deno.serve(async (req) => {
@@ -198,9 +166,43 @@ Deno.serve(async (req) => {
         )
         if (error) throw error
 
-        notifySupport(
-          `Paid ${productType} order ${tx.id} for ${email ?? tx.customerId ?? 'unknown'} (${amountTotal ?? '?'} ${tx.currencyCode})`,
-        )
+        if (!email) {
+          await supabase
+            .from('license_orders')
+            .update({ fulfillment_status: 'failed', updated_at: new Date().toISOString() })
+            .eq('paddle_transaction_id', tx.id)
+          await notifySupport(
+            `Paid ${productType} order ${tx.id} missing customer email — manual fulfillment required`,
+          )
+          break
+        }
+
+        try {
+          const result = await fulfillPaidOrder(supabase, {
+            paddleTransactionId: tx.id,
+            paddleCustomerId: tx.customerId,
+            email,
+            productType,
+          })
+          await supabase
+            .from('license_orders')
+            .update({ fulfillment_status: 'fulfilled', updated_at: new Date().toISOString() })
+            .eq('paddle_transaction_id', tx.id)
+
+          await notifySupport(
+            `License emailed for ${productType} order ${tx.id} (${email}, license ${result.licenseId}, reused=${result.reused}). Grant GitHub Packages access when you have their GitHub username.`,
+          )
+        } catch (fulfillErr) {
+          console.error('Fulfillment failed', fulfillErr)
+          await supabase
+            .from('license_orders')
+            .update({ fulfillment_status: 'failed', updated_at: new Date().toISOString() })
+            .eq('paddle_transaction_id', tx.id)
+          await notifySupport(
+            `Fulfillment FAILED for ${productType} order ${tx.id} (${email}): ${String(fulfillErr)}`,
+          )
+          throw fulfillErr
+        }
         break
       }
 
@@ -233,17 +235,15 @@ Deno.serve(async (req) => {
         )
         if (error) throw error
 
-        notifySupport(`Subscription ${sub.id} → ${sub.status} (${email ?? sub.customerId})`)
+        console.log(`Subscription ${sub.id} → ${sub.status} (${email ?? sub.customerId})`)
         break
       }
 
       default:
-        // Acknowledged but unused events still count as processed (idempotent).
         break
     }
   } catch (err) {
     console.error('Webhook handler failed', err)
-    // Delete claim so Paddle can retry
     await supabase.from('paddle_webhook_events').delete().eq('event_id', event.eventId)
     return json(500, { error: 'Handler failed' })
   }

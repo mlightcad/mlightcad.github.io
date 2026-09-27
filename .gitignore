@@ -7,6 +7,9 @@ dist
 .env.*
 !.env.example
 
+# Supabase CLI local metadata (project ref, pooler URL, etc.)
+supabase/.temp/
+
 # Local Cursor Agent skills
 .agents/
 skills-lock.json

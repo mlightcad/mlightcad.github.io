@@ -64,8 +64,8 @@ const parserRu: ParserCopy = {
   trialLead: 'Компании и организации могут запросить пробную лицензию перед покупкой. Заявки от частных лиц в настоящее время не принимаются.',
   trialCta: 'Запросить пробную лицензию',
   trialSteps: [
-    'Напишите на support@mlightcad.com с информацией о компании и планируемом использовании',
-    'После одобрения получите по почте пробный license key и инструкции по установке приватного пакета',
+    'Напишите на support@mlightcad.com с информацией о компании, планируемом использовании и именем пользователя GitHub',
+    'После одобрения получите пробный license key и доступ к GitHub Packages',
     'Установите @mlightcad/dwg-converter и передайте license key в AcDbDwgConverter',
   ],
   trialNote: 'Публичная оценка также доступна через демо-проект realdwg-web-example на GitHub.',
@@ -386,6 +386,7 @@ export const ru: Dictionary = {
     terms: 'Условия использования',
     privacy: 'Политика конфиденциальности',
     refunds: 'Политика возврата',
+    licenses: 'Портал лицензий',
     rights: '© 2026 MLightCAD',
   },
   parser: parserRu,

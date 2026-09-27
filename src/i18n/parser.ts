@@ -171,13 +171,14 @@ export const parserEn: ParserCopy = {
   buyAnnualCta: 'Buy annual updates',
   checkoutUnavailable:
     'Online checkout is temporarily unavailable. Please email support@mlightcad.com to complete your purchase.',
-  purchaseSuccess: 'Payment received. We will email you with access instructions shortly.',
+  purchaseSuccess:
+    'Payment received. Check your email for the license key. We will grant GitHub Packages access after we have your GitHub username.',
   trialTitle: 'Trial license',
   trialLead: 'Companies and organizations can apply for a trial before purchase. Personal / individual applications are not accepted at this time.',
   trialCta: 'Apply for Trial License',
   trialSteps: [
-    'Email support@mlightcad.com with your company information and intended use',
-    'After approval, receive a trial license key and private package install instructions by email',
+    'Email support@mlightcad.com with your company information, intended use, and GitHub username',
+    'After approval, receive a trial license key and GitHub Packages access',
     'Install @mlightcad/dwg-converter and pass the license key to AcDbDwgConverter',
   ],
   trialNote: 'Public evaluation is also available via the realdwg-web-example demo project on GitHub.',
@@ -325,13 +326,14 @@ export const parserZh: ParserCopy = {
   buyPerpetualCta: '购买永久授权',
   buyAnnualCta: '购买年度升级',
   checkoutUnavailable: '在线购买暂不可用，请发送邮件至 support@mlightcad.com 完成购买。',
-  purchaseSuccess: '付款已收到。我们将尽快通过邮件发送开通说明。',
+  purchaseSuccess:
+    '付款已收到。请查收邮件中的 License Key。我们会在收到你的 GitHub 用户名后开通 GitHub Packages 访问权限。',
   trialTitle: '试用授权',
   trialLead: '公司与组织可在购买前申请试用。暂不接受个人开发者申请。',
   trialCta: '申请试用授权',
   trialSteps: [
-    '发送邮件至 support@mlightcad.com，提供公司信息与用途说明',
-    '获批后通过邮件收到试用 License Key 与私有包安装说明',
+    '发送邮件至 support@mlightcad.com，提供公司信息、用途说明与 GitHub 用户名',
+    '获批后收到试用 License Key，并获得 GitHub Packages 访问权限',
     '安装 @mlightcad/dwg-converter，并将 License Key 传入 AcDbDwgConverter',
   ],
   trialNote: '也可通过 GitHub 上的 realdwg-web-example 公开演示项目进行能力评估。',

@@ -61,6 +61,8 @@ export interface PageMetaOptions {
   image?: string
   /** Open Graph type. */
   type?: 'website' | 'product'
+  /** Robots meta content. Defaults to indexable marketing pages. */
+  robots?: string
 }
 
 /** Sync document title, language, and social meta tags for the active locale. */
@@ -73,6 +75,7 @@ export function applyPageMeta(options: PageMetaOptions): void {
     keywords,
     image = DEFAULT_OG_IMAGE,
     type = 'website',
+    robots = 'index, follow, max-image-preview:large',
   } = options
 
   const url = new URL(path, SITE_URL).toString()
@@ -84,7 +87,7 @@ export function applyPageMeta(options: PageMetaOptions): void {
   upsertMeta('name', 'description', description)
   if (keywords) upsertMeta('name', 'keywords', keywords)
   upsertMeta('name', 'author', SITE_NAME)
-  upsertMeta('name', 'robots', 'index, follow, max-image-preview:large')
+  upsertMeta('name', 'robots', robots)
   upsertMeta('name', 'theme-color', '#0B0F14')
 
   upsertLink('canonical', url)

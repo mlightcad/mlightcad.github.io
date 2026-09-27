@@ -9,3 +9,6 @@ port = 54322
 
 [functions.paddle-webhook]
 verify_jwt = false
+
+[functions.license-portal]
+verify_jwt = false
