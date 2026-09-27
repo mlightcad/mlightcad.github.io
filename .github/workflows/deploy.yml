@@ -27,7 +27,8 @@ jobs:
           cache: pnpm
       - name: Install dependencies
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PACKAGES_TOKEN }}
+          # Private @mlightcad/dwg-converter is published in this org (GitHub Packages).
+          GITHUB_TOKEN: ${{ github.token }}
         run: pnpm install --frozen-lockfile
       - run: pnpm build
         env:
