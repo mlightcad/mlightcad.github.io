@@ -41,8 +41,31 @@
       <li>
         <a href="/tutorial.html" data-i18n="nav.tutorials">Tutorials</a>
       </li>
-      <li>
-        <a href="https://mlightcad.com/realdwg-web/" target="_blank" rel="noopener" data-i18n="nav.docs">Docs</a>
+      <li class="nav__dropdown" data-dropdown>
+        <button type="button" class="nav__drop-btn" aria-expanded="false" aria-haspopup="true" data-drop-toggle>
+          <span data-i18n="nav.docs">Docs</span>
+          <span class="nav__chev" aria-hidden="true"></span>
+        </button>
+        <ul class="nav__menu" data-drop-menu>
+          <li>
+            <a
+              href="https://mlightcad.com/realdwg-web/"
+              target="_blank"
+              rel="noopener"
+              data-i18n="nav.apiReference"
+              >API Reference</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter"
+              target="_blank"
+              rel="noopener"
+              data-i18n="nav.installationUsage"
+              >Installation &amp; Usage</a
+            >
+          </li>
+        </ul>
       </li>
       <li>
         <a

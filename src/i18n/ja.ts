@@ -137,14 +137,19 @@ const parserJa: ParserCopy = {
       href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
     },
     {
-      name: 'realdwg-web-example',
-      desc: 'ブラウザでプロプライエタリ DWG パーサーを示すサンプルアプリ。',
-      href: 'https://github.com/mlightcad/realdwg-web-example',
-    },
-    {
       name: 'API ドキュメント',
       desc: 'cad-viewer、data-model、コンバーター統合の API リファレンス。',
       href: 'https://mlightcad.com/realdwg-web/',
+    },
+    {
+      name: 'インストールと使い方',
+      desc: 'プロプライエタリ DWG コンバーターのインストールと cad-viewer data-model への登録。',
+      href: 'https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter',
+    },
+    {
+      name: 'サンプルアプリ',
+      desc: 'ブラウザでプロプライエタリ DWG パーサーを示すサンプルアプリ。',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
     },
   ],
   imageAlts: {
@@ -179,6 +184,10 @@ export const ja: Dictionary = {
     plugins: 'プラグイン',
     tutorials: 'チュートリアル',
     docs: 'ドキュメント',
+    userGuide: 'ユーザーガイド',
+    wiki: 'Wiki',
+    apiReference: 'API リファレンス',
+    installationUsage: 'インストールと使い方',
     github: 'GitHub',
     demo: 'ライブデモ',
     language: '言語',
@@ -345,14 +354,14 @@ export const ja: Dictionary = {
         href: '/iframe-plugin.html',
       },
       {
-        name: 'API ドキュメント',
+        name: 'API リファレンス',
         desc: 'Read the Docs のバージョン付きドキュメント',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
       },
       {
-        name: '最新ドキュメント',
-        desc: 'GitHub Pages（開発 / 最新）',
-        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+        name: 'ユーザーガイド',
+        desc: 'ビューアの使い方、操作、ショートカット',
+        href: 'https://mlightcad.com/cad-viewer/docs/',
       },
       {
         name: 'Wiki',

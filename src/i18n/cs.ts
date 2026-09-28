@@ -137,14 +137,19 @@ const parserCs: ParserCopy = {
       href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
     },
     {
-      name: 'realdwg-web-example',
-      desc: 'Ukázková aplikace demonstrující proprietární parser DWG v prohlížeči.',
-      href: 'https://github.com/mlightcad/realdwg-web-example',
-    },
-    {
       name: 'Dokumentace API',
       desc: 'Referenční API pro cad-viewer, data-model a integraci převodníku.',
       href: 'https://mlightcad.com/realdwg-web/',
+    },
+    {
+      name: 'Instalace a použití',
+      desc: 'Instalace a registrace proprietárního převodníku DWG do data-model cad-viewer.',
+      href: 'https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter',
+    },
+    {
+      name: 'Ukázková aplikace',
+      desc: 'Ukázková aplikace demonstrující proprietární parser DWG v prohlížeči.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
     },
   ],
   imageAlts: {
@@ -179,6 +184,10 @@ export const cs: Dictionary = {
     plugins: 'Pluginy',
     tutorials: 'Tutoriály',
     docs: 'Dokumentace',
+    userGuide: 'Uživatelská příručka',
+    wiki: 'Wiki',
+    apiReference: 'Referenční API',
+    installationUsage: 'Instalace a použití',
     github: 'GitHub',
     demo: 'Živé demo',
     language: 'Jazyk',
@@ -345,14 +354,14 @@ export const cs: Dictionary = {
         href: '/iframe-plugin.html',
       },
       {
-        name: 'Dokumentace API',
+        name: 'Referenční API',
         desc: 'Verzovaná dokumentace na Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
       },
       {
-        name: 'Nejnovější dokumentace',
-        desc: 'GitHub Pages (dev / latest)',
-        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+        name: 'Uživatelská příručka',
+        desc: 'Jak používat prohlížeč, interakce a zkratky',
+        href: 'https://mlightcad.com/cad-viewer/docs/',
       },
       {
         name: 'Wiki',

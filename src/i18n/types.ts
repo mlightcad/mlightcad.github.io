@@ -59,6 +59,10 @@ export interface Dictionary {
     plugins: string
     tutorials: string
     docs: string
+    userGuide: string
+    wiki: string
+    apiReference: string
+    installationUsage: string
     github: string
     demo: string
     language: string
