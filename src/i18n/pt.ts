@@ -137,14 +137,19 @@ const parserPt: ParserCopy = {
       href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
     },
     {
-      name: 'realdwg-web-example',
-      desc: 'Aplicativo de exemplo que demonstra o parser DWG proprietário no navegador.',
-      href: 'https://github.com/mlightcad/realdwg-web-example',
-    },
-    {
       name: 'Documentação da API',
       desc: 'Referência da API para cad-viewer, data-model e integração do conversor.',
       href: 'https://mlightcad.com/realdwg-web/',
+    },
+    {
+      name: 'Instalação e uso',
+      desc: 'Instalar e registrar o conversor DWG proprietário com o data-model do cad-viewer.',
+      href: 'https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter',
+    },
+    {
+      name: 'Aplicativo de exemplo',
+      desc: 'Aplicativo de exemplo que demonstra o parser DWG proprietário no navegador.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
     },
   ],
   imageAlts: {
@@ -179,6 +184,10 @@ export const pt: Dictionary = {
     plugins: 'Plugins',
     tutorials: 'Tutoriais',
     docs: 'Documentação',
+    userGuide: 'Guia do usuário',
+    wiki: 'Wiki',
+    apiReference: 'Referência da API',
+    installationUsage: 'Instalação e uso',
     github: 'GitHub',
     demo: 'Demo ao vivo',
     language: 'Idioma',
@@ -345,14 +354,14 @@ export const pt: Dictionary = {
         href: '/iframe-plugin.html',
       },
       {
-        name: 'Documentação da API',
+        name: 'Referência da API',
         desc: 'Documentação versionada no Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
       },
       {
-        name: 'Documentação mais recente',
-        desc: 'GitHub Pages (dev / latest)',
-        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+        name: 'Guia do usuário',
+        desc: 'Como usar o visualizador, interações e atalhos',
+        href: 'https://mlightcad.com/cad-viewer/docs/',
       },
       {
         name: 'Wiki',

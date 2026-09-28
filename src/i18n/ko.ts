@@ -137,14 +137,19 @@ const parserKo: ParserCopy = {
       href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
     },
     {
-      name: 'realdwg-web-example',
-      desc: '브라우저에서 상용 DWG 파서를 보여주는 샘플 앱.',
-      href: 'https://github.com/mlightcad/realdwg-web-example',
-    },
-    {
       name: 'API 문서',
       desc: 'cad-viewer, data-model, 컨버터 통합 API 레퍼런스.',
       href: 'https://mlightcad.com/realdwg-web/',
+    },
+    {
+      name: '설치 및 사용',
+      desc: '상용 DWG 컨버터 설치 및 cad-viewer data-model 등록 안내.',
+      href: 'https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter',
+    },
+    {
+      name: '예제 프로그램',
+      desc: '브라우저에서 상용 DWG 파서를 보여주는 샘플 앱.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
     },
   ],
   imageAlts: {
@@ -179,6 +184,10 @@ export const ko: Dictionary = {
     plugins: '플러그인',
     tutorials: '튜토리얼',
     docs: '문서',
+    userGuide: '사용자 가이드',
+    wiki: 'Wiki',
+    apiReference: 'API 레퍼런스',
+    installationUsage: '설치 및 사용',
     github: 'GitHub',
     demo: '라이브 데모',
     language: '언어',
@@ -345,14 +354,14 @@ export const ko: Dictionary = {
         href: '/iframe-plugin.html',
       },
       {
-        name: 'API 문서',
+        name: 'API 레퍼런스',
         desc: 'Read the Docs 버전 문서',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
       },
       {
-        name: '최신 문서',
-        desc: 'GitHub Pages (개발 / 최신)',
-        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+        name: '사용자 가이드',
+        desc: '뷰어 사용법, 조작, 단축키',
+        href: 'https://mlightcad.com/cad-viewer/docs/',
       },
       {
         name: 'Wiki',

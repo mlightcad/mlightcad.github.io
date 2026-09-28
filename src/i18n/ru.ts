@@ -137,14 +137,19 @@ const parserRu: ParserCopy = {
       href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
     },
     {
-      name: 'realdwg-web-example',
-      desc: 'Пример приложения, демонстрирующий проприетарный парсер DWG в браузере.',
-      href: 'https://github.com/mlightcad/realdwg-web-example',
-    },
-    {
       name: 'Документация API',
       desc: 'Справочник API для cad-viewer, data-model и интеграции конвертера.',
       href: 'https://mlightcad.com/realdwg-web/',
+    },
+    {
+      name: 'Установка и использование',
+      desc: 'Установка и регистрация проприетарного DWG-конвертера в data-model cad-viewer.',
+      href: 'https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter',
+    },
+    {
+      name: 'Пример приложения',
+      desc: 'Пример приложения, демонстрирующий проприетарный парсер DWG в браузере.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
     },
   ],
   imageAlts: {
@@ -179,6 +184,10 @@ export const ru: Dictionary = {
     plugins: 'Плагины',
     tutorials: 'Обучение',
     docs: 'Документация',
+    userGuide: 'Руководство пользователя',
+    wiki: 'Wiki',
+    apiReference: 'Справка API',
+    installationUsage: 'Установка и использование',
     github: 'GitHub',
     demo: 'Живое демо',
     language: 'Язык',
@@ -345,14 +354,14 @@ export const ru: Dictionary = {
         href: '/iframe-plugin.html',
       },
       {
-        name: 'Документация API',
+        name: 'Справка API',
         desc: 'Версионированная документация на Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
       },
       {
-        name: 'Последняя документация',
-        desc: 'GitHub Pages (dev / latest)',
-        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+        name: 'Руководство пользователя',
+        desc: 'Как пользоваться просмотрщиком, взаимодействия и сочетания клавиш',
+        href: 'https://mlightcad.com/cad-viewer/docs/',
       },
       {
         name: 'Wiki',

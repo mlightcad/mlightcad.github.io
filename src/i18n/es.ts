@@ -137,14 +137,19 @@ const parserEs: ParserCopy = {
       href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
     },
     {
-      name: 'realdwg-web-example',
-      desc: 'Aplicación de ejemplo que demuestra el parser DWG propietario en el navegador.',
-      href: 'https://github.com/mlightcad/realdwg-web-example',
-    },
-    {
       name: 'Documentación de la API',
       desc: 'Referencia de la API para cad-viewer, data-model e integración del convertidor.',
       href: 'https://mlightcad.com/realdwg-web/',
+    },
+    {
+      name: 'Instalación y uso',
+      desc: 'Instalar y registrar el convertidor DWG propietario con el data-model de cad-viewer.',
+      href: 'https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter',
+    },
+    {
+      name: 'Aplicación de ejemplo',
+      desc: 'Aplicación de ejemplo que demuestra el parser DWG propietario en el navegador.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
     },
   ],
   imageAlts: {
@@ -179,6 +184,10 @@ export const es: Dictionary = {
     plugins: 'Plugins',
     tutorials: 'Tutoriales',
     docs: 'Documentación',
+    userGuide: 'Guía del usuario',
+    wiki: 'Wiki',
+    apiReference: 'Referencia de API',
+    installationUsage: 'Instalación y uso',
     github: 'GitHub',
     demo: 'Demo en vivo',
     language: 'Idioma',
@@ -345,14 +354,14 @@ export const es: Dictionary = {
         href: '/iframe-plugin.html',
       },
       {
-        name: 'Documentación de la API',
+        name: 'Referencia de API',
         desc: 'Documentación versionada en Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
       },
       {
-        name: 'Documentación más reciente',
-        desc: 'GitHub Pages (dev / latest)',
-        href: 'https://mlightcad.github.io/cad-viewer/docs/',
+        name: 'Guía del usuario',
+        desc: 'Cómo usar el visor, interacciones y atajos',
+        href: 'https://mlightcad.com/cad-viewer/docs/',
       },
       {
         name: 'Wiki',

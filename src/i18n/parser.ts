@@ -250,14 +250,19 @@ export const parserEn: ParserCopy = {
       href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.md',
     },
     {
-      name: 'realdwg-web-example',
-      desc: 'Sample app that demonstrates the proprietary DWG parser in the browser.',
-      href: 'https://github.com/mlightcad/realdwg-web-example',
-    },
-    {
       name: 'API Docs',
       desc: 'API reference for cad-viewer, data-model, and converter integration.',
       href: 'https://mlightcad.com/realdwg-web/',
+    },
+    {
+      name: 'Installation & Usage',
+      desc: 'Install and register the proprietary DWG converter with the cad-viewer data model.',
+      href: 'https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter',
+    },
+    {
+      name: 'Example App',
+      desc: 'Sample app that demonstrates the proprietary DWG parser in the browser.',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
     },
   ],
   imageAlts: {
@@ -405,14 +410,19 @@ export const parserZh: ParserCopy = {
       href: 'https://github.com/mlightcad/cad-viewer/blob/main/PROPRIETARY-PARSER.zh-CN.md',
     },
     {
-      name: 'realdwg-web-example',
-      desc: 'DWG parser 示例程序，演示专有解析器在浏览器中的用法。',
-      href: 'https://github.com/mlightcad/realdwg-web-example',
-    },
-    {
       name: 'API 文档',
       desc: 'cad-viewer、data-model 与转换器集成的 API 参考。',
       href: 'https://mlightcad.com/realdwg-web/',
+    },
+    {
+      name: '安装与使用',
+      desc: '安装并注册专有 DWG 转换器到 cad-viewer 数据模型。',
+      href: 'https://github.com/mlightcad/cad-viewer/wiki/Install-and-Use-Proprietary-DWG-Converter',
+    },
+    {
+      name: '示例程序',
+      desc: '演示专有 DWG 解析器在浏览器中用法的示例应用。',
+      href: 'https://github.com/mlightcad/realdwg-web-example',
     },
   ],
   imageAlts: {
