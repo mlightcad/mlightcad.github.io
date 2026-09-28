@@ -25,6 +25,7 @@
     "@mlightcad/cad-simple-viewer": "^1.7.3",
     "@mlightcad/data-model": "1.15.0",
     "@mlightcad/dwg-converter": "https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.0/998f025a218d3686262aef7369aa6ad7e672b32a",
+    "@mlightcad/mtext-parser": "1.5.3",
     "@mlightcad/mtext-renderer": "0.13.1",
     "@mlightcad/three-renderer": "1.7.3",
     "@paddle/paddle-js": "^1.6.4",
