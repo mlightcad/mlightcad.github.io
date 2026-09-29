@@ -9,7 +9,7 @@ export const pt: LegalBundle = {
     title: 'Termos de serviço',
     updated: 'Última atualização: 24 de agosto de 2026',
     intro:
-      'Estes Termos de serviço (os "Termos") regem o seu acesso aos sites, à documentação, ao software open source e às licenças comerciais pagas da MLightCAD (incluindo o Proprietary DWG Parser). Ao usar nossos sites ou comprar uma licença, você concorda com estes Termos.',
+      'Estes Termos de serviço (os "Termos") regem o seu acesso aos sites, à documentação, ao software open source e às licenças comerciais pagas da MLightCAD (incluindo o DWG Engine (formerly Proprietary DWG Parser)). Ao usar nossos sites ou comprar uma licença, você concorda com estes Termos.',
     sections: [
       {
         title: '1. Quem somos',
@@ -27,7 +27,7 @@ export const pt: LegalBundle = {
       {
         title: '3. Licenças comerciais',
         paragraphs: [
-          'Produtos pagos, incluindo o Proprietary DWG Parser (@mlightcad/dwg-converter), são vendidos como licenças de software comercial para empresas e organizações. Um acordo de licença separado se aplica a cada compra e define o uso permitido, as restrições, a entrega e o escopo do suporte.',
+          'Produtos pagos, incluindo o DWG Engine (formerly Proprietary DWG Parser) (@mlightcad/dwg-converter), são vendidos como licenças de software comercial para empresas e organizações. Um acordo de licença separado se aplica a cada compra e define o uso permitido, as restrições, a entrega e o escopo do suporte.',
           'Salvo indicação expressa por escrito, as licenças comerciais não incluem o código-fonte. Você não pode redistribuir nem revender o parser proprietário como biblioteca ou SDK independente.',
         ],
       },
@@ -174,7 +174,7 @@ export const pt: LegalBundle = {
     title: 'Política de reembolso',
     updated: 'Última atualização: 24 de agosto de 2026',
     intro:
-      'Esta Política de reembolso aplica-se às licenças de software comercial vendidas pela MLightCAD pelo Paddle, incluindo a licença perpétua do Proprietary DWG Parser e os pacotes de atualização anuais.',
+      'Esta Política de reembolso aplica-se às licenças de software comercial vendidas pela MLightCAD pelo Paddle, incluindo a licença perpétua do DWG Engine (formerly Proprietary DWG Parser) e os pacotes de atualização anuais.',
     sections: [
       {
         title: '1. Produtos digitais',

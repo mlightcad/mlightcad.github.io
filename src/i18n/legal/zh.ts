@@ -8,7 +8,7 @@ export const zh: LegalBundle = {
     title: '服务条款',
     updated: '最后更新：2026 年 8 月 24 日',
     intro:
-      '本服务条款（"条款"）适用于您对 MLightCAD 网站、文档、开源软件及付费商业授权（含 Proprietary DWG Parser）的访问与使用。使用本网站或购买授权，即表示您同意本条款。',
+      '本服务条款（"条款"）适用于您对 MLightCAD 网站、文档、开源软件及付费商业授权（含 DWG Engine (formerly Proprietary DWG Parser)）的访问与使用。使用本网站或购买授权，即表示您同意本条款。',
     sections: [
       {
         title: '1. 关于我们',
@@ -26,7 +26,7 @@ export const zh: LegalBundle = {
       {
         title: '3. 商业授权',
         paragraphs: [
-          '付费产品（含 Proprietary DWG Parser，包名 @mlightcad/dwg-converter）以商业软件授权形式销售给企业及组织。每次购买均受相应授权条款约束，包括允许的使用范围、限制、交付方式与支持范围。',
+          '付费产品（含 DWG Engine (formerly Proprietary DWG Parser)，包名 @mlightcad/dwg-converter）以商业软件授权形式销售给企业及组织。每次购买均受相应授权条款约束，包括允许的使用范围、限制、交付方式与支持范围。',
           '除非书面明确说明，商业授权不包含源代码。您不得将专有解析器作为独立库或 SDK 再分发或转售。',
         ],
       },
@@ -171,7 +171,7 @@ export const zh: LegalBundle = {
     title: '退款政策',
     updated: '最后更新：2026 年 8 月 24 日',
     intro:
-      '本退款政策适用于 MLightCAD 通过 Paddle 销售的商业软件授权，包括 Proprietary DWG Parser 永久授权与年度升级包。',
+      '本退款政策适用于 MLightCAD 通过 Paddle 销售的商业软件授权，包括 DWG Engine (formerly Proprietary DWG Parser) 永久授权与年度升级包。',
     sections: [
       {
         title: '1. 数字产品',

@@ -1,17 +1,21 @@
+import { benchmarksCs } from './benchmarks'
 import { cadDiffViewerCs } from './cadDiffViewer'
+import { cadSdkCs } from './cadSdk'
+import { commercialCs } from './commercial'
 import { iframePluginCs } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import { tutorialCs } from './tutorial'
 import type { Dictionary } from './types'
+import { useCasesCs } from './useCases'
 
 const parserCs: ParserCopy = {
-  metaTitle: 'Proprietární parser DWG — MLightCAD',
+  metaTitle: 'DWG Engine — Ceny a licence | MLightCAD',
   metaDescription:
     'Komerční parser DWG pro produkty s uzavřeným kódem: věčná licence, bez distribuce GPL, přímá náhrada LibreDWG v cad-viewer.',
   metaKeywords:
     'parser DWG, proprietární DWG, alternativa LibreDWG, komerční převodník DWG, cad-viewer, CAD s uzavřeným kódem, věčná licence',
   eyebrow: 'Komerční produkt',
-  title: 'Proprietární parser DWG',
+  title: 'DWG Engine',
   lead: 'Komerční alternativa k open source stacku LibreDWG — pro produkty s uzavřeným kódem, white-label nasazení a SaaS / on-premise prohlížeče, které nemohou zákazníkům distribuovat kód GPL-3.0.',
   contactCta: 'Požádat o zkušební licenci',
   contactHref: 'mailto:support@mlightcad.com?subject=Trial%20License%20Application',
@@ -166,27 +170,32 @@ const parserCs: ParserCopy = {
 
 export const cs: Dictionary = {
   meta: {
-    title: 'MLightCAD — první open source CAD editor v prohlížeči',
+    title: 'MLightCAD — webové CAD SDK pro DWG a DXF',
     description:
-      'cad-viewer: první plně backend-free prohlížeč a editor DWG/DXF, který běží celý v prohlížeči — a první open source toolkit pro editaci DXF/DWG na webu.',
+      'Otevírejte, prohlížejte a editujte výkresy DWG/DXF přímo v prohlížeči. Open-source webové CAD SDK s nativním parsováním, renderingem, měřením a editací.',
     keywords:
-      'MLightCAD, cad-viewer, prohlížeč DWG, prohlížeč DXF, CAD v prohlížeči, WebGL CAD, open source CAD, editor DWG, editor DXF, zero backend',
+      'MLightCAD, Web CAD SDK, DWG viewer, DXF viewer, prohlížečové CAD, DWG Engine, cad-viewer, open source CAD',
   },
   nav: {
     product: 'Produkty',
-    cadViewer: 'CAD-Viewer',
+    cadViewer: 'CAD Viewer',
+    cadSdk: 'CAD SDK',
+    dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
-    dwgParser: 'Parser DWG',
-    integration: 'Integrace',
+    dwgToHtml: 'DWG to HTML',
+    developers: 'Vývojáři',
     iframePlugin: 'iframe plugin',
     googleDrive: 'Integrace Google Drive',
-    features: 'Funkce',
-    plugins: 'Pluginy',
+    solutions: 'Řešení',
+    pricing: 'Ceny',
+    resourcesNav: 'Zdroje',
+    benchmarks: 'Benchmarks',
+    commercial: 'Open source a komerční',
     tutorials: 'Tutoriály',
     docs: 'Dokumentace',
     userGuide: 'Uživatelská příručka',
     wiki: 'Wiki',
-    apiReference: 'Referenční API',
+    apiReference: 'API Reference',
     installationUsage: 'Instalace a použití',
     github: 'GitHub',
     demo: 'Živé demo',
@@ -194,25 +203,65 @@ export const cs: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: 'OPEN SOURCE · BEZPEČNÁ DATA · ZERO BACKEND',
-    headline: 'První open source CAD stack, který nikdy neopustí prohlížeč.',
-    subline:
-      'Parsování, vykreslování a editace DXF/DWG celé na zařízení — bez backendu, bez upload pipeline, bez kompromisů v soukromí.',
-    ctaDemo: 'Vyzkoušet živé demo',
-    ctaGithub: 'Zobrazit na GitHubu',
-    firsts: [
-      'První plně backend-free prohlížeč a editor DWG/DXF v prohlížeči',
-      'První open source toolkit pro editaci DXF/DWG na webu',
+    meta: 'OPEN SOURCE · NATIVNÍ V PROHLÍŽEČI · BEZPEČNÁ DATA',
+    headline: 'Webová CAD infrastruktura pro DWG a DXF',
+    subline: 'Stavějte CAD produkty přímo v prohlížeči.',
+    ctaDemo: 'Vyzkoušet CAD Viewer',
+    ctaBuild: 'Stavět s MLightCAD',
+    guarantees: ['Bez CAD serveru.', 'Bez uploadu souboru.', 'Bez instalace.'],
+  },
+  platform: {
+    eyebrow: 'Platforma',
+    title: 'Prohlížečové CAD, připravené k vložení',
+    lead: 'Použijte kompletní Viewer, nebo si vytvořte vlastní CAD zkušenost se SDK — na stejném prohlížečovém enginu.',
+    closing: 'Stavějte na stejném CAD enginu jako MLightCAD Viewer.',
+    layers: [
+      {
+        name: 'Bez CAD serveru',
+        desc: 'DWG/DXF se parsuje a renderuje celé v záložce — nic k hostování ani škálování.',
+      },
+      {
+        name: 'Výkresy zůstávají na zařízení',
+        desc: 'Bez upload farmy: důvěrné soubory neopouštějí počítač uživatele.',
+      },
+      {
+        name: 'Jeden sdílený CAD model',
+        desc: 'Viewer, editor, pluginy a agenti čtou a zapisují stejné entity.',
+      },
+      {
+        name: 'Víc než náhled',
+        desc: 'Měření, review markup a editace geometrie — ne read-only screenshot.',
+      },
+      {
+        name: 'Uvnitř vašeho produktu',
+        desc: 'Vložte přes iframe nebo npm, nebo licencujte komerční DWG Engine pro SaaS a OEM.',
+      },
+    ],
+    paths: [
+      {
+        label: 'Open source',
+        title: 'CAD Viewer',
+        body: 'Bezplatné prohlížečové CAD pro prohlížení, review a editaci — vlajkový vstup do stacku.',
+        href: '/#product',
+        cta: 'Prozkoumat Viewer',
+      },
+      {
+        label: 'Komerční',
+        title: 'DWG Engine',
+        body: 'Produkční DWG pro closed-source produkty, SaaS a OEM — s jasnými právy na redistribuci.',
+        href: '/dwg-engine.html',
+        cta: 'Zobrazit Engine',
+      },
     ],
   },
   flagship: {
     eyebrow: 'Vlajkový produkt',
-    title: 'CAD-Viewer',
+    title: 'CAD Viewer',
     lead: 'Production-grade WebGL CAD runtime: parsování DWG/DXF, geometrie, prohlížení a editace — vše uvnitř karty moderního prohlížeče.',
-    firstsLabel: 'První v oboru',
-    firsts: [
-      'První prohlížeč a editor DWG/DXF, který běží kompletně v prohlížeči s nulovými backend službami.',
-      'První open source toolkit pro skutečnou editaci DXF/DWG na webu — ne read-only náhled.',
+    highlightsLabel: 'Co dodává',
+    highlights: [
+      'Prohlížejte, review markup a editujte DWG/DXF úplně v prohlížeči — bez CAD serveru.',
+      'Open-source toolkit pro skutečné webové editační workflows — ne jen read-only náhled.',
     ],
   },
   tryDrawing: {
@@ -326,9 +375,9 @@ export const cs: Dictionary = {
     downloadAria: 'Stáhnout {file}',
   },
   plugins: {
-    eyebrow: 'Ekosystém',
-    title: 'Oficiální pluginy',
-    lead: 'Skládejte UI, export a AI kolem sdílené plugin sběrnice — načítejte jen to, co každý produkt potřebuje.',
+    eyebrow: 'Moduly platformy',
+    title: 'Skládejte na stejném enginu',
+    lead: 'Moduly UI, exportu a AI načítají jen to, co produkt potřebuje — na CAD enginu MLightCAD Viewer.',
     imageAlt: 'CAD jádro s plug-in moduly UI, agent, HTML, PDF a SVG',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'Toolbar a správce vrstev (framework-agnostic DOM)' },
@@ -338,10 +387,23 @@ export const cs: Dictionary = {
       { name: 'cad-svg-plugin', role: 'Vektorový SVG export' },
     ],
   },
+  showcase: {
+    eyebrow: 'Built with MLightCAD',
+    title: 'Projekty na stacku',
+    lead: 'Otevřená dema a integrace běžící na stejném enginu — od plného vieweru po embed a offline HTML.',
+    items: [
+      { name: 'CAD Viewer', desc: 'Plný prohlížečový CAD', href: 'https://mlightcad.github.io/cad-viewer/' },
+      { name: 'CAD Simple Viewer', desc: 'Lehký embeddovatelný viewer', href: 'https://mlightcad.github.io/cad-viewer/cad-simple-viewer/' },
+      { name: 'CAD Diff Viewer', desc: 'Porovnání revizí v prohlížeči', href: '/cad-diff-viewer.html' },
+      { name: 'iframe plugin', desc: 'Jednořádkový embed DWG/DXF', href: '/iframe-plugin.html' },
+      { name: 'Integrace Google Drive', desc: 'Otevření výkresů z Drive', href: 'https://mlightcad.com/google-drive-cad-viewer/' },
+      { name: 'Self-contained HTML', desc: 'Sdílení CAD bez serveru', href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html' },
+    ],
+  },
   resources: {
     eyebrow: 'Zdroje',
     title: 'Dokumentace, demo a komunita',
-    lead: 'Začněte u živého prohlížeče, pak pokračujte referencí API a wiki projektu.',
+    lead: 'Začněte živým viewerem, pak API, licence a benchmarks.',
     links: [
       {
         name: 'Živé demo',
@@ -402,4 +464,8 @@ export const cs: Dictionary = {
   iframePlugin: iframePluginCs,
   cadDiffViewer: cadDiffViewerCs,
   tutorial: tutorialCs,
+  commercial: commercialCs,
+  cadSdk: cadSdkCs,
+  useCases: useCasesCs,
+  benchmarks: benchmarksCs,
 }

@@ -179,31 +179,33 @@ export async function setupWebGL(): Promise<void> {
 }
 
 export function markActiveNav(
-  page: 'home' | 'parser' | 'iframe-plugin' | 'cad-diff-viewer' | 'tutorial',
+  page:
+    | 'home'
+    | 'iframe-plugin'
+    | 'cad-diff-viewer'
+    | 'tutorial'
+    | 'dwg-engine'
+    | 'commercial'
+    | 'cad-sdk'
+    | 'use-cases'
+    | 'benchmarks',
 ): void {
-  document.querySelectorAll<HTMLAnchorElement>('.nav__menu a').forEach((a) => {
-    const href = a.getAttribute('href') ?? ''
-    const isParser = href.includes('dwg-parser')
-    const isDiffViewer = href.includes('cad-diff-viewer')
-    const isIframe = href.includes('iframe-plugin')
-    const current =
-      page === 'parser'
-        ? isParser
-        : page === 'cad-diff-viewer'
-          ? isDiffViewer
-          : page === 'iframe-plugin'
-            ? isIframe
-            : page === 'tutorial'
-              ? false
-              : !isParser && !isDiffViewer && !isIframe && href.includes('product')
-    a.classList.toggle('is-current', current)
-    if (current) a.setAttribute('aria-current', 'page')
-    else a.removeAttribute('aria-current')
-  })
+  const matchers: Record<string, (href: string) => boolean> = {
+    'cad-diff-viewer': (href) => href.includes('cad-diff-viewer'),
+    'iframe-plugin': (href) => href.includes('iframe-plugin'),
+    'dwg-engine': (href) => href.includes('dwg-engine') && !href.includes('#pricing'),
+    commercial: (href) => href.includes('commercial.html'),
+    'cad-sdk': (href) => href.includes('cad-sdk'),
+    'use-cases': (href) => href.includes('use-cases'),
+    benchmarks: (href) => href.includes('benchmarks'),
+    tutorial: (href) => href.includes('tutorial.html'),
+    home: (href) => href.includes('/#product') || href === '/#product',
+  }
 
-  document.querySelectorAll<HTMLAnchorElement>('.nav__links > li > a').forEach((a) => {
+  document.querySelectorAll<HTMLAnchorElement>('.nav__menu a, .nav__links > li > a').forEach((a) => {
     const href = a.getAttribute('href') ?? ''
-    const current = page === 'tutorial' && href.includes('tutorial.html')
+    const matcher = matchers[page]
+    const current = matcher ? matcher(href) : false
     a.classList.toggle('is-current', current)
     if (current) a.setAttribute('aria-current', 'page')
     else a.removeAttribute('aria-current')

@@ -38,15 +38,46 @@ function applyI18n(): void {
     if (typeof value === 'string') el.innerHTML = value
   })
 
-  document.querySelectorAll<HTMLElement>('[data-i18n-firsts]').forEach((list) => {
-    const scope = list.dataset.i18nFirsts
-    const items = scope === 'flagship' ? dict.flagship.firsts : dict.hero.firsts
-    list.innerHTML = items.map((item) => `<li><span class="firsts__mark">01</span><span>${item}</span></li>`).join('')
+  document.querySelectorAll<HTMLElement>('[data-i18n-guarantees]').forEach((list) => {
+    list.innerHTML = dict.hero.guarantees
+      .map((item) => `<li><span class="firsts__mark">01</span><span>${item}</span></li>`)
+      .join('')
     list.querySelectorAll('li').forEach((li, i) => {
       const mark = li.querySelector('.firsts__mark')
       if (mark) mark.textContent = String(i + 1).padStart(2, '0')
     })
   })
+
+  document.querySelectorAll<HTMLElement>('[data-i18n-highlights]').forEach((list) => {
+    const items = dict.flagship.highlights
+    list.innerHTML = items
+      .map((item) => `<li><span class="firsts__mark">01</span><span>${item}</span></li>`)
+      .join('')
+    list.querySelectorAll('li').forEach((li, i) => {
+      const mark = li.querySelector('.firsts__mark')
+      if (mark) mark.textContent = String(i + 1).padStart(2, '0')
+    })
+  })
+
+  const layersRoot = document.querySelector('[data-i18n-platform-layers]')
+  if (layersRoot) {
+    layersRoot.innerHTML = dict.platform.layers
+      .map(
+        (layer, index) =>
+          `<li><span class="platform-stack__index">${String(index + 1).padStart(2, '0')}</span><div><strong>${layer.name}</strong><span>${layer.desc}</span></div></li>`,
+      )
+      .join('')
+  }
+
+  const pathsRoot = document.querySelector('[data-i18n-platform-paths]')
+  if (pathsRoot) {
+    pathsRoot.innerHTML = dict.platform.paths
+      .map(
+        (pathItem) =>
+          `<article class="path-card"><p class="path-card__label">${pathItem.label}</p><h3>${pathItem.title}</h3><p>${pathItem.body}</p><a class="btn btn--ghost" href="${pathItem.href}">${pathItem.cta}</a></article>`,
+      )
+      .join('')
+  }
 
   const featuresRoot = document.querySelector('[data-i18n-features]')
   if (featuresRoot) {
@@ -88,13 +119,25 @@ function applyI18n(): void {
       .join('')
   }
 
+  const showcase = document.querySelector('[data-i18n-showcase]')
+  if (showcase) {
+    showcase.innerHTML = dict.showcase.items
+      .map((link) => {
+        const external = /^https?:\/\//i.test(link.href)
+        const target = external ? ' target="_blank" rel="noopener"' : ''
+        return `<a href="${link.href}"${target}><strong>${link.name}</strong><span>${link.desc}</span></a>`
+      })
+      .join('')
+  }
+
   const resources = document.querySelector('[data-i18n-resources]')
   if (resources) {
     resources.innerHTML = dict.resources.links
-      .map(
-        (link) =>
-          `<a href="${link.href}" target="_blank" rel="noopener"><strong>${link.name}</strong><span>${link.desc}</span></a>`,
-      )
+      .map((link) => {
+        const external = /^https?:\/\//i.test(link.href)
+        const target = external ? ' target="_blank" rel="noopener"' : ''
+        return `<a href="${link.href}"${target}><strong>${link.name}</strong><span>${link.desc}</span></a>`
+      })
       .join('')
   }
 

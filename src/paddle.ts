@@ -103,14 +103,14 @@ export async function openCheckout(product: PaddleProduct, email?: string): Prom
   const paddle = await getPaddle()
   if (!paddle) return
 
-  const successUrl = new URL('dwg-parser.html', window.location.origin)
+  const successUrl = new URL('dwg-engine.html', window.location.origin)
   successUrl.searchParams.set('purchase', 'success')
   successUrl.searchParams.set('product', product)
 
   paddle.Checkout.open({
     items: [{ priceId, quantity: 1 }],
     ...(email ? { customer: { email } } : {}),
-    customData: { source: 'dwg-parser', product },
+    customData: { source: 'dwg-engine', product },
     settings: {
       successUrl: successUrl.toString(),
       allowLogout: true,

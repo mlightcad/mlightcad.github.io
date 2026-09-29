@@ -1,17 +1,21 @@
+import { benchmarksEs } from './benchmarks'
 import { cadDiffViewerEs } from './cadDiffViewer'
+import { cadSdkEs } from './cadSdk'
+import { commercialEs } from './commercial'
 import { iframePluginEs } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import { tutorialEs } from './tutorial'
 import type { Dictionary } from './types'
+import { useCasesEs } from './useCases'
 
 const parserEs: ParserCopy = {
-  metaTitle: 'Parser DWG propietario — MLightCAD',
+  metaTitle: 'DWG Engine — Precios y licencia | MLightCAD',
   metaDescription:
     'Parser DWG comercial para productos de código cerrado: licencia perpetua, sin distribución GPL, reemplazo directo de LibreDWG en cad-viewer.',
   metaKeywords:
     'parser DWG, DWG propietario, alternativa LibreDWG, convertidor DWG comercial, cad-viewer, CAD código cerrado, licencia perpetua',
   eyebrow: 'Producto comercial',
-  title: 'Parser DWG propietario',
+  title: 'DWG Engine',
   lead: 'Una alternativa comercial al stack open source LibreDWG — diseñada para productos de código cerrado, despliegues white-label y visores SaaS / on-premise que no pueden distribuir código GPL-3.0 a sus clientes.',
   contactCta: 'Solicitar licencia de prueba',
   contactHref: 'mailto:support@mlightcad.com?subject=Trial%20License%20Application',
@@ -166,27 +170,32 @@ const parserEs: ParserCopy = {
 
 export const es: Dictionary = {
   meta: {
-    title: 'MLightCAD — El primer editor CAD open source en el navegador',
+    title: 'MLightCAD — SDK CAD web para DWG y DXF',
     description:
-      'cad-viewer: el primer visor y editor DWG/DXF completamente sin backend que funciona íntegramente en el navegador — y el primer toolkit open source de edición DXF/DWG en la web.',
+      'Abra, vea y edite dibujos DWG/DXF directamente en el navegador. SDK CAD web open source con análisis, render, medición y edición nativos del navegador.',
     keywords:
-      'MLightCAD, cad-viewer, visor DWG, visor DXF, CAD navegador, WebGL CAD, CAD open source, editor DWG, editor DXF, cero backend',
+      'MLightCAD, Web CAD SDK, visor DWG, visor DXF, CAD en el navegador, DWG Engine, cad-viewer, CAD open source',
   },
   nav: {
     product: 'Productos',
-    cadViewer: 'CAD-Viewer',
+    cadViewer: 'CAD Viewer',
+    cadSdk: 'CAD SDK',
+    dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
-    dwgParser: 'Parser DWG',
-    integration: 'Integración',
+    dwgToHtml: 'DWG to HTML',
+    developers: 'Desarrolladores',
     iframePlugin: 'Plugin iframe',
-    googleDrive: 'Integración de Google Drive',
-    features: 'Funciones',
-    plugins: 'Plugins',
+    googleDrive: 'Integración Google Drive',
+    solutions: 'Soluciones',
+    pricing: 'Precios',
+    resourcesNav: 'Recursos',
+    benchmarks: 'Benchmarks',
+    commercial: 'Open source y comercial',
     tutorials: 'Tutoriales',
-    docs: 'Documentación',
-    userGuide: 'Guía del usuario',
+    docs: 'Docs',
+    userGuide: 'Guía de usuario',
     wiki: 'Wiki',
-    apiReference: 'Referencia de API',
+    apiReference: 'Referencia API',
     installationUsage: 'Instalación y uso',
     github: 'GitHub',
     demo: 'Demo en vivo',
@@ -194,25 +203,65 @@ export const es: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: 'OPEN SOURCE · DATOS SEGUROS · CERO BACKEND',
-    headline: 'El primer stack CAD open source que nunca sale del navegador.',
-    subline:
-      'Analice, renderice y edite DXF/DWG íntegramente en el dispositivo — sin backend, sin pipeline de carga, sin comprometer la privacidad.',
-    ctaDemo: 'Probar demo en vivo',
-    ctaGithub: 'Ver en GitHub',
-    firsts: [
-      'Primer visor y editor DWG/DXF completamente sin backend en el navegador',
-      'Primer toolkit open source de edición DXF/DWG en la web',
+    meta: 'OPEN SOURCE · NATIVO DEL NAVEGADOR · DATOS SEGUROS',
+    headline: 'Infraestructura CAD web para DWG y DXF',
+    subline: 'Construya productos CAD directamente en el navegador.',
+    ctaDemo: 'Probar CAD Viewer',
+    ctaBuild: 'Construir con MLightCAD',
+    guarantees: ['Sin servidor CAD.', 'Sin subir archivos.', 'Sin instalación.'],
+  },
+  platform: {
+    eyebrow: 'Plataforma',
+    title: 'CAD nativo del navegador, hecho para incrustar',
+    lead: 'Use el Viewer completo, o construya su propia experiencia CAD con el SDK — sobre el mismo motor nativo del navegador.',
+    closing: 'Construya sobre el mismo motor CAD que usa MLightCAD Viewer.',
+    layers: [
+      {
+        name: 'Sin servidor CAD',
+        desc: 'DWG/DXF se analiza y renderiza por completo en la pestaña — nada que alojar ni escalar.',
+      },
+      {
+        name: 'Los dibujos se quedan en el dispositivo',
+        desc: 'Sin granja de subidas: los archivos confidenciales no salen de la máquina del usuario.',
+      },
+      {
+        name: 'Un modelo CAD compartido',
+        desc: 'Viewer, editor, plugins y agentes leen y escriben las mismas entidades.',
+      },
+      {
+        name: 'Más que una vista previa',
+        desc: 'Medición, markup de revisión y edición de geometría — no una captura de solo lectura.',
+      },
+      {
+        name: 'Dentro de su producto',
+        desc: 'Incruste con iframe o npm, o licencie el DWG Engine comercial para SaaS y OEM.',
+      },
+    ],
+    paths: [
+      {
+        label: 'Open source',
+        title: 'CAD Viewer',
+        body: 'CAD gratuito en el navegador para ver, revisar y editar — la entrada insignia al stack.',
+        href: '/#product',
+        cta: 'Explorar Viewer',
+      },
+      {
+        label: 'Comercial',
+        title: 'DWG Engine',
+        body: 'DWG de producción para productos closed-source, SaaS y OEM — con derechos de redistribución claros.',
+        href: '/dwg-engine.html',
+        cta: 'Ver Engine',
+      },
     ],
   },
   flagship: {
     eyebrow: 'Producto estrella',
-    title: 'CAD-Viewer',
+    title: 'CAD Viewer',
     lead: 'Un runtime CAD WebGL de nivel de producción: análisis DWG/DXF, geometría, visualización y edición — todo dentro de una pestaña del navegador moderno.',
-    firstsLabel: 'Primeras en la industria',
-    firsts: [
-      'El primer visor y editor DWG/DXF que funciona completamente en el navegador con cero servicios backend.',
-      'El primer toolkit open source para edición real de DXF/DWG en la web — no una vista previa de solo lectura.',
+    highlightsLabel: 'Qué incluye',
+    highlights: [
+      'Vea, revise con markup y edite DWG/DXF por completo en el navegador — sin servidor CAD.',
+      'Kit open source para flujos reales de edición web — no una vista de solo lectura.',
     ],
   },
   tryDrawing: {
@@ -326,9 +375,9 @@ export const es: Dictionary = {
     downloadAria: 'Descargar {file}',
   },
   plugins: {
-    eyebrow: 'Ecosistema',
-    title: 'Plugins oficiales',
-    lead: 'Componga UI, exportación e IA en torno a un bus de plugins compartido — cargue solo lo que cada producto necesita.',
+    eyebrow: 'Módulos de plataforma',
+    title: 'Compose sobre el mismo motor',
+    lead: 'Los módulos de UI, exportación e IA cargan solo lo que cada producto necesita — sobre el motor CAD que impulsa MLightCAD Viewer.',
     imageAlt: 'Núcleo CAD con módulos plug-in de UI, agente, HTML, PDF y SVG',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'Barra de herramientas y gestor de capas (DOM agnóstico al framework)' },
@@ -338,10 +387,23 @@ export const es: Dictionary = {
       { name: 'cad-svg-plugin', role: 'Exportación SVG vectorial' },
     ],
   },
+  showcase: {
+    eyebrow: 'Built with MLightCAD',
+    title: 'Proyectos sobre el stack',
+    lead: 'Demos e integraciones abiertas que ya corren en el mismo motor — del viewer completo al embed y HTML offline.',
+    items: [
+      { name: 'CAD Viewer', desc: 'Experiencia CAD completa en el navegador', href: 'https://mlightcad.github.io/cad-viewer/' },
+      { name: 'CAD Simple Viewer', desc: 'Viewer embebible ligero', href: 'https://mlightcad.github.io/cad-viewer/cad-simple-viewer/' },
+      { name: 'CAD Diff Viewer', desc: 'Compare revisiones en el navegador', href: '/cad-diff-viewer.html' },
+      { name: 'Plugin iframe', desc: 'Embed DWG/DXF en una línea', href: '/iframe-plugin.html' },
+      { name: 'Integración Google Drive', desc: 'Abra dibujos desde Drive', href: 'https://mlightcad.com/google-drive-cad-viewer/' },
+      { name: 'HTML autocontenido', desc: 'Comparta CAD sin servidor', href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html' },
+    ],
+  },
   resources: {
     eyebrow: 'Recursos',
     title: 'Documentación, demo y comunidad',
-    lead: 'Comience con el visor en vivo, luego profundice en la referencia de la API y la wiki del proyecto.',
+    lead: 'Empiece por el viewer en vivo, luego API, licencias y benchmarks.',
     links: [
       {
         name: 'Demo en vivo',
@@ -402,4 +464,8 @@ export const es: Dictionary = {
   iframePlugin: iframePluginEs,
   cadDiffViewer: cadDiffViewerEs,
   tutorial: tutorialEs,
+  commercial: commercialEs,
+  cadSdk: cadSdkEs,
+  useCases: useCasesEs,
+  benchmarks: benchmarksEs,
 }

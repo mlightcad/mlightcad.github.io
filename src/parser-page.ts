@@ -25,7 +25,7 @@ import {
  * @returns HTML for a `.doc-list`.
  */
 function listHtml(items: string[]): string {
-  return `<ul class="doc-list">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`
+  return `<ul class="doc-list doc-list--split">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`
 }
 
 const INTEGRATION_SNIPPET = [
@@ -296,7 +296,7 @@ function applyI18n(): void {
     description: dict.parser.metaDescription,
     keywords: dict.parser.metaKeywords,
     locale,
-    path: '/dwg-parser.html',
+    path: '/dwg-engine.html',
     type: 'product',
   })
 
@@ -309,7 +309,7 @@ function applyI18n(): void {
   scrollToHash()
 }
 
-/** Sections are injected after load; restore deep links like #scope. */
+/** Sections are injected after load; restore deep links like #pricing. */
 function scrollToHash(): void {
   const id = decodeURIComponent(location.hash.replace(/^#/, ''))
   if (!id) return
@@ -320,7 +320,7 @@ function scrollToHash(): void {
   })
 }
 
-mountShell('parser')
+mountShell('dwg-engine')
 applyI18n()
 setupLocaleToggle(() => applyI18n())
 setupNav()

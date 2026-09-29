@@ -1,7 +1,11 @@
 import type { CadDiffViewerCopy } from './cadDiffViewer'
+import type { BenchmarksCopy } from './benchmarks'
+import type { CadSdkCopy } from './cadSdk'
+import type { CommercialCopy } from './commercial'
 import type { IframePluginCopy } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import type { TutorialCopy } from './tutorial'
+import type { UseCasesCopy } from './useCases'
 
 /** Supported marketing-site locales. */
 export type Locale = 'en' | 'zh' | 'ja' | 'ko' | 'es' | 'pt' | 'ru' | 'cs'
@@ -34,6 +38,28 @@ export interface FeatureItem {
   actions?: FeatureAction[]
 }
 
+/** One layer in the homepage platform architecture stack. */
+export interface PlatformLayer {
+  name: string
+  desc: string
+}
+
+/** Open-source vs commercial path card on the homepage. */
+export interface PlatformPath {
+  label: string
+  title: string
+  body: string
+  href: string
+  cta: string
+}
+
+/** Community / built-with project card. */
+export interface ShowcaseItem {
+  name: string
+  desc: string
+  href: string
+}
+
 /**
  * Localized copy tree for the marketing site.
  *
@@ -50,13 +76,18 @@ export interface Dictionary {
   nav: {
     product: string
     cadViewer: string
+    cadSdk: string
+    dwgEngine: string
     cadDiffViewer: string
-    dwgParser: string
-    integration: string
+    dwgToHtml: string
+    developers: string
     iframePlugin: string
     googleDrive: string
-    features: string
-    plugins: string
+    solutions: string
+    pricing: string
+    resourcesNav: string
+    benchmarks: string
+    commercial: string
     tutorials: string
     docs: string
     userGuide: string
@@ -66,6 +97,11 @@ export interface Dictionary {
     github: string
     demo: string
     language: string
+    /** @deprecated kept for iframe-plugin page anchors during transition */
+    features?: string
+    plugins?: string
+    integration?: string
+    dwgParser?: string
   }
   /** Homepage hero copy. */
   hero: {
@@ -74,16 +110,25 @@ export interface Dictionary {
     headline: string
     subline: string
     ctaDemo: string
-    ctaGithub: string
-    firsts: string[]
+    ctaBuild: string
+    guarantees: string[]
+  }
+  /** Homepage platform architecture section. */
+  platform: {
+    eyebrow: string
+    title: string
+    lead: string
+    closing: string
+    layers: PlatformLayer[]
+    paths: PlatformPath[]
   }
   /** Flagship product section copy. */
   flagship: {
     eyebrow: string
     title: string
     lead: string
-    firstsLabel: string
-    firsts: string[]
+    highlightsLabel: string
+    highlights: string[]
   }
   /** In-browser “try your drawing” widget copy. */
   tryDrawing: {
@@ -135,13 +180,20 @@ export interface Dictionary {
     openAria: string
     downloadAria: string
   }
-  /** Plugins section copy. */
+  /** Plugins / platform modules section copy. */
   plugins: {
     eyebrow: string
     title: string
     lead: string
     imageAlt: string
     items: { name: string; role: string }[]
+  }
+  /** Built-with / community showcase section. */
+  showcase: {
+    eyebrow: string
+    title: string
+    lead: string
+    items: ShowcaseItem[]
   }
   /** Resources / links section copy. */
   resources: {
@@ -159,7 +211,7 @@ export interface Dictionary {
     licenses: string
     rights: string
   }
-  /** DWG parser product page copy. */
+  /** DWG Engine product / pricing page copy. */
   parser: ParserCopy
   /** iframe plugin docs page copy. */
   iframePlugin: IframePluginCopy
@@ -167,4 +219,12 @@ export interface Dictionary {
   cadDiffViewer: CadDiffViewerCopy
   /** Product tutorial / video gallery page copy. */
   tutorial: TutorialCopy
+  /** Open Source vs Commercial page copy. */
+  commercial: CommercialCopy
+  /** CAD SDK product page copy. */
+  cadSdk: CadSdkCopy
+  /** Solutions / use-cases page copy. */
+  useCases: UseCasesCopy
+  /** Qualitative benchmarks page copy. */
+  benchmarks: BenchmarksCopy
 }
