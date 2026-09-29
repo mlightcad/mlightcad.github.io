@@ -12,3 +12,6 @@ verify_jwt = false
 
 [functions.license-portal]
 verify_jwt = false
+
+[functions.notify-new-orders]
+verify_jwt = false

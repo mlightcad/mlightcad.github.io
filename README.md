@@ -11,7 +11,8 @@ Brand site for [MLightCAD](https://github.com/mlightcad), featuring [cad-viewer]
 export GITHUB_TOKEN=ghp_xxx   # PAT with read:packages (Windows: $env:GITHUB_TOKEN=...)
 pnpm install
 # First-time / after publish: pin the private tarball into the lockfile
-# pnpm add @mlightcad/dwg-converter@1.14.14 --registry https://npm.pkg.github.com
+# pnpm add-dwg-converter
+# pnpm add-dwg-converter 1.15.0
 cp .env.example .env   # fill VITE_PADDLE_* (+ VITE_SUPABASE_* for license portal)
 pnpm dev
 ```
@@ -53,10 +54,11 @@ Paddle payment
 |----------|---------|
 | `paddle-webhook` | Verify Paddle events, auto-issue license JWT + email |
 | `license-portal` | Magic-link API for viewing license keys |
+| `notify-new-orders` | Daily cron: email support about new Paddle orders (once each) |
 
 Buyer portal page: [`license-portal.html`](https://mlightcad.com/license-portal.html).
 
-Package download access is **not** automated here — grant it in GitHub (org/repo/package permission) using the buyer’s GitHub username. Support is notified after each paid order so you can invite them.
+Package download access is **not** automated here — grant it in GitHub (org/repo/package permission) using the buyer’s GitHub username. Support is notified after each paid order (webhook) and again checked daily by `notify-new-orders`; each order is emailed at most once.
 
 ### Two Supabase projects (sandbox vs live)
 
@@ -82,7 +84,8 @@ npx supabase secrets set \
   RESEND_API_KEY=re_… \
   RESEND_FROM_EMAIL='MLightCAD Licenses <licenses@mlightcad.com>' \
   LICENSE_PORTAL_BASE_URL=https://mlightcad.com/license-portal.html \
-  SUPPORT_NOTIFY_EMAIL=support@mlightcad.com
+  SUPPORT_NOTIFY_EMAIL=support@mlightcad.com \
+  CRON_SECRET=…   # long random string; same value in Vault as cron_secret
 ```
 
 | Secret | Purpose |
@@ -90,6 +93,7 @@ npx supabase secrets set \
 | `DWG_LICENSE_PRIVATE_KEY` | PKCS#8 PEM matching the public key embedded in `@mlightcad/dwg-converter` |
 | `RESEND_API_KEY` | Sends license email (and support notify) |
 | `LICENSE_PORTAL_BASE_URL` | Magic-link target for the portal |
+| `CRON_SECRET` | Bearer token for `notify-new-orders` (daily pg_cron → Edge Function) |
 
 `DWG_LICENSE_PRIVATE_KEY` may use literal `\n` escapes for newlines.
 
@@ -110,11 +114,41 @@ npx supabase secrets set \
 
 ```bash
 npx supabase login
-npx supabase link --project-ref <sandbox-or-live-ref>
-npx supabase db push
+
+# Link via local .env.dev / .env.prod:
+pnpm supabase:dev          # or: pnpm supabase:prod
+# Then run CLI against the linked project, e.g.:
+pnpm supabase:dev -- db push --yes
+pnpm supabase:prod -- functions deploy notify-new-orders
+pnpm supabase:prod -- invoke-cron
+
+# Equivalent:
+#   node scripts/supabase-env.mjs prod functions deploy notify-new-orders
+
 npx supabase secrets set …   # see table above
 npx supabase functions deploy paddle-webhook
 npx supabase functions deploy license-portal
+npx supabase functions deploy notify-new-orders
+```
+
+#### Daily order email (pg_cron)
+
+After `db push`, store Vault secrets (once per project), then schedule the job:
+
+```sql
+select vault.create_secret('https://<project-ref>.supabase.co', 'project_url');
+select vault.create_secret('<same value as CRON_SECRET>', 'cron_secret');
+```
+
+```bash
+npx supabase db query -f supabase/cron/notify-new-orders.sql
+```
+
+Runs daily at **01:00 UTC** (09:00 Asia/Shanghai). Manual test:
+
+```bash
+curl -X POST "$SUPABASE_URL/functions/v1/notify-new-orders" \
+  -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 If you previously deployed `package-proxy`, you can ignore/delete that function in the Supabase dashboard — it is no longer in this repo.
