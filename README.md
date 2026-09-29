@@ -119,16 +119,16 @@ npx supabase login
 pnpm supabase:dev          # or: pnpm supabase:prod
 # Then run CLI against the linked project, e.g.:
 pnpm supabase:dev -- db push --yes
-pnpm supabase:prod -- functions deploy notify-new-orders
+pnpm supabase:prod -- functions deploy notify-new-orders --no-verify-jwt
 pnpm supabase:prod -- invoke-cron
 
 # Equivalent:
-#   node scripts/supabase-env.mjs prod functions deploy notify-new-orders
+#   node scripts/supabase-env.mjs prod functions deploy notify-new-orders --no-verify-jwt
 
 npx supabase secrets set …   # see table above
 npx supabase functions deploy paddle-webhook
 npx supabase functions deploy license-portal
-npx supabase functions deploy notify-new-orders
+npx supabase functions deploy notify-new-orders --no-verify-jwt
 ```
 
 #### Daily order email (pg_cron)
@@ -144,7 +144,7 @@ select vault.create_secret('<same value as CRON_SECRET>', 'cron_secret');
 npx supabase db query -f supabase/cron/notify-new-orders.sql
 ```
 
-Runs daily at **01:00 UTC** (09:00 Asia/Shanghai). Manual test:
+Runs daily at **01:00 UTC** (09:00 Asia/Shanghai). Deploy with `--no-verify-jwt` (also set in `config.toml`); `CRON_SECRET` is not a user JWT, so the gateway would otherwise reject the cron call. Transactions from the last 15 minutes are left for the webhook, which records whether the license was actually issued. Manual test:
 
 ```bash
 curl -X POST "$SUPABASE_URL/functions/v1/notify-new-orders" \

@@ -43,7 +43,7 @@ export async function recordSupportNotified(
 
 /**
  * Email support and, on real delivery success, mark the transaction notified.
- * Returns false when skipped (no API key) or Resend failed — cron can retry.
+ * `sent` is false when already notified, skipped (no API key), or Resend failed.
  */
 export async function notifySupportOnce(opts: {
   supabase: SupabaseClient
@@ -52,10 +52,10 @@ export async function notifySupportOnce(opts: {
   subject: string
   text: string
   html?: string
-}): Promise<{ sent: boolean; skipped?: boolean; error?: string }> {
+}): Promise<{ sent: boolean; already?: boolean; skipped?: boolean; error?: string }> {
   const already = await isSupportNotified(opts.supabase, opts.paddleTransactionId)
   if (already) {
-    return { sent: false, skipped: true }
+    return { sent: false, already: true }
   }
 
   console.log(`[support-notify] ${SUPPORT_EMAIL}: ${opts.subject}`)
@@ -77,7 +77,7 @@ export async function notifySupportOnce(opts: {
   return { sent: true }
 }
 
-function escapeHtml(s: string): string {
+export function escapeHtml(s: string): string {
   return s
     .replaceAll('&', '&amp;')
     .replaceAll('<', '&lt;')

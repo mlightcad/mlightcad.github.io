@@ -17,18 +17,25 @@ from public.license_orders
 on conflict (paddle_transaction_id) do nothing;
 
 -- pg_cron + pg_net: daily invoke of notify-new-orders Edge Function.
--- Requires Vault secrets (one-time per project):
+-- Requires Vault secrets (one-time per project), usually created after this migration:
 --   select vault.create_secret('https://<project-ref>.supabase.co', 'project_url');
 --   select vault.create_secret('<same value as CRON_SECRET edge secret>', 'cron_secret');
-create extension if not exists pg_cron with schema pg_catalog;
-create extension if not exists pg_net with schema extensions;
-
+-- Extension or schedule failures must not roll back the table above.
 do $$
 declare
   jid bigint;
   has_url boolean := false;
   has_secret boolean := false;
 begin
+  begin
+    create extension if not exists pg_cron with schema pg_catalog;
+    create extension if not exists pg_net with schema extensions;
+  exception
+    when others then
+      raise notice 'Could not enable pg_cron/pg_net (%). Run supabase/cron/notify-new-orders.sql later.', sqlerrm;
+      return;
+  end;
+
   begin
     select exists (
       select 1 from vault.decrypted_secrets where name = 'project_url'
@@ -37,11 +44,8 @@ begin
       select 1 from vault.decrypted_secrets where name = 'cron_secret'
     ) into has_secret;
   exception
-    when undefined_table then
-      raise notice 'Vault not available; skip cron schedule (see supabase/cron/notify-new-orders.sql)';
-      return;
-    when undefined_object then
-      raise notice 'Vault not available; skip cron schedule (see supabase/cron/notify-new-orders.sql)';
+    when others then
+      raise notice 'Vault not available (%); skip cron schedule. See supabase/cron/notify-new-orders.sql', sqlerrm;
       return;
   end;
 
@@ -56,7 +60,7 @@ begin
     perform cron.unschedule(jid);
   end if;
 
-  -- 01:00 UTC = 09:00 Asia/Shanghai
+  -- 01:00 UTC = 09:00 Asia/Shanghai. 5000ms is the pg_net cap on many projects.
   perform cron.schedule(
     'notify-new-orders-daily',
     '0 1 * * *',
@@ -70,8 +74,12 @@ begin
           select decrypted_secret from vault.decrypted_secrets where name = 'cron_secret'
         )
       ),
-      body := '{}'::jsonb
+      body := '{}'::jsonb,
+      timeout_milliseconds := 5000
     );
     $cron$
   );
+exception
+  when others then
+    raise notice 'Could not schedule notify-new-orders-daily (%). Run supabase/cron/notify-new-orders.sql later.', sqlerrm;
 end $$;

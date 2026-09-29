@@ -95,15 +95,19 @@ async function notifySupport(
   paddleTransactionId: string,
   summary: string,
 ): Promise<void> {
-  const result = await notifySupportOnce({
-    supabase,
-    paddleTransactionId,
-    source: 'webhook',
-    subject: `[MLightCAD] ${summary.slice(0, 80)}`,
-    text: summary,
-  })
-  if (!result.sent) {
-    console.warn('[fulfillment] support email not recorded', result.error ?? result.skipped)
+  try {
+    const result = await notifySupportOnce({
+      supabase,
+      paddleTransactionId,
+      source: 'webhook',
+      subject: `[MLightCAD] ${summary.slice(0, 80)}`,
+      text: summary,
+    })
+    if (result.sent || result.already) return
+    console.warn('[fulfillment] support email not recorded', result.error ?? 'skipped')
+  } catch (err) {
+    // Bookkeeping must not flip a successful fulfillment to failed.
+    console.error('[fulfillment] support notify failed', err)
   }
 }
 

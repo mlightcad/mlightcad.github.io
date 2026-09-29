@@ -40,7 +40,8 @@ begin
           select decrypted_secret from vault.decrypted_secrets where name = 'cron_secret'
         )
       ),
-      body := '{}'::jsonb
+      body := '{}'::jsonb,
+      timeout_milliseconds := 5000
     );
     $cron$
   );

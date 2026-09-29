@@ -23,8 +23,9 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
  * @param {string} arg
  */
 function quoteArg(arg) {
-  if (/^[A-Za-z0-9_@%+=:,./-]+$/.test(arg)) return arg
-  return `"${arg.replace(/"/g, '\\"')}"`
+  // cmd.exe expands % even inside quotes, and \" is not a quote escape.
+  if (/^[^"&|<>^%!()\\\s]+$/.test(arg)) return arg
+  return `"${arg.replaceAll('%', '%%').replaceAll('"', '""')}"`
 }
 
 /**

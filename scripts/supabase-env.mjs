@@ -6,14 +6,14 @@
  *   node scripts/supabase-env.mjs dev
  *   node scripts/supabase-env.mjs prod
  *   node scripts/supabase-env.mjs dev db push --yes
- *   node scripts/supabase-env.mjs prod functions deploy notify-new-orders
+ *   node scripts/supabase-env.mjs prod functions deploy notify-new-orders --no-verify-jwt
  *   node scripts/supabase-env.mjs prod secrets set CRON_SECRET=...
  *   node scripts/supabase-env.mjs dev db query --linked -f supabase/cron/notify-new-orders.sql
  *   node scripts/supabase-env.mjs prod invoke-cron
  *
  * Or via pnpm:
  *   pnpm supabase:dev
- *   pnpm supabase:prod -- functions deploy notify-new-orders
+ *   pnpm supabase:prod -- functions deploy notify-new-orders --no-verify-jwt
  */
 
 import { spawnSync } from 'node:child_process'
@@ -49,8 +49,9 @@ function readDotEnv(path) {
  * @param {string} arg
  */
 function quoteArg(arg) {
-  if (/^[A-Za-z0-9_@%+=:,./-]+$/.test(arg)) return arg
-  return `"${arg.replace(/"/g, '\\"')}"`
+  // cmd.exe expands % even inside quotes, and \" is not a quote escape.
+  if (/^[^"&|<>^%!()\\\s]+$/.test(arg)) return arg
+  return `"${arg.replaceAll('%', '%%').replaceAll('"', '""')}"`
 }
 
 /**
@@ -108,7 +109,7 @@ async function main() {
   console.log(`  env          ${envName}`)
   console.log(`  project_ref  ${ref}`)
   console.log(`  project_url  ${url}`)
-  console.log(cron ? `  CRON_SECRET  ${cron}` : `  CRON_SECRET  (not set in ${envFile})`)
+  console.log(cron ? '  CRON_SECRET  set' : `  CRON_SECRET  (not set in ${envFile})`)
   console.log('')
 
   if (rest.length === 0) return
