@@ -21,11 +21,10 @@ import { Environment, EventName, Paddle } from 'npm:@paddle/paddle-node-sdk@3.10
 import { adminClient, json } from '../_shared/admin.ts'
 import { fulfillPaidOrder } from '../_shared/fulfill.ts'
 import type { ProductType } from '../_shared/license-jwt.ts'
-import { sendEmail } from '../_shared/resend.ts'
+import { notifySupportOnce } from '../_shared/support-notify.ts'
 
 const PRICE_PERPETUAL = Deno.env.get('PADDLE_PRICE_PERPETUAL') ?? ''
 const PRICE_ANNUAL = Deno.env.get('PADDLE_PRICE_ANNUAL') ?? ''
-const SUPPORT_EMAIL = Deno.env.get('SUPPORT_NOTIFY_EMAIL') ?? 'support@mlightcad.com'
 
 /** Resolve Paddle API host from secret (defaults to sandbox). */
 function paddleEnvironment(): Environment {
@@ -90,15 +89,26 @@ async function fetchCustomerEmail(paddle: Paddle, customerId: string | null): Pr
   }
 }
 
-/** Notify support (email when Resend configured; always log). */
-async function notifySupport(summary: string): Promise<void> {
-  console.log(`[fulfillment] notify ${SUPPORT_EMAIL}: ${summary}`)
-  await sendEmail({
-    to: SUPPORT_EMAIL,
-    subject: `[MLightCAD] ${summary.slice(0, 80)}`,
-    text: summary,
-    html: `<pre>${summary}</pre>`,
-  })
+/** Notify support once per transaction (email when Resend configured; always log). */
+async function notifySupport(
+  supabase: ReturnType<typeof adminClient>,
+  paddleTransactionId: string,
+  summary: string,
+): Promise<void> {
+  try {
+    const result = await notifySupportOnce({
+      supabase,
+      paddleTransactionId,
+      source: 'webhook',
+      subject: `[MLightCAD] ${summary.slice(0, 80)}`,
+      text: summary,
+    })
+    if (result.sent || result.already) return
+    console.warn('[fulfillment] support email not recorded', result.error ?? 'skipped')
+  } catch (err) {
+    // Bookkeeping must not flip a successful fulfillment to failed.
+    console.error('[fulfillment] support notify failed', err)
+  }
 }
 
 Deno.serve(async (req) => {
@@ -172,6 +182,8 @@ Deno.serve(async (req) => {
             .update({ fulfillment_status: 'failed', updated_at: new Date().toISOString() })
             .eq('paddle_transaction_id', tx.id)
           await notifySupport(
+            supabase,
+            tx.id,
             `Paid ${productType} order ${tx.id} missing customer email — manual fulfillment required`,
           )
           break
@@ -190,6 +202,8 @@ Deno.serve(async (req) => {
             .eq('paddle_transaction_id', tx.id)
 
           await notifySupport(
+            supabase,
+            tx.id,
             `License emailed for ${productType} order ${tx.id} (${email}, license ${result.licenseId}, reused=${result.reused}). Grant GitHub Packages access when you have their GitHub username.`,
           )
         } catch (fulfillErr) {
@@ -199,6 +213,8 @@ Deno.serve(async (req) => {
             .update({ fulfillment_status: 'failed', updated_at: new Date().toISOString() })
             .eq('paddle_transaction_id', tx.id)
           await notifySupport(
+            supabase,
+            tx.id,
             `Fulfillment FAILED for ${productType} order ${tx.id} (${email}): ${String(fulfillErr)}`,
           )
           throw fulfillErr
