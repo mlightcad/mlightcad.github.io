@@ -113,14 +113,14 @@ const TRIAL_MAILTO =
   'mailto:support@mlightcad.com?subject=Trial%20License%20Application'
 
 export const parserEn: ParserCopy = {
-  metaTitle: 'Proprietary DWG Parser — MLightCAD',
+  metaTitle: 'DWG Engine — Pricing & License | MLightCAD',
   metaDescription:
-    'Commercial DWG parser for closed-source products: perpetual license, no GPL distribution, drop-in replacement for LibreDWG in cad-viewer.',
+    'Commercial DWG Engine for closed-source products: perpetual license, no GPL distribution, drop-in replacement for LibreDWG in cad-viewer.',
   metaKeywords:
-    'DWG parser, proprietary DWG, LibreDWG alternative, commercial DWG converter, cad-viewer, closed-source CAD, perpetual license',
+    'DWG Engine, DWG parser, proprietary DWG, LibreDWG alternative, commercial DWG converter, cad-viewer, closed-source CAD, perpetual license',
   eyebrow: 'Commercial product',
-  title: 'Proprietary DWG Parser',
-  lead: 'A commercial alternative to the open-source LibreDWG stack — built for closed-source products, white-label deployments, and SaaS / on-premise viewers that cannot ship GPL-3.0 code to customers.',
+  title: 'DWG Engine',
+  lead: 'Production-grade DWG for the web — a commercial alternative to the open-source LibreDWG stack for closed-source products, white-label deployments, and SaaS / on-premise viewers that cannot ship GPL-3.0 code to customers.',
   contactCta: 'Apply for Trial License',
   contactHref: TRIAL_MAILTO,
   demoCta: 'Try Live Demo',
@@ -278,14 +278,14 @@ export const parserEn: ParserCopy = {
 }
 
 export const parserZh: ParserCopy = {
-  metaTitle: '专有 DWG 解析器 — MLightCAD',
+  metaTitle: 'DWG Engine — 价格与授权 | MLightCAD',
   metaDescription:
-    '面向闭源产品的商业 DWG 解析器：永久授权、避免分发 GPL，可替换 cad-viewer 中的 LibreDWG 默认路径。',
+    '面向闭源产品的商用 DWG Engine：永久授权、避免分发 GPL，可替换 cad-viewer 中的 LibreDWG 默认路径。',
   metaKeywords:
-    'DWG 解析器, 商业 DWG, LibreDWG 替代, 商业 DWG 转换, cad-viewer, 闭源 CAD, 永久授权',
+    'DWG Engine, DWG 解析器, 商业 DWG, LibreDWG 替代, 商业 DWG 转换, cad-viewer, 闭源 CAD, 永久授权',
   eyebrow: '商业产品',
-  title: '专有 DWG 解析器',
-  lead: '开源 LibreDWG 栈的商业替代方案 — 面向无法向客户分发 GPL-3.0 代码的闭源产品、白标部署，以及 SaaS / 本地化 CAD 查看器。',
+  title: 'DWG Engine',
+  lead: '面向 Web 的生产级 DWG — 开源 LibreDWG 栈的商用替代方案，适用于无法向客户分发 GPL-3.0 代码的闭源产品、白标部署，以及 SaaS / 本地化 CAD 查看器。',
   contactCta: '申请试用授权',
   contactHref: TRIAL_MAILTO,
   demoCta: '试用在线演示',

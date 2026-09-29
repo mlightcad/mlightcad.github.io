@@ -33,7 +33,7 @@ export type PortalCopy = {
 
 const en: PortalCopy = {
   metaTitle: 'License Portal — MLightCAD',
-  metaDescription: 'View your Proprietary DWG Parser offline license key.',
+  metaDescription: 'View your DWG Engine (formerly Proprietary DWG Parser) offline license key.',
   eyebrow: 'Account',
   title: 'License portal',
   lead: 'Enter the email used at checkout. We will send a magic link to view your offline license key. Package download access is granted via GitHub Packages.',
@@ -65,7 +65,7 @@ const en: PortalCopy = {
 
 const zh: PortalCopy = {
   metaTitle: '授权门户 — MLightCAD',
-  metaDescription: '查看 Proprietary DWG Parser 的离线 License Key。',
+  metaDescription: '查看 DWG Engine (formerly Proprietary DWG Parser) 的离线 License Key。',
   eyebrow: '账户',
   title: '授权门户',
   lead: '请输入结账时使用的邮箱。我们将发送魔法链接用于查看离线 License Key。私有包下载权限通过 GitHub Packages 开通。',

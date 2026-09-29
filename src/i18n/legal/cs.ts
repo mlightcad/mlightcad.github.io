@@ -9,7 +9,7 @@ export const cs: LegalBundle = {
     title: 'Podmínky služby',
     updated: 'Poslední aktualizace: 24. srpna 2026',
     intro:
-      'Tyto Podmínky služby („Podmínky“) upravují váš přístup k webům MLightCAD, dokumentaci, open source softwaru a placeným komerčním licencím (včetně Proprietary DWG Parser). Používáním našich webů nebo nákupem licence s těmito Podmínkami souhlasíte.',
+      'Tyto Podmínky služby („Podmínky“) upravují váš přístup k webům MLightCAD, dokumentaci, open source softwaru a placeným komerčním licencím (včetně DWG Engine (formerly Proprietary DWG Parser)). Používáním našich webů nebo nákupem licence s těmito Podmínkami souhlasíte.',
     sections: [
       {
         title: '1. Kdo jsme',
@@ -27,7 +27,7 @@ export const cs: LegalBundle = {
       {
         title: '3. Komerční licence',
         paragraphs: [
-          'Placené produkty včetně Proprietary DWG Parser (@mlightcad/dwg-converter) se prodávají jako komerční licence na software firmám a organizacím. Na každý nákup se vztahuje samostatná licenční smlouva, která stanoví povolené použití, omezení, dodání a rozsah podpory.',
+          'Placené produkty včetně DWG Engine (formerly Proprietary DWG Parser) (@mlightcad/dwg-converter) se prodávají jako komerční licence na software firmám a organizacím. Na každý nákup se vztahuje samostatná licenční smlouva, která stanoví povolené použití, omezení, dodání a rozsah podpory.',
           'Není-li písemně výslovně uvedeno jinak, komerční licence nezahrnují zdrojový kód. Proprietární parser nesmíte redistribuovat ani přeprodávat jako samostatnou knihovnu nebo SDK.',
         ],
       },
@@ -174,7 +174,7 @@ export const cs: LegalBundle = {
     title: 'Zásady vrácení peněz',
     updated: 'Poslední aktualizace: 24. srpna 2026',
     intro:
-      'Tyto Zásady vrácení peněz se vztahují na komerční licence na software prodávané MLightCAD přes Paddle, včetně věčné licence Proprietary DWG Parser a ročních balíčků aktualizací.',
+      'Tyto Zásady vrácení peněz se vztahují na komerční licence na software prodávané MLightCAD přes Paddle, včetně věčné licence DWG Engine (formerly Proprietary DWG Parser) a ročních balíčků aktualizací.',
     sections: [
       {
         title: '1. Digitální produkty',

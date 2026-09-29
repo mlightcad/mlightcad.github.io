@@ -1,17 +1,21 @@
+import { benchmarksKo } from './benchmarks'
 import { cadDiffViewerKo } from './cadDiffViewer'
+import { cadSdkKo } from './cadSdk'
+import { commercialKo } from './commercial'
 import { iframePluginKo } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import { tutorialKo } from './tutorial'
 import type { Dictionary } from './types'
+import { useCasesKo } from './useCases'
 
 const parserKo: ParserCopy = {
-  metaTitle: '상용 DWG 파서 — MLightCAD',
+  metaTitle: 'DWG Engine — 가격 및 라이선스 | MLightCAD',
   metaDescription:
     '클로즈드소스 제품을 위한 상용 DWG 파서: 영구 라이선스, GPL 배포 불필요, cad-viewer의 LibreDWG를 교체 가능.',
   metaKeywords:
     'DWG 파서, 상용 DWG, LibreDWG 대안, 상용 DWG 변환, cad-viewer, 클로즈드소스 CAD, 영구 라이선스',
   eyebrow: '상용 제품',
-  title: '상용 DWG 파서',
+  title: 'DWG Engine',
   lead: '오픈소스 LibreDWG 스택의 상용 대안 — GPL-3.0 코드를 고객에게 배포할 수 없는 클로즈드소스 제품, 화이트라벨, SaaS / 온프레미스 뷰어용.',
   contactCta: '체험 라이선스 신청',
   contactHref: 'mailto:support@mlightcad.com?subject=Trial%20License%20Application',
@@ -166,22 +170,27 @@ const parserKo: ParserCopy = {
 
 export const ko: Dictionary = {
   meta: {
-    title: 'MLightCAD — 최초의 오픈소스 브라우저 CAD 에디터',
+    title: 'MLightCAD — DWG & DXF용 Web CAD SDK',
     description:
-      'cad-viewer: 백엔드 없이 브라우저에서 완전히 동작하는 최초의 DWG/DXF 뷰어 겸 에디터 — 그리고 최초의 오픈소스 DXF/DWG 웹 편집 툴킷.',
+      '브라우저에서 DWG/DXF를 바로 열고 보고 편집하세요. 브라우저 네이티브 DWG 파싱·렌더링·측정·편집을 갖춘 오픈소스 Web CAD SDK.',
     keywords:
-      'MLightCAD, cad-viewer, DWG 뷰어, DXF 뷰어, 브라우저 CAD, WebGL CAD, 오픈소스 CAD, DWG 에디터, DXF 에디터, 제로 백엔드',
+      'MLightCAD, Web CAD SDK, DWG 뷰어, DXF 뷰어, 브라우저 CAD, DWG Engine, cad-viewer, 오픈소스 CAD',
   },
   nav: {
     product: '제품',
-    cadViewer: 'CAD-Viewer',
+    cadViewer: 'CAD Viewer',
+    cadSdk: 'CAD SDK',
+    dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
-    dwgParser: 'DWG 파서',
-    integration: '통합',
+    dwgToHtml: 'DWG to HTML',
+    developers: '개발자',
     iframePlugin: 'iframe 플러그인',
     googleDrive: 'Google Drive 통합',
-    features: '기능',
-    plugins: '플러그인',
+    solutions: '솔루션',
+    pricing: '가격',
+    resourcesNav: '리소스',
+    benchmarks: '벤치마크',
+    commercial: '오픈소스와 상용',
     tutorials: '튜토리얼',
     docs: '문서',
     userGuide: '사용자 가이드',
@@ -194,25 +203,65 @@ export const ko: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: '오픈소스 · 데이터 보안 · 제로 백엔드',
-    headline: '브라우저를 떠나지 않는 최초의 오픈 CAD 스택.',
-    subline:
-      'DXF/DWG 파싱·렌더링·편집을 모두 기기에서 — 백엔드 없음, 업로드 파이프라인 없음, 프라이버시 타협 없음.',
-    ctaDemo: '라이브 데모 체험',
-    ctaGithub: 'GitHub에서 보기',
-    firsts: [
-      '브라우저에서 완전히 백엔드 없이 동작하는 최초의 DWG/DXF 뷰어 겸 에디터',
-      '최초의 오픈소스 DXF/DWG 웹 편집 툴킷',
+    meta: '오픈소스 · 브라우저 네이티브 · 데이터 안전',
+    headline: 'DWG & DXF를 위한 Web CAD 인프라',
+    subline: '브라우저에서 바로 CAD 제품을 구축하세요.',
+    ctaDemo: 'CAD Viewer 체험',
+    ctaBuild: 'MLightCAD로 구축',
+    guarantees: ['CAD 서버 불필요.', '파일 업로드 불필요.', '설치 불필요.'],
+  },
+  platform: {
+    eyebrow: '플랫폼',
+    title: '임베드용 브라우저 네이티브 CAD',
+    lead: '완성된 Viewer를 쓰거나 SDK로 자체 CAD 경험을 만드세요 — 같은 브라우저 네이티브 엔진 위에서.',
+    closing: 'MLightCAD Viewer가 쓰는 같은 CAD 엔진 위에 구축하세요.',
+    layers: [
+      {
+        name: 'CAD 서버 불필요',
+        desc: 'DWG/DXF 파싱과 렌더링이 브라우저 탭에서 끝납니다 — 띄우거나 스케일할 백엔드가 없습니다.',
+      },
+      {
+        name: '도면은 기기에 남음',
+        desc: '업로드 팜 없음. 기밀 파일은 사용자 기기를 떠나지 않습니다.',
+      },
+      {
+        name: '하나의 공유 CAD 모델',
+        desc: 'Viewer, 편집기, 플러그인, 에이전트가 같은 엔티티를 읽고 씁니다.',
+      },
+      {
+        name: '미리보기 이상',
+        desc: '측정, 리뷰 마크업, 기하 편집 — 읽기 전용 스크린샷이 아닙니다.',
+      },
+      {
+        name: '제품에 탑재',
+        desc: 'iframe 또는 npm으로 임베드하거나, SaaS·OEM용 상용 DWG Engine을 라이선스하세요.',
+      },
+    ],
+    paths: [
+      {
+        label: '오픈소스',
+        title: 'CAD Viewer',
+        body: '보기·리뷰·편집용 무료 브라우저 CAD — 스택의 플래그십 입구.',
+        href: '/#product',
+        cta: 'Viewer 살펴보기',
+      },
+      {
+        label: '상용',
+        title: 'DWG Engine',
+        body: '클로즈드소스·SaaS·OEM용 프로덕션 DWG — 재배포 권리가 명확합니다.',
+        href: '/dwg-engine.html',
+        cta: 'Engine 보기',
+      },
     ],
   },
   flagship: {
     eyebrow: '플래그십',
-    title: 'CAD-Viewer',
+    title: 'CAD Viewer',
     lead: '프로덕션급 WebGL CAD 런타임: DWG/DXF 파싱, 지오메트리, 보기, 편집 — 모두 최신 브라우저 탭 안에서.',
-    firstsLabel: '업계 최초',
-    firsts: [
-      '백엔드 서비스 없이 브라우저에서 완전히 동작하는 최초의 DWG/DXF 뷰어 겸 에디터.',
-      '웹에서 실제 DXF/DWG 편집을 위한 최초의 오픈소스 툴킷 — 읽기 전용 미리보기가 아닙니다.',
+    highlightsLabel: '제공 내용',
+    highlights: [
+      '브라우저에서 DWG/DXF를 보고, 리뷰 마크업하고, 편집 — CAD 서버 없음.',
+      '실제 웹 편집을 위한 오픈소스 툴킷 — 읽기 전용 미리보기가 아닙니다.',
     ],
   },
   tryDrawing: {
@@ -326,9 +375,9 @@ export const ko: Dictionary = {
     downloadAria: '{file} 다운로드',
   },
   plugins: {
-    eyebrow: '생태계',
-    title: '공식 플러그인',
-    lead: '공유 플러그인 버스에서 UI, 내보내기, AI를 조합 — 제품에 필요한 것만 로드.',
+    eyebrow: '플랫폼 모듈',
+    title: '같은 엔진 위에서 조합',
+    lead: 'UI·보내기·AI 모듈은 제품이 필요한 것만 로드 — MLightCAD Viewer를 구동하는 CAD 엔진 위에 구축.',
     imageAlt: 'UI, Agent, HTML, PDF, SVG 모듈이 있는 CAD 코어',
     items: [
       { name: 'cad-simple-ui-plugin', role: '툴바 & 레이어 관리 (프레임워크 무관 DOM)' },
@@ -338,10 +387,23 @@ export const ko: Dictionary = {
       { name: 'cad-svg-plugin', role: '벡터 SVG 내보내기' },
     ],
   },
+  showcase: {
+    eyebrow: 'Built with MLightCAD',
+    title: '스택 위의 프로젝트',
+    lead: '같은 엔진에서 이미 돌아가는 오픈 데모와 통합 — 풀 뷰어부터 임베드·오프라인 HTML까지.',
+    items: [
+      { name: 'CAD Viewer', desc: '풀 브라우저 CAD', href: 'https://mlightcad.github.io/cad-viewer/' },
+      { name: 'CAD Simple Viewer', desc: '가벼운 임베드 뷰어', href: 'https://mlightcad.github.io/cad-viewer/cad-simple-viewer/' },
+      { name: 'CAD Diff Viewer', desc: '브라우저에서 개정 비교', href: '/cad-diff-viewer.html' },
+      { name: 'iframe 플러그인', desc: '한 줄 DWG/DXF 임베드', href: '/iframe-plugin.html' },
+      { name: 'Google Drive 통합', desc: 'Drive에서 도면 열기', href: 'https://mlightcad.com/google-drive-cad-viewer/' },
+      { name: 'Self-contained HTML', desc: '서버 없이 CAD 공유', href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html' },
+    ],
+  },
   resources: {
     eyebrow: '리소스',
     title: '문서, 데모, 커뮤니티',
-    lead: '라이브 뷰어로 시작한 뒤 API 레퍼런스와 프로젝트 Wiki로.',
+    lead: '라이브 뷰어로 시작한 뒤 API, 라이선스, 벤치마크로 들어가세요.',
     links: [
       {
         name: '라이브 데모',
@@ -402,4 +464,8 @@ export const ko: Dictionary = {
   iframePlugin: iframePluginKo,
   cadDiffViewer: cadDiffViewerKo,
   tutorial: tutorialKo,
+  commercial: commercialKo,
+  cadSdk: cadSdkKo,
+  useCases: useCasesKo,
+  benchmarks: benchmarksKo,
 }

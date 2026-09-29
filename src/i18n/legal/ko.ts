@@ -9,7 +9,7 @@ export const ko: LegalBundle = {
     title: '서비스 약관',
     updated: '최종 업데이트: 2026년 8월 24일',
     intro:
-      '본 서비스 약관(이하 "약관")은 MLightCAD 웹사이트, 문서, 오픈소스 소프트웨어 및 유료 상용 라이선스(Proprietary DWG Parser 포함)에 대한 접근과 이용에 적용됩니다. 사이트를 이용하거나 라이선스를 구매하면 본 약관에 동의한 것으로 간주됩니다.',
+      '본 서비스 약관(이하 "약관")은 MLightCAD 웹사이트, 문서, 오픈소스 소프트웨어 및 유료 상용 라이선스(DWG Engine (formerly Proprietary DWG Parser) 포함)에 대한 접근과 이용에 적용됩니다. 사이트를 이용하거나 라이선스를 구매하면 본 약관에 동의한 것으로 간주됩니다.',
     sections: [
       {
         title: '1. 회사 소개',
@@ -27,7 +27,7 @@ export const ko: LegalBundle = {
       {
         title: '3. 상용 라이선스',
         paragraphs: [
-          'Proprietary DWG Parser(@mlightcad/dwg-converter)를 포함한 유료 제품은 기업 및 조직을 대상으로 상용 소프트웨어 라이선스로 판매됩니다. 각 구매에는 별도의 라이선스 계약이 적용되며, 허용 사용, 제한, 제공 방식, 지원 범위를 정합니다.',
+          'DWG Engine (formerly Proprietary DWG Parser)(@mlightcad/dwg-converter)를 포함한 유료 제품은 기업 및 조직을 대상으로 상용 소프트웨어 라이선스로 판매됩니다. 각 구매에는 별도의 라이선스 계약이 적용되며, 허용 사용, 제한, 제공 방식, 지원 범위를 정합니다.',
           '서면으로 명시하지 않는 한 상용 라이선스에 소스 코드는 포함되지 않습니다. 독점 파서를 독립 라이브러리 또는 SDK로 재배포하거나 재판매할 수 없습니다.',
         ],
       },
@@ -174,7 +174,7 @@ export const ko: LegalBundle = {
     title: '환불 정책',
     updated: '최종 업데이트: 2026년 8월 24일',
     intro:
-      '본 환불 정책은 MLightCAD가 Paddle을 통해 판매하는 상용 소프트웨어 라이선스(Proprietary DWG Parser 영구 라이선스 및 연간 업그레이드 패키지 포함)에 적용됩니다.',
+      '본 환불 정책은 MLightCAD가 Paddle을 통해 판매하는 상용 소프트웨어 라이선스(DWG Engine (formerly Proprietary DWG Parser) 영구 라이선스 및 연간 업그레이드 패키지 포함)에 적용됩니다.',
     sections: [
       {
         title: '1. 디지털 제품',

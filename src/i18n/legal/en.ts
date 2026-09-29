@@ -9,7 +9,7 @@ export const en: LegalBundle = {
     title: 'Terms of Service',
     updated: 'Last updated: August 24, 2026',
     intro:
-      'These Terms of Service ("Terms") govern your access to MLightCAD websites, documentation, open-source software, and paid commercial licenses (including the Proprietary DWG Parser). By using our sites or purchasing a license, you agree to these Terms.',
+      'These Terms of Service ("Terms") govern your access to MLightCAD websites, documentation, open-source software, and paid commercial licenses (including the DWG Engine (formerly Proprietary DWG Parser)). By using our sites or purchasing a license, you agree to these Terms.',
     sections: [
       {
         title: '1. Who we are',
@@ -27,7 +27,7 @@ export const en: LegalBundle = {
       {
         title: '3. Commercial licenses',
         paragraphs: [
-          'Paid products, including the Proprietary DWG Parser (@mlightcad/dwg-converter), are sold as commercial software licenses to businesses and organizations. A separate license agreement applies to each purchase and defines permitted use, restrictions, delivery, and support scope.',
+          'Paid products, including the DWG Engine (formerly Proprietary DWG Parser) (@mlightcad/dwg-converter), are sold as commercial software licenses to businesses and organizations. A separate license agreement applies to each purchase and defines permitted use, restrictions, delivery, and support scope.',
           'Unless expressly stated in writing, commercial licenses do not include source code. You may not redistribute or resell the proprietary parser as a standalone library or SDK.',
         ],
       },
@@ -174,7 +174,7 @@ export const en: LegalBundle = {
     title: 'Refund Policy',
     updated: 'Last updated: August 24, 2026',
     intro:
-      'This Refund Policy applies to commercial software licenses sold by MLightCAD through Paddle, including the Proprietary DWG Parser perpetual license and annual update packages.',
+      'This Refund Policy applies to commercial software licenses sold by MLightCAD through Paddle, including the DWG Engine (formerly Proprietary DWG Parser) perpetual license and annual update packages.',
     sections: [
       {
         title: '1. Digital products',

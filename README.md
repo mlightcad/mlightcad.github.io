@@ -37,7 +37,7 @@ repo so submissions can be switched back to Supabase later. To re-enable: wire
 
 ## Commercial fulfillment (Paddle → License Key + GitHub Packages)
 
-Checkout uses [Paddle.js](https://developer.paddle.com/paddlejs/overview) on `dwg-parser.html`.
+Checkout uses [Paddle.js](https://developer.paddle.com/paddlejs/overview) on `dwg-engine.html`.
 Webhooks run on **Supabase Edge Functions** (GitHub Pages cannot host them).
 
 ```text

@@ -1,17 +1,21 @@
+import { benchmarksJa } from './benchmarks'
 import { cadDiffViewerJa } from './cadDiffViewer'
+import { cadSdkJa } from './cadSdk'
+import { commercialJa } from './commercial'
 import { iframePluginJa } from './iframePlugin'
 import type { ParserCopy } from './parser'
 import { tutorialJa } from './tutorial'
 import type { Dictionary } from './types'
+import { useCasesJa } from './useCases'
 
 const parserJa: ParserCopy = {
-  metaTitle: 'プロプライエタリ DWG パーサー — MLightCAD',
+  metaTitle: 'DWG Engine — 価格とライセンス | MLightCAD',
   metaDescription:
     'クローズドソース製品向け商用 DWG パーサー：永久ライセンス、GPL 配布不要、cad-viewer の LibreDWG を置き換え可能。',
   metaKeywords:
     'DWG パーサー, 商用 DWG, LibreDWG 代替, 商用 DWG 変換, cad-viewer, クローズドソース CAD, 永久ライセンス',
   eyebrow: '商用製品',
-  title: 'プロプライエタリ DWG パーサー',
+  title: 'DWG Engine',
   lead: 'オープンソース LibreDWG スタックの商用代替 — GPL-3.0 コードを顧客へ配布できないクローズドソース製品、ホワイトラベル、SaaS / オンプレミスビューア向け。',
   contactCta: 'トライアルライセンスを申請',
   contactHref: 'mailto:support@mlightcad.com?subject=Trial%20License%20Application',
@@ -166,22 +170,27 @@ const parserJa: ParserCopy = {
 
 export const ja: Dictionary = {
   meta: {
-    title: 'MLightCAD — 初のオープンソース ブラウザ CAD エディター',
+    title: 'MLightCAD — DWG & DXF のための Web CAD SDK',
     description:
-      'cad-viewer：バックエンド不要でブラウザ内だけで動作する初の完全 DWG/DXF ビューア兼エディター — そして初のオープンソース DXF/DWG Web 編集ツールキット。',
+      'ブラウザで DWG/DXF を直接開き、表示・編集。ブラウザネイティブな DWG 解析・描画・計測・編集を備えたオープンソース Web CAD SDK。',
     keywords:
-      'MLightCAD, cad-viewer, DWG ビューア, DXF ビューア, ブラウザ CAD, WebGL CAD, オープンソース CAD, DWG エディター, DXF エディター, ゼロバックエンド',
+      'MLightCAD, Web CAD SDK, DWG ビューア, DXF ビューア, ブラウザ CAD, DWG Engine, cad-viewer, オープンソース CAD',
   },
   nav: {
     product: '製品',
-    cadViewer: 'CAD-Viewer',
+    cadViewer: 'CAD Viewer',
+    cadSdk: 'CAD SDK',
+    dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
-    dwgParser: 'DWG パーサー',
-    integration: '連携',
+    dwgToHtml: 'DWG to HTML',
+    developers: '開発者',
     iframePlugin: 'iframe プラグイン',
     googleDrive: 'Google Drive 連携',
-    features: '機能',
-    plugins: 'プラグイン',
+    solutions: 'ソリューション',
+    pricing: '価格',
+    resourcesNav: 'リソース',
+    benchmarks: 'ベンチマーク',
+    commercial: 'OSS と商用',
     tutorials: 'チュートリアル',
     docs: 'ドキュメント',
     userGuide: 'ユーザーガイド',
@@ -194,25 +203,65 @@ export const ja: Dictionary = {
   },
   hero: {
     brand: 'MLightCAD',
-    meta: 'オープンソース · データ保護 · ゼロバックエンド',
-    headline: 'ブラウザから離れない、初のオープン CAD スタック。',
-    subline:
-      'DXF/DWG の解析・描画・編集をすべて端末上で — バックエンドなし、アップロードなし、プライバシーの妥協なし。',
-    ctaDemo: 'ライブデモを試す',
-    ctaGithub: 'GitHub で見る',
-    firsts: [
-      'ブラウザ内で完全にバックエンド不要の初の DWG/DXF ビューア兼エディター',
-      '初のオープンソース DXF/DWG Web 編集ツールキット',
+    meta: 'オープンソース · ブラウザネイティブ · データ保護',
+    headline: 'DWG & DXF のための Web CAD インフラ',
+    subline: 'ブラウザで直接 CAD 製品を構築。',
+    ctaDemo: 'CAD Viewer を試す',
+    ctaBuild: 'MLightCAD で構築',
+    guarantees: ['CAD サーバー不要。', 'ファイルアップロード不要。', 'インストール不要。'],
+  },
+  platform: {
+    eyebrow: 'プラットフォーム',
+    title: '埋め込み向けのブラウザネイティブ CAD',
+    lead: '完成した Viewer を使うか、SDK で独自 CAD 体験を構築 — 同じブラウザネイティブエンジン上で。',
+    closing: 'MLightCAD Viewer と同じ CAD エンジンの上に構築。',
+    layers: [
+      {
+        name: 'CAD サーバー不要',
+        desc: 'DWG/DXF の解析と描画はブラウザのタブ内完結 — 立てる・伸ばすバックエンドはありません。',
+      },
+      {
+        name: '図面は端末に留まる',
+        desc: 'アップロードファームなし。機密ファイルはユーザーの端末から出ません。',
+      },
+      {
+        name: 'ひとつの共有 CAD モデル',
+        desc: 'Viewer・編集・プラグイン・エージェントが同じエンティティを読み書きします。',
+      },
+      {
+        name: 'プレビュー以上',
+        desc: '計測、レビューマークアップ、幾何編集 — 読み取り専用のスクリーンショットではありません。',
+      },
+      {
+        name: '自社製品に載せる',
+        desc: 'iframe や npm で埋め込み、または商用 DWG Engine を SaaS / OEM 向けにライセンス。',
+      },
+    ],
+    paths: [
+      {
+        label: 'オープンソース',
+        title: 'CAD Viewer',
+        body: '表示・レビュー・編集向けの無料ブラウザ CAD — スタックへの旗艦エントリ。',
+        href: '/#product',
+        cta: 'Viewer を見る',
+      },
+      {
+        label: '商用',
+        title: 'DWG Engine',
+        body: 'クローズドソース・SaaS・OEM 向け本番 DWG — 再配布権が明確。',
+        href: '/dwg-engine.html',
+        cta: 'Engine を見る',
+      },
     ],
   },
   flagship: {
     eyebrow: 'フラッグシップ',
-    title: 'CAD-Viewer',
+    title: 'CAD Viewer',
     lead: '本番向け WebGL CAD ランタイム：DWG/DXF 解析、ジオメトリ、表示、編集 — すべてモダンなブラウザタブ内で。',
-    firstsLabel: '業界初',
-    firsts: [
-      'バックエンドサービスゼロでブラウザ内完結する初の DWG/DXF ビューア兼エディター。',
-      'Web 上での本格的な DXF/DWG 編集向け初のオープンソースツールキット — 読み取り専用プレビューではない。',
+    highlightsLabel: '提供内容',
+    highlights: [
+      'ブラウザだけで DWG/DXF を表示・レビュー・編集 — CAD サーバー不要。',
+      '本格的な Web 編集向けオープンソースツールキット — 読み取り専用プレビューではない。',
     ],
   },
   tryDrawing: {
@@ -326,9 +375,9 @@ export const ja: Dictionary = {
     downloadAria: '{file} をダウンロード',
   },
   plugins: {
-    eyebrow: 'エコシステム',
-    title: '公式プラグイン',
-    lead: '共有プラグインバス上で UI、エクスポート、AI を組み合わせ — 製品ごとに必要なものだけ読み込み。',
+    eyebrow: 'プラットフォームモジュール',
+    title: '同じエンジン上で組み合わせる',
+    lead: 'UI・エクスポート・AI モジュールは製品ごとに必要なものだけ読み込み — MLightCAD Viewer を支える CAD エンジン上に構築。',
     imageAlt: 'UI、Agent、HTML、PDF、SVG モジュールを持つ CAD コア',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'ツールバー & レイヤー管理（フレームワーク非依存 DOM）' },
@@ -338,10 +387,23 @@ export const ja: Dictionary = {
       { name: 'cad-svg-plugin', role: 'ベクター SVG エクスポート' },
     ],
   },
+  showcase: {
+    eyebrow: 'Built with MLightCAD',
+    title: 'スタック上のプロジェクト',
+    lead: '同じエンジンで動くオープンなデモと統合 — フル Viewer から埋め込み・オフライン HTML まで。',
+    items: [
+      { name: 'CAD Viewer', desc: 'フルブラウザ CAD', href: 'https://mlightcad.github.io/cad-viewer/' },
+      { name: 'CAD Simple Viewer', desc: '軽量埋め込みビューア', href: 'https://mlightcad.github.io/cad-viewer/cad-simple-viewer/' },
+      { name: 'CAD Diff Viewer', desc: 'ブラウザで改訂比較', href: '/cad-diff-viewer.html' },
+      { name: 'iframe プラグイン', desc: '1 行で DWG/DXF 埋め込み', href: '/iframe-plugin.html' },
+      { name: 'Google Drive 連携', desc: 'Drive から図面を開く', href: 'https://mlightcad.com/google-drive-cad-viewer/' },
+      { name: '自己完結 HTML', desc: 'サーバーなしで CAD 共有', href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html' },
+    ],
+  },
   resources: {
     eyebrow: 'リソース',
     title: 'ドキュメント、デモ、コミュニティ',
-    lead: 'ライブビューアから始め、API リファレンスとプロジェクト Wiki へ。',
+    lead: 'ライブビューアから始め、API・ライセンス・ベンチマークへ。',
     links: [
       {
         name: 'ライブデモ',
@@ -402,4 +464,8 @@ export const ja: Dictionary = {
   iframePlugin: iframePluginJa,
   cadDiffViewer: cadDiffViewerJa,
   tutorial: tutorialJa,
+  commercial: commercialJa,
+  cadSdk: cadSdkJa,
+  useCases: useCasesJa,
+  benchmarks: benchmarksJa,
 }

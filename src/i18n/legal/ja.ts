@@ -9,7 +9,7 @@ export const ja: LegalBundle = {
     title: '利用規約',
     updated: '最終更新：2026年8月24日',
     intro:
-      '本利用規約（以下「本規約」）は、MLightCAD のウェブサイト、ドキュメント、オープンソースソフトウェア、および有償の商用ライセンス（Proprietary DWG Parser を含みます）へのアクセスと利用に適用されます。本サイトの利用またはライセンスの購入により、本規約に同意したものとみなされます。',
+      '本利用規約（以下「本規約」）は、MLightCAD のウェブサイト、ドキュメント、オープンソースソフトウェア、および有償の商用ライセンス（DWG Engine (formerly Proprietary DWG Parser) を含みます）へのアクセスと利用に適用されます。本サイトの利用またはライセンスの購入により、本規約に同意したものとみなされます。',
     sections: [
       {
         title: '1. 当社について',
@@ -27,7 +27,7 @@ export const ja: LegalBundle = {
       {
         title: '3. 商用ライセンス',
         paragraphs: [
-          'Proprietary DWG Parser（@mlightcad/dwg-converter）を含む有償製品は、企業および組織向けの商用ソフトウェアライセンスとして販売されます。各購入には別途ライセンス契約が適用され、許可される利用、制限、提供方法、サポート範囲を定めます。',
+          'DWG Engine (formerly Proprietary DWG Parser)（@mlightcad/dwg-converter）を含む有償製品は、企業および組織向けの商用ソフトウェアライセンスとして販売されます。各購入には別途ライセンス契約が適用され、許可される利用、制限、提供方法、サポート範囲を定めます。',
           '書面で明示されない限り、商用ライセンスにソースコードは含まれません。プロプライエタリパーサーを独立したライブラリまたは SDK として再配布または転売してはなりません。',
         ],
       },
@@ -174,7 +174,7 @@ export const ja: LegalBundle = {
     title: '返金ポリシー',
     updated: '最終更新：2026年8月24日',
     intro:
-      '本返金ポリシーは、MLightCAD が Paddle 経由で販売する商用ソフトウェアライセンス（Proprietary DWG Parser の永久ライセンスおよび年間アップグレードパッケージを含みます）に適用されます。',
+      '本返金ポリシーは、MLightCAD が Paddle 経由で販売する商用ソフトウェアライセンス（DWG Engine (formerly Proprietary DWG Parser) の永久ライセンスおよび年間アップグレードパッケージを含みます）に適用されます。',
     sections: [
       {
         title: '1. デジタル製品',

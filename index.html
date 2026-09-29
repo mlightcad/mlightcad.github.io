@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MLightCAD — The first open-source browser CAD editor</title>
+    <title>MLightCAD — Web CAD SDK for DWG &amp; DXF</title>
     <meta
       name="description"
-      content="cad-viewer: the first fully backend-free DWG/DXF viewer and editor that runs entirely in the browser — and the first open-source DXF/DWG web editing toolkit."
+      content="Open, view and edit DWG/DXF drawings directly in the browser. Open-source Web CAD SDK with browser-native DWG parsing, rendering, measurement and editing."
     />
     <meta
       name="keywords"
-      content="MLightCAD, cad-viewer, DWG viewer, DXF viewer, browser CAD, WebGL CAD, open source CAD, DWG editor, DXF editor, zero backend"
+      content="MLightCAD, Web CAD SDK, DWG viewer, DXF viewer, browser CAD, DWG Engine, cad-viewer, open source CAD, zero backend"
     />
     <meta name="author" content="MLightCAD" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -19,24 +19,24 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="MLightCAD" />
-    <meta property="og:title" content="MLightCAD — The first open-source browser CAD editor" />
+    <meta property="og:title" content="MLightCAD — Web CAD SDK for DWG &amp; DXF" />
     <meta
       property="og:description"
-      content="cad-viewer: the first fully backend-free DWG/DXF viewer and editor that runs entirely in the browser — and the first open-source DXF/DWG web editing toolkit."
+      content="Open, view and edit DWG/DXF drawings directly in the browser. Open-source Web CAD SDK with browser-native DWG parsing, rendering, measurement and editing."
     />
     <meta property="og:url" content="https://mlightcad.com/" />
     <meta property="og:image" content="https://mlightcad.com/og.png" />
-    <meta property="og:image:alt" content="MLightCAD — open-source browser CAD editor" />
+    <meta property="og:image:alt" content="MLightCAD — Web CAD SDK for DWG and DXF" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="zh_CN" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="MLightCAD — The first open-source browser CAD editor" />
+    <meta name="twitter:title" content="MLightCAD — Web CAD SDK for DWG &amp; DXF" />
     <meta
       name="twitter:description"
-      content="cad-viewer: the first fully backend-free DWG/DXF viewer and editor that runs entirely in the browser."
+      content="Open, view and edit DWG/DXF drawings directly in the browser. Open-source Web CAD SDK."
     />
     <meta name="twitter:image" content="https://mlightcad.com/og.png" />
-    <meta name="twitter:image:alt" content="MLightCAD — open-source browser CAD editor" />
+    <meta name="twitter:image:alt" content="MLightCAD — Web CAD SDK for DWG and DXF" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -54,14 +54,14 @@
             "@id": "https://mlightcad.com/#website",
             "url": "https://mlightcad.com/",
             "name": "MLightCAD",
-            "description": "Open-source browser CAD stack for viewing and editing DWG/DXF entirely on-device.",
+            "description": "Web CAD infrastructure for DWG and DXF — open-source SDK and commercial DWG engine.",
             "publisher": { "@id": "https://mlightcad.com/#organization" },
             "inLanguage": ["en", "zh-CN"]
           },
           {
             "@type": "SoftwareApplication",
             "@id": "https://mlightcad.com/#cad-viewer",
-            "name": "CAD-Viewer",
+            "name": "CAD Viewer",
             "applicationCategory": "DesignApplication",
             "operatingSystem": "Web",
             "offers": {
@@ -70,7 +70,7 @@
               "priceCurrency": "USD"
             },
             "url": "https://mlightcad.com/",
-            "description": "Fully backend-free DWG/DXF viewer and editor that runs entirely in the browser.",
+            "description": "Browser-native DWG/DXF viewer and editor that runs entirely on-device.",
             "author": { "@id": "https://mlightcad.com/#organization" }
           }
         ]
@@ -95,16 +95,15 @@
               <span>mlightcad://boot</span>
               <span class="hero__boot-ok">OK</span>
             </p>
-            <p class="hero__meta hero-enter" data-i18n="hero.meta">OPEN SOURCE · DATA SAFE · ZERO BACKEND</p>
+            <p class="hero__meta hero-enter" data-i18n="hero.meta">OPEN SOURCE · BROWSER-NATIVE · DATA SAFE</p>
             <h1 class="hero__brand hero-enter" data-i18n="hero.brand">MLight<em>CAD</em></h1>
             <p class="hero__headline hero-enter" data-i18n="hero.headline">
-              The first open CAD stack that never leaves the browser.
+              Web CAD Infrastructure for DWG &amp; DXF
             </p>
             <p class="hero__sub hero-enter" data-i18n="hero.subline">
-              Parse, render, and edit DXF/DWG entirely on-device — no backend, no upload pipeline, no compromise on
-              privacy.
+              Build CAD products directly in the browser.
             </p>
-            <ul class="firsts hero-enter" data-i18n-firsts="hero"></ul>
+            <ul class="firsts hero-enter" data-i18n-guarantees></ul>
             <div class="hero__ctas hero-enter">
               <a
                 class="btn btn--primary btn--glow"
@@ -112,16 +111,9 @@
                 target="_blank"
                 rel="noopener"
                 data-i18n="hero.ctaDemo"
-                >Try Live Demo</a
+                >Try CAD Viewer</a
               >
-              <a
-                class="btn btn--ghost"
-                href="https://github.com/mlightcad/cad-viewer"
-                target="_blank"
-                rel="noopener"
-                data-i18n="hero.ctaGithub"
-                >View on GitHub</a
-              >
+              <a class="btn btn--ghost" href="#platform" data-i18n="hero.ctaBuild">Build with MLightCAD</a>
             </div>
           </div>
           <div class="hud" aria-hidden="true">
@@ -130,10 +122,28 @@
           </div>
         </section>
 
+        <section class="section" id="platform">
+          <div class="shell">
+            <p class="eyebrow reveal" data-i18n="platform.eyebrow">Platform</p>
+            <h2 class="section__title reveal" data-i18n="platform.title">
+              Browser-native CAD, built to embed
+            </h2>
+            <p class="section__lead reveal" data-i18n="platform.lead">
+              Use the complete Viewer, or build your own CAD experience with the SDK — on the same browser-native
+              engine.
+            </p>
+            <ol class="platform-stack reveal" data-i18n-platform-layers></ol>
+            <p class="platform-closing reveal" data-i18n="platform.closing">
+              Build on the same CAD engine used by MLightCAD Viewer.
+            </p>
+            <div class="path-grid reveal" data-i18n-platform-paths></div>
+          </div>
+        </section>
+
         <section class="section" id="product">
           <div class="shell">
             <p class="eyebrow reveal" data-i18n="flagship.eyebrow">Flagship</p>
-            <h2 class="section__title reveal" data-i18n="flagship.title">CAD-Viewer</h2>
+            <h2 class="section__title reveal" data-i18n="flagship.title">CAD Viewer</h2>
             <p class="section__lead reveal" data-i18n="flagship.lead">
               A production-grade WebGL CAD runtime for DWG/DXF in the browser.
             </p>
@@ -239,8 +249,8 @@
                 </figcaption>
               </figure>
               <div>
-                <p class="eco__label reveal" data-i18n="flagship.firstsLabel">Industry firsts</p>
-                <ul class="firsts firsts--stack reveal" data-i18n-firsts="flagship"></ul>
+                <p class="eco__label reveal" data-i18n="flagship.highlightsLabel">What it ships</p>
+                <ul class="firsts firsts--stack reveal" data-i18n-highlights="flagship"></ul>
                 <div class="try-drawing__privacy reveal" data-try-drawing-privacy role="note">
                   <p class="try-drawing__privacy-title" data-i18n="tryDrawing.privacyTitle">
                     Your drawing never leaves this browser
@@ -283,31 +293,17 @@
             <p class="eyebrow reveal" data-i18n="gallery.eyebrow">Demo Drawings</p>
             <h2 class="section__title reveal" data-i18n="gallery.title">Drawing Gallery</h2>
             <p class="section__lead reveal" data-i18n-html="gallery.leadHtml">
-              Pre-rendered CAD drawings exported with
-              <a href="https://github.com/mlightcad/cad-viewer" target="_blank" rel="noopener noreferrer">cad-viewer</a>
-              /
-              <a
-                href="https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-html-plugin"
-                target="_blank"
-                rel="noopener noreferrer"
-                >cad-html-plugin</a
-              >
-              — open a preview in the viewer, or download the original DWG. Source drawings from
-              <a href="https://dwgmodels.com/" target="_blank" rel="noopener noreferrer">dwgmodels.com</a>.
+              Pre-rendered CAD drawings exported with cad-viewer.
             </p>
-            <div
-              class="drawing-gallery__grid"
-              data-drawing-gallery-grid
-              aria-live="polite"
-            ></div>
+            <div class="drawing-gallery__grid" data-drawing-gallery-grid aria-live="polite"></div>
             <p class="drawing-gallery__status" data-drawing-gallery-status></p>
           </div>
         </section>
 
         <section class="section" id="plugins">
           <div class="shell">
-            <p class="eyebrow reveal" data-i18n="plugins.eyebrow">Ecosystem</p>
-            <h2 class="section__title reveal" data-i18n="plugins.title">Official plugins</h2>
+            <p class="eyebrow reveal" data-i18n="plugins.eyebrow">Platform modules</p>
+            <h2 class="section__title reveal" data-i18n="plugins.title">Compose on the same engine</h2>
             <p class="section__lead reveal" data-i18n="plugins.lead">
               Compose UI, export, and AI around a shared plugin bus — load only what each product needs.
             </p>
@@ -326,6 +322,17 @@
                 />
               </figure>
             </div>
+          </div>
+        </section>
+
+        <section class="section" id="showcase">
+          <div class="shell">
+            <p class="eyebrow reveal" data-i18n="showcase.eyebrow">Built with MLightCAD</p>
+            <h2 class="section__title reveal" data-i18n="showcase.title">Projects on the stack</h2>
+            <p class="section__lead reveal" data-i18n="showcase.lead">
+              Open demos and integrations already running on the same engine.
+            </p>
+            <div class="resource-grid reveal" data-i18n-showcase></div>
           </div>
         </section>
 
