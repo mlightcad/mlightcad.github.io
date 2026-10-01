@@ -1999,6 +1999,135 @@ html.try-drawing-fullscreen #bg-canvas {
   color: var(--steel);
 }
 
+.evidence-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.evidence-split {
+  display: grid;
+  gap: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line);
+  align-items: start;
+}
+
+.evidence-split__copy h3 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.evidence-split__copy p {
+  margin: 0 0 1rem;
+  color: var(--steel);
+}
+
+.evidence-split__copy .doc-note,
+.evidence-split__copy .memory-note {
+  margin-top: 0;
+}
+
+.evidence-split__side .feature__memory {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+
+@media (min-width: 800px) {
+  .evidence-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .evidence-split__side {
+    padding-left: var(--space-5);
+    border-left: 1px solid var(--line);
+  }
+}
+
+.render-split {
+  display: grid;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.render-split h3 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+}
+
+.render-split p {
+  margin: 0 0 1rem;
+  color: var(--steel);
+}
+
+.render-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.render-points li {
+  position: relative;
+  padding: 0.35rem 0 0.35rem 1rem;
+  color: var(--paper);
+  font-size: 0.95rem;
+}
+
+.render-points li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 0.45rem;
+  height: 1px;
+  background: var(--cyan);
+}
+
+@media (min-width: 800px) {
+  .render-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-items: start;
+  }
+
+  .render-split article:first-child {
+    padding-right: var(--space-5);
+  }
+
+  .render-split article + article {
+    padding-left: var(--space-5);
+    border-left: 1px solid var(--line);
+  }
+}
+
+.render-fit h3 {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.render-fit > p {
+  margin: 0 0 var(--space-4);
+  max-width: 65ch;
+  color: var(--steel);
+}
+
+.render-fit .render-note {
+  margin: var(--space-4) 0 0;
+  max-width: 65ch;
+  color: var(--steel);
+}
+
+.render-actions {
+  margin-top: var(--space-4);
+}
+
 .code-block {
   margin: 0 0 var(--space-4);
   padding: var(--space-4);
