@@ -198,7 +198,6 @@ export const cs: Dictionary = {
     apiReference: 'API Reference',
     installationUsage: 'Instalace a použití',
     github: 'GitHub',
-    demo: 'Živé demo',
     language: 'Jazyk',
   },
   hero: {
@@ -207,7 +206,7 @@ export const cs: Dictionary = {
     headline: 'Webová CAD infrastruktura pro DWG a DXF',
     subline: 'Stavějte CAD produkty přímo v prohlížeči.',
     ctaDemo: 'Vyzkoušet CAD Viewer',
-    ctaBuild: 'Stavět s MLightCAD',
+    ctaBuild: 'Vyzkoušet živé demo',
     guarantees: ['Bez CAD serveru.', 'Bez uploadu souboru.', 'Bez instalace.'],
   },
   platform: {

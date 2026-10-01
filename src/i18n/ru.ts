@@ -198,7 +198,6 @@ export const ru: Dictionary = {
     apiReference: 'API Reference',
     installationUsage: 'Установка и использование',
     github: 'GitHub',
-    demo: 'Демо',
     language: 'Язык',
   },
   hero: {
@@ -207,7 +206,7 @@ export const ru: Dictionary = {
     headline: 'Веб-CAD инфраструктура для DWG и DXF',
     subline: 'Создавайте CAD-продукты прямо в браузере.',
     ctaDemo: 'Попробовать CAD Viewer',
-    ctaBuild: 'Собрать на MLightCAD',
+    ctaBuild: 'Попробовать живое демо',
     guarantees: ['Без CAD-сервера.', 'Без загрузки файлов.', 'Без установки.'],
   },
   platform: {
