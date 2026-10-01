@@ -6,9 +6,9 @@
     <title>Use Cases — Web CAD for Construction, Manufacturing, GIS &amp; AI | MLightCAD</title>
     <meta
       name="description"
-      content="Embed DWG/DXF into construction, manufacturing, GIS, document management, and AI CAD workflows — browser-native, no CAD server."
+      content="Embed DWG/DXF into construction, manufacturing, GIS, document management, and AI CAD workflows. Parse live in the browser, or prerender once on the server."
     />
-    <meta name="keywords" content="CAD SaaS, construction drawings browser, manufacturing DWG, GIS CAD, AI CAD, document management DWG" />
+    <meta name="keywords" content="CAD SaaS, construction drawings browser, manufacturing DWG, GIS CAD, AI CAD, document management DWG, CAD live parse, server-side prerender, ACEX" />
     <meta name="author" content="MLightCAD" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#0B0F14" />
@@ -34,28 +34,41 @@
         <section class="hero parser-hero shell">
           <div class="hero__frame" data-tilt>
             <div class="hero__corners" aria-hidden="true"></div>
-            <div class="hero__copy">
-              <p class="hero__meta hero-enter" data-scramble data-i18n="useCases.eyebrow">Solutions</p>
-              <h1 class="section__title hero-enter" data-i18n="useCases.title">Put CAD where your users already work</h1>
-              <p class="section__lead hero-enter" data-i18n="useCases.lead"></p>
-              <div class="hero__ctas hero-enter">
-                <a
-                  class="btn btn--primary btn--glow"
-                  href="/cad-sdk.html"
-                  data-i18n="useCases.primaryCta"
-                  data-i18n-href="useCases.primaryHref"
-                  >Build with CAD SDK</a
-                >
-                <a
-                  class="btn btn--ghost"
-                  href="https://mlightcad.github.io/cad-viewer/"
-                  target="_blank"
-                  rel="noopener"
-                  data-i18n="useCases.secondaryCta"
-                  data-i18n-href="useCases.secondaryHref"
-                  >Try CAD Viewer</a
-                >
+            <div class="hero__grid">
+              <div class="hero__copy">
+                <p class="hero__meta hero-enter" data-scramble data-i18n="useCases.eyebrow">Solutions</p>
+                <h1 class="section__title hero-enter" data-i18n="useCases.title">CAD where users already work</h1>
+                <p class="section__lead hero-enter" data-i18n="useCases.lead"></p>
+                <div class="hero__ctas hero-enter">
+                  <a
+                    class="btn btn--primary btn--glow"
+                    href="/cad-sdk.html"
+                    data-i18n="useCases.primaryCta"
+                    data-i18n-href="useCases.primaryHref"
+                    >Build with CAD SDK</a
+                  >
+                  <a
+                    class="btn btn--ghost"
+                    href="https://mlightcad.github.io/cad-viewer/"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="useCases.secondaryCta"
+                    data-i18n-href="useCases.secondaryHref"
+                    >Try CAD Viewer</a
+                  >
+                </div>
               </div>
+              <figure class="hero__visual hero__visual--bloom hero-enter">
+                <img
+                  src="/assets/user-cases/hero.webp"
+                  alt="CAD drawings embedded across construction, manufacturing, GIS, and SaaS products"
+                  width="768"
+                  height="512"
+                  loading="eager"
+                  decoding="async"
+                  data-i18n-alt="useCases.heroImageAlt"
+                />
+              </figure>
             </div>
           </div>
         </section>

@@ -6,6 +6,7 @@ export interface CadSdkCopy {
   eyebrow: string
   title: string
   lead: string
+  heroImageAlt: string
   primaryCta: string
   primaryHref: string
   secondaryCta: string
@@ -39,8 +40,9 @@ export const cadSdkEn: CadSdkCopy = {
   metaKeywords:
     'CAD SDK, embed DWG viewer, iframe DWG, JavaScript DWG viewer, TypeScript CAD, MLightCAD',
   eyebrow: 'For developers',
-  title: 'Add DWG/DXF Viewer to Your Product',
+  title: 'Embed DWG/DXF in Your Product',
   lead: 'Embed browser-native CAD into your SaaS, portal, or site — one line of embed code, or a TypeScript package you control.',
+  heroImageAlt: 'DWG/DXF viewer embedded in a product interface',
   primaryCta: 'iframe Plugin Guide',
   primaryHref: '/iframe-plugin.html',
   secondaryCta: 'API Reference',
@@ -97,8 +99,9 @@ export const cadSdkZh: CadSdkCopy = {
     '为网站或产品加入 DWG/DXF 查看能力。一行 iframe 或一个 npm 包 — 无 CAD 后端、无上传农场，可离线，支持测量、图层与自定义 UI。',
   metaKeywords: 'CAD SDK, 嵌入 DWG, iframe DWG, JavaScript DWG, TypeScript CAD, MLightCAD',
   eyebrow: '面向开发者',
-  title: '把 DWG/DXF Viewer 加入你的产品',
+  title: '把 DWG/DXF 嵌入你的产品',
   lead: '把浏览器原生 CAD 嵌入 SaaS、门户或站点 — 一行嵌入代码，或你可控的 TypeScript 包。',
+  heroImageAlt: '嵌入产品界面中的 DWG/DXF 查看器',
   primaryCta: 'iframe 插件指南',
   secondaryCta: 'API 参考',
   embedTitle: '一行嵌入',
@@ -150,8 +153,9 @@ export const cadSdkJa: CadSdkCopy = {
   metaDescription:
     'サイトや製品に DWG/DXF 表示を追加。iframe 1 行または npm パッケージ — CAD バックエンド不要、アップロード不要、オフライン対応。',
   eyebrow: '開発者向け',
-  title: '製品に DWG/DXF Viewer を追加',
+  title: '製品に DWG/DXF を埋め込む',
   lead: 'ブラウザネイティブ CAD を SaaS・ポータル・サイトへ — 埋め込み 1 行、または制御可能な TypeScript パッケージ。',
+  heroImageAlt: '製品 UI に埋め込まれた DWG/DXF ビューア',
   primaryCta: 'iframe プラグインガイド',
   secondaryCta: 'API リファレンス',
   embedTitle: '1 行で埋め込み',
@@ -203,8 +207,9 @@ export const cadSdkKo: CadSdkCopy = {
   metaDescription:
     '웹사이트나 제품에 DWG/DXF 보기를 추가하세요. iframe 한 줄 또는 npm 패키지 — CAD 백엔드·업로드 없음, 오프라인·측정·레이어·커스텀 UI.',
   eyebrow: '개발자용',
-  title: '제품에 DWG/DXF Viewer 추가',
+  title: '제품에 DWG/DXF 임베드',
   lead: '브라우저 네이티브 CAD를 SaaS·포털·사이트에 임베드 — 임베드 코드 한 줄, 또는 제어 가능한 TypeScript 패키지.',
+  heroImageAlt: '제품 인터페이스에 임베드된 DWG/DXF 뷰어',
   primaryCta: 'iframe 플러그인 가이드',
   secondaryCta: 'API 레퍼런스',
   embedTitle: '한 줄 임베드',
@@ -256,8 +261,9 @@ export const cadSdkEs: CadSdkCopy = {
   metaDescription:
     'Añada visualización DWG/DXF a su sitio o producto. Un iframe o un paquete npm — sin backend CAD, sin granja de subidas, offline, medición, capas y UI propia.',
   eyebrow: 'Para desarrolladores',
-  title: 'Añada un visor DWG/DXF a su producto',
+  title: 'Incruste DWG/DXF en su producto',
   lead: 'Incruste CAD nativo del navegador en su SaaS, portal o sitio — una línea de embed o un paquete TypeScript bajo su control.',
+  heroImageAlt: 'Visor DWG/DXF incrustado en la interfaz de un producto',
   primaryCta: 'Guía del plugin iframe',
   secondaryCta: 'Referencia API',
   embedTitle: 'Un embed de una línea',
@@ -309,8 +315,9 @@ export const cadSdkPt: CadSdkCopy = {
   metaDescription:
     'Adicione visualização DWG/DXF ao seu site ou produto. Um iframe ou pacote npm — sem backend CAD, sem upload farm, offline, medição, camadas e UI própria.',
   eyebrow: 'Para desenvolvedores',
-  title: 'Adicione um viewer DWG/DXF ao seu produto',
+  title: 'Incorpore DWG/DXF no seu produto',
   lead: 'Incorpore CAD nativo do navegador no seu SaaS, portal ou site — uma linha de embed ou um pacote TypeScript sob seu controle.',
+  heroImageAlt: 'Visualizador DWG/DXF incorporado na interface de um produto',
   primaryCta: 'Guia do plugin iframe',
   secondaryCta: 'Referência da API',
   embedTitle: 'Embed em uma linha',
@@ -362,8 +369,9 @@ export const cadSdkRu: CadSdkCopy = {
   metaDescription:
     'Добавьте просмотр DWG/DXF на сайт или в продукт. Один iframe или npm-пакет — без CAD-бэкенда, без upload-фермы, офлайн, измерение, слои и свой UI.',
   eyebrow: 'Для разработчиков',
-  title: 'Добавьте DWG/DXF Viewer в продукт',
+  title: 'Встройте DWG/DXF в продукт',
   lead: 'Встройте браузерный CAD в SaaS, портал или сайт — одна строка embed или TypeScript-пакет под вашим контролем.',
+  heroImageAlt: 'DWG/DXF-просмотрщик, встроенный в интерфейс продукта',
   primaryCta: 'Гайд по iframe-плагину',
   secondaryCta: 'API Reference',
   embedTitle: 'Одна строка embed',
@@ -415,8 +423,9 @@ export const cadSdkCs: CadSdkCopy = {
   metaDescription:
     'Přidejte prohlížení DWG/DXF na web nebo do produktu. Jeden iframe nebo npm balíček — bez CAD backendu, bez upload farmy, offline, měření, vrstvy a vlastní UI.',
   eyebrow: 'Pro vývojáře',
-  title: 'Přidejte DWG/DXF Viewer do produktu',
+  title: 'Vložte DWG/DXF do produktu',
   lead: 'Vložte prohlížečový CAD do SaaS, portálu nebo webu — jeden řádek embedu, nebo TypeScript balíček pod vaší kontrolou.',
+  heroImageAlt: 'Prohlížeč DWG/DXF vložený do rozhraní produktu',
   primaryCta: 'Průvodce iframe pluginem',
   secondaryCta: 'API Reference',
   embedTitle: 'Embed na jeden řádek',

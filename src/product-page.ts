@@ -88,17 +88,56 @@ function renderCadSdk(): string {
   ].join('\n')
 }
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+}
+
 function renderUseCases(): string {
   const p = t(locale).useCases
   const cards = p.cases
     .map(
       (c) =>
-        `<article class="path-card" id="${c.id}"><h3>${c.title}</h3><p>${c.body}</p><p><a class="btn btn--ghost" href="${c.href}">${c.cta}</a></p></article>`,
+        `<article class="path-card" id="${escapeHtml(c.id)}"><h3>${escapeHtml(c.title)}</h3><p>${escapeHtml(c.body)}</p></article>`,
     )
     .join('')
+  const modes = p.modes
+    .map((mode) => {
+      const points = mode.points.map((item) => `<li>${escapeHtml(item)}</li>`).join('')
+      return [
+        `<article id="${escapeHtml(mode.id)}">`,
+        `<p class="path-card__label">${escapeHtml(mode.label)}</p>`,
+        `<h3>${escapeHtml(mode.title)}</h3>`,
+        `<p>${escapeHtml(mode.body)}</p>`,
+        `<ul class="render-points">${points}</ul>`,
+        `</article>`,
+      ].join('')
+    })
+    .join('')
+  const fits = p.fitItems.map((item) => `<li>${escapeHtml(item)}</li>`).join('')
   return [
     `<section class="section" id="cases"><div class="shell">`,
+    `<h2 class="section__title reveal">${escapeHtml(p.industryTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.industryLead)}</p>`,
     `<div class="path-grid reveal">${cards}</div>`,
+    `</div></section>`,
+    `<section class="section" id="rendering"><div class="shell">`,
+    `<h2 class="section__title reveal">${escapeHtml(p.renderTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.renderLead)}</p>`,
+    `<div class="render-split reveal">${modes}</div>`,
+    `<div class="render-fit reveal">`,
+    `<h3>${escapeHtml(p.fitTitle)}</h3>`,
+    `<p>${escapeHtml(p.fitLead)}</p>`,
+    `<ul class="doc-list doc-list--split">${fits}</ul>`,
+    `<p class="render-note">${escapeHtml(p.renderNote)}</p>`,
+    `<div class="hero__ctas render-actions">`,
+    `<a class="btn btn--ghost" href="${escapeHtml(p.articleHref)}" target="_blank" rel="noopener">${escapeHtml(p.articleLabel)}</a>`,
+    `<a class="btn btn--primary btn--glow" href="${escapeHtml(p.sampleHref)}" target="_blank" rel="noopener">${escapeHtml(p.sampleLabel)}</a>`,
+    `</div>`,
+    `</div>`,
     `</div></section>`,
   ].join('\n')
 }
@@ -106,33 +145,75 @@ function renderUseCases(): string {
 function renderBenchmarks(): string {
   const p = t(locale).benchmarks
   const pillars = p.pillars
-    .map((item) => `<article class="path-card"><h3>${item.title}</h3><p>${item.body}</p></article>`)
-    .join('')
-  const evidence = p.evidenceItems
     .map(
       (item) =>
-        `<article class="path-card"><h3>${item.title}</h3><p>${item.body}</p>${item.note ? `<p class="doc-note">${item.note}</p>` : ''}</article>`,
+        `<article class="path-card"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.body)}</p></article>`,
     )
+    .join('')
+  const evidence = p.evidenceItems
+    .map((item) => {
+      const copy = [
+        `<div class="evidence-split__copy">`,
+        `<h3>${escapeHtml(item.title)}</h3>`,
+        `<p>${escapeHtml(item.body)}</p>`,
+      ]
+      if (item.tableSummary) {
+        copy.push(`<p class="memory-note">${escapeHtml(item.tableSummary)}</p>`)
+      }
+      if (item.note) {
+        copy.push(`<p class="doc-note">${escapeHtml(item.note)}</p>`)
+      }
+      copy.push(`</div>`)
+
+      const side: string[] = [`<div class="evidence-split__side">`]
+      if (item.tableHeaders && item.tableRows?.length) {
+        const head = item.tableHeaders
+          .map((label) => `<th scope="col">${escapeHtml(label)}</th>`)
+          .join('')
+        const rows = item.tableRows
+          .map(
+            (row) =>
+              `<tr><td>${escapeHtml(row.viewer)}</td><td>${escapeHtml(row.memory)}</td></tr>`,
+          )
+          .join('')
+        side.push(`<div class="feature__memory">`)
+        if (item.tableCaption) {
+          side.push(`<h4>${escapeHtml(item.tableCaption)}</h4>`)
+        }
+        side.push(
+          `<table class="memory"><thead><tr>${head}</tr></thead><tbody>${rows}</tbody></table>`,
+        )
+        side.push(`</div>`)
+      }
+      side.push(`</div>`)
+
+      return [
+        `<article class="evidence-split">`,
+        copy.join(''),
+        side.join(''),
+        `</article>`,
+      ].join('')
+    })
     .join('')
   return [
     `<section class="section" id="architecture"><div class="shell">`,
-    `<p class="eyebrow reveal">${p.architectureTitle}</p>`,
-    `<h2 class="section__title reveal">${p.architectureTitle}</h2>`,
-    `<p class="section__lead reveal">${p.architectureLead}</p>`,
+    `<p class="eyebrow reveal">${escapeHtml(p.architectureTitle)}</p>`,
+    `<h2 class="section__title reveal">${escapeHtml(p.architectureTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.architectureLead)}</p>`,
     `<div class="path-grid reveal">${pillars}</div>`,
     `</div></section>`,
     `<section class="section" id="evidence"><div class="shell">`,
-    `<h2 class="section__title reveal">${p.evidenceTitle}</h2>`,
-    `<p class="section__lead reveal">${p.evidenceLead}</p>`,
-    `<div class="path-grid reveal">${evidence}</div>`,
-    `<p class="doc-note reveal">${p.caveat}</p>`,
+    `<h2 class="section__title reveal">${escapeHtml(p.evidenceTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.evidenceLead)}</p>`,
+    `<div class="evidence-grid reveal">${evidence}</div>`,
+    `<p class="doc-note reveal">${escapeHtml(p.caveat)}</p>`,
     `</div></section>`,
     `<section class="section" id="cta"><div class="shell">`,
-    `<h2 class="section__title reveal">${p.ctaTitle}</h2>`,
-    `<p class="section__lead reveal">${p.ctaLead}</p>`,
+    `<h2 class="section__title reveal">${escapeHtml(p.ctaTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.ctaLead)}</p>`,
     `<div class="hero__ctas reveal">`,
-    `<a class="btn btn--primary btn--glow" href="${p.primaryHref}" target="_blank" rel="noopener">${p.primaryCta}</a>`,
-    `<a class="btn btn--ghost" href="${p.secondaryHref}">${p.secondaryCta}</a>`,
+    `<a class="btn btn--primary btn--glow" href="${escapeHtml(p.primaryHref)}" target="_blank" rel="noopener">${escapeHtml(p.primaryCta)}</a>`,
+    `<a class="btn btn--ghost" href="${escapeHtml(p.secondaryHref)}">${escapeHtml(p.secondaryCta)}</a>`,
     `</div></div></section>`,
   ].join('\n')
 }

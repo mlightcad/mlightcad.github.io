@@ -1,3 +1,9 @@
+/** One row in the offline HTML memory comparison table. */
+export interface BenchmarksMemoryRow {
+  viewer: string
+  memory: string
+}
+
 /** Localized copy for the qualitative benchmarks page. */
 export interface BenchmarksCopy {
   metaTitle: string
@@ -6,12 +12,21 @@ export interface BenchmarksCopy {
   eyebrow: string
   title: string
   lead: string
+  heroImageAlt: string
   architectureTitle: string
   architectureLead: string
   pillars: { title: string; body: string }[]
   evidenceTitle: string
   evidenceLead: string
-  evidenceItems: { title: string; body: string; note?: string }[]
+  evidenceItems: {
+    title: string
+    body: string
+    note?: string
+    tableCaption?: string
+    tableHeaders?: [string, string]
+    tableRows?: BenchmarksMemoryRow[]
+    tableSummary?: string
+  }[]
   caveat: string
   ctaTitle: string
   ctaLead: string
@@ -19,6 +34,16 @@ export interface BenchmarksCopy {
   primaryHref: string
   secondaryCta: string
   secondaryHref: string
+}
+
+/** Shared canteen.dwg memory numbers published on the CAD Viewer examples page. */
+function canteenMemoryRows(measureLabel: string, viewLabel: string): BenchmarksMemoryRow[] {
+  return [
+    { viewer: 'AutoCAD 2020', memory: '320 MB' },
+    { viewer: 'GstarCAD Viewer (浩辰看图王)', memory: '246 MB' },
+    { viewer: measureLabel, memory: '56 MB' },
+    { viewer: viewLabel, memory: '33 MB' },
+  ]
 }
 
 export const benchmarksEn: BenchmarksCopy = {
@@ -30,6 +55,7 @@ export const benchmarksEn: BenchmarksCopy = {
   eyebrow: 'Resources',
   title: 'Performance by architecture',
   lead: 'We do not publish unverified competitor scoreboards. We document the design choices that make browser-native CAD practical — and the one public memory result we have already shared.',
+  heroImageAlt: 'Browser CAD performance architecture and memory-conscious rendering',
   architectureTitle: 'What we optimize for',
   architectureLead: 'Large drawings in a tab need a different shape than server-side conversion. These are the pillars of the MLightCAD runtime.',
   pillars: [
@@ -55,8 +81,16 @@ export const benchmarksEn: BenchmarksCopy = {
   evidenceItems: [
     {
       title: 'Offline HTML memory (view mode)',
-      body: 'On a sample drawing in view mode, the offline HTML export used about 83% less memory than AutoCAD 2020, while still supporting pan, zoom, layers, and measure.',
-      note: 'This compares a lightweight view-mode HTML artifact to AutoCAD 2020 on the same sample. It is not a claim about every drawing, every mode, or every competing web viewer.',
+      body: 'Memory consumption measured with the sample drawing canteen.dwg. Recipients open a self-contained HTML export in any modern browser — no CAD install, no server, and still get pan, zoom, layers, and distance measurement.',
+      tableCaption: 'Memory on canteen.dwg',
+      tableHeaders: ['Viewer', 'Memory consumption'],
+      tableRows: canteenMemoryRows(
+        'Self-contained HTML (measure mode)',
+        'Self-contained HTML (view mode)',
+      ),
+      tableSummary:
+        'View mode uses about 83% less memory than AutoCAD 2020 and 77% less than GstarCAD Viewer, while measure mode adds distance tools at 56 MB.',
+      note: 'This compares self-contained HTML artifacts to desktop viewers on the same sample drawing. It is not a claim about every drawing, every mode, or every competing web viewer.',
     },
   ],
   caveat:
@@ -77,6 +111,7 @@ export const benchmarksZh: BenchmarksCopy = {
   eyebrow: '资源',
   title: '用架构换性能',
   lead: '我们不发布未经核实的竞品排行榜。我们说明让浏览器原生 CAD 可行的设计选择 — 以及已经公开过的那一项内存结果。',
+  heroImageAlt: '浏览器 CAD 性能架构与注重内存的渲染',
   architectureTitle: '我们优化什么',
   architectureLead: '标签页里的大图需要和服务器转换不同的形态。以下是 MLightCAD 运行时的支柱。',
   pillars: [
@@ -102,8 +137,13 @@ export const benchmarksZh: BenchmarksCopy = {
   evidenceItems: [
     {
       title: '离线 HTML 内存（查看模式）',
-      body: '在示例图纸的查看模式下，离线 HTML 导出相对 AutoCAD 2020 约少用 83% 内存，同时仍支持平移、缩放、图层与测距。',
-      note: '这是轻量查看模式 HTML 产物与 AutoCAD 2020 在同一示例上的对比。不是对所有图纸、所有模式或所有网页 Viewer 的通称。',
+      body: '以下为示例图纸 canteen.dwg 的内存占用。自包含 HTML 导出可在任何现代浏览器打开 — 无需安装 CAD、无需服务器，仍支持平移、缩放、图层与测距。',
+      tableCaption: 'canteen.dwg 内存占用',
+      tableHeaders: ['查看器', '内存占用'],
+      tableRows: canteenMemoryRows('自包含 HTML（测距模式）', '自包含 HTML（查看模式）'),
+      tableSummary:
+        '查看模式相对 AutoCAD 2020 约少用 83% 内存，相对浩辰看图王约少用 77%；测距模式在 56 MB 下额外提供距离测量。',
+      note: '这是自包含 HTML 产物与桌面查看器在同一示例图纸上的对比。不是对所有图纸、所有模式或所有网页 Viewer 的通称。',
     },
   ],
   caveat: '若你需要面向闭源产品的生产级 DWG 能力，请用自己的图纸评估商用 DWG Engine — 我们提供试用，而不是编造排行榜数字。',
@@ -121,6 +161,7 @@ export const benchmarksJa: BenchmarksCopy = {
   eyebrow: 'リソース',
   title: 'アーキテクチャで性能を作る',
   lead: '未検証の競合スコアボードは公開しません。ブラウザネイティブ CAD を実用にする設計選択と、既に共有したメモリ結果を説明します。',
+  heroImageAlt: 'ブラウザ CAD の性能アーキテクチャとメモリを意識した描画',
   architectureTitle: '最適化の柱',
   architectureLead: 'タブ内の大きな図面はサーバー変換とは形が違います。MLightCAD ランタイムの柱です。',
   pillars: [
@@ -146,8 +187,16 @@ export const benchmarksJa: BenchmarksCopy = {
   evidenceItems: [
     {
       title: 'オフライン HTML のメモリ（表示モード）',
-      body: 'サンプル図面の表示モードで、オフライン HTML 出力は AutoCAD 2020 より約 83% 少ないメモリで、パン・ズーム・レイヤー・計測を維持しました。',
-      note: '軽量な表示モード HTML と AutoCAD 2020 を同一サンプルで比較したものです。あらゆる図面・モード・競合 Web ビューアへの主張ではありません。',
+      body: 'サンプル図面 canteen.dwg で測定したメモリ消費です。自己完結 HTML は任意のモダンブラウザで開け、CAD インストールもサーバーも不要で、パン・ズーム・レイヤー・距離計測を維持します。',
+      tableCaption: 'canteen.dwg のメモリ',
+      tableHeaders: ['ビューア', 'メモリ消費'],
+      tableRows: canteenMemoryRows(
+        '自己完結 HTML（計測モード）',
+        '自己完結 HTML（表示モード）',
+      ),
+      tableSummary:
+        '表示モードは AutoCAD 2020 より約 83%、GstarCAD Viewer より約 77% 少ないメモリ。計測モードは 56 MB で距離ツールを追加します。',
+      note: '同一サンプル図面での自己完結 HTML とデスクトップビューアの比較です。あらゆる図面・モード・競合 Web ビューアへの主張ではありません。',
     },
   ],
   caveat: 'クローズドソース製品向けの本番 DWG が必要なら、自社図面で商用 DWG Engine を評価してください — リーダーボードの数字を作る代わりにトライアルを支援します。',
@@ -165,6 +214,7 @@ export const benchmarksKo: BenchmarksCopy = {
   eyebrow: '리소스',
   title: '아키텍처로 만드는 성능',
   lead: '검증되지 않은 경쟁사 순위표를 게시하지 않습니다. 브라우저 네이티브 CAD를 실용적으로 만드는 설계 선택과, 이미 공개한 메모리 결과를 설명합니다.',
+  heroImageAlt: '브라우저 CAD 성능 아키텍처와 메모리를 의식한 렌더링',
   architectureTitle: '무엇을 최적화하는가',
   architectureLead: '탭 안의 대형 도면은 서버 변환과 다른 형태가 필요합니다. MLightCAD 런타임의 기둥입니다.',
   pillars: [
@@ -190,8 +240,16 @@ export const benchmarksKo: BenchmarksCopy = {
   evidenceItems: [
     {
       title: '오프라인 HTML 메모리(보기 모드)',
-      body: '샘플 도면 보기 모드에서 오프라인 HTML보내기는 AutoCAD 2020보다 메모리를 약 83% 덜 쓰면서 팬·줌·레이어·측정을 유지했습니다.',
-      note: '가벼운 보기 모드 HTML과 AutoCAD 2020을 같은 샘플에서 비교한 것입니다. 모든 도면·모드·경쟁 웹 뷰어에 대한 주장이 아닙니다.',
+      body: '샘플 도면 canteen.dwg에서 측정한 메모리 사용량입니다. 자체 완결 HTML은 최신 브라우저에서 열리며 CAD 설치·서버 없이 팬·줌·레이어·거리 측정을 유지합니다.',
+      tableCaption: 'canteen.dwg 메모리',
+      tableHeaders: ['뷰어', '메모리 사용량'],
+      tableRows: canteenMemoryRows(
+        '자체 완결 HTML(측정 모드)',
+        '자체 완결 HTML(보기 모드)',
+      ),
+      tableSummary:
+        '보기 모드는 AutoCAD 2020보다 약 83%, GstarCAD Viewer보다 약 77% 적은 메모리를 쓰며, 측정 모드는 56 MB에서 거리 도구를 추가합니다.',
+      note: '동일 샘플 도면에서 자체 완결 HTML과 데스크톱 뷰어를 비교한 것입니다. 모든 도면·모드·경쟁 웹 뷰어에 대한 주장이 아닙니다.',
     },
   ],
   caveat: '클로즈드소스 제품용 프로덕션 DWG가 필요하면 자체 도면으로 상용 DWG Engine을 평가하세요 — 순위표 숫자를 만들지 않고 체험을 돕습니다.',
@@ -209,6 +267,7 @@ export const benchmarksEs: BenchmarksCopy = {
   eyebrow: 'Recursos',
   title: 'Rendimiento por arquitectura',
   lead: 'No publicamos marcadores de competidores sin verificar. Documentamos las decisiones que hacen práctico el CAD nativo del navegador — y el resultado de memoria que ya compartimos.',
+  heroImageAlt: 'Arquitectura de rendimiento CAD en el navegador y render consciente de memoria',
   architectureTitle: 'Qué optimizamos',
   architectureLead: 'Los dibujos grandes en una pestaña necesitan otra forma que la conversión en servidor. Estos son los pilares del runtime MLightCAD.',
   pillars: [
@@ -234,8 +293,16 @@ export const benchmarksEs: BenchmarksCopy = {
   evidenceItems: [
     {
       title: 'Memoria del HTML offline (modo vista)',
-      body: 'En un dibujo de muestra en modo vista, la exportación HTML offline usó cerca de un 83% menos de memoria que AutoCAD 2020, manteniendo pan, zoom, capas y medición.',
-      note: 'Compara un artefacto HTML ligero en modo vista con AutoCAD 2020 en la misma muestra. No es una afirmación sobre todos los dibujos, modos o visores web competidores.',
+      body: 'Consumo de memoria medido con el dibujo de muestra canteen.dwg. El HTML autocontenido se abre en cualquier navegador moderno — sin instalar CAD ni servidor, con pan, zoom, capas y medición de distancia.',
+      tableCaption: 'Memoria en canteen.dwg',
+      tableHeaders: ['Visor', 'Consumo de memoria'],
+      tableRows: canteenMemoryRows(
+        'HTML autocontenido (modo medida)',
+        'HTML autocontenido (modo vista)',
+      ),
+      tableSummary:
+        'El modo vista usa cerca de un 83% menos de memoria que AutoCAD 2020 y un 77% menos que GstarCAD Viewer; el modo medida añade herramientas de distancia a 56 MB.',
+      note: 'Compara artefactos HTML autocontenidos con visores de escritorio en el mismo dibujo de muestra. No es una afirmación sobre todos los dibujos, modos o visores web competidores.',
     },
   ],
   caveat:
@@ -254,6 +321,7 @@ export const benchmarksPt: BenchmarksCopy = {
   eyebrow: 'Recursos',
   title: 'Desempenho pela arquitetura',
   lead: 'Não publicamos placares de concorrentes sem verificação. Documentamos as escolhas que tornam o CAD nativo do navegador prático — e o resultado de memória que já compartilhamos.',
+  heroImageAlt: 'Arquitetura de desempenho CAD no navegador e render consciente de memória',
   architectureTitle: 'O que otimizamos',
   architectureLead: 'Desenhos grandes em uma aba precisam de outra forma do que conversão no servidor. Estes são os pilares do runtime MLightCAD.',
   pillars: [
@@ -279,8 +347,16 @@ export const benchmarksPt: BenchmarksCopy = {
   evidenceItems: [
     {
       title: 'Memória do HTML offline (modo view)',
-      body: 'Em um desenho de amostra no modo view, a exportação HTML offline usou cerca de 83% menos memória que o AutoCAD 2020, mantendo pan, zoom, camadas e medição.',
-      note: 'Compara um artefato HTML leve em modo view com AutoCAD 2020 na mesma amostra. Não é uma afirmação sobre todos os desenhos, modos ou viewers web concorrentes.',
+      body: 'Consumo de memória medido com o desenho de amostra canteen.dwg. O HTML autocontido abre em qualquer navegador moderno — sem instalar CAD nem servidor, com pan, zoom, camadas e medição de distância.',
+      tableCaption: 'Memória em canteen.dwg',
+      tableHeaders: ['Viewer', 'Consumo de memória'],
+      tableRows: canteenMemoryRows(
+        'HTML autocontido (modo measure)',
+        'HTML autocontido (modo view)',
+      ),
+      tableSummary:
+        'O modo view usa cerca de 83% menos memória que o AutoCAD 2020 e 77% menos que o GstarCAD Viewer; o modo measure adiciona ferramentas de distância a 56 MB.',
+      note: 'Compara artefatos HTML autocontidos com viewers desktop no mesmo desenho de amostra. Não é uma afirmação sobre todos os desenhos, modos ou viewers web concorrentes.',
     },
   ],
   caveat:
@@ -299,6 +375,7 @@ export const benchmarksRu: BenchmarksCopy = {
   eyebrow: 'Ресурсы',
   title: 'Производительность через архитектуру',
   lead: 'Мы не публикуем непроверенные таблицы конкурентов. Мы описываем решения, которые делают браузерный CAD практичным — и один публичный результат по памяти, который уже делились.',
+  heroImageAlt: 'Архитектура производительности CAD в браузере и бережный к памяти рендер',
   architectureTitle: 'Что оптимизируем',
   architectureLead: 'Большие чертежи во вкладке требуют другой формы, чем серверная конвертация. Это столпы runtime MLightCAD.',
   pillars: [
@@ -324,8 +401,16 @@ export const benchmarksRu: BenchmarksCopy = {
   evidenceItems: [
     {
       title: 'Память офлайн HTML (режим просмотра)',
-      body: 'На образце в режиме просмотра офлайн HTML-экспорт использовал примерно на 83% меньше памяти, чем AutoCAD 2020, сохраняя pan, zoom, слои и измерение.',
-      note: 'Сравнение лёгкого HTML в режиме просмотра с AutoCAD 2020 на том же образце. Это не утверждение про все чертежи, режимы или конкурирующие веб-viewer.',
+      body: 'Потребление памяти измерено на образце canteen.dwg. Самодостаточный HTML открывается в любом современном браузере — без установки CAD и без сервера, с pan, zoom, слоями и измерением расстояний.',
+      tableCaption: 'Память на canteen.dwg',
+      tableHeaders: ['Просмотрщик', 'Потребление памяти'],
+      tableRows: canteenMemoryRows(
+        'Самодостаточный HTML (режим измерения)',
+        'Самодостаточный HTML (режим просмотра)',
+      ),
+      tableSummary:
+        'Режим просмотра использует примерно на 83% меньше памяти, чем AutoCAD 2020, и на 77% меньше, чем GstarCAD Viewer; режим измерения добавляет инструменты дистанции при 56 MB.',
+      note: 'Сравнение самодостаточных HTML-артефактов с desktop-просмотрщиками на том же образце. Это не утверждение про все чертежи, режимы или конкурирующие веб-viewer.',
     },
   ],
   caveat:
@@ -344,6 +429,7 @@ export const benchmarksCs: BenchmarksCopy = {
   eyebrow: 'Zdroje',
   title: 'Výkon skrze architekturu',
   lead: 'Nezveřejňujeme neověřené žebříčky konkurence. Dokumentujeme rozhodnutí, která dělají prohlížečový CAD praktickým — a jeden veřejný výsledek paměti, který už jsme sdíleli.',
+  heroImageAlt: 'Architektura výkonu CAD v prohlížeči a render šetrný k paměti',
   architectureTitle: 'Co optimalizujeme',
   architectureLead: 'Velké výkresy v záložce potřebují jiný tvar než serverová konverze. Toto jsou pilíře MLightCAD runtime.',
   pillars: [
@@ -369,8 +455,16 @@ export const benchmarksCs: BenchmarksCopy = {
   evidenceItems: [
     {
       title: 'Paměť offline HTML (view mode)',
-      body: 'Na vzorovém výkresu ve view mode použil offline HTML export asi o 83 % méně paměti než AutoCAD 2020, při zachování pan, zoom, vrstev a měření.',
-      note: 'Porovnává lehký HTML artefakt ve view mode s AutoCAD 2020 na stejném vzorku. Není to tvrzení o všech výkresech, režimech ani konkurenčních web viewerech.',
+      body: 'Spotřeba paměti měřená na vzorovém výkresu canteen.dwg. Samostatný HTML se otevře v jakémkoli moderním prohlížeči — bez instalace CAD a bez serveru, s pan, zoom, vrstvami a měřením vzdálenosti.',
+      tableCaption: 'Paměť na canteen.dwg',
+      tableHeaders: ['Prohlížeč', 'Spotřeba paměti'],
+      tableRows: canteenMemoryRows(
+        'Samostatný HTML (measure mode)',
+        'Samostatný HTML (view mode)',
+      ),
+      tableSummary:
+        'View mode používá asi o 83 % méně paměti než AutoCAD 2020 a o 77 % méně než GstarCAD Viewer; measure mode přidává nástroje vzdálenosti při 56 MB.',
+      note: 'Porovnává samostatné HTML artefakty s desktop prohlížeči na stejném vzorku. Není to tvrzení o všech výkresech, režimech ani konkurenčních web viewerech.',
     },
   ],
   caveat:
