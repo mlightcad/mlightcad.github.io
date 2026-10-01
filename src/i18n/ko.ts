@@ -198,7 +198,6 @@ export const ko: Dictionary = {
     apiReference: 'API 레퍼런스',
     installationUsage: '설치 및 사용',
     github: 'GitHub',
-    demo: '라이브 데모',
     language: '언어',
   },
   hero: {
@@ -207,7 +206,7 @@ export const ko: Dictionary = {
     headline: 'DWG & DXF를 위한 Web CAD 인프라',
     subline: '브라우저에서 바로 CAD 제품을 구축하세요.',
     ctaDemo: 'CAD Viewer 체험',
-    ctaBuild: 'MLightCAD로 구축',
+    ctaBuild: '라이브 데모 체험',
     guarantees: ['CAD 서버 불필요.', '파일 업로드 불필요.', '설치 불필요.'],
   },
   platform: {

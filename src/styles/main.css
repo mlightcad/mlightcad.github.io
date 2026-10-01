@@ -2244,10 +2244,6 @@ body[data-legal] .parser-body {
     background: rgba(18, 24, 33, 0.96);
     border: 1px solid var(--line);
   }
-
-  .btn--nav-demo {
-    display: none;
-  }
 }
 
 /* ——— Parser page ——— */

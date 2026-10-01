@@ -198,7 +198,6 @@ export const pt: Dictionary = {
     apiReference: 'Referência da API',
     installationUsage: 'Instalação e uso',
     github: 'GitHub',
-    demo: 'Demo ao vivo',
     language: 'Idioma',
   },
   hero: {
@@ -207,7 +206,7 @@ export const pt: Dictionary = {
     headline: 'Infraestrutura CAD web para DWG e DXF',
     subline: 'Construa produtos CAD diretamente no navegador.',
     ctaDemo: 'Experimentar CAD Viewer',
-    ctaBuild: 'Construir com MLightCAD',
+    ctaBuild: 'Experimentar demo ao vivo',
     guarantees: ['Sem servidor CAD.', 'Sem upload de arquivo.', 'Sem instalação.'],
   },
   platform: {

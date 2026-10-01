@@ -95,7 +95,6 @@ export interface Dictionary {
     apiReference: string
     installationUsage: string
     github: string
-    demo: string
     language: string
     /** @deprecated kept for iframe-plugin page anchors during transition */
     features?: string

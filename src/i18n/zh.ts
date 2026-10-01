@@ -38,7 +38,6 @@ export const zh: Dictionary = {
     apiReference: 'API 参考',
     installationUsage: '安装与使用',
     github: 'GitHub',
-    demo: '在线演示',
     language: '语言',
   },
   hero: {
@@ -47,7 +46,7 @@ export const zh: Dictionary = {
     headline: '面向 DWG 与 DXF 的 Web CAD 基础设施',
     subline: '直接在浏览器中构建 CAD 产品。',
     ctaDemo: '试用 CAD Viewer',
-    ctaBuild: '用 MLightCAD 构建',
+    ctaBuild: '试用在线演示',
     guarantees: ['无需 CAD 服务器。', '无需上传文件。', '无需安装。'],
   },
   platform: {

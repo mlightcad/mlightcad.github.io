@@ -198,7 +198,6 @@ export const ja: Dictionary = {
     apiReference: 'API リファレンス',
     installationUsage: 'インストールと使い方',
     github: 'GitHub',
-    demo: 'ライブデモ',
     language: '言語',
   },
   hero: {
@@ -207,7 +206,7 @@ export const ja: Dictionary = {
     headline: 'DWG & DXF のための Web CAD インフラ',
     subline: 'ブラウザで直接 CAD 製品を構築。',
     ctaDemo: 'CAD Viewer を試す',
-    ctaBuild: 'MLightCAD で構築',
+    ctaBuild: 'ライブデモを試す',
     guarantees: ['CAD サーバー不要。', 'ファイルアップロード不要。', 'インストール不要。'],
   },
   platform: {

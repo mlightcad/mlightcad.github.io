@@ -18,6 +18,7 @@ export interface IframePluginCopy {
   eyebrow: string
   title: string
   lead: string
+  heroImageAlt: string
   exampleTitle: string
   exampleLead: string
   playgroundTitle: string
@@ -110,6 +111,7 @@ export const iframePluginEn: IframePluginCopy = {
   eyebrow: 'Integration',
   title: 'iframe Plugin',
   lead: 'Add DWG/DXF viewing to any website with a single iframe — no registration, no backend. Files stay on your host; the viewer runs entirely in the browser.',
+  heroImageAlt: 'MLightCAD iframe plugin embedding a DWG viewer on a website',
   exampleTitle: 'Drop-in embed',
   exampleLead:
     'Use the controls below to build an embed URL, preview the iframe snippet, then open it. The drawing URL must be publicly reachable (CORS allowed for this origin).',
@@ -184,6 +186,7 @@ export const iframePluginZh: IframePluginCopy = {
   eyebrow: '集成',
   title: 'iframe 插件',
   lead: '只需一个 iframe，即可在任意网站中查看 DWG/DXF — 无需注册、无需后端。文件仍存放在你的服务器上，查看器完全在浏览器内运行。',
+  heroImageAlt: '在网站中嵌入 DWG 查看器的 MLightCAD iframe 插件',
   exampleTitle: '嵌入示例',
   exampleLead:
     '用下方控件填写图纸 URL、调整查询参数，预览生成的 iframe 代码，再打开嵌入页试用。图纸地址须可公开访问（若跨域，需允许本站 CORS）。',
@@ -249,6 +252,7 @@ export const iframePluginJa: IframePluginCopy = {
   eyebrow: '統合',
   title: 'iframe プラグイン',
   lead: '登録もバックエンドも不要。iframe 一つで任意のサイトに DWG/DXF 表示を追加できます。ファイルは自ホストに置き、ビューアはブラウザ内だけで動作します。',
+  heroImageAlt: 'ウェブサイトに DWG ビューアを埋め込む MLightCAD iframe プラグイン',
   exampleTitle: '埋め込み例',
   exampleLead:
     '下のコントロールで図面 URL とクエリを組み立て、iframe コードを確認してから開けます。図面 URL は公開アクセス可能である必要があります（このオリジン向けの CORS が必要）。',
@@ -314,6 +318,7 @@ export const iframePluginKo: IframePluginCopy = {
   eyebrow: '통합',
   title: 'iframe 플러그인',
   lead: '등록과 백엔드 없이 iframe 하나로 어떤 사이트에도 DWG/DXF 보기를 추가할 수 있습니다. 파일은 호스트에 두고, 뷰어는 브라우저에서만 실행됩니다.',
+  heroImageAlt: '웹사이트에 DWG 뷰어를 임베드하는 MLightCAD iframe 플러그인',
   exampleTitle: '임베드 예제',
   exampleLead:
     '아래 컨트롤로 도면 URL과 쿼리를 구성하고 iframe 코드를 확인한 뒤 엽니다. 도면 URL은 공개 접근 가능해야 하며(이 오리진에 대한 CORS 필요).',
@@ -379,6 +384,7 @@ export const iframePluginEs: IframePluginCopy = {
   eyebrow: 'Integración',
   title: 'Plugin iframe',
   lead: 'Añada visualización DWG/DXF a cualquier sitio con un solo iframe — sin registro ni backend. Los archivos permanecen en su host; el visor se ejecuta por completo en el navegador.',
+  heroImageAlt: 'Plugin iframe de MLightCAD incrustando un visor DWG en un sitio web',
   exampleTitle: 'Incrustación lista para usar',
   exampleLead:
     'Use los controles para construir la URL, previsualizar el iframe y abrirlo. La URL del dibujo debe ser pública (CORS permitido para este origen).',
@@ -447,6 +453,7 @@ export const iframePluginPt: IframePluginCopy = {
   eyebrow: 'Integração',
   title: 'Plugin iframe',
   lead: 'Adicione visualização DWG/DXF a qualquer site com um único iframe — sem registro e sem backend. Os arquivos ficam no seu host; o visualizador roda inteiramente no navegador.',
+  heroImageAlt: 'Plugin iframe do MLightCAD incorporando um visualizador DWG em um site',
   exampleTitle: 'Incorporação pronta',
   exampleLead:
     'Use os controles para montar a URL, pré-visualizar o iframe e abrir. A URL do desenho deve ser pública (CORS permitido para esta origem).',
@@ -515,6 +522,7 @@ export const iframePluginRu: IframePluginCopy = {
   eyebrow: 'Интеграция',
   title: 'iframe-плагин',
   lead: 'Добавьте просмотр DWG/DXF на любой сайт одним iframe — без регистрации и без backend. Файлы остаются на вашем хосте; просмотрщик работает целиком в браузере.',
+  heroImageAlt: 'iframe-плагин MLightCAD со встроенным DWG-просмотрщиком на сайте',
   exampleTitle: 'Готовое встраивание',
   exampleLead:
     'Соберите URL с параметрами ниже, посмотрите фрагмент iframe и откройте его. URL чертежа должен быть публично доступен (нужен CORS для этого origin).',
@@ -583,6 +591,7 @@ export const iframePluginCs: IframePluginCopy = {
   eyebrow: 'Integrace',
   title: 'iframe plugin',
   lead: 'Přidejte prohlížení DWG/DXF na jakýkoli web jedním iframe — bez registrace a bez backendu. Soubory zůstávají na vašem hostiteli; prohlížeč běží celý v prohlížeči.',
+  heroImageAlt: 'iframe plugin MLightCAD vkládající DWG prohlížeč na webovou stránku',
   exampleTitle: 'Hotové vložení',
   exampleLead:
     'Pomocí ovládacích prvků sestavte URL, zobrazte náhled iframe a otevřete ho. URL výkresu musí být veřejně dostupná (CORS pro tento origin).',
