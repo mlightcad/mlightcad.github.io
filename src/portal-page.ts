@@ -126,9 +126,11 @@ function applyPortalI18n(): void {
   const eyebrow = el<HTMLElement>('[data-portal-eyebrow]')
   const title = el<HTMLElement>('[data-portal-title]')
   const lead = el<HTMLElement>('[data-portal-lead]')
+  const heroAlt = el<HTMLImageElement>('[data-portal-hero-alt]')
   if (eyebrow) eyebrow.textContent = copy.eyebrow
   if (title) title.textContent = copy.title
   if (lead) lead.textContent = copy.lead
+  if (heroAlt) heroAlt.alt = copy.heroImageAlt
   const emailLabel = el<HTMLElement>('[data-portal-email-label]')
   if (emailLabel) emailLabel.textContent = copy.emailLabel
   const emailInput = el<HTMLInputElement>('[data-portal-email]')
