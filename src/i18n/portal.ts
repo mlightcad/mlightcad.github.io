@@ -6,6 +6,7 @@ export type PortalCopy = {
   eyebrow: string
   title: string
   lead: string
+  heroImageAlt: string
   emailLabel: string
   emailPlaceholder: string
   requestCta: string
@@ -37,6 +38,7 @@ const en: PortalCopy = {
   eyebrow: 'Account',
   title: 'License portal',
   lead: 'Enter the email used at checkout. We will send a magic link to view your offline license key. Package download access is granted via GitHub Packages.',
+  heroImageAlt: 'License portal for viewing offline DWG Engine keys',
   emailLabel: 'Purchase email',
   emailPlaceholder: 'you@company.com',
   requestCta: 'Email magic link',
@@ -69,6 +71,7 @@ const zh: PortalCopy = {
   eyebrow: '账户',
   title: '授权门户',
   lead: '请输入结账时使用的邮箱。我们将发送魔法链接用于查看离线 License Key。私有包下载权限通过 GitHub Packages 开通。',
+  heroImageAlt: '用于查看离线 DWG Engine License Key 的授权门户',
   emailLabel: '购买邮箱',
   emailPlaceholder: 'you@company.com',
   requestCta: '发送魔法链接',
