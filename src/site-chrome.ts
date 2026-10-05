@@ -25,6 +25,32 @@ function setupNavScroll(): void {
   onScroll()
 }
 
+function normalizePath(pathname: string): string {
+  const trimmed = pathname.replace(/\/+$/, '')
+  return trimmed === '' ? '/' : trimmed
+}
+
+/** Highlight the dropdown link whose path matches this satellite URL. */
+function markSatelliteNav(): void {
+  const path = normalizePath(window.location.pathname)
+  document.querySelectorAll<HTMLAnchorElement>('.nav__menu a').forEach((a) => {
+    const href = a.getAttribute('href') ?? ''
+    let hrefPath = href
+    try {
+      hrefPath = new URL(href, window.location.origin).pathname
+    } catch {
+      /* keep the raw href if it is not a valid URL */
+    }
+    const normalizedHref = normalizePath(hrefPath)
+    const current =
+      normalizedHref !== '/' &&
+      (path === normalizedHref || path.startsWith(`${normalizedHref}/`))
+    a.classList.toggle('is-current', current)
+    if (current) a.setAttribute('aria-current', 'page')
+    else a.removeAttribute('aria-current')
+  })
+}
+
 /**
  * Inject shared header/footer into `[data-site-nav]` / `[data-site-footer]`.
  * Used by satellite apps (e.g. OneDrive viewer) that must not copy site markup.
@@ -36,8 +62,13 @@ export function mountSiteChrome(): void {
     el.classList.add('is-embedded')
   })
   applyChromeI18n()
+  markSatelliteNav()
   const nav = document.querySelector<HTMLElement>('.nav')
-  setupLocaleToggle(() => applyChromeI18n(), nav ?? document)
+  setupLocaleToggle((next) => {
+    applyChromeI18n()
+    markSatelliteNav()
+    window.dispatchEvent(new CustomEvent('mlightcad:localechange', { detail: { locale: next } }))
+  }, nav ?? document)
   setupNav(nav ?? document)
   setupNavScroll()
 }

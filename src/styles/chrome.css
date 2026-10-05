@@ -101,9 +101,14 @@
   padding: 0;
 }
 
-@media (max-width: 1120px) and (min-width: 801px) {
+@media (max-width: 1200px) and (min-width: 801px) {
   .nav__links {
-    gap: 1.05rem;
+    gap: 0.95rem;
+  }
+
+  .nav__links a,
+  .nav__drop-btn {
+    font-size: 0.9rem;
   }
 }
 
