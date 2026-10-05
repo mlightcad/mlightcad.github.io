@@ -26,6 +26,21 @@ pnpm preview
 
 Deployed to GitHub Pages at https://mlightcad.github.io/ via `.github/workflows/deploy.yml`.
 
+## Shared site chrome
+
+Header and footer live in `src/partials/` and are injected by `mountShell()` on marketing pages.
+
+Satellite apps on the same origin (for example `https://mlightcad.com/onedrive/`) should **not** copy that markup. They place empty hosts and load the unhashed entry:
+
+```html
+<div data-site-nav></div>
+<!-- page content -->
+<div data-site-footer></div>
+<script type="module" src="https://mlightcad.com/site-chrome.js"></script>
+```
+
+Locally, run this site (`pnpm dev`) and point the satellite at `http://localhost:<port>/site-chrome.js`. The script injects CSS, nav/footer HTML, language switching, and mobile dropdowns.
+
 ## Trial license
 
 The DWG Parser **Apply for Trial License** button currently opens mail to `support@mlightcad.com`.
