@@ -82,6 +82,8 @@ export interface Dictionary {
     dwgToHtml: string
     developers: string
     iframePlugin: string
+    integrations: string
+    oneDrive: string
     googleDrive: string
     solutions: string
     pricing: string
