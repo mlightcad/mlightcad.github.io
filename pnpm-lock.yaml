@@ -18,26 +18,26 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0
       '@mlightcad/cad-simple-ui-plugin':
-        specifier: ^1.7.5
-        version: 1.7.5(@mlightcad/cad-simple-viewer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@mlightcad/three-renderer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.15.3)
+        specifier: ^1.7.6
+        version: 1.7.6(@mlightcad/cad-simple-viewer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@mlightcad/three-renderer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.15.10)
       '@mlightcad/cad-simple-viewer':
-        specifier: ^1.7.5
-        version: 1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@mlightcad/three-renderer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)
+        specifier: ^1.7.6
+        version: 1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@mlightcad/three-renderer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)
       '@mlightcad/data-model':
-        specifier: 1.15.3
-        version: 1.15.3
+        specifier: 1.15.10
+        version: 1.15.10
       '@mlightcad/dwg-converter':
-        specifier: https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.3/5d63070db548ebcd0bd5d2d505d6103752fc31b2
-        version: https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.3/5d63070db548ebcd0bd5d2d505d6103752fc31b2(@mlightcad/data-model@1.15.3)
+        specifier: https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.10/3b6466ad3be1211aa3236309592b3d6e8bc028db
+        version: https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.10/3b6466ad3be1211aa3236309592b3d6e8bc028db(@mlightcad/data-model@1.15.10)
       '@mlightcad/mtext-parser':
-        specifier: 1.5.3
-        version: 1.5.3
+        specifier: 1.5.5
+        version: 1.5.5
       '@mlightcad/mtext-renderer':
-        specifier: 0.13.3
-        version: 0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0)
+        specifier: 0.13.4
+        version: 0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0)
       '@mlightcad/three-renderer':
-        specifier: 1.7.5
-        version: 1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)
+        specifier: 1.7.6
+        version: 1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)
       '@paddle/paddle-js':
         specifier: ^1.6.4
         version: 1.6.5
@@ -235,67 +235,67 @@ packages:
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
 
-  '@mlightcad/cad-simple-ui-plugin@1.7.5':
-    resolution: {integrity: sha512-9LRsFj3Z8vaHgnKLSEAxlTaeZxvwYRJ2UE/pgSzX8ctB6VoSzisozwb30p0hppF+NcJdhMGt7kG4YKDeJlZFAA==}
+  '@mlightcad/cad-simple-ui-plugin@1.7.6':
+    resolution: {integrity: sha512-Dw1/sp0u2hpa2v5CRT99/QuoBe87YXyBgfF5ccrgLRQd22tEummDc6g4kp23cl6a6wgP5fg+/rTUZm4hy3c0sg==}
     peerDependencies:
-      '@mlightcad/cad-simple-viewer': 1.7.5
-      '@mlightcad/data-model': ^1.15.3
+      '@mlightcad/cad-simple-viewer': 1.7.6
+      '@mlightcad/data-model': ^1.15.10
 
-  '@mlightcad/cad-simple-viewer@1.7.5':
-    resolution: {integrity: sha512-72fzl3OvM5OxPhY6JasPFKEvonZ5ePCA9NnsvlFl/xp1wavrbIHpedjjVdDZBQ1OviRlzGGDq3tZjpVF/ONUZg==}
+  '@mlightcad/cad-simple-viewer@1.7.6':
+    resolution: {integrity: sha512-3n3s4rxWydJOCF9bWmspCm/jtB//H4gKJX0Kda/dYpd7PdHNOQvTKpR/f/HT+N9qK3ZyS8Lx8m5LEp8CDQOU3Q==}
     peerDependencies:
-      '@mlightcad/data-model': ^1.15.3
-      '@mlightcad/mtext-parser': ^1.5.3
-      '@mlightcad/mtext-renderer': ^0.13.3
-      '@mlightcad/three-renderer': 1.7.5
+      '@mlightcad/data-model': ^1.15.10
+      '@mlightcad/mtext-parser': ^1.5.5
+      '@mlightcad/mtext-renderer': ^0.13.4
+      '@mlightcad/three-renderer': 1.7.6
       lodash-es: 4.17.21
       three: ^0.172.0
 
-  '@mlightcad/common@1.15.3':
-    resolution: {integrity: sha512-NCbobHpAifsjL7aTm45n00fBGSab2QTTMZhpscavnQt1yUC1Ae9PovXoFgbYoQQ7GPhOZDmeTgJP4rw14DBSEw==}
+  '@mlightcad/common@1.15.10':
+    resolution: {integrity: sha512-xGg5yxvlkR9jBSOb1RPrgdIjslU4x9sl16Zudy5uKYEohCDj7CamCCWcgTKXfVjEuB4fXdMJY85Vvy8NaUPpRQ==}
 
-  '@mlightcad/data-model@1.15.3':
-    resolution: {integrity: sha512-dQ3o1NC16eE9A+/dTSoCVvzf5GoxoWbHq84RFD1w7jlntB5fai5+duVe3Rw8NubnQPexOKR61TEyx4X4vEFWvQ==}
+  '@mlightcad/data-model@1.15.10':
+    resolution: {integrity: sha512-CNvxPClSaYlRlsHJvTmQ8nkNVQeIqu98Q4sq0e6DrdmsfK9UFUZ/PzuMs7fRRtFmbqJvTyNNd1z2JldBqO/Emg==}
 
-  '@mlightcad/dwg-converter@https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.3/5d63070db548ebcd0bd5d2d505d6103752fc31b2':
-    resolution: {integrity: sha512-gYmSNrsC6RsaDjX8Fyt6eORCahsMegHIsj60Ew/xnWqpQJIcGD+WNZ2GwgjvrSxUiF/9kdAxxWlrK501Hklt2g==, tarball: https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.3/5d63070db548ebcd0bd5d2d505d6103752fc31b2}
-    version: 1.15.3
+  '@mlightcad/dwg-converter@https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.10/3b6466ad3be1211aa3236309592b3d6e8bc028db':
+    resolution: {integrity: sha512-XDnBNsLFBTcvKyvHastMfH0sCnJ8K7GWLIP5A/OwfWG/3RI3je2wHGUUpPkA3W8byJCGtc946CMwVoWZL23M1w==, tarball: https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.10/3b6466ad3be1211aa3236309592b3d6e8bc028db}
+    version: 1.15.10
     engines: {pnpm: '>=10'}
     peerDependencies:
-      '@mlightcad/data-model': 1.15.3
+      '@mlightcad/data-model': 1.15.10
 
-  '@mlightcad/emf-converter@1.15.3':
-    resolution: {integrity: sha512-Sza7wjzkHLKYGqUu5NnCloV8AG4pxhgTNHqUrUmT21AOXOILolLXAsy9L7nn8PUwqGW4TIHeW3zcjhHxaMyx+w==}
+  '@mlightcad/emf-converter@1.15.10':
+    resolution: {integrity: sha512-fKdhbXvyzXTNsnLlyyQ7ga5jpKNRJOgH2av9OPgMvEYofTxXFwg8w4qyfm5cwx5QeE65aHl8E/ajLyb63qZY6w==}
 
-  '@mlightcad/geometry-engine@3.15.3':
-    resolution: {integrity: sha512-G6ofogPYOzWwMyRpL5h80XLoywmXHwAxBZDBKcZICFiRi+kY8N4fWjWNKFFJfJ5l3izIxJIT3S0g2SUDOh/F5g==}
+  '@mlightcad/geometry-engine@3.15.10':
+    resolution: {integrity: sha512-W+uKwnWQPLB7ym8DeQWIrRQEW74yYdUoBhxGp4sOWAnuYUrnr2mkKsiuvUHuqjcdPxQjWIw7yQDqYPVC2+GNUg==}
     peerDependencies:
-      '@mlightcad/common': 1.15.3
+      '@mlightcad/common': 1.15.10
 
-  '@mlightcad/graphic-interface@3.15.3':
-    resolution: {integrity: sha512-Ux7+twt1zAHTxI4fO+nRiQvaS+n9FqZuC1j7bPQ/DW5znhfa5v17L1jSBU8tssZ5KgqYUiJfMYL1mIlBQMZakw==}
+  '@mlightcad/graphic-interface@3.15.10':
+    resolution: {integrity: sha512-hU+uSp3XU0uf8TqSpUHUBc1ugd+aX3NvRhdZcrYX7Fnm5vUx9D+4xgwl6v7ORYZmrIkcBkGUM251KXPVdhrmTg==}
     peerDependencies:
-      '@mlightcad/common': 1.15.3
-      '@mlightcad/geometry-engine': 3.15.3
+      '@mlightcad/common': 1.15.10
+      '@mlightcad/geometry-engine': 3.15.10
 
-  '@mlightcad/mtext-parser@1.5.3':
-    resolution: {integrity: sha512-RLI9szHHTWbphy2qkYSGSMXh8bsuOCAOZnew8tbYmQepQZvnAoKV7CtSyuwlo8GGfYCMAJARHORFLtLBFmtQhg==}
+  '@mlightcad/mtext-parser@1.5.5':
+    resolution: {integrity: sha512-IbL4YLs/QokDMjk2tltz9rCOQ72RWvKDFIu9zM1Byd/5k8K0u2vbqZT6gKRenxK76E1EyTvwIeW5tDrEEyTmQw==}
 
-  '@mlightcad/mtext-renderer@0.13.3':
-    resolution: {integrity: sha512-V0Qozh6Rsr8Fsoreph4XJzzbhvT2Griv0MHv1S/6Aqfpqq6Vr/Gq3opUAm8PCeU9TN1G3ulxHMYSTfJh9L2TOw==}
+  '@mlightcad/mtext-renderer@0.13.4':
+    resolution: {integrity: sha512-LH222OP/OO44DBgMjuZuWqkGh1SLSMYJJbBmV6Ii85Z/EfSFXguY1SuyRfG7QOwGSlQoInGhFDxdptQPjGxm1A==}
     peerDependencies:
-      '@mlightcad/mtext-parser': ^1.5.3
+      '@mlightcad/mtext-parser': ^1.5.5
       three: ^0.172.0
 
   '@mlightcad/shx-parser@1.4.5':
     resolution: {integrity: sha512-wFY0X7vnuq1IYdP6JRggb7LHcKho1P8zmcWGtXa6XYthwyKZCUoZCswTXr7J26pbzyhBB7KsiCcCL48iwIevdQ==}
 
-  '@mlightcad/three-renderer@1.7.5':
-    resolution: {integrity: sha512-LAPukjKGL0RdXz0zUJT4ql/l8BPXdJ2LVLchPOuIhpjOnNh7lEuobCpMgMO5/MolKKlo/YOK9HW9Q26HjjZllw==}
+  '@mlightcad/three-renderer@1.7.6':
+    resolution: {integrity: sha512-8BUVe86tOC6DHiSgjcgHzlFVW8ZzK1H88gIOOlUOzbUiqnPWQObo5/KdTkIuNOnJQflQJhcO5TJ62iVqM1Nhaw==}
     peerDependencies:
-      '@mlightcad/data-model': ^1.15.3
-      '@mlightcad/mtext-parser': ^1.5.3
-      '@mlightcad/mtext-renderer': ^0.13.3
+      '@mlightcad/data-model': ^1.15.10
+      '@mlightcad/mtext-parser': ^1.5.5
+      '@mlightcad/mtext-renderer': ^0.13.4
       '@velipso/polybool': ^1.1.1
       three: ^0.172.0
 
@@ -792,52 +792,52 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@mlightcad/cad-simple-ui-plugin@1.7.5(@mlightcad/cad-simple-viewer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@mlightcad/three-renderer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.15.3)':
+  '@mlightcad/cad-simple-ui-plugin@1.7.6(@mlightcad/cad-simple-viewer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@mlightcad/three-renderer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.15.10)':
     dependencies:
-      '@mlightcad/cad-simple-viewer': 1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@mlightcad/three-renderer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)
-      '@mlightcad/data-model': 1.15.3
+      '@mlightcad/cad-simple-viewer': 1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@mlightcad/three-renderer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)
+      '@mlightcad/data-model': 1.15.10
 
-  '@mlightcad/cad-simple-viewer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@mlightcad/three-renderer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)':
+  '@mlightcad/cad-simple-viewer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@mlightcad/three-renderer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0))(lodash-es@4.17.21)(three@0.172.0)':
     dependencies:
-      '@mlightcad/data-model': 1.15.3
-      '@mlightcad/mtext-parser': 1.5.3
-      '@mlightcad/mtext-renderer': 0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0)
-      '@mlightcad/three-renderer': 1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)
+      '@mlightcad/data-model': 1.15.10
+      '@mlightcad/mtext-parser': 1.5.5
+      '@mlightcad/mtext-renderer': 0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0)
+      '@mlightcad/three-renderer': 1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)
       lodash-es: 4.17.21
       three: 0.172.0
 
-  '@mlightcad/common@1.15.3':
+  '@mlightcad/common@1.15.10':
     dependencies:
       loglevel: 1.9.2
 
-  '@mlightcad/data-model@1.15.3':
+  '@mlightcad/data-model@1.15.10':
     dependencies:
-      '@mlightcad/common': 1.15.3
-      '@mlightcad/emf-converter': 1.15.3
-      '@mlightcad/geometry-engine': 3.15.3(@mlightcad/common@1.15.3)
-      '@mlightcad/graphic-interface': 3.15.3(@mlightcad/common@1.15.3)(@mlightcad/geometry-engine@3.15.3(@mlightcad/common@1.15.3))
+      '@mlightcad/common': 1.15.10
+      '@mlightcad/emf-converter': 1.15.10
+      '@mlightcad/geometry-engine': 3.15.10(@mlightcad/common@1.15.10)
+      '@mlightcad/graphic-interface': 3.15.10(@mlightcad/common@1.15.10)(@mlightcad/geometry-engine@3.15.10(@mlightcad/common@1.15.10))
       uid: 2.0.2
 
-  '@mlightcad/dwg-converter@https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.3/5d63070db548ebcd0bd5d2d505d6103752fc31b2(@mlightcad/data-model@1.15.3)':
+  '@mlightcad/dwg-converter@https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.10/3b6466ad3be1211aa3236309592b3d6e8bc028db(@mlightcad/data-model@1.15.10)':
     dependencies:
-      '@mlightcad/data-model': 1.15.3
+      '@mlightcad/data-model': 1.15.10
 
-  '@mlightcad/emf-converter@1.15.3': {}
+  '@mlightcad/emf-converter@1.15.10': {}
 
-  '@mlightcad/geometry-engine@3.15.3(@mlightcad/common@1.15.3)':
+  '@mlightcad/geometry-engine@3.15.10(@mlightcad/common@1.15.10)':
     dependencies:
-      '@mlightcad/common': 1.15.3
+      '@mlightcad/common': 1.15.10
 
-  '@mlightcad/graphic-interface@3.15.3(@mlightcad/common@1.15.3)(@mlightcad/geometry-engine@3.15.3(@mlightcad/common@1.15.3))':
+  '@mlightcad/graphic-interface@3.15.10(@mlightcad/common@1.15.10)(@mlightcad/geometry-engine@3.15.10(@mlightcad/common@1.15.10))':
     dependencies:
-      '@mlightcad/common': 1.15.3
-      '@mlightcad/geometry-engine': 3.15.3(@mlightcad/common@1.15.3)
+      '@mlightcad/common': 1.15.10
+      '@mlightcad/geometry-engine': 3.15.10(@mlightcad/common@1.15.10)
 
-  '@mlightcad/mtext-parser@1.5.3': {}
+  '@mlightcad/mtext-parser@1.5.5': {}
 
-  '@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0)':
+  '@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0)':
     dependencies:
-      '@mlightcad/mtext-parser': 1.5.3
+      '@mlightcad/mtext-parser': 1.5.5
       '@mlightcad/shx-parser': 1.4.5
       iconv-lite: 0.7.3
       idb: 8.0.3
@@ -846,11 +846,11 @@ snapshots:
 
   '@mlightcad/shx-parser@1.4.5': {}
 
-  '@mlightcad/three-renderer@1.7.5(@mlightcad/data-model@1.15.3)(@mlightcad/mtext-parser@1.5.3)(@mlightcad/mtext-renderer@0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)':
+  '@mlightcad/three-renderer@1.7.6(@mlightcad/data-model@1.15.10)(@mlightcad/mtext-parser@1.5.5)(@mlightcad/mtext-renderer@0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0))(@velipso/polybool@1.1.1)(three@0.172.0)':
     dependencies:
-      '@mlightcad/data-model': 1.15.3
-      '@mlightcad/mtext-parser': 1.5.3
-      '@mlightcad/mtext-renderer': 0.13.3(@mlightcad/mtext-parser@1.5.3)(three@0.172.0)
+      '@mlightcad/data-model': 1.15.10
+      '@mlightcad/mtext-parser': 1.5.5
+      '@mlightcad/mtext-renderer': 0.13.4(@mlightcad/mtext-parser@1.5.5)(three@0.172.0)
       '@velipso/polybool': 1.1.1
       three: 0.172.0
 
