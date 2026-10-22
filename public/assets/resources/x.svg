@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- X / Twitter -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M14 14l9.2 11.8L14 34h3.2l7.2-6.4L30.8 34H34l-9.6-12.4L34 14h-3.2l-6.8 6L17.2 14H14z" fill="#E8EEF5"/>
+  <path d="M12 36h24" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square" opacity="0.7"/>
+</svg>

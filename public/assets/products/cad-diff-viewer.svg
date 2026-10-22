@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- CAD Diff Viewer: side-by-side revisions with +/- markers -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <rect x="10" y="12" width="12" height="24" rx="1" stroke="#8B9BB4" stroke-width="1.5"/>
+  <rect x="26" y="12" width="12" height="24" rx="1" stroke="#8B9BB4" stroke-width="1.5"/>
+  <path d="M13 20h6M13 24h4M13 28h5" stroke="#E8A54B" stroke-width="1.5" stroke-linecap="square" opacity="0.85"/>
+  <path d="M29 20h6M29 24h6M29 28h4" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="M16 16h4" stroke="#E8A54B" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="M31 16v4M29 18h4" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="M23 22v4" stroke="#5A6A82" stroke-width="1.5" stroke-linecap="square" stroke-dasharray="2 2"/>
+</svg>

@@ -113,6 +113,7 @@ export default defineConfig({
         parser: resolve(__dirname, 'dwg-parser.html'),
         embed: resolve(__dirname, 'embed.html'),
         iframePlugin: resolve(__dirname, 'iframe-plugin.html'),
+        cadViewer: resolve(__dirname, 'cad-viewer.html'),
         cadDiffViewer: resolve(__dirname, 'cad-diff-viewer.html'),
         tutorial: resolve(__dirname, 'tutorial.html'),
         terms: resolve(__dirname, 'terms.html'),

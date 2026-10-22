@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- CAD Editor: editable geometry with grip handles + pen -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M14 32V18h8l5 8h7v6" stroke="#E8EEF5" stroke-width="1.5" stroke-linejoin="miter"/>
+  <rect x="12" y="16" width="4" height="4" fill="#3DDCFF"/>
+  <rect x="20" y="16" width="4" height="4" fill="#3DDCFF"/>
+  <rect x="25" y="24" width="4" height="4" fill="#3DDCFF"/>
+  <rect x="32" y="30" width="4" height="4" fill="#3DDCFF"/>
+  <rect x="12" y="30" width="4" height="4" fill="#3DDCFF"/>
+  <path d="M33 12l5 5-9 9H24v-5l9-9z" stroke="#E8A54B" stroke-width="1.5" stroke-linejoin="miter" fill="#121821"/>
+  <path d="M33 12l5 5" stroke="#E8A54B" stroke-width="1.5"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- CAD Viewer: viewport crop marks + plan geometry -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M12 16h4M12 16v4M32 16h4M36 16v4M12 32h4M12 28v4M32 32h4M36 28v4" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square"/>
+  <rect x="14" y="14" width="20" height="20" stroke="#5A6A82" stroke-width="1"/>
+  <path d="M18 30V20h6l4 6h4v4" stroke="#E8EEF5" stroke-width="1.5" stroke-linejoin="miter"/>
+  <circle cx="24" cy="24" r="2" fill="#3DDCFF"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- CAD SDK: host frame embedding a CAD module -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <rect x="10" y="12" width="28" height="24" rx="2" stroke="#5A6A82" stroke-width="1.5"/>
+  <path d="M10 17h28" stroke="#5A6A82" stroke-width="1"/>
+  <circle cx="14" cy="14.5" r="1" fill="#8B9BB4"/>
+  <circle cx="17.5" cy="14.5" r="1" fill="#8B9BB4"/>
+  <circle cx="21" cy="14.5" r="1" fill="#8B9BB4"/>
+  <rect x="16" y="21" width="16" height="11" rx="1" stroke="#3DDCFF" stroke-width="1.5" fill="#0B0F14"/>
+  <path d="M19 29v-5h3l2 3h3v2" stroke="#E8EEF5" stroke-width="1.25" stroke-linejoin="miter"/>
+  <path d="M14 24v6M34 24v6" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square" opacity="0.7"/>
+</svg>

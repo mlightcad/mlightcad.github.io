@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- Development Guide: terminal + code chevrons -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <rect x="11" y="13" width="26" height="22" rx="2" stroke="#5A6A82" stroke-width="1.5"/>
+  <path d="M11 18h26" stroke="#5A6A82" stroke-width="1"/>
+  <circle cx="14.5" cy="15.5" r="1" fill="#E8A54B"/>
+  <circle cx="18" cy="15.5" r="1" fill="#8B9BB4"/>
+  <circle cx="21.5" cy="15.5" r="1" fill="#8B9BB4"/>
+  <path d="M17 23l-3 4 3 4M27 23l3 4-3 4" stroke="#3DDCFF" stroke-width="1.5" stroke-linejoin="miter"/>
+  <path d="M23 22l-2 11" stroke="#E8EEF5" stroke-width="1.5" stroke-linecap="square"/>
+</svg>

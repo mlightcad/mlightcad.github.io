@@ -1,24 +1,30 @@
 import './styles/main.css'
 import { scrambleMeta, setupPageFX } from './fx'
-import { t } from './i18n'
+import { cadViewerDocsUrl, t } from './i18n'
 import { applyPageMeta } from './seo'
 import { mountShell } from './shell'
 import {
   applyCommonI18n,
-  getByPath,
   locale,
   observeReveals,
   setupLocaleToggle,
   setupNav,
   setupWebGL,
 } from './shared'
-import {
-  refreshDrawingGalleryI18n,
-  setupDrawingGallery,
-} from './drawing-gallery'
-import { refreshTryDrawingI18n, setupTryDrawing } from './try-drawing'
 
-/** Apply homepage copy, feature/plugin/resource lists, and try-drawing i18n. */
+/** Redirect legacy homepage deep links that moved to the CAD Viewer page. */
+function redirectLegacyProductHash(): void {
+  const hash = decodeURIComponent(location.hash.replace(/^#/, ''))
+  if (!hash) return
+  const legacy = new Set(['product', 'features', 'gallery', 'plugins'])
+  if (!legacy.has(hash) && !hash.startsWith('feature-')) return
+  const target = hash.startsWith('feature-') || hash === 'features' || hash === 'gallery' || hash === 'plugins'
+    ? `/cad-viewer.html#${hash}`
+    : '/cad-viewer.html#product'
+  location.replace(target)
+}
+
+/** Apply homepage copy for platform, showcase, and resources. */
 function applyI18n(): void {
   const dict = t(locale)
   applyPageMeta({
@@ -31,26 +37,8 @@ function applyI18n(): void {
 
   applyCommonI18n(dict)
 
-  document.querySelectorAll<HTMLElement>('[data-i18n-html]').forEach((el) => {
-    const key = el.dataset.i18nHtml
-    if (!key) return
-    const value = getByPath(dict, key)
-    if (typeof value === 'string') el.innerHTML = value
-  })
-
   document.querySelectorAll<HTMLElement>('[data-i18n-guarantees]').forEach((list) => {
     list.innerHTML = dict.hero.guarantees
-      .map((item) => `<li><span class="firsts__mark">01</span><span>${item}</span></li>`)
-      .join('')
-    list.querySelectorAll('li').forEach((li, i) => {
-      const mark = li.querySelector('.firsts__mark')
-      if (mark) mark.textContent = String(i + 1).padStart(2, '0')
-    })
-  })
-
-  document.querySelectorAll<HTMLElement>('[data-i18n-highlights]').forEach((list) => {
-    const items = dict.flagship.highlights
-    list.innerHTML = items
       .map((item) => `<li><span class="firsts__mark">01</span><span>${item}</span></li>`)
       .join('')
     list.querySelectorAll('li').forEach((li, i) => {
@@ -69,63 +57,14 @@ function applyI18n(): void {
       .join('')
   }
 
-  const pathsRoot = document.querySelector('[data-i18n-platform-paths]')
-  if (pathsRoot) {
-    pathsRoot.innerHTML = dict.platform.paths
-      .map(
-        (pathItem) =>
-          `<article class="path-card"><p class="path-card__label">${pathItem.label}</p><h3>${pathItem.title}</h3><p>${pathItem.body}</p><a class="btn btn--ghost" href="${pathItem.href}">${pathItem.cta}</a></article>`,
-      )
-      .join('')
-  }
-
-  const featuresRoot = document.querySelector('[data-i18n-features]')
-  if (featuresRoot) {
-    featuresRoot.innerHTML = dict.features.items
-      .map((item, index) => {
-        const reverse = index % 2 === 1 ? ' feature--reverse' : ''
-        const actions =
-          item.actions
-            ?.map((action) => {
-              const variant = action.variant === 'ghost' ? 'btn--ghost' : 'btn--primary btn--glow'
-              const download = action.download ? ` download="${action.download}"` : ''
-              const isExternal = /^https?:\/\//i.test(action.href)
-              const target = action.download || !isExternal ? '' : ' target="_blank" rel="noopener"'
-              return `<a class="btn ${variant}" href="${action.href}"${target}${download}>${action.label}</a>`
-            })
-            .join('') ?? ''
-        const actionsBlock = actions ? `<div class="feature__actions">${actions}</div>` : ''
-        return `
-          <article class="feature reveal${reverse}" id="feature-${item.id}">
-            <figure class="feature__visual">
-              <img src="${item.image}" alt="${item.imageAlt}" width="640" height="400" loading="lazy" />
-            </figure>
-            <div class="feature__copy">
-              <p class="feature__index">${String(index + 1).padStart(2, '0')}</p>
-              <h3>${item.title}</h3>
-              <p>${item.body}</p>
-              ${actionsBlock}
-            </div>
-          </article>
-        `
-      })
-      .join('')
-  }
-
-  const plugins = document.querySelector('[data-i18n-plugins]')
-  if (plugins) {
-    plugins.innerHTML = dict.plugins.items
-      .map((p) => `<li><strong>${p.name}</strong><span>${p.role}</span></li>`)
-      .join('')
-  }
-
   const showcase = document.querySelector('[data-i18n-showcase]')
   if (showcase) {
     showcase.innerHTML = dict.showcase.items
       .map((link) => {
         const external = /^https?:\/\//i.test(link.href)
         const target = external ? ' target="_blank" rel="noopener"' : ''
-        return `<a href="${link.href}"${target}><strong>${link.name}</strong><span>${link.desc}</span></a>`
+        const icon = `/assets/products/${link.id}.svg`
+        return `<a class="product-card" href="${link.href}"${target}><img class="product-card__icon" src="${icon}" alt="" width="48" height="48" loading="lazy" decoding="async" /><div class="product-card__copy"><strong>${link.name}</strong><span>${link.desc}</span></div></a>`
       })
       .join('')
   }
@@ -134,9 +73,16 @@ function applyI18n(): void {
   if (resources) {
     resources.innerHTML = dict.resources.links
       .map((link) => {
-        const external = /^https?:\/\//i.test(link.href)
+        const href =
+          link.id === 'user-guide'
+            ? cadViewerDocsUrl('', locale)
+            : link.id === 'development-guide'
+              ? cadViewerDocsUrl('development', locale)
+              : link.href
+        const external = /^https?:\/\//i.test(href)
         const target = external ? ' target="_blank" rel="noopener"' : ''
-        return `<a href="${link.href}"${target}><strong>${link.name}</strong><span>${link.desc}</span></a>`
+        const icon = `/assets/resources/${link.id}.svg`
+        return `<a class="product-card" href="${href}"${target}><img class="product-card__icon" src="${icon}" alt="" width="48" height="48" loading="lazy" decoding="async" /><div class="product-card__copy"><strong>${link.name}</strong><span>${link.desc}</span></div></a>`
       })
       .join('')
   }
@@ -144,17 +90,14 @@ function applyI18n(): void {
   const brandEl = document.querySelector<HTMLElement>('[data-i18n="hero.brand"]')
   if (brandEl) brandEl.innerHTML = 'MLight<em>CAD</em>'
 
-  refreshTryDrawingI18n()
-  refreshDrawingGalleryI18n()
   window.setTimeout(() => scrambleMeta(dict.hero.meta), 450)
   observeReveals()
 }
 
+redirectLegacyProductHash()
 mountShell('home')
 applyI18n()
 setupLocaleToggle(() => applyI18n())
 setupNav()
-setupTryDrawing()
-setupDrawingGallery()
 setupPageFX({ boot: true })
 void setupWebGL()

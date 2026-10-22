@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- API Reference: code braces -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M18 14c-4 0-6 3-6 10s2 10 6 10" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="M30 14c4 0 6 3 6 10s-2 10-6 10" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="M22 20h4M21 24h6M22 28h4" stroke="#E8EEF5" stroke-width="1.5" stroke-linecap="square"/>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- DWG to HTML: drawing file transforming into HTML -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M9 14h11v16l-3 3H9V14z" stroke="#8B9BB4" stroke-width="1.5" stroke-linejoin="miter" fill="#0B0F14"/>
+  <path d="M17 14v5h5" stroke="#8B9BB4" stroke-width="1.5" stroke-linejoin="miter"/>
+  <path d="M12 22h5M12 25h4M12 28h3" stroke="#5A6A82" stroke-width="1" stroke-linecap="square"/>
+  <path d="M23 24h5" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="M26 21l3 3-3 3" stroke="#3DDCFF" stroke-width="1.5" stroke-linejoin="miter"/>
+  <rect x="30" y="14" width="10" height="20" rx="1" stroke="#3DDCFF" stroke-width="1.5" fill="#0B0F14"/>
+  <path d="M33 20l-2 4 2 4M37 20l2 4-2 4" stroke="#E8EEF5" stroke-width="1.5" stroke-linejoin="miter"/>
+</svg>

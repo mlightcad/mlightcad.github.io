@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- YouTube: play tube -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <rect x="11" y="16" width="26" height="16" rx="4" stroke="#E8EEF5" stroke-width="1.5"/>
+  <path d="M22 20.5l8 3.5-8 3.5v-7z" fill="#3DDCFF"/>
+  <circle cx="15" cy="14" r="1.5" fill="#E8A54B"/>
+</svg>

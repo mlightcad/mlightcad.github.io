@@ -19,6 +19,7 @@ export const en: Dictionary = {
   nav: {
     product: 'Products',
     cadViewer: 'CAD Viewer',
+    cadEditor: 'CAD Editor',
     cadSdk: 'CAD SDK',
     dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
@@ -56,7 +57,6 @@ export const en: Dictionary = {
     eyebrow: 'Platform',
     title: 'Browser-native CAD, built to embed',
     lead: 'Use the complete Viewer, or build your own CAD experience with the SDK — on the same browser-native engine.',
-    closing: 'Build on the same CAD engine used by MLightCAD Viewer.',
     layers: [
       {
         name: 'No CAD server',
@@ -79,31 +79,16 @@ export const en: Dictionary = {
         desc: 'Embed with iframe or npm, or license the commercial DWG Engine for SaaS and OEM.',
       },
     ],
-    paths: [
-      {
-        label: 'Open Source',
-        title: 'CAD Viewer',
-        body: 'Free browser CAD for viewing, review, and editing — the flagship entry to the stack.',
-        href: '/#product',
-        cta: 'Explore Viewer',
-      },
-      {
-        label: 'Commercial',
-        title: 'DWG Engine',
-        body: 'Production DWG for closed-source products, SaaS, and OEM — with clear redistribution rights.',
-        href: '/dwg-engine.html',
-        cta: 'View Engine',
-      },
-    ],
   },
   flagship: {
     eyebrow: 'Flagship',
     title: 'CAD Viewer',
-    lead: 'A production-grade WebGL CAD runtime: DWG/DXF parsing, geometry, viewing, and editing — all inside a modern browser tab.',
+    lead: 'A production-grade WebGL CAD runtime for DWG/DXF: view, measure, and annotate drawings entirely in the browser — no CAD server, no upload.',
+    heroImageAlt: 'CAD Viewer showing a DWG drawing in the browser',
     highlightsLabel: 'What it ships',
     highlights: [
-      'View, review markup, and edit DWG/DXF entirely in the browser — no CAD server.',
-      'Open-source toolkit for real web editing workflows — not a read-only preview.',
+      'View, measure distances, and add review markup on DWG/DXF entirely in the browser.',
+      'Open-source toolkit for real web viewing workflows — no CAD server, no upload.',
     ],
   },
   tryDrawing: {
@@ -200,13 +185,6 @@ export const en: Dictionary = {
         image: '/assets/features/workflows.svg',
         imageAlt: 'Offline and online workflow loop',
       },
-      {
-        id: 'edit',
-        title: 'A true editor — not a passive viewer',
-        body: 'Go beyond pan-and-zoom. Select, modify, and author geometry with an AutoCAD-inspired command surface — so web products can deliver real drawing work, not just read-only previews.',
-        image: '/assets/features/edit.svg',
-        imageAlt: 'Grip points and edit operations on a drawing',
-      },
     ],
   },
   gallery: {
@@ -225,111 +203,128 @@ export const en: Dictionary = {
     eyebrow: 'Platform modules',
     title: 'Compose on the same engine',
     lead: 'UI, export, and AI modules load only what each product needs — built on the CAD engine that powers MLightCAD Viewer.',
-    imageAlt: 'CAD core with pluggable UI, agent, HTML, PDF, and SVG modules',
+    imageAlt: 'CAD core with pluggable UI, agent, HTML, PDF, and script modules',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'Toolbar & layer manager (framework-agnostic DOM)' },
       { name: 'cad-agent-plugin', role: 'Natural-language CAD agent with drawing tools' },
       { name: 'cad-html-plugin', role: 'Export self-contained offline HTML' },
       { name: 'cad-pdf-plugin', role: 'Vector PDF export and PDF-to-CAD import' },
-      { name: 'cad-svg-plugin', role: 'Vector SVG export' },
+      { name: 'cad-script-plugin', role: 'Scripting API to operate drawings — build intelligent automation on top' },
     ],
   },
   showcase: {
-    eyebrow: 'Built with MLightCAD',
-    title: 'Projects on the stack',
-    lead: 'Open demos and integrations already running on the same engine — from the full viewer to embed and offline HTML.',
+    eyebrow: 'Product line',
+    title: 'Products on the stack',
+    lead: 'Every product runs on the same browser-native CAD engine — Viewer, Editor, SDK, and commercial Engine.',
     items: [
       {
+        id: 'cad-viewer',
         name: 'CAD Viewer',
-        desc: 'Full browser CAD experience',
+        desc: 'View and review DWG/DXF in the browser',
+        href: '/cad-viewer.html',
+      },
+      {
+        id: 'cad-editor',
+        name: 'CAD Editor',
+        desc: 'Edit drawings entirely in the browser',
         href: 'https://mlightcad.github.io/cad-viewer/',
       },
       {
-        name: 'CAD Simple Viewer',
-        desc: 'Lightweight embeddable viewer',
-        href: 'https://mlightcad.github.io/cad-viewer/cad-simple-viewer/',
-      },
-      {
-        name: 'CAD Diff Viewer',
-        desc: 'Compare drawing revisions in the browser',
-        href: '/cad-diff-viewer.html',
-      },
-      {
-        name: 'iframe Plugin',
-        desc: 'One-line DWG/DXF embed',
-        href: '/iframe-plugin.html',
-      },
-      {
-        name: 'Google Drive Integration',
-        desc: 'Open drawings from Drive',
-        href: 'https://mlightcad.com/google-drive-cad-viewer/',
-      },
-      {
-        name: 'Self-contained HTML',
-        desc: 'Share CAD without a server',
-        href: 'https://mlightcad.github.io/cad-viewer/self-contained-html/canteen.html',
-      },
-    ],
-  },
-  resources: {
-    eyebrow: 'Resources',
-    title: 'Docs, demo, and community',
-    lead: 'Start from the live viewer, then dig into API reference, licensing, and benchmarks.',
-    links: [
-      {
-        name: 'Live Demo',
-        desc: 'Full-featured viewer in the browser',
-        href: 'https://mlightcad.github.io/cad-viewer/',
-      },
-      {
+        id: 'cad-sdk',
         name: 'CAD SDK',
         desc: 'Embed DWG/DXF in your product',
         href: '/cad-sdk.html',
       },
       {
+        id: 'dwg-engine',
         name: 'DWG Engine',
         desc: 'Commercial production DWG',
         href: '/dwg-engine.html',
       },
       {
+        id: 'cad-diff-viewer',
+        name: 'CAD Diff Viewer',
+        desc: 'Compare drawing revisions in the browser',
+        href: '/cad-diff-viewer.html',
+      },
+      {
+        id: 'dwg-to-html',
+        name: 'DWG to HTML',
+        desc: 'Export self-contained offline HTML',
+        href: '/cad-viewer/cad-simple-viewer/html-converter.html',
+      }
+    ],
+  },
+  resources: {
+    eyebrow: 'Resources',
+    title: 'Docs, demo, and community',
+    lead: 'Start from the live viewer, then dig into docs, benchmarks, and community channels.',
+    links: [
+      {
+        id: 'live-demo',
+        name: 'Live Demo',
+        desc: 'Full-featured viewer in the browser',
+        href: 'https://mlightcad.github.io/cad-viewer/',
+      },
+      {
+        id: 'benchmarks',
         name: 'Benchmarks',
         desc: 'Architecture and published evidence',
         href: '/benchmarks.html',
       },
       {
+        id: 'api-reference',
         name: 'API Reference',
         desc: 'Versioned docs on Read the Docs',
         href: 'https://cad-viewer.readthedocs.io/en/latest/',
       },
       {
+        id: 'user-guide',
         name: 'User Guide',
         desc: 'How to use the viewer, interactions, and shortcuts',
         href: 'https://mlightcad.com/cad-viewer/docs/',
       },
       {
+        id: 'development-guide',
+        name: 'Development Guide',
+        desc: 'Build and extend the CAD Viewer stack',
+        href: 'https://mlightcad.com/cad-viewer/docs/development/',
+      },
+      {
+        id: 'wiki',
         name: 'Wiki',
         desc: 'Guides and architecture notes',
         href: 'https://github.com/mlightcad/cad-viewer/wiki',
       },
       {
+        id: 'github',
         name: 'GitHub',
         desc: 'mlightcad/cad-viewer',
         href: 'https://github.com/mlightcad/cad-viewer',
       },
       {
+        id: 'x',
         name: 'X',
         desc: '@mlightcad',
         href: 'https://x.com/mlightcad',
       },
       {
+        id: 'youtube',
         name: 'YouTube',
         desc: '@mlightcad',
         href: 'https://www.youtube.com/@mlightcad',
       },
       {
+        id: 'medium',
         name: 'Medium',
         desc: '@mlightcad',
         href: 'https://medium.com/@mlightcad',
+      },
+      {
+        id: 'dev',
+        name: 'DEV',
+        desc: 'Articles on DEV Community',
+        href: 'https://dev.to/mlightcad',
       },
     ],
   },

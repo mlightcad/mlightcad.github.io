@@ -1764,12 +1764,6 @@ html.try-drawing-fullscreen #bg-canvas {
   font-size: 0.95rem;
 }
 
-.platform-closing {
-  margin: 0 0 var(--space-5);
-  color: var(--steel);
-  max-width: none;
-}
-
 .path-grid {
   display: grid;
   gap: var(--space-4);
@@ -1974,6 +1968,23 @@ html.try-drawing-fullscreen #bg-canvas {
   text-decoration: none;
 }
 
+.resource-grid a.product-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.product-card__icon {
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.product-card__copy {
+  min-width: 0;
+}
+
 .resource-grid strong {
   display: block;
   font-family: var(--font-display);
@@ -1985,6 +1996,7 @@ html.try-drawing-fullscreen #bg-canvas {
   color: var(--steel);
   font-size: 0.95rem;
 }
+
 
 .legal-body {
   padding-bottom: var(--space-6);
