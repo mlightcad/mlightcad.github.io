@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- Juejin: diamond / crystal mark -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M24 12l10 8-10 16L14 20l10-8z" stroke="#3DDCFF" stroke-width="1.5" stroke-linejoin="miter"/>
+  <path d="M14 20h20M24 12v24" stroke="#8B9BB4" stroke-width="1"/>
+  <path d="M18 20l6 8 6-8" stroke="#E8A54B" stroke-width="1.5" stroke-linejoin="miter"/>
+</svg>

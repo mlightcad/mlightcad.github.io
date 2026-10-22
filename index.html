@@ -57,21 +57,6 @@
             "description": "Web CAD infrastructure for DWG and DXF — open-source SDK and commercial DWG engine.",
             "publisher": { "@id": "https://mlightcad.com/#organization" },
             "inLanguage": ["en", "zh-CN"]
-          },
-          {
-            "@type": "SoftwareApplication",
-            "@id": "https://mlightcad.com/#cad-viewer",
-            "name": "CAD Viewer",
-            "applicationCategory": "DesignApplication",
-            "operatingSystem": "Web",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "url": "https://mlightcad.com/",
-            "description": "Browser-native DWG/DXF viewer and editor that runs entirely on-device.",
-            "author": { "@id": "https://mlightcad.com/#organization" }
           }
         ]
       }
@@ -105,7 +90,7 @@
             </p>
             <ul class="firsts hero-enter" data-i18n-guarantees></ul>
             <div class="hero__ctas hero-enter">
-              <a class="btn btn--primary btn--glow" href="#product" data-i18n="hero.ctaDemo">Try CAD Viewer</a>
+              <a class="btn btn--primary btn--glow" href="/cad-viewer.html" data-i18n="hero.ctaDemo">Try CAD Viewer</a>
               <a
                 class="btn btn--ghost"
                 href="https://mlightcad.com/cad-viewer/"
@@ -133,204 +118,15 @@
               engine.
             </p>
             <ol class="platform-stack reveal" data-i18n-platform-layers></ol>
-            <p class="platform-closing reveal" data-i18n="platform.closing">
-              Build on the same CAD engine used by MLightCAD Viewer.
-            </p>
-            <div class="path-grid reveal" data-i18n-platform-paths></div>
-          </div>
-        </section>
-
-        <section class="section" id="product">
-          <div class="shell">
-            <p class="eyebrow reveal" data-i18n="flagship.eyebrow">Flagship</p>
-            <h2 class="section__title reveal" data-i18n="flagship.title">CAD Viewer</h2>
-            <p class="section__lead reveal" data-i18n="flagship.lead">
-              A production-grade WebGL CAD runtime for DWG/DXF in the browser.
-            </p>
-            <div class="flagship__grid">
-              <figure class="flagship__media viewport-chrome reveal" data-try-drawing>
-                <div class="viewport-chrome__bar">
-                  <span aria-hidden="true"></span><span aria-hidden="true"></span
-                  ><span aria-hidden="true"></span>
-                  <em data-try-drawing-title>try your drawing</em>
-                  <div class="try-drawing__bar-actions">
-                    <button
-                      type="button"
-                      class="try-drawing__icon-btn"
-                      data-try-drawing-fullscreen
-                      hidden
-                      aria-pressed="false"
-                      data-i18n-aria="tryDrawing.fullscreen"
-                      aria-label="Fullscreen"
-                    >
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path
-                          d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"
-                          stroke="currentColor"
-                          stroke-width="1.4"
-                          stroke-linecap="square"
-                        />
-                      </svg>
-                    </button>
-                    <button
-                      type="button"
-                      class="try-drawing__icon-btn"
-                      data-try-drawing-close
-                      hidden
-                      data-i18n-aria="tryDrawing.close"
-                      aria-label="Close drawing"
-                    >
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                        <path
-                          d="M3 3l10 10M13 3L3 13"
-                          stroke="currentColor"
-                          stroke-width="1.4"
-                          stroke-linecap="square"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="viewport-chrome__stage try-drawing" data-try-drawing-root data-state="idle">
-                  <div class="try-drawing__idle" data-try-drawing-idle>
-                    <div class="try-drawing__dropzone" data-try-drawing-dropzone>
-                      <p class="try-drawing__title" data-i18n="tryDrawing.title">Open a drawing</p>
-                      <p class="try-drawing__body" data-i18n="tryDrawing.body">
-                        Drop a DWG or DXF here. Parsed and rendered in this tab, never uploaded.
-                      </p>
-                      <button type="button" class="btn btn--primary" data-try-drawing-open data-i18n="tryDrawing.open">
-                        Open file
-                      </button>
-                      <p class="try-drawing__trust">
-                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                          <rect x="3" y="7" width="10" height="7" stroke="currentColor" stroke-width="1.4" />
-                          <path
-                            d="M5 7V5a3 3 0 0 1 6 0v2"
-                            stroke="currentColor"
-                            stroke-width="1.4"
-                            stroke-linecap="square"
-                          />
-                        </svg>
-                        <span data-i18n="tryDrawing.trust">Never uploaded · no server</span>
-                      </p>
-                      <p class="try-drawing__drag-hint" data-i18n="tryDrawing.dragHint">Release to open</p>
-                    </div>
-                  </div>
-                  <div class="try-drawing__loading" data-try-drawing-loading hidden>
-                    <div class="try-drawing__progress" aria-hidden="true"></div>
-                    <p class="try-drawing__status" data-try-drawing-status>Reading drawing…</p>
-                  </div>
-                  <div class="try-drawing__error" data-try-drawing-error hidden>
-                    <p data-try-drawing-error-msg></p>
-                    <button type="button" class="btn btn--ghost" data-try-drawing-retry data-i18n="tryDrawing.retry">
-                      Try another file
-                    </button>
-                  </div>
-                  <div class="try-drawing__viewer" data-try-drawing-viewer hidden>
-                    <section class="try-drawing__canvas-area" aria-label="Drawing canvas">
-                      <div data-try-drawing-container></div>
-                    </section>
-                  </div>
-                  <input type="file" accept=".dxf,.dwg,application/dxf,image/vnd.dwg" data-try-drawing-input hidden />
-                </div>
-                <figcaption>
-                  <details class="try-drawing__verify">
-                    <summary data-i18n="tryDrawing.verifySummary">
-                      How to verify with DevTools that the file is not uploaded
-                    </summary>
-                    <p data-i18n="tryDrawing.verifyBody">
-                      Open Developer Tools → Network while using this demo. The DWG file itself is not transmitted to
-                      an external server for processing.
-                    </p>
-                  </details>
-                  <p class="try-drawing__caption-meta" data-try-drawing-caption>
-                    .dwg · .dxf · parsed in-browser · no upload
-                  </p>
-                </figcaption>
-              </figure>
-              <div>
-                <p class="eco__label reveal" data-i18n="flagship.highlightsLabel">What it ships</p>
-                <ul class="firsts firsts--stack reveal" data-i18n-highlights="flagship"></ul>
-                <div class="try-drawing__privacy reveal" data-try-drawing-privacy role="note">
-                  <p class="try-drawing__privacy-title" data-i18n="tryDrawing.privacyTitle">
-                    Your drawing never leaves this browser
-                  </p>
-                  <p class="try-drawing__privacy-body" data-i18n="tryDrawing.privacyBody">
-                    Nothing is uploaded or stored on our servers. Parsing and rendering happen in this tab.
-                  </p>
-                </div>
-                <div class="flagship__actions reveal">
-                  <button
-                    type="button"
-                    class="btn btn--primary btn--glow"
-                    data-try-drawing-open
-                    data-i18n="tryDrawing.open"
-                  >
-                    Open file
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="section" id="features">
-          <div class="shell">
-            <p class="eyebrow reveal" data-i18n="features.eyebrow">Features</p>
-            <h2 class="section__title reveal" data-i18n="features.title">
-              Built for privacy, portability, and product teams.
-            </h2>
-            <p class="section__lead reveal" data-i18n="features.lead">
-              Every capability is designed around a single principle: serious CAD work should be possible without
-              standing up a CAD server.
-            </p>
-            <div class="feature-list" data-i18n-features></div>
-          </div>
-        </section>
-
-        <section class="section" id="gallery">
-          <div class="shell">
-            <p class="eyebrow reveal" data-i18n="gallery.eyebrow">Demo Drawings</p>
-            <h2 class="section__title reveal" data-i18n="gallery.title">Drawing Gallery</h2>
-            <p class="section__lead reveal" data-i18n-html="gallery.leadHtml">
-              Pre-rendered CAD drawings exported with cad-viewer.
-            </p>
-            <div class="drawing-gallery__grid" data-drawing-gallery-grid aria-live="polite"></div>
-            <p class="drawing-gallery__status" data-drawing-gallery-status></p>
-          </div>
-        </section>
-
-        <section class="section" id="plugins">
-          <div class="shell">
-            <p class="eyebrow reveal" data-i18n="plugins.eyebrow">Platform modules</p>
-            <h2 class="section__title reveal" data-i18n="plugins.title">Compose on the same engine</h2>
-            <p class="section__lead reveal" data-i18n="plugins.lead">
-              Compose UI, export, and AI around a shared plugin bus — load only what each product needs.
-            </p>
-            <div class="plugins reveal">
-              <div class="plugins__copy">
-                <ul class="plugin-list" data-i18n-plugins></ul>
-              </div>
-              <figure class="plugins__visual">
-                <img
-                  src="/assets/features/plugins.svg"
-                  alt=""
-                  width="640"
-                  height="400"
-                  loading="lazy"
-                  data-i18n-alt="plugins.imageAlt"
-                />
-              </figure>
-            </div>
           </div>
         </section>
 
         <section class="section" id="showcase">
           <div class="shell">
-            <p class="eyebrow reveal" data-i18n="showcase.eyebrow">Built with MLightCAD</p>
-            <h2 class="section__title reveal" data-i18n="showcase.title">Projects on the stack</h2>
+            <p class="eyebrow reveal" data-i18n="showcase.eyebrow">Product line</p>
+            <h2 class="section__title reveal" data-i18n="showcase.title">Products on the stack</h2>
             <p class="section__lead reveal" data-i18n="showcase.lead">
-              Open demos and integrations already running on the same engine.
+              Every product runs on the same browser-native CAD engine — Viewer, Editor, SDK, and commercial Engine.
             </p>
             <div class="resource-grid reveal" data-i18n-showcase></div>
           </div>
@@ -341,7 +137,7 @@
             <p class="eyebrow reveal" data-i18n="resources.eyebrow">Resources</p>
             <h2 class="section__title reveal" data-i18n="resources.title">Docs, demo, and community</h2>
             <p class="section__lead reveal" data-i18n="resources.lead">
-              Start from the live viewer, then dig into API reference and the project wiki.
+              Start from the live viewer, then dig into docs, benchmarks, and community channels.
             </p>
             <div class="resource-grid reveal" data-i18n-resources></div>
           </div>

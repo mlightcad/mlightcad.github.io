@@ -44,17 +44,19 @@ export interface PlatformLayer {
   desc: string
 }
 
-/** Open-source vs commercial path card on the homepage. */
-export interface PlatformPath {
-  label: string
-  title: string
-  body: string
+/** Product card in the homepage showcase grid. */
+export interface ShowcaseItem {
+  /** Stable product id used for icon asset path (`/assets/products/{id}.svg`). */
+  id: string
+  name: string
+  desc: string
   href: string
-  cta: string
 }
 
-/** Community / built-with project card. */
-export interface ShowcaseItem {
+/** Resource / community link on the homepage. */
+export interface ResourceLink {
+  /** Stable id used for icon asset path (`/assets/resources/{id}.svg`). */
+  id: string
   name: string
   desc: string
   href: string
@@ -76,6 +78,7 @@ export interface Dictionary {
   nav: {
     product: string
     cadViewer: string
+    cadEditor: string
     cadSdk: string
     dwgEngine: string
     cadDiffViewer: string
@@ -120,15 +123,14 @@ export interface Dictionary {
     eyebrow: string
     title: string
     lead: string
-    closing: string
     layers: PlatformLayer[]
-    paths: PlatformPath[]
   }
   /** Flagship product section copy. */
   flagship: {
     eyebrow: string
     title: string
     lead: string
+    heroImageAlt: string
     highlightsLabel: string
     highlights: string[]
   }
@@ -190,7 +192,7 @@ export interface Dictionary {
     imageAlt: string
     items: { name: string; role: string }[]
   }
-  /** Built-with / community showcase section. */
+  /** Homepage product showcase section. */
   showcase: {
     eyebrow: string
     title: string
@@ -202,7 +204,7 @@ export interface Dictionary {
     eyebrow: string
     title: string
     lead: string
-    links: { name: string; desc: string; href: string }[]
+    links: ResourceLink[]
   }
   /** Site footer copy. */
   footer: {

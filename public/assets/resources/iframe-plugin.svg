@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- iframe Plugin: embed frame with code brackets -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <rect x="11" y="13" width="26" height="22" rx="2" stroke="#5A6A82" stroke-width="1.5"/>
+  <path d="M11 18h26" stroke="#5A6A82" stroke-width="1"/>
+  <path d="M19 24l-3 4 3 4M29 24l3 4-3 4" stroke="#3DDCFF" stroke-width="1.5" stroke-linejoin="miter"/>
+  <path d="M25 23l-2 10" stroke="#E8A54B" stroke-width="1.5" stroke-linecap="square"/>
+</svg>

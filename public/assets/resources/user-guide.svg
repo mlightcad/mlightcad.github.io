@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- User Guide: open book -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M24 16c-3-2-7-3-11-3v18c4 0 8 1 11 3 3-2 7-3 11-3V13c-4 0-8 1-11 3z" stroke="#3DDCFF" stroke-width="1.5" stroke-linejoin="miter"/>
+  <path d="M24 16v18" stroke="#5A6A82" stroke-width="1.5"/>
+  <path d="M15 19h5M15 23h5M15 27h4M28 19h5M28 23h5M28 27h4" stroke="#8B9BB4" stroke-width="1" stroke-linecap="square"/>
+</svg>

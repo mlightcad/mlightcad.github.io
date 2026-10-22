@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- DWG Engine: gear core + DWG document -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <circle cx="22" cy="24" r="9" stroke="#3DDCFF" stroke-width="1.5"/>
+  <circle cx="22" cy="24" r="3.5" stroke="#E8EEF5" stroke-width="1.5"/>
+  <path d="M22 12v3M22 33v3M10 24h3M31 24h3M13.5 15.5l2.1 2.1M28.4 30.4l2.1 2.1M13.5 32.5l2.1-2.1M28.4 17.6l2.1-2.1" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="M30 14h8v16l-3 3H30V14z" stroke="#E8A54B" stroke-width="1.5" stroke-linejoin="miter" fill="#0B0F14"/>
+  <path d="M35 14v5h5" stroke="#E8A54B" stroke-width="1.5" stroke-linejoin="miter"/>
+  <path d="M33 24h4M33 27h4M33 30h3" stroke="#8B9BB4" stroke-width="1" stroke-linecap="square"/>
+</svg>

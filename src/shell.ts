@@ -6,6 +6,7 @@ import { markActiveNav } from './shared'
 export type SitePage =
   | 'home'
   | 'iframe-plugin'
+  | 'cad-viewer'
   | 'cad-diff-viewer'
   | 'legal'
   | 'tutorial'

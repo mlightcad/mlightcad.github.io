@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- Benchmarks: bar chart + gauge mark -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M12 34h24" stroke="#5A6A82" stroke-width="1.5" stroke-linecap="square"/>
+  <rect x="14" y="24" width="5" height="10" fill="#8B9BB4"/>
+  <rect x="22" y="18" width="5" height="16" fill="#3DDCFF"/>
+  <rect x="30" y="14" width="5" height="20" fill="#E8EEF5"/>
+  <circle cx="36" cy="12" r="3" stroke="#E8A54B" stroke-width="1.5"/>
+</svg>
