@@ -196,6 +196,7 @@ export const ko: Dictionary = {
     tutorials: '튜토리얼',
     docs: '문서',
     userGuide: '사용자 가이드',
+    developmentGuide: '개발 가이드',
     wiki: 'Wiki',
     apiReference: 'API 레퍼런스',
     installationUsage: '설치 및 사용',

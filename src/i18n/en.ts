@@ -36,6 +36,7 @@ export const en: Dictionary = {
     tutorials: 'Tutorials',
     docs: 'Docs',
     userGuide: 'User Guide',
+    developmentGuide: 'Development Guide',
     wiki: 'Wiki',
     apiReference: 'API Reference',
     installationUsage: 'Installation & Usage',

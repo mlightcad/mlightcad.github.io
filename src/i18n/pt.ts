@@ -196,6 +196,7 @@ export const pt: Dictionary = {
     tutorials: 'Tutoriais',
     docs: 'Docs',
     userGuide: 'Guia do usuário',
+    developmentGuide: 'Guia de desenvolvimento',
     wiki: 'Wiki',
     apiReference: 'Referência da API',
     installationUsage: 'Instalação e uso',

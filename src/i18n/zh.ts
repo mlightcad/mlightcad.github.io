@@ -36,6 +36,7 @@ export const zh: Dictionary = {
     tutorials: '教程',
     docs: '文档',
     userGuide: '用户指南',
+    developmentGuide: '开发指南',
     wiki: 'Wiki',
     apiReference: 'API 参考',
     installationUsage: '安装与使用',

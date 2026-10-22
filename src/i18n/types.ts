@@ -93,6 +93,7 @@ export interface Dictionary {
     tutorials: string
     docs: string
     userGuide: string
+    developmentGuide: string
     wiki: string
     apiReference: string
     installationUsage: string

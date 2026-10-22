@@ -196,6 +196,7 @@ export const ru: Dictionary = {
     tutorials: 'Туториалы',
     docs: 'Документация',
     userGuide: 'Руководство пользователя',
+    developmentGuide: 'Руководство разработчика',
     wiki: 'Wiki',
     apiReference: 'API Reference',
     installationUsage: 'Установка и использование',

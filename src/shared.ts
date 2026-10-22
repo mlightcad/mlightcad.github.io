@@ -1,4 +1,12 @@
-import { detectLocale, isLocale, LOCALE_META, setLocale, t, type Locale } from './i18n'
+import {
+  cadViewerDocsUrl,
+  detectLocale,
+  isLocale,
+  LOCALE_META,
+  setLocale,
+  t,
+  type Locale,
+} from './i18n'
 
 export let locale: Locale = detectLocale()
 setLocale(locale)
@@ -69,6 +77,10 @@ export function applyCommonI18n(dict: ReturnType<typeof t>, root: ParentNode = d
     if (!key) return
     const value = getByPath(dict, key)
     if (typeof value === 'string') el.href = value
+  })
+
+  root.querySelectorAll<HTMLAnchorElement>('[data-cad-viewer-docs]').forEach((el) => {
+    el.href = cadViewerDocsUrl(el.dataset.cadViewerDocs ?? '', locale)
   })
 
   root.querySelectorAll<HTMLImageElement>('[data-i18n-alt]').forEach((img) => {

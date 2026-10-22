@@ -196,6 +196,7 @@ export const ja: Dictionary = {
     tutorials: 'チュートリアル',
     docs: 'ドキュメント',
     userGuide: 'ユーザーガイド',
+    developmentGuide: '開発ガイド',
     wiki: 'Wiki',
     apiReference: 'API リファレンス',
     installationUsage: 'インストールと使い方',

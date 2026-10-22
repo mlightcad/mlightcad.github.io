@@ -196,6 +196,7 @@ export const cs: Dictionary = {
     tutorials: 'Tutoriály',
     docs: 'Dokumentace',
     userGuide: 'Uživatelská příručka',
+    developmentGuide: 'Průvodce vývojem',
     wiki: 'Wiki',
     apiReference: 'API Reference',
     installationUsage: 'Instalace a použití',

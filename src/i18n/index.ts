@@ -10,6 +10,7 @@ import type { Dictionary, Locale } from './types'
 import { zh } from './zh'
 
 export type { Dictionary, Locale }
+export { CAD_VIEWER_DOCS_BASE, cadViewerDocsUrl } from './docsUrl'
 export { isLocale, LOCALES, LOCALE_META, matchLocale } from './locales'
 
 const STORAGE_KEY = 'mlightcad-locale'
