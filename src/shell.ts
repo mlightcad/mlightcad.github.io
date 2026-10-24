@@ -8,6 +8,7 @@ export type SitePage =
   | 'iframe-plugin'
   | 'cad-viewer'
   | 'cad-diff-viewer'
+  | 'cad-editor'
   | 'legal'
   | 'tutorial'
   | 'portal'

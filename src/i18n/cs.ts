@@ -1,5 +1,6 @@
 import { benchmarksCs } from './benchmarks'
 import { cadDiffViewerCs } from './cadDiffViewer'
+import { cadEditorEn } from './cadEditor'
 import { cadSdkCs } from './cadSdk'
 import { commercialCs } from './commercial'
 import { iframePluginCs } from './iframePlugin'
@@ -373,7 +374,7 @@ export const cs: Dictionary = {
     lead: 'Stejný prohlížečový CAD engine pohání celou řadu — Viewer, Editor, SDK i komerční Engine.',
     items: [
       { id: 'cad-viewer', name: 'CAD Viewer', desc: 'Prohlížení a kontrola DWG/DXF v prohlížeči', href: '/cad-viewer.html' },
-      { id: 'cad-editor', name: 'CAD Editor', desc: 'Editace výkresů přímo v prohlížeči', href: 'https://mlightcad.github.io/cad-viewer/' },
+      { id: 'cad-editor', name: 'CAD Editor', desc: 'Editace výkresů přímo v prohlížeči', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: 'Vložení DWG/DXF do vašeho produktu', href: '/cad-sdk.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: 'Komerční produkční DWG', href: '/dwg-engine.html' },
       { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'Porovnání revizí v prohlížeči', href: '/cad-diff-viewer.html' },
@@ -409,6 +410,7 @@ export const cs: Dictionary = {
   parser: parserCs,
   iframePlugin: iframePluginCs,
   cadDiffViewer: cadDiffViewerCs,
+  cadEditor: cadEditorEn,
   tutorial: tutorialCs,
   commercial: commercialCs,
   cadSdk: cadSdkCs,

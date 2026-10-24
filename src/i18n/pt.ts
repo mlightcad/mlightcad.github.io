@@ -1,5 +1,6 @@
 import { benchmarksPt } from './benchmarks'
 import { cadDiffViewerPt } from './cadDiffViewer'
+import { cadEditorEn } from './cadEditor'
 import { cadSdkPt } from './cadSdk'
 import { commercialPt } from './commercial'
 import { iframePluginPt } from './iframePlugin'
@@ -373,7 +374,7 @@ export const pt: Dictionary = {
     lead: 'O mesmo motor CAD nativo do navegador impulsiona cada produto — Viewer, Editor, SDK e Engine comercial.',
     items: [
       { id: 'cad-viewer', name: 'CAD Viewer', desc: 'Veja e revise DWG/DXF no navegador', href: '/cad-viewer.html' },
-      { id: 'cad-editor', name: 'CAD Editor', desc: 'Edite desenhos inteiramente no navegador', href: 'https://mlightcad.github.io/cad-viewer/' },
+      { id: 'cad-editor', name: 'CAD Editor', desc: 'Edite desenhos inteiramente no navegador', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: 'Incorpore DWG/DXF no seu produto', href: '/cad-sdk.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: 'DWG comercial de produção', href: '/dwg-engine.html' },
       { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'Compare revisões no navegador', href: '/cad-diff-viewer.html' },
@@ -409,6 +410,7 @@ export const pt: Dictionary = {
   parser: parserPt,
   iframePlugin: iframePluginPt,
   cadDiffViewer: cadDiffViewerPt,
+  cadEditor: cadEditorEn,
   tutorial: tutorialPt,
   commercial: commercialPt,
   cadSdk: cadSdkPt,

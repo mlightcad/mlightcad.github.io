@@ -1,5 +1,6 @@
 import { benchmarksZh } from './benchmarks'
 import { cadDiffViewerZh } from './cadDiffViewer'
+import { cadEditorEn } from './cadEditor'
 import { cadSdkZh } from './cadSdk'
 import { commercialZh } from './commercial'
 import { iframePluginZh } from './iframePlugin'
@@ -217,7 +218,7 @@ export const zh: Dictionary = {
         id: 'cad-editor',
         name: 'CAD Editor',
         desc: '在浏览器中完整编辑图纸',
-        href: 'https://mlightcad.github.io/cad-viewer/',
+        href: '/cad-editor.html',
       },
       {
         id: 'cad-sdk',
@@ -329,6 +330,7 @@ export const zh: Dictionary = {
   parser: parserZh,
   iframePlugin: iframePluginZh,
   cadDiffViewer: cadDiffViewerZh,
+  cadEditor: cadEditorEn,
   tutorial: tutorialZh,
   commercial: commercialZh,
   cadSdk: cadSdkZh,

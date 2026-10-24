@@ -1,4 +1,5 @@
 import type { CadDiffViewerCopy } from './cadDiffViewer'
+import type { CadEditorCopy } from './cadEditor'
 import type { BenchmarksCopy } from './benchmarks'
 import type { CadSdkCopy } from './cadSdk'
 import type { CommercialCopy } from './commercial'
@@ -221,6 +222,8 @@ export interface Dictionary {
   iframePlugin: IframePluginCopy
   /** CAD Diff Viewer product page copy. */
   cadDiffViewer: CadDiffViewerCopy
+  /** CAD Editor product page copy. */
+  cadEditor: CadEditorCopy
   /** Product tutorial / video gallery page copy. */
   tutorial: TutorialCopy
   /** Open Source vs Commercial page copy. */

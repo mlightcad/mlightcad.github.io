@@ -1,8 +1,14 @@
 import { t } from './i18n'
 import { locale, setBackgroundWebGLPaused } from './shared'
 
-/** Lazily loaded CAD viewer module. */
+/** Lazily loaded CAD simple-viewer module. */
 type ViewerModule = typeof import('./try-drawing/viewer')
+
+/** Lazily loaded full `@mlightcad/cad-viewer` (ribbon) module. */
+type CadViewerAppModule = typeof import('./try-drawing/cad-viewer-app')
+
+/** Handle for a mounted full CAD Viewer app. */
+type CadViewerAppHandle = Awaited<ReturnType<CadViewerAppModule['mountCadViewerApp']>>
 
 /** Open result shape from the lazy viewer module (avoid static import). */
 type OpenDrawingResult = Awaited<ReturnType<ViewerModule['openLocalDrawing']>>
@@ -38,17 +44,27 @@ interface TryDrawingElements {
   input: HTMLInputElement
   /** Retry button shown after an error. */
   retryBtn: HTMLButtonElement
-  /** Fullscreen toggle. */
-  fullscreenBtn: HTMLButtonElement
+  /** Fullscreen toggle (optional — hidden for CAD try-drawing; tiny window is unusable). */
+  fullscreenBtn: HTMLButtonElement | null
   /** Close / reset button. */
   closeBtn: HTMLButtonElement
   /** Caption under the widget. */
   caption: HTMLElement
 }
 
-/** Localized copy for the try-drawing widget. */
-function copy() {
+/** Localized copy shape for the try-drawing widget. */
+type TryDrawingCopy = ReturnType<typeof defaultTryDrawingCopy>
+
+/** Default try-drawing strings from the active locale dictionary. */
+function defaultTryDrawingCopy() {
   return t(locale).tryDrawing
+}
+
+let resolveCopy: () => TryDrawingCopy = defaultTryDrawingCopy
+
+/** Localized copy for the try-drawing widget (supports page-level overrides). */
+function copy() {
+  return resolveCopy()
 }
 
 /**
@@ -100,9 +116,84 @@ function openFailureMessage(fileName: string, result?: OpenDrawingResult): strin
   return c.errorOpen.replace('{name}', fileName)
 }
 
-export function setupTryDrawing(): void {
+/** Options for the in-page try-drawing widget. */
+export interface TryDrawingOptions {
+  /** Access mode when opening a local DWG/DXF. Defaults to write. */
+  mode?: 'read' | 'review' | 'write'
+  /**
+   * CAD stack to mount.
+   * - `simple` — `@mlightcad/cad-simple-viewer` + simple-ui toolbar (CAD Viewer page)
+   * - `cad-viewer` — `@mlightcad/cad-viewer` Vue component with ribbon (CAD Editor page)
+   */
+  engine?: 'simple' | 'cad-viewer'
+  /**
+   * After first paint, warm the CAD chunks in the background so the first
+   * open is faster. Defaults to `true`. Skipped when `Save-Data` is on.
+   */
+  prefetchEngine?: boolean
+  /** Show the CAD toolbar after init (simple engine; also restored when leaving fullscreen). */
+  toolbar?: boolean
+  /** Show the command line after init (simple engine; also restored when leaving fullscreen). */
+  commandLine?: boolean
+  /**
+   * Optional copy provider (e.g. CAD Editor merges write-mode strings onto the
+   * shared `tryDrawing` dictionary).
+   */
+  getCopy?: () => TryDrawingCopy
+}
+
+/**
+ * Whether the browser asked to reduce background data use.
+ *
+ * @returns `true` when prefetch should be skipped.
+ */
+function prefersSaveData(): boolean {
+  const conn = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+  return conn?.saveData === true
+}
+
+/**
+ * After idle, download CAD engine chunks without blocking first paint.
+ *
+ * @param engine - Which dynamic-import graph to warm.
+ */
+function scheduleEnginePrefetch(engine: 'simple' | 'cad-viewer'): void {
+  if (prefersSaveData()) return
+
+  const warm = (): void => {
+    if (engine === 'cad-viewer') {
+      // UI stack (vue / element-plus / cad-viewer) — DWG converter is a nested import.
+      void import('./try-drawing/cad-viewer-app')
+      // Warm RealDWG in parallel so the first open does not wait on it serially.
+      void import('./try-drawing/dwgConverter')
+      return
+    }
+    void import('./try-drawing/viewer')
+  }
+
+  const ric = window.requestIdleCallback?.bind(window)
+  if (ric) {
+    ric(() => warm(), { timeout: 6000 })
+  } else {
+    window.setTimeout(warm, 2500)
+  }
+}
+
+/**
+ * Mount the local DWG/DXF try-drawing widget when `[data-try-drawing]` is present.
+ *
+ * @param options - Open mode, engine, and chrome preferences.
+ */
+export function setupTryDrawing(options: TryDrawingOptions = {}): void {
   const chrome = document.querySelector<HTMLElement>('[data-try-drawing]')
   if (!chrome) return
+
+  resolveCopy = options.getCopy ?? defaultTryDrawingCopy
+  const openMode = options.mode ?? 'write'
+  const engine = options.engine ?? 'simple'
+  const shouldPrefetch = options.prefetchEngine !== false
+  const preferToolbar = options.toolbar ?? false
+  const preferCommandLine = options.commandLine ?? false
 
   const els: TryDrawingElements = {
     root: chrome.querySelector('[data-try-drawing-root]')!,
@@ -118,21 +209,32 @@ export function setupTryDrawing(): void {
     canvasHost: chrome.querySelector('[data-try-drawing-container]')!,
     input: chrome.querySelector('[data-try-drawing-input]')!,
     retryBtn: chrome.querySelector('[data-try-drawing-retry]')!,
-    fullscreenBtn: chrome.querySelector('[data-try-drawing-fullscreen]')!,
+    fullscreenBtn: chrome.querySelector('[data-try-drawing-fullscreen]'),
     closeBtn: chrome.querySelector('[data-try-drawing-close]')!,
     caption: chrome.querySelector('[data-try-drawing-caption]')!,
   }
 
-  if (!els.root || !els.dropzone || !els.input || !els.canvasHost) return
+  if (!els.root || !els.dropzone || !els.input || !els.canvasHost || !els.closeBtn) return
+
+  // Shrink-to-card is unusable for the CAD stack — keep the drawing fullscreen until close.
+  els.fullscreenBtn?.setAttribute('hidden', '')
+  if (els.fullscreenBtn) els.fullscreenBtn.hidden = true
 
   const FULLSCREEN_MS = 420
 
   let state: UiState = 'idle'
   let viewerMod: ViewerModule | null = null
+  let cadViewerApp: CadViewerAppHandle | null = null
   let currentFileName = ''
   let dragDepth = 0
   let loadGen = 0
   let fullscreenAnimGen = 0
+
+  /** Tear down a mounted full CAD Viewer app (ribbon engine). */
+  const destroyCadViewerApp = (): void => {
+    cadViewerApp?.destroy()
+    cadViewerApp = null
+  }
 
   /**
    * Apply widget UI for the given state.
@@ -148,12 +250,14 @@ export function setupTryDrawing(): void {
     // Keep the viewer mounted (and measurable) while loading so WebGL can size itself.
     els.viewer.hidden = next !== 'viewing' && next !== 'loading'
     const showActions = next === 'viewing' || next === 'loading'
-    els.fullscreenBtn.hidden = !showActions
+    // Never offer shrink-to-card; only the close control is shown while open.
+    if (els.fullscreenBtn) els.fullscreenBtn.hidden = true
     els.closeBtn.hidden = !showActions
     els.root.dataset.state = next === 'loading' && !els.viewer.hidden ? 'viewing' : next
     els.chrome.classList.toggle('is-viewing', next === 'viewing' || next === 'loading')
 
     if (next === 'idle') {
+      destroyCadViewerApp()
       els.title.textContent = c.barIdle
       els.caption.textContent = c.caption
       currentFileName = ''
@@ -186,9 +290,20 @@ export function setupTryDrawing(): void {
     els.chrome.classList.toggle('is-fullscreen', on)
     document.documentElement.classList.toggle('try-drawing-fullscreen', on)
     document.body.classList.toggle('try-drawing-fullscreen', on)
-    els.fullscreenBtn.setAttribute('aria-pressed', String(on))
-    els.fullscreenBtn.setAttribute('aria-label', on ? copy().exitFullscreen : copy().fullscreen)
-    viewerMod?.setViewerChromeVisible(on)
+    els.fullscreenBtn?.setAttribute('aria-pressed', String(on))
+    els.fullscreenBtn?.setAttribute(
+      'aria-label',
+      on ? copy().exitFullscreen : copy().fullscreen,
+    )
+    if (engine === 'cad-viewer') {
+      // Editor always keeps the ribbon; fullscreen only expands the host frame.
+      cadViewerApp?.setRibbonVisible(true)
+    } else {
+      viewerMod?.setViewerChromeVisible(on, {
+        toolbar: preferToolbar,
+        commandLine: preferCommandLine,
+      })
+    }
     // Stop the decorative background renderer while the CAD viewer owns the screen.
     setBackgroundWebGLPaused(on)
   }
@@ -299,6 +414,34 @@ export function setupTryDrawing(): void {
     setFullscreen(true)
 
     try {
+      if (engine === 'cad-viewer') {
+        els.status.textContent = copy().statusLoadingViewer
+        const appMod = await import('./try-drawing/cad-viewer-app')
+        if (gen !== loadGen) return
+
+        els.status.textContent = copy().statusInit
+        // Remount so `localFile` is applied on create (prop watch is not guaranteed).
+        destroyCadViewerApp()
+        cadViewerApp = await appMod.mountCadViewerApp(els.canvasHost, {
+          localFile: file,
+          mode: openMode,
+          locale: 'en',
+          theme: 'dark',
+        })
+        if (gen !== loadGen) {
+          destroyCadViewerApp()
+          return
+        }
+
+        els.loading.hidden = true
+        els.caption.textContent = copy().captionOpen
+          .replace('{name}', file.name)
+          .replace('{size}', formatSize(file.size))
+        setState('viewing')
+        setFullscreen(els.chrome.classList.contains('is-fullscreen'))
+        return
+      }
+
       if (!viewerMod) {
         els.status.textContent = copy().statusLoadingViewer
         viewerMod = await import('./try-drawing/viewer')
@@ -306,7 +449,10 @@ export function setupTryDrawing(): void {
       }
 
       els.status.textContent = copy().statusInit
-      const ready = await viewerMod.ensureViewer(els.viewer, els.canvasHost)
+      const ready = await viewerMod.ensureViewer(els.viewer, els.canvasHost, {
+        toolbar: preferToolbar,
+        commandLine: preferCommandLine,
+      })
       if (gen !== loadGen) return
       if (!ready) {
         failOpen(gen, copy().errorInit)
@@ -316,7 +462,9 @@ export function setupTryDrawing(): void {
       // cad-simple-viewer shows its own busy indicator while parsing.
       els.loading.hidden = true
 
-      const result = await viewerMod.openLocalDrawing(file)
+      const result = await viewerMod.openLocalDrawing(file, {
+        mode: viewerMod.parseOpenMode(openMode),
+      })
       if (gen !== loadGen) return
       if (!result.ok) {
         failOpen(gen, openFailureMessage(file.name, result))
@@ -381,19 +529,37 @@ export function setupTryDrawing(): void {
     if (file) void loadFile(file)
   })
 
-  els.fullscreenBtn.addEventListener('click', () => {
-    setFullscreen(!els.chrome.classList.contains('is-fullscreen'))
-  })
-
-  els.closeBtn.addEventListener('click', () => {
+  /** Close the drawing and restore the marketing page / idle dropzone. */
+  const closeDrawing = (): void => {
     loadGen += 1
     setFullscreen(false)
     setState('idle')
+  }
+
+  els.closeBtn.addEventListener('click', () => {
+    closeDrawing()
+  })
+
+  // Traffic-light red dot — same close action as the window chrome button.
+  chrome.querySelectorAll<HTMLElement>('[data-try-drawing-close-dot]').forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      e.stopPropagation()
+      if (state === 'idle') return
+      closeDrawing()
+    })
+    dot.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter' && e.key !== ' ') return
+      e.preventDefault()
+      if (state === 'idle') return
+      closeDrawing()
+    })
   })
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && els.chrome.classList.contains('is-fullscreen')) {
-      setFullscreen(false)
+    if (e.key !== 'Escape') return
+    // Stay fullscreen while open — Esc closes and returns to the page.
+    if (state === 'viewing' || state === 'loading' || state === 'error') {
+      closeDrawing()
     }
   })
 
@@ -407,13 +573,12 @@ export function setupTryDrawing(): void {
     } else if (state === 'viewing' && currentFileName) {
       els.title.textContent = currentFileName
     }
-    if (els.chrome.classList.contains('is-fullscreen')) {
-      els.fullscreenBtn.setAttribute('aria-label', c.exitFullscreen)
-    } else {
-      els.fullscreenBtn.setAttribute('aria-label', c.fullscreen)
-    }
     els.closeBtn.setAttribute('aria-label', c.close)
   }
 
   setState('idle')
+
+  if (shouldPrefetch) {
+    scheduleEnginePrefetch(engine)
+  }
 }

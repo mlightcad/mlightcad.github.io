@@ -1,5 +1,6 @@
 import { benchmarksRu } from './benchmarks'
 import { cadDiffViewerRu } from './cadDiffViewer'
+import { cadEditorEn } from './cadEditor'
 import { cadSdkRu } from './cadSdk'
 import { commercialRu } from './commercial'
 import { iframePluginRu } from './iframePlugin'
@@ -373,7 +374,7 @@ export const ru: Dictionary = {
     lead: 'Один браузерный CAD-движок для всей линейки — Viewer, Editor, SDK и коммерческий Engine.',
     items: [
       { id: 'cad-viewer', name: 'CAD Viewer', desc: 'Просмотр и ревью DWG/DXF в браузере', href: '/cad-viewer.html' },
-      { id: 'cad-editor', name: 'CAD Editor', desc: 'Редактирование чертежей прямо в браузере', href: 'https://mlightcad.github.io/cad-viewer/' },
+      { id: 'cad-editor', name: 'CAD Editor', desc: 'Редактирование чертежей прямо в браузере', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: 'Встраивание DWG/DXF в ваш продукт', href: '/cad-sdk.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: 'Коммерческий production DWG', href: '/dwg-engine.html' },
       { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'Сравнение ревизий в браузере', href: '/cad-diff-viewer.html' },
@@ -409,6 +410,7 @@ export const ru: Dictionary = {
   parser: parserRu,
   iframePlugin: iframePluginRu,
   cadDiffViewer: cadDiffViewerRu,
+  cadEditor: cadEditorEn,
   tutorial: tutorialRu,
   commercial: commercialRu,
   cadSdk: cadSdkRu,
