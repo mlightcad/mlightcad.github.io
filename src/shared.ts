@@ -11,6 +11,17 @@ import {
 export let locale: Locale = detectLocale()
 setLocale(locale)
 
+/**
+ * Switch the active chrome/page locale.
+ *
+ * @param next - Locale to apply.
+ * @param options.persist - Forwarded to {@link setLocale}; default persists to localStorage.
+ */
+export function applyLocale(next: Locale, options?: { persist?: boolean }): void {
+  locale = next
+  setLocale(next, options)
+}
+
 export function getByPath(obj: unknown, path: string): unknown {
   return path.split('.').reduce<unknown>((acc, key) => {
     if (acc && typeof acc === 'object' && key in acc) {

@@ -43,11 +43,20 @@ export function detectLocale(): Locale {
   return 'en'
 }
 
-export function setLocale(locale: Locale): void {
-  try {
-    localStorage.setItem(STORAGE_KEY, locale)
-  } catch {
-    /* ignore */
+/**
+ * Apply document language (and optionally persist the preference).
+ *
+ * @param locale - Active locale.
+ * @param options.persist - When `false`, update `document.documentElement.lang` only
+ *   (used by English-only satellite pages so they do not overwrite the user's site preference).
+ */
+export function setLocale(locale: Locale, options: { persist?: boolean } = {}): void {
+  if (options.persist !== false) {
+    try {
+      localStorage.setItem(STORAGE_KEY, locale)
+    } catch {
+      /* ignore */
+    }
   }
   document.documentElement.lang = LOCALE_META[locale].htmlLang
 }
