@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.35">
+    <path d="M40 40h560M40 80h560M40 120h560M40 160h560M40 200h560M40 240h560M40 280h560M40 320h560M40 360h560"/>
+    <path d="M80 20v360M160 20v360M240 20v360M320 20v360M400 20v360M480 20v360M560 20v360"/>
+  </g>
+  <!-- Local device / browser -->
+  <rect x="72" y="100" width="280" height="200" rx="6" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <rect x="88" y="120" width="248" height="148" rx="2" stroke="#2A3441" stroke-width="1" fill="#0B0F14"/>
+  <!-- Mini drawing on device -->
+  <path d="M120 220 L160 150 L220 190 L260 140" stroke="#8B9BB4" stroke-width="1.5"/>
+  <rect x="152" y="142" width="12" height="12" fill="#0B0F14" stroke="#3DDCFF" stroke-width="1.5"/>
+  <rect x="214" y="182" width="12" height="12" fill="#0B0F14" stroke="#3DDCFF" stroke-width="1.5"/>
+  <!-- Padlock -->
+  <path d="M188 188v-18c0-14 11-25 25-25s25 11 25 25v18" stroke="#3DDCFF" stroke-width="2"/>
+  <rect x="176" y="188" width="74" height="52" rx="4" stroke="#E8EEF5" stroke-width="1.5" fill="#0B0F14"/>
+  <circle cx="213" cy="210" r="8" stroke="#3DDCFF" stroke-width="1.5"/>
+  <path d="M213 218v12" stroke="#3DDCFF" stroke-width="1.5"/>
+  <text x="120" y="286" fill="#3DDCFF" font-family="monospace" font-size="12">ON DEVICE</text>
+  <!-- Blocked upload path -->
+  <path d="M370 200 H430" stroke="#E11D48" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <path d="M420 192 l10 8 -10 8" stroke="#E11D48" stroke-width="1.5" fill="none"/>
+  <circle cx="400" cy="200" r="14" stroke="#E11D48" stroke-width="1.5" fill="#1A0C12"/>
+  <path d="M392 192 l16 16 M408 192 l-16 16" stroke="#E11D48" stroke-width="1.5"/>
+  <!-- Remote / cloud (blocked) -->
+  <ellipse cx="520" cy="180" rx="56" ry="28" stroke="#4A5A70" stroke-width="1.5" fill="#121821" opacity="0.7"/>
+  <path d="M472 188c0-18 14-32 32-32 4-14 18-24 34-24 16 0 30 10 34 24 14 2 24 14 24 28 0 16-13 28-28 28H496c-14 0-24-12-24-24z" stroke="#4A5A70" stroke-width="1.5" fill="#0F1820" opacity="0.8"/>
+  <text x="488" y="240" fill="#8B9BB4" font-family="monospace" font-size="11">NO UPLOAD</text>
+  <text x="476" y="258" fill="#E11D48" font-family="monospace" font-size="11">BLOCKED</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">LOCAL PARSE - ZERO EGRESS</text>
+</svg>

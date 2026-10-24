@@ -19,16 +19,6 @@ function listHtml(items: string[]): string {
   return `<ul class="doc-list doc-list--split">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`
 }
 
-function relatedHtml(items: { name: string; desc: string; href: string }[]): string {
-  return `<div class="resource-grid">${items
-    .map((link) => {
-      const external = /^https?:\/\//i.test(link.href)
-      const target = external ? ' target="_blank" rel="noopener"' : ''
-      return `<a href="${link.href}"${target}><strong>${link.name}</strong><span>${link.desc}</span></a>`
-    })
-    .join('')}</div>`
-}
-
 function renderCommercial(): string {
   const p = t(locale).commercial
   const rows = p.rows
@@ -57,13 +47,28 @@ function renderCommercial(): string {
   ].join('\n')
 }
 
+/** Resolve homepage product/resource icon for a CAD SDK integration path. */
+function cadSdkPathIcon(id: string): string {
+  const folder = id === 'iframe-plugin' ? 'resources' : 'products'
+  return `/assets/${folder}/${id}.svg`
+}
+
 function renderCadSdk(): string {
   const p = t(locale).cadSdk
   const paths = p.paths
-    .map(
-      (pathItem) =>
-        `<article class="path-card"><h3>${pathItem.title}</h3><p>${pathItem.body}</p><p><a class="btn btn--ghost" href="${pathItem.href}">${pathItem.cta}</a></p></article>`,
-    )
+    .map((pathItem) => {
+      const icon = cadSdkPathIcon(pathItem.id)
+      return [
+        `<article class="path-card path-card--icon">`,
+        `  <img class="path-card__icon" src="${icon}" alt="" width="48" height="48" loading="lazy" decoding="async" />`,
+        `  <div class="path-card__copy">`,
+        `    <h3>${pathItem.title}</h3>`,
+        `    <p>${pathItem.body}</p>`,
+        `    <p><a class="btn btn--ghost" href="${pathItem.href}">${pathItem.cta}</a></p>`,
+        `  </div>`,
+        `</article>`,
+      ].join('')
+    })
     .join('')
   return [
     `<section class="section" id="embed"><div class="shell">`,
@@ -82,8 +87,6 @@ function renderCadSdk(): string {
     `<h2 class="section__title reveal">${p.pathsTitle}</h2>`,
     `<p class="section__lead reveal">${p.pathsLead}</p>`,
     `<div class="path-grid reveal">${paths}</div>`,
-    `<h3 class="reveal" style="margin-top:2rem">${p.relatedTitle}</h3>`,
-    `<div class="reveal">${relatedHtml(p.related)}</div>`,
     `</div></section>`,
   ].join('\n')
 }

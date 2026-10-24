@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.3">
+    <path d="M40 40h560M40 360h560M40 40v320M600 40v320"/>
+  </g>
+  <!-- Single shared canvas -->
+  <rect x="48" y="68" width="544" height="280" rx="4" stroke="#2A3441" stroke-width="1.5" fill="#0F1820"/>
+  <!-- Floor plan-ish geometry -->
+  <path d="M96 280 V140 H220 V200 H300 V140 H420 V280 Z" stroke="#8B9BB4" stroke-width="1.5" fill="none"/>
+  <path d="M220 200 H300" stroke="#8B9BB4" stroke-width="1.5"/>
+  <!-- Measure dimension -->
+  <path d="M96 310 H420" stroke="#3DDCFF" stroke-width="1.5"/>
+  <path d="M96 302 V318 M420 302 V318" stroke="#3DDCFF" stroke-width="1.5"/>
+  <rect x="220" y="292" width="76" height="22" rx="2" fill="#0B0F14" stroke="#3DDCFF" stroke-width="1"/>
+  <text x="232" y="308" fill="#3DDCFF" font-family="monospace" font-size="12">12.40 m</text>
+  <!-- Review markup cloud -->
+  <path d="M250 168c8-10 22-10 30 0c8-8 20-6 26 4c10-2 18 8 14 18c8 4 6 16-4 18c2 10-8 16-18 12c-6 8-18 8-24 0c-10 4-20-2-18-12c-10-4-8-16 2-20c-2-10 6-18 16-14c-2-8 4-16 14-12z" stroke="#E8A54B" stroke-width="1.5" fill="#24180C" fill-opacity="0.45"/>
+  <text x="268" y="196" fill="#E8A54B" font-family="monospace" font-size="11">REV</text>
+  <!-- Edit grip on a corner -->
+  <rect x="412" y="132" width="16" height="16" fill="#0B0F14" stroke="#3DDCFF" stroke-width="2"/>
+  <path d="M428 140 L456 118" stroke="#3DDCFF" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <!-- Mode chips -->
+  <rect x="72" y="84" width="88" height="26" rx="2" stroke="#3DDCFF" fill="#0B0F14"/>
+  <text x="88" y="102" fill="#3DDCFF" font-family="monospace" font-size="11">MEASURE</text>
+  <rect x="172" y="84" width="80" height="26" rx="2" stroke="#E8A54B" fill="#24180C"/>
+  <text x="190" y="102" fill="#E8A54B" font-family="monospace" font-size="11">MARKUP</text>
+  <rect x="264" y="84" width="64" height="26" rx="2" stroke="#E8EEF5" fill="#121821"/>
+  <text x="278" y="102" fill="#E8EEF5" font-family="monospace" font-size="11">EDIT</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">ONE CANVAS - ONE SESSION</text>
+</svg>

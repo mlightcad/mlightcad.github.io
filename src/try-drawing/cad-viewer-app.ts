@@ -6,7 +6,11 @@
  * Heavy DWG converter stays behind a nested dynamic import so idle prefetch of this
  * module can warm the UI stack without immediately fetching RealDWG (~2MB).
  */
-import { AcApSettingManager, AcEdOpenMode } from '@mlightcad/cad-simple-viewer'
+import {
+  AcApSettingManager,
+  AcEdOpenMode,
+  type AcApLocale,
+} from '@mlightcad/cad-simple-viewer'
 import { i18n, MlCadViewer } from '@mlightcad/cad-viewer'
 import ElementPlus from 'element-plus'
 import { createApp, h, ref, type App, type Ref } from 'vue'
@@ -20,8 +24,8 @@ export interface MountCadViewerAppOptions {
   localFile: File
   /** Access mode (Editor uses write). */
   mode?: CadViewerAppOpenMode
-  /** UI locale for the ribbon / dialogs. */
-  locale?: 'en' | 'zh' | 'default'
+  /** UI locale for the ribbon / dialogs (`en`, `zh`, `tr`, `cs`, `ar`, or `default`). */
+  locale?: AcApLocale | 'default'
   /** Initial theme. */
   theme?: 'light' | 'dark'
 }

@@ -169,6 +169,24 @@
   white-space: nowrap;
 }
 
+.nav__menu--products {
+  min-width: 14.5rem;
+}
+
+.nav__menu--products a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.45rem 0.75rem;
+}
+
+.nav__menu-icon {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+}
+
 .nav__menu a:hover {
   background: var(--cyan-dim);
   color: var(--cyan);
@@ -362,6 +380,10 @@
   .nav__menu a {
     padding: 0.55rem 0;
     border-bottom: 1px solid var(--line);
+  }
+
+  .nav__menu--products a {
+    padding: 0.5rem 0;
   }
 
   .lang__menu {

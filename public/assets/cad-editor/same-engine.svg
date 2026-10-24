@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.3">
+    <path d="M40 40h560M40 360h560M40 40v320M600 40v320"/>
+  </g>
+  <!-- Shared entity layer -->
+  <rect x="200" y="168" width="240" height="72" rx="4" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <text x="248" y="198" fill="#3DDCFF" font-family="monospace" font-size="13">SHARED ENGINE</text>
+  <text x="256" y="220" fill="#8B9BB4" font-family="monospace" font-size="11">same entities</text>
+  <!-- Products reading/writing -->
+  <rect x="72" y="72" width="140" height="56" rx="3" stroke="#E8EEF5" stroke-width="1.5" fill="#121821"/>
+  <text x="108" y="106" fill="#E8EEF5" font-family="monospace" font-size="13">VIEWER</text>
+  <rect x="428" y="72" width="140" height="56" rx="3" stroke="#E8A54B" stroke-width="1.5" fill="#24180C"/>
+  <text x="460" y="106" fill="#E8A54B" font-family="monospace" font-size="13">EDITOR</text>
+  <rect x="72" y="280" width="140" height="56" rx="3" stroke="#8B9BB4" stroke-width="1.5" fill="#121821"/>
+  <text x="100" y="314" fill="#8B9BB4" font-family="monospace" font-size="13">PLUGINS</text>
+  <rect x="428" y="280" width="140" height="56" rx="3" stroke="#8B9BB4" stroke-width="1.5" fill="#121821"/>
+  <text x="464" y="314" fill="#8B9BB4" font-family="monospace" font-size="13">AGENTS</text>
+  <!-- Connectors with R/W arrows -->
+  <path d="M142 128 V168" stroke="#3DDCFF" stroke-width="1.5"/>
+  <path d="M498 128 V168" stroke="#E8A54B" stroke-width="1.5"/>
+  <path d="M142 240 V280" stroke="#3DDCFF" stroke-width="1.5"/>
+  <path d="M498 240 V280" stroke="#3DDCFF" stroke-width="1.5"/>
+  <path d="M200 204 H142" stroke="#3DDCFF" stroke-width="1.5"/>
+  <path d="M440 204 H498" stroke="#E8A54B" stroke-width="1.5"/>
+  <!-- Bidirectional ticks -->
+  <path d="M136 148 l6-8 6 8" stroke="#3DDCFF" stroke-width="1.5" fill="none"/>
+  <path d="M136 156 l6 8 6-8" stroke="#3DDCFF" stroke-width="1.5" fill="none"/>
+  <path d="M492 148 l6-8 6 8" stroke="#E8A54B" stroke-width="1.5" fill="none"/>
+  <path d="M492 156 l6 8 6-8" stroke="#E8A54B" stroke-width="1.5" fill="none"/>
+  <!-- Sample shared entities -->
+  <circle cx="250" cy="252" r="5" fill="#3DDCFF"/>
+  <rect x="278" y="247" width="10" height="10" fill="#E8A54B"/>
+  <path d="M310 257 L340 247 L360 257" stroke="#8B9BB4" stroke-width="1.5" fill="none"/>
+  <text x="372" y="256" fill="#8B9BB4" font-family="monospace" font-size="10">LINE / ARC / TEXT</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">ONE STACK - VIEW + EDIT</text>
+</svg>
