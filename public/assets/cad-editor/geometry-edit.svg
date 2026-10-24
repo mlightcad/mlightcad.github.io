@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.35">
+    <path d="M40 40h560M40 80h560M40 120h560M40 160h560M40 200h560M40 240h560M40 280h560M40 320h560M40 360h560"/>
+    <path d="M80 20v360M160 20v360M240 20v360M320 20v360M400 20v360M480 20v360M560 20v360"/>
+  </g>
+  <!-- CAD canvas frame -->
+  <rect x="56" y="72" width="400" height="280" rx="4" stroke="#2A3441" stroke-width="1.5" fill="#0F1820"/>
+  <!-- Original polyline (ghost) -->
+  <path d="M112 288 L180 140 L280 220 L360 128" stroke="#4A5A70" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7"/>
+  <!-- Active edited polyline -->
+  <path d="M112 288 L180 140 L300 200 L380 112" stroke="#E8EEF5" stroke-width="2" stroke-linejoin="miter"/>
+  <!-- Grip handles -->
+  <rect x="104" y="280" width="16" height="16" fill="#0B0F14" stroke="#3DDCFF" stroke-width="2"/>
+  <rect x="172" y="132" width="16" height="16" fill="#0B0F14" stroke="#3DDCFF" stroke-width="2"/>
+  <rect x="292" y="192" width="16" height="16" fill="#3DDCFF" stroke="#3DDCFF" stroke-width="2"/>
+  <rect x="372" y="104" width="16" height="16" fill="#0B0F14" stroke="#3DDCFF" stroke-width="2"/>
+  <!-- Drag vector from active grip -->
+  <path d="M300 200 L340 168" stroke="#E8A54B" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="340" cy="168" r="4" fill="#E8A54B"/>
+  <!-- Tool chip -->
+  <rect x="480" y="120" width="112" height="36" rx="2" stroke="#E8A54B" fill="#24180C"/>
+  <text x="500" y="143" fill="#E8A54B" font-family="monospace" font-size="13">STRETCH</text>
+  <rect x="480" y="172" width="112" height="36" rx="2" stroke="#3DDCFF" fill="#0F1820"/>
+  <text x="512" y="195" fill="#3DDCFF" font-family="monospace" font-size="13">GRIPS</text>
+  <text x="480" y="240" fill="#8B9BB4" font-family="monospace" font-size="11">in-place edit</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">GEOMETRY - SELECT - MODIFY</text>
+</svg>

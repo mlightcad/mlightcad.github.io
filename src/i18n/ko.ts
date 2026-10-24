@@ -1,6 +1,6 @@
 import { benchmarksKo } from './benchmarks'
 import { cadDiffViewerKo } from './cadDiffViewer'
-import { cadEditorEn } from './cadEditor'
+import { cadEditorKo } from './cadEditor'
 import { cadSdkKo } from './cadSdk'
 import { commercialKo } from './commercial'
 import { iframePluginKo } from './iframePlugin'
@@ -374,10 +374,10 @@ export const ko: Dictionary = {
     lead: '같은 브라우저 네이티브 CAD 엔진이 제품군을 구동합니다 — Viewer, Editor, SDK, 상용 Engine.',
     items: [
       { id: 'cad-viewer', name: 'CAD Viewer', desc: '브라우저에서 DWG/DXF 보기·검토', href: '/cad-viewer.html' },
+      { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: '브라우저에서 개정 비교', href: '/cad-diff-viewer.html' },
       { id: 'cad-editor', name: 'CAD Editor', desc: '브라우저에서 도면 편집', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: '제품에 DWG/DXF 임베드', href: '/cad-sdk.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: '상용 프로덕션 DWG', href: '/dwg-engine.html' },
-      { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: '브라우저에서 개정 비교', href: '/cad-diff-viewer.html' },
       { id: 'dwg-to-html', name: 'DWG to HTML', desc: '자가 완비 오프라인 HTML 내보내기', href: '/cad-viewer/cad-simple-viewer/html-converter.html' },
     ],
   },
@@ -410,7 +410,7 @@ export const ko: Dictionary = {
   parser: parserKo,
   iframePlugin: iframePluginKo,
   cadDiffViewer: cadDiffViewerKo,
-  cadEditor: cadEditorEn,
+  cadEditor: cadEditorKo,
   tutorial: tutorialKo,
   commercial: commercialKo,
   cadSdk: cadSdkKo,

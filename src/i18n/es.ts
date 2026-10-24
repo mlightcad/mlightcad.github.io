@@ -1,6 +1,6 @@
 import { benchmarksEs } from './benchmarks'
 import { cadDiffViewerEs } from './cadDiffViewer'
-import { cadEditorEn } from './cadEditor'
+import { cadEditorEs } from './cadEditor'
 import { cadSdkEs } from './cadSdk'
 import { commercialEs } from './commercial'
 import { iframePluginEs } from './iframePlugin'
@@ -374,10 +374,10 @@ export const es: Dictionary = {
     lead: 'El mismo motor CAD nativo del navegador impulsa cada producto — Viewer, Editor, SDK y Engine comercial.',
     items: [
       { id: 'cad-viewer', name: 'CAD Viewer', desc: 'Vea y revise DWG/DXF en el navegador', href: '/cad-viewer.html' },
+      { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'Compare revisiones en el navegador', href: '/cad-diff-viewer.html' },
       { id: 'cad-editor', name: 'CAD Editor', desc: 'Edite dibujos enteramente en el navegador', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: 'Incruste DWG/DXF en su producto', href: '/cad-sdk.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: 'DWG comercial de producción', href: '/dwg-engine.html' },
-      { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'Compare revisiones en el navegador', href: '/cad-diff-viewer.html' },
       { id: 'dwg-to-html', name: 'DWG to HTML', desc: 'Exporte HTML offline autocontenido', href: '/cad-viewer/cad-simple-viewer/html-converter.html' },
     ],
   },
@@ -410,7 +410,7 @@ export const es: Dictionary = {
   parser: parserEs,
   iframePlugin: iframePluginEs,
   cadDiffViewer: cadDiffViewerEs,
-  cadEditor: cadEditorEn,
+  cadEditor: cadEditorEs,
   tutorial: tutorialEs,
   commercial: commercialEs,
   cadSdk: cadSdkEs,

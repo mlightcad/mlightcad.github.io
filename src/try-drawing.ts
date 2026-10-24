@@ -13,6 +13,20 @@ type CadViewerAppHandle = Awaited<ReturnType<CadViewerAppModule['mountCadViewerA
 /** Open result shape from the lazy viewer module (avoid static import). */
 type OpenDrawingResult = Awaited<ReturnType<ViewerModule['openLocalDrawing']>>
 
+/**
+ * Map the marketing-site locale onto a CAD UI locale.
+ * cad-simple-viewer / cad-viewer support `en`, `zh`, `tr`, `cs`, and `ar`;
+ * unsupported site locales fall back to English.
+ */
+function cadUiLocale(siteLocale: string): 'en' | 'zh' | 'tr' | 'cs' | 'ar' {
+  const value = siteLocale.trim().toLowerCase()
+  if (value === 'zh' || value.startsWith('zh-')) return 'zh'
+  if (value === 'tr' || value.startsWith('tr-')) return 'tr'
+  if (value === 'cs' || value.startsWith('cs-')) return 'cs'
+  if (value === 'ar' || value.startsWith('ar-')) return 'ar'
+  return 'en'
+}
+
 /** Visual state of the homepage try-drawing widget. */
 type UiState = 'idle' | 'loading' | 'viewing' | 'error'
 
@@ -425,7 +439,7 @@ export function setupTryDrawing(options: TryDrawingOptions = {}): void {
         cadViewerApp = await appMod.mountCadViewerApp(els.canvasHost, {
           localFile: file,
           mode: openMode,
-          locale: 'en',
+          locale: cadUiLocale(locale),
           theme: 'dark',
         })
         if (gen !== loadGen) {
@@ -450,6 +464,7 @@ export function setupTryDrawing(options: TryDrawingOptions = {}): void {
 
       els.status.textContent = copy().statusInit
       const ready = await viewerMod.ensureViewer(els.viewer, els.canvasHost, {
+        lang: cadUiLocale(locale),
         toolbar: preferToolbar,
         commandLine: preferCommandLine,
       })

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" fill="none">
+  <rect width="640" height="400" fill="#0B0F14"/>
+  <g stroke="#4A5A70" stroke-width="1" opacity="0.3">
+    <path d="M40 40h560M40 360h560M40 40v320M600 40v320"/>
+  </g>
+  <!-- CAD users -->
+  <rect x="56" y="72" width="250" height="128" rx="4" stroke="#3DDCFF" stroke-width="1.5" fill="#0F1820"/>
+  <rect x="80" y="96" width="44" height="28" rx="2" stroke="#3DDCFF" stroke-width="1.2" fill="#0B0F14"/>
+  <text x="90" y="115" fill="#3DDCFF" font-family="monospace" font-size="11">L</text>
+  <rect x="132" y="96" width="44" height="28" rx="2" stroke="#E8A54B" stroke-width="1.2" fill="#24180C"/>
+  <text x="140" y="115" fill="#E8A54B" font-family="monospace" font-size="11">Ctrl</text>
+  <rect x="184" y="96" width="44" height="28" rx="2" stroke="#8B9BB4" stroke-width="1.2" fill="#121821"/>
+  <text x="194" y="115" fill="#8B9BB4" font-family="monospace" font-size="11">Esc</text>
+  <path d="M80 144h148" stroke="#2A3441" stroke-width="1"/>
+  <text x="80" y="172" fill="#E8EEF5" font-family="sans-serif" font-size="13">CAD users</text>
+  <text x="80" y="190" fill="#8B9BB4" font-family="monospace" font-size="10">same commands</text>
+  <!-- SaaS / collaboration -->
+  <rect x="334" y="72" width="250" height="128" rx="4" stroke="#E8A54B" stroke-width="1.5" fill="#14100A"/>
+  <rect x="358" y="96" width="90" height="52" rx="3" stroke="#E8A54B" stroke-width="1.2" fill="#0B0F14"/>
+  <path d="M372 116h62M372 130h44" stroke="#E8A54B" stroke-width="1.2" stroke-linecap="round"/>
+  <rect x="462" y="96" width="90" height="52" rx="3" stroke="#8B9BB4" stroke-width="1.2" fill="#0B0F14"/>
+  <path d="M476 112 L500 136 L536 108" stroke="#3DDCFF" stroke-width="1.5" fill="none"/>
+  <text x="358" y="172" fill="#E8EEF5" font-family="sans-serif" font-size="13">SaaS / collab</text>
+  <text x="358" y="190" fill="#8B9BB4" font-family="monospace" font-size="10">edit in browser</text>
+  <!-- Manufacturing / AEC field -->
+  <rect x="56" y="220" width="250" height="128" rx="4" stroke="#22C55E" stroke-width="1.5" fill="#0C1410"/>
+  <rect x="88" y="248" width="52" height="72" rx="6" stroke="#22C55E" stroke-width="1.5" fill="#0B0F14"/>
+  <rect x="96" y="256" width="36" height="48" rx="2" stroke="#2A3441" stroke-width="1" fill="#0F1820"/>
+  <path d="M104 276h20M104 288h14" stroke="#22C55E" stroke-width="1.2"/>
+  <path d="M160 264h100M160 284h80M160 304h88" stroke="#8B9BB4" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="80" y="340" fill="#E8EEF5" font-family="sans-serif" font-size="13">Field / AEC</text>
+  <!-- Privacy-first -->
+  <rect x="334" y="220" width="250" height="128" rx="4" stroke="#8B9BB4" stroke-width="1.5" fill="#0F1820"/>
+  <path d="M430 268v-14c0-14 11-25 25-25s25 11 25 25v14" stroke="#8B9BB4" stroke-width="1.5"/>
+  <rect x="422" y="268" width="66" height="28" rx="4" stroke="#3DDCFF" stroke-width="1.5" fill="#0B0F14"/>
+  <circle cx="455" cy="280" r="5" stroke="#3DDCFF" stroke-width="1.2"/>
+  <text x="358" y="340" fill="#E8EEF5" font-family="sans-serif" font-size="13">Privacy-first</text>
+  <text x="40" y="36" fill="#8B9BB4" font-family="monospace" font-size="11" letter-spacing="2">WHO IT'S FOR</text>
+</svg>

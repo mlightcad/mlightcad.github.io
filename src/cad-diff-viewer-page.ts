@@ -77,13 +77,6 @@ function renderBody(): void {
     )
     .join('\n')
 
-  const related = d.related
-    .map(
-      (link) =>
-        `<a href="${link.href}" target="_blank" rel="noopener"><strong>${link.name}</strong><span>${link.desc}</span></a>`,
-    )
-    .join('')
-
   root.innerHTML = [
     `<section class="doc-block reveal" id="highlights">`,
     `  <p class="eyebrow">${d.featuresEyebrow}</p>`,
@@ -107,10 +100,6 @@ function renderBody(): void {
     `    <a class="btn btn--primary btn--glow" href="${d.demoHref}" target="_blank" rel="noopener">${d.demoCta}</a>`,
     `    <a class="btn btn--ghost" href="${d.githubHref}" target="_blank" rel="noopener">${d.githubCta}</a>`,
     `  </div>`,
-    `</section>`,
-    `<section class="doc-block reveal" id="related">`,
-    `  <h2>${d.relatedTitle}</h2>`,
-    `  <div class="resource-grid">${related}</div>`,
     `</section>`,
   ].join('\n')
 }

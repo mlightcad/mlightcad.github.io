@@ -26,7 +26,7 @@ export type ViewerOpenMode = 'read' | 'review' | 'write'
 export interface EnsureViewerOptions {
   /** UI theme applied to the host element. */
   theme?: AcEdUiTheme
-  /** Viewer UI locale (`en`, `zh`, `tr`, or `cs`). */
+  /** Viewer UI locale (`en`, `zh`, `tr`, `cs`, or `ar`). */
   lang?: AcApLocale
   /** Whether to show the toolbar. */
   toolbar?: boolean
@@ -134,6 +134,7 @@ export function parseViewerLocale(raw: string | null | undefined): AcApLocale {
   if (value === 'zh' || value.startsWith('zh-')) return 'zh'
   if (value === 'tr' || value.startsWith('tr-')) return 'tr'
   if (value === 'cs' || value.startsWith('cs-')) return 'cs'
+  if (value === 'ar' || value.startsWith('ar-')) return 'ar'
   return 'en'
 }
 

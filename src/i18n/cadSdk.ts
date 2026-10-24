@@ -20,9 +20,8 @@ export interface CadSdkCopy {
   capabilities: string[]
   pathsTitle: string
   pathsLead: string
-  paths: { title: string; body: string; href: string; cta: string }[]
-  relatedTitle: string
-  related: { name: string; desc: string; href: string }[]
+  /** Stable id maps to homepage icon under `/assets/products/` or `/assets/resources/`. */
+  paths: { id: string; title: string; body: string; href: string; cta: string }[]
 }
 
 const IFRAME_SNIPPET = `<iframe
@@ -62,33 +61,37 @@ export const cadSdkEn: CadSdkCopy = {
     'Custom UI via plugins or your own chrome',
   ],
   pathsTitle: 'Pick an integration path',
-  pathsLead: 'Start with the lightest embed, then deepen into the full viewer or commercial DWG engine as your product needs grow.',
+  pathsLead:
+    'Start with CAD Viewer or CAD Editor, then embed with the iframe plugin or go commercial with the DWG engine.',
   paths: [
     {
+      id: 'cad-viewer',
+      title: 'CAD Viewer',
+      body: 'Browser-native DWG/DXF viewing and review — measure, layers, and markup without a desktop seat.',
+      href: '/cad-viewer.html',
+      cta: 'Learn more',
+    },
+    {
+      id: 'cad-editor',
+      title: 'CAD Editor',
+      body: 'AutoCAD-like editing in the browser — the same commands and shortcuts, almost no learning curve.',
+      href: '/cad-editor.html',
+      cta: 'Learn more',
+    },
+    {
+      id: 'iframe-plugin',
       title: 'iframe Plugin',
       body: 'Fastest path: drop an iframe, control mode, locale, and chrome with query params.',
       href: '/iframe-plugin.html',
       cta: 'Open guide',
     },
     {
-      title: 'CAD Viewer',
-      body: 'Full browser CAD experience — view, review markup, and edit with the flagship app.',
-      href: 'https://mlightcad.github.io/cad-viewer/',
-      cta: 'Live demo',
-    },
-    {
+      id: 'dwg-engine',
       title: 'DWG Engine',
       body: 'Commercial parsing for closed-source redistribution, SaaS, and OEM.',
       href: '/dwg-engine.html',
       cta: 'Learn more',
     },
-  ],
-  relatedTitle: 'Related',
-  related: [
-    { name: 'Tutorials', desc: 'Videos and walkthroughs', href: '/tutorial.html' },
-    { name: 'Use cases', desc: 'Where teams embed CAD', href: '/use-cases.html' },
-    { name: 'Commercial licensing', desc: 'Open source vs commercial', href: '/commercial.html' },
-    { name: 'GitHub', desc: 'mlightcad/cad-viewer', href: 'https://github.com/mlightcad/cad-viewer' },
   ],
 }
 
@@ -117,33 +120,36 @@ export const cadSdkZh: CadSdkCopy = {
     '通过插件或自建界面自定义 UI',
   ],
   pathsTitle: '选择集成路径',
-  pathsLead: '从最轻的嵌入开始，随着产品需求加深到完整 Viewer 或商用 DWG Engine。',
+  pathsLead: '从 CAD Viewer 或 CAD Editor 开始，再用 iframe 插件嵌入，或选用商用 DWG Engine。',
   paths: [
     {
+      id: 'cad-viewer',
+      title: 'CAD Viewer',
+      body: '浏览器原生 DWG/DXF 查看与审阅 — 测量、图层与批注，无需桌面席位。',
+      href: '/cad-viewer.html',
+      cta: '了解更多',
+    },
+    {
+      id: 'cad-editor',
+      title: 'CAD Editor',
+      body: '浏览器中的类 AutoCAD 编辑 — 相同命令与快捷键，几乎零学习成本。',
+      href: '/cad-editor.html',
+      cta: '了解更多',
+    },
+    {
+      id: 'iframe-plugin',
       title: 'iframe 插件',
       body: '最快路径：放入 iframe，用查询参数控制模式、语言与界面。',
       href: '/iframe-plugin.html',
       cta: '打开指南',
     },
     {
-      title: 'CAD Viewer',
-      body: '完整浏览器 CAD 体验 — 查看、批注审阅与编辑。',
-      href: 'https://mlightcad.github.io/cad-viewer/',
-      cta: '在线演示',
-    },
-    {
+      id: 'dwg-engine',
       title: 'DWG Engine',
       body: '面向闭源再分发、SaaS 与 OEM 的商用解析。',
       href: '/dwg-engine.html',
       cta: '了解更多',
     },
-  ],
-  relatedTitle: '相关',
-  related: [
-    { name: '教程', desc: '视频与操作指南', href: '/tutorial.html' },
-    { name: '用例', desc: '团队如何嵌入 CAD', href: '/use-cases.html' },
-    { name: '商业授权', desc: '开源与商业对照', href: '/commercial.html' },
-    { name: 'GitHub', desc: 'mlightcad/cad-viewer', href: 'https://github.com/mlightcad/cad-viewer' },
   ],
 }
 
@@ -171,33 +177,36 @@ export const cadSdkJa: CadSdkCopy = {
     'プラグインや独自 UI でカスタム',
   ],
   pathsTitle: '統合パスを選ぶ',
-  pathsLead: '最も軽い埋め込みから始め、必要に応じてフル Viewer や商用 DWG Engine へ深めます。',
+  pathsLead: 'CAD Viewer または CAD Editor から始め、iframe プラグインで埋め込み、必要なら商用 DWG Engine へ。',
   paths: [
     {
+      id: 'cad-viewer',
+      title: 'CAD Viewer',
+      body: 'ブラウザネイティブの DWG/DXF 表示とレビュー — 計測・レイヤー・マークアップ、デスクトップ席不要。',
+      href: '/cad-viewer.html',
+      cta: '詳しく',
+    },
+    {
+      id: 'cad-editor',
+      title: 'CAD Editor',
+      body: 'ブラウザで AutoCAD ライクな編集 — 同じコマンドとショートカット、ほぼ学習コストなし。',
+      href: '/cad-editor.html',
+      cta: '詳しく',
+    },
+    {
+      id: 'iframe-plugin',
       title: 'iframe プラグイン',
       body: '最速: iframe を置き、クエリでモード・言語・UI を制御。',
       href: '/iframe-plugin.html',
       cta: 'ガイドを開く',
     },
     {
-      title: 'CAD Viewer',
-      body: 'フルブラウザ CAD — 表示、レビュー、編集。',
-      href: 'https://mlightcad.github.io/cad-viewer/',
-      cta: 'ライブデモ',
-    },
-    {
+      id: 'dwg-engine',
       title: 'DWG Engine',
       body: 'クローズドソース再配布・SaaS・OEM 向け商用解析。',
       href: '/dwg-engine.html',
       cta: '詳しく',
     },
-  ],
-  relatedTitle: '関連',
-  related: [
-    { name: 'チュートリアル', desc: '動画と手順', href: '/tutorial.html' },
-    { name: 'ユースケース', desc: 'チームが CAD を埋め込む場所', href: '/use-cases.html' },
-    { name: '商用ライセンス', desc: 'OSS と商用の比較', href: '/commercial.html' },
-    { name: 'GitHub', desc: 'mlightcad/cad-viewer', href: 'https://github.com/mlightcad/cad-viewer' },
   ],
 }
 
@@ -225,33 +234,36 @@ export const cadSdkKo: CadSdkCopy = {
     '플러그인 또는 자체 UI로 커스터마이즈',
   ],
   pathsTitle: '통합 경로 선택',
-  pathsLead: '가장 가벼운 임베드부터 시작하고, 필요에 따라 풀 Viewer나 상용 DWG Engine으로 깊이 들어가세요.',
+  pathsLead: 'CAD Viewer 또는 CAD Editor로 시작한 뒤, iframe 플러그인으로 임베드하거나 상용 DWG Engine을 사용하세요.',
   paths: [
     {
+      id: 'cad-viewer',
+      title: 'CAD Viewer',
+      body: '브라우저 네이티브 DWG/DXF 보기·리뷰 — 측정·레이어·마크업, 데스크톱 시트 불필요.',
+      href: '/cad-viewer.html',
+      cta: '자세히',
+    },
+    {
+      id: 'cad-editor',
+      title: 'CAD Editor',
+      body: '브라우저에서 AutoCAD 같은 편집 — 동일한 명령과 단축키, 거의 학습 비용 없음.',
+      href: '/cad-editor.html',
+      cta: '자세히',
+    },
+    {
+      id: 'iframe-plugin',
       title: 'iframe 플러그인',
       body: '가장 빠름: iframe을 넣고 쿼리로 모드·언어·UI를 제어.',
       href: '/iframe-plugin.html',
       cta: '가이드 열기',
     },
     {
-      title: 'CAD Viewer',
-      body: '풀 브라우저 CAD — 보기, 리뷰 마크업, 편집.',
-      href: 'https://mlightcad.github.io/cad-viewer/',
-      cta: '라이브 데모',
-    },
-    {
+      id: 'dwg-engine',
       title: 'DWG Engine',
       body: '클로즈드소스 재배포·SaaS·OEM용 상용 파싱.',
       href: '/dwg-engine.html',
       cta: '자세히',
     },
-  ],
-  relatedTitle: '관련',
-  related: [
-    { name: '튜토리얼', desc: '영상과 안내', href: '/tutorial.html' },
-    { name: '사용 사례', desc: '팀이 CAD를 임베드하는 곳', href: '/use-cases.html' },
-    { name: '상용 라이선스', desc: '오픈소스 vs 상용', href: '/commercial.html' },
-    { name: 'GitHub', desc: 'mlightcad/cad-viewer', href: 'https://github.com/mlightcad/cad-viewer' },
   ],
 }
 
@@ -279,33 +291,37 @@ export const cadSdkEs: CadSdkCopy = {
     'UI personalizada vía plugins o su propio chrome',
   ],
   pathsTitle: 'Elija una vía de integración',
-  pathsLead: 'Empiece por el embed más ligero y profundice en el viewer completo o el motor DWG comercial según crezca el producto.',
+  pathsLead:
+    'Empiece con CAD Viewer o CAD Editor, luego incruste con el plugin iframe o pase al DWG Engine comercial.',
   paths: [
     {
+      id: 'cad-viewer',
+      title: 'CAD Viewer',
+      body: 'Visualización y revisión DWG/DXF nativas del navegador — medición, capas y markup sin licencia de escritorio.',
+      href: '/cad-viewer.html',
+      cta: 'Saber más',
+    },
+    {
+      id: 'cad-editor',
+      title: 'CAD Editor',
+      body: 'Edición tipo AutoCAD en el navegador — mismos comandos y atajos, casi sin curva de aprendizaje.',
+      href: '/cad-editor.html',
+      cta: 'Saber más',
+    },
+    {
+      id: 'iframe-plugin',
       title: 'Plugin iframe',
       body: 'Vía más rápida: un iframe y query params para modo, idioma y chrome.',
       href: '/iframe-plugin.html',
       cta: 'Abrir guía',
     },
     {
-      title: 'CAD Viewer',
-      body: 'Experiencia CAD completa en el navegador — ver, revisar y editar.',
-      href: 'https://mlightcad.github.io/cad-viewer/',
-      cta: 'Demo en vivo',
-    },
-    {
+      id: 'dwg-engine',
       title: 'DWG Engine',
       body: 'Análisis comercial para redistribución closed-source, SaaS y OEM.',
       href: '/dwg-engine.html',
       cta: 'Saber más',
     },
-  ],
-  relatedTitle: 'Relacionado',
-  related: [
-    { name: 'Tutoriales', desc: 'Vídeos y guías', href: '/tutorial.html' },
-    { name: 'Casos de uso', desc: 'Dónde los equipos incrustan CAD', href: '/use-cases.html' },
-    { name: 'Licencias comerciales', desc: 'Open source vs comercial', href: '/commercial.html' },
-    { name: 'GitHub', desc: 'mlightcad/cad-viewer', href: 'https://github.com/mlightcad/cad-viewer' },
   ],
 }
 
@@ -333,33 +349,37 @@ export const cadSdkPt: CadSdkCopy = {
     'UI custom via plugins ou seu próprio chrome',
   ],
   pathsTitle: 'Escolha um caminho de integração',
-  pathsLead: 'Comece pelo embed mais leve e aprofunde no viewer completo ou no motor DWG comercial conforme o produto cresce.',
+  pathsLead:
+    'Comece com CAD Viewer ou CAD Editor, depois incorpore com o plugin iframe ou use o DWG Engine comercial.',
   paths: [
     {
+      id: 'cad-viewer',
+      title: 'CAD Viewer',
+      body: 'Visualização e revisão DWG/DXF nativas do navegador — medição, camadas e markup sem seat de desktop.',
+      href: '/cad-viewer.html',
+      cta: 'Saiba mais',
+    },
+    {
+      id: 'cad-editor',
+      title: 'CAD Editor',
+      body: 'Edição estilo AutoCAD no navegador — os mesmos comandos e atalhos, quase sem curva de aprendizado.',
+      href: '/cad-editor.html',
+      cta: 'Saiba mais',
+    },
+    {
+      id: 'iframe-plugin',
       title: 'Plugin iframe',
       body: 'Caminho mais rápido: um iframe e query params para modo, idioma e chrome.',
       href: '/iframe-plugin.html',
       cta: 'Abrir guia',
     },
     {
-      title: 'CAD Viewer',
-      body: 'Experiência CAD completa no navegador — ver, revisar e editar.',
-      href: 'https://mlightcad.github.io/cad-viewer/',
-      cta: 'Demo ao vivo',
-    },
-    {
+      id: 'dwg-engine',
       title: 'DWG Engine',
       body: 'Parsing comercial para redistribuição closed-source, SaaS e OEM.',
       href: '/dwg-engine.html',
       cta: 'Saiba mais',
     },
-  ],
-  relatedTitle: 'Relacionado',
-  related: [
-    { name: 'Tutoriais', desc: 'Vídeos e guias', href: '/tutorial.html' },
-    { name: 'Casos de uso', desc: 'Onde times incorporam CAD', href: '/use-cases.html' },
-    { name: 'Licenciamento comercial', desc: 'Open source vs comercial', href: '/commercial.html' },
-    { name: 'GitHub', desc: 'mlightcad/cad-viewer', href: 'https://github.com/mlightcad/cad-viewer' },
   ],
 }
 
@@ -387,33 +407,37 @@ export const cadSdkRu: CadSdkCopy = {
     'Свой UI через плагины или собственный chrome',
   ],
   pathsTitle: 'Выберите путь интеграции',
-  pathsLead: 'Начните с самого лёгкого embed и углубляйтесь в полный viewer или коммерческий DWG Engine по мере роста продукта.',
+  pathsLead:
+    'Начните с CAD Viewer или CAD Editor, затем встройте через iframe-плагин или перейдите к коммерческому DWG Engine.',
   paths: [
     {
+      id: 'cad-viewer',
+      title: 'CAD Viewer',
+      body: 'Браузерный просмотр и review DWG/DXF — измерение, слои и markup без desktop-лицензии.',
+      href: '/cad-viewer.html',
+      cta: 'Подробнее',
+    },
+    {
+      id: 'cad-editor',
+      title: 'CAD Editor',
+      body: 'Редактирование в стиле AutoCAD в браузере — те же команды и шорткаты, почти без обучения.',
+      href: '/cad-editor.html',
+      cta: 'Подробнее',
+    },
+    {
+      id: 'iframe-plugin',
       title: 'iframe Plugin',
       body: 'Самый быстрый путь: iframe и query-параметры для режима, локали и chrome.',
       href: '/iframe-plugin.html',
       cta: 'Открыть гайд',
     },
     {
-      title: 'CAD Viewer',
-      body: 'Полный браузерный CAD — просмотр, review и редактирование.',
-      href: 'https://mlightcad.github.io/cad-viewer/',
-      cta: 'Демо',
-    },
-    {
+      id: 'dwg-engine',
       title: 'DWG Engine',
       body: 'Коммерческий парсинг для закрытого распространения, SaaS и OEM.',
       href: '/dwg-engine.html',
       cta: 'Подробнее',
     },
-  ],
-  relatedTitle: 'Связанное',
-  related: [
-    { name: 'Туториалы', desc: 'Видео и гайды', href: '/tutorial.html' },
-    { name: 'Сценарии', desc: 'Куда команды встраивают CAD', href: '/use-cases.html' },
-    { name: 'Коммерческие лицензии', desc: 'Open source и коммерция', href: '/commercial.html' },
-    { name: 'GitHub', desc: 'mlightcad/cad-viewer', href: 'https://github.com/mlightcad/cad-viewer' },
   ],
 }
 
@@ -441,32 +465,36 @@ export const cadSdkCs: CadSdkCopy = {
     'Vlastní UI přes pluginy nebo vlastní chrome',
   ],
   pathsTitle: 'Zvolte cestu integrace',
-  pathsLead: 'Začněte nejlehčím embedem a prohlubujte do plného vieweru nebo komerčního DWG Engine podle růstu produktu.',
+  pathsLead:
+    'Začněte s CAD Viewer nebo CAD Editor, pak vložte přes iframe plugin nebo přejděte na komerční DWG Engine.',
   paths: [
     {
+      id: 'cad-viewer',
+      title: 'CAD Viewer',
+      body: 'Prohlížení a review DWG/DXF v prohlížeči — měření, vrstvy a markup bez desktop licence.',
+      href: '/cad-viewer.html',
+      cta: 'Zjistit více',
+    },
+    {
+      id: 'cad-editor',
+      title: 'CAD Editor',
+      body: 'Editace ve stylu AutoCAD v prohlížeči — stejné příkazy a zkratky, téměř bez učení.',
+      href: '/cad-editor.html',
+      cta: 'Zjistit více',
+    },
+    {
+      id: 'iframe-plugin',
       title: 'iframe Plugin',
       body: 'Nejrychlejší cesta: iframe a query parametry pro režim, jazyk a chrome.',
       href: '/iframe-plugin.html',
       cta: 'Otevřít průvodce',
     },
     {
-      title: 'CAD Viewer',
-      body: 'Plný prohlížečový CAD — prohlížení, review a editace.',
-      href: 'https://mlightcad.github.io/cad-viewer/',
-      cta: 'Živé demo',
-    },
-    {
+      id: 'dwg-engine',
       title: 'DWG Engine',
       body: 'Komerční parsing pro closed-source redistribuci, SaaS a OEM.',
       href: '/dwg-engine.html',
       cta: 'Zjistit více',
     },
-  ],
-  relatedTitle: 'Související',
-  related: [
-    { name: 'Tutoriály', desc: 'Videa a návody', href: '/tutorial.html' },
-    { name: 'Případy použití', desc: 'Kam týmy vkládají CAD', href: '/use-cases.html' },
-    { name: 'Komerční licence', desc: 'Open source vs komerční', href: '/commercial.html' },
-    { name: 'GitHub', desc: 'mlightcad/cad-viewer', href: 'https://github.com/mlightcad/cad-viewer' },
   ],
 }

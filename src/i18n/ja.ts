@@ -1,6 +1,6 @@
 import { benchmarksJa } from './benchmarks'
 import { cadDiffViewerJa } from './cadDiffViewer'
-import { cadEditorEn } from './cadEditor'
+import { cadEditorJa } from './cadEditor'
 import { cadSdkJa } from './cadSdk'
 import { commercialJa } from './commercial'
 import { iframePluginJa } from './iframePlugin'
@@ -374,10 +374,10 @@ export const ja: Dictionary = {
     lead: '同じブラウザネイティブ CAD エンジンが製品群を支えます — Viewer、Editor、SDK、商用 Engine。',
     items: [
       { id: 'cad-viewer', name: 'CAD Viewer', desc: 'ブラウザで DWG/DXF を表示・レビュー', href: '/cad-viewer.html' },
+      { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'ブラウザで改訂を比較', href: '/cad-diff-viewer.html' },
       { id: 'cad-editor', name: 'CAD Editor', desc: 'ブラウザ完結の図面編集', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: '製品に DWG/DXF を埋め込む', href: '/cad-sdk.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: '商用本番向け DWG', href: '/dwg-engine.html' },
-      { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'ブラウザで改訂を比較', href: '/cad-diff-viewer.html' },
       { id: 'dwg-to-html', name: 'DWG to HTML', desc: '自己完結のオフライン HTML を書き出し', href: '/cad-viewer/cad-simple-viewer/html-converter.html' },
     ],
   },
@@ -410,7 +410,7 @@ export const ja: Dictionary = {
   parser: parserJa,
   iframePlugin: iframePluginJa,
   cadDiffViewer: cadDiffViewerJa,
-  cadEditor: cadEditorEn,
+  cadEditor: cadEditorJa,
   tutorial: tutorialJa,
   commercial: commercialJa,
   cadSdk: cadSdkJa,

@@ -1,6 +1,6 @@
 import { benchmarksZh } from './benchmarks'
 import { cadDiffViewerZh } from './cadDiffViewer'
-import { cadEditorEn } from './cadEditor'
+import { cadEditorZh } from './cadEditor'
 import { cadSdkZh } from './cadSdk'
 import { commercialZh } from './commercial'
 import { iframePluginZh } from './iframePlugin'
@@ -215,6 +215,12 @@ export const zh: Dictionary = {
         href: '/cad-viewer.html',
       },
       {
+        id: 'cad-diff-viewer',
+        name: 'CAD Diff Viewer',
+        desc: '在浏览器中对比图纸修订',
+        href: '/cad-diff-viewer.html',
+      },
+      {
         id: 'cad-editor',
         name: 'CAD Editor',
         desc: '在浏览器中完整编辑图纸',
@@ -231,12 +237,6 @@ export const zh: Dictionary = {
         name: 'DWG Engine',
         desc: '面向生产的商用 DWG',
         href: '/dwg-engine.html',
-      },
-      {
-        id: 'cad-diff-viewer',
-        name: 'CAD Diff Viewer',
-        desc: '在浏览器中对比图纸修订',
-        href: '/cad-diff-viewer.html',
       },
       {
         id: 'dwg-to-html',
@@ -330,7 +330,7 @@ export const zh: Dictionary = {
   parser: parserZh,
   iframePlugin: iframePluginZh,
   cadDiffViewer: cadDiffViewerZh,
-  cadEditor: cadEditorEn,
+  cadEditor: cadEditorZh,
   tutorial: tutorialZh,
   commercial: commercialZh,
   cadSdk: cadSdkZh,

@@ -225,6 +225,12 @@ export const en: Dictionary = {
         href: '/cad-viewer.html',
       },
       {
+        id: 'cad-diff-viewer',
+        name: 'CAD Diff Viewer',
+        desc: 'Compare drawing revisions in the browser',
+        href: '/cad-diff-viewer.html',
+      },
+      {
         id: 'cad-editor',
         name: 'CAD Editor',
         desc: 'Edit drawings entirely in the browser',
@@ -241,12 +247,6 @@ export const en: Dictionary = {
         name: 'DWG Engine',
         desc: 'Commercial production DWG',
         href: '/dwg-engine.html',
-      },
-      {
-        id: 'cad-diff-viewer',
-        name: 'CAD Diff Viewer',
-        desc: 'Compare drawing revisions in the browser',
-        href: '/cad-diff-viewer.html',
       },
       {
         id: 'dwg-to-html',

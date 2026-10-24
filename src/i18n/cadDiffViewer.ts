@@ -35,16 +35,11 @@ export interface CadDiffViewerCopy {
   useCases: string[]
   ctaTitle: string
   ctaLead: string
-  relatedTitle: string
-  related: { name: string; desc: string; href: string }[]
 }
 
 const DEMO_HREF = 'https://mlightcad.com/cad-viewer/cad-diff-viewer/'
 const GITHUB_HREF =
   'https://github.com/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer'
-const NPM_HREF = 'https://www.npmjs.com/package/@mlightcad/cad-diff-viewer'
-const DOCS_HREF =
-  'https://cad-viewer.readthedocs.io/en/latest/modules/_mlightcad_cad-diff-viewer.html'
 
 const FEATURE_IMAGES = {
   visualDiff: '/assets/diff-viewer/visual-diff.svg',
@@ -55,27 +50,6 @@ const FEATURE_IMAGES = {
 } as const
 
 const USE_CASES_IMAGE = '/assets/diff-viewer/use-cases.svg'
-
-/**
- * Shared related-link destinations with localized labels.
- *
- * @param labels - Localized name/desc pairs for each related link.
- */
-function relatedLinks(labels: {
-  demo: { name: string; desc: string }
-  viewer: { name: string; desc: string }
-  npm: { name: string; desc: string }
-  docs: { name: string; desc: string }
-  github: { name: string; desc: string }
-}): CadDiffViewerCopy['related'] {
-  return [
-    { ...labels.demo, href: DEMO_HREF },
-    { ...labels.viewer, href: 'https://mlightcad.github.io/cad-viewer/' },
-    { ...labels.npm, href: NPM_HREF },
-    { ...labels.docs, href: DOCS_HREF },
-    { ...labels.github, href: GITHUB_HREF },
-  ]
-}
 
 export const cadDiffViewerEn: CadDiffViewerCopy = {
   metaTitle: 'CAD Diff Viewer — Compare DWG/DXF Revisions in the Browser | MLightCAD',
@@ -151,17 +125,6 @@ export const cadDiffViewerEn: CadDiffViewerCopy = {
   ],
   ctaTitle: 'Ready to compare your first revision pair?',
   ctaLead: 'Open the live demo in your browser — no install, no account, no upload.',
-  relatedTitle: 'Explore further',
-  related: relatedLinks({
-    demo: { name: 'Live Demo', desc: 'Compare two DWG/DXF files now' },
-    viewer: { name: 'CAD-Viewer', desc: 'Full browser DWG/DXF viewer & editor' },
-    npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
-    docs: { name: 'API Docs', desc: 'Integration reference on Read the Docs' },
-    github: {
-      name: 'GitHub',
-      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
-    },
-  }),
 }
 
 export const cadDiffViewerZh: CadDiffViewerCopy = {
@@ -236,17 +199,6 @@ export const cadDiffViewerZh: CadDiffViewerCopy = {
   ],
   ctaTitle: '准备好对比第一份修订版了吗？',
   ctaLead: '在浏览器中打开在线演示 — 无需安装、无需账号、无需上传。',
-  relatedTitle: '延伸阅读',
-  related: relatedLinks({
-    demo: { name: '在线演示', desc: '立即对比两份 DWG/DXF' },
-    viewer: { name: 'CAD-Viewer', desc: '完整浏览器 DWG/DXF 查看与编辑' },
-    npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
-    docs: { name: 'API 文档', desc: 'Read the Docs 集成参考' },
-    github: {
-      name: 'GitHub',
-      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
-    },
-  }),
 }
 
 export const cadDiffViewerJa: CadDiffViewerCopy = {
@@ -323,17 +275,6 @@ export const cadDiffViewerJa: CadDiffViewerCopy = {
   ],
   ctaTitle: '最初の改訂ペアを比較してみませんか？',
   ctaLead: 'ブラウザでライブデモを開くだけ — インストール不要、アカウント不要、アップロード不要。',
-  relatedTitle: '関連リンク',
-  related: relatedLinks({
-    demo: { name: 'ライブデモ', desc: '今すぐ DWG/DXF を2つ比較' },
-    viewer: { name: 'CAD-Viewer', desc: 'ブラウザ完結の DWG/DXF ビューア＆エディタ' },
-    npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
-    docs: { name: 'API ドキュメント', desc: 'Read the Docs の統合リファレンス' },
-    github: {
-      name: 'GitHub',
-      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
-    },
-  }),
 }
 
 export const cadDiffViewerKo: CadDiffViewerCopy = {
@@ -410,17 +351,6 @@ export const cadDiffViewerKo: CadDiffViewerCopy = {
   ],
   ctaTitle: '첫 개정본 쌍을 비교해 볼까요?',
   ctaLead: '브라우저에서 라이브 데모를 여세요 — 설치·계정·업로드 불필요.',
-  relatedTitle: '더 알아보기',
-  related: relatedLinks({
-    demo: { name: '라이브 데모', desc: '지금 DWG/DXF 두 파일 비교' },
-    viewer: { name: 'CAD-Viewer', desc: '브라우저 DWG/DXF 뷰어 & 에디터' },
-    npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
-    docs: { name: 'API 문서', desc: 'Read the Docs 통합 레퍼런스' },
-    github: {
-      name: 'GitHub',
-      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
-    },
-  }),
 }
 
 export const cadDiffViewerEs: CadDiffViewerCopy = {
@@ -497,17 +427,6 @@ export const cadDiffViewerEs: CadDiffViewerCopy = {
   ],
   ctaTitle: '¿Listo para comparar tu primer par de revisiones?',
   ctaLead: 'Abre la demo en vivo en el navegador — sin instalación, sin cuenta, sin subidas.',
-  relatedTitle: 'Explorar más',
-  related: relatedLinks({
-    demo: { name: 'Demo en vivo', desc: 'Compara dos DWG/DXF ahora' },
-    viewer: { name: 'CAD-Viewer', desc: 'Visor y editor DWG/DXF completo en el navegador' },
-    npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
-    docs: { name: 'Docs API', desc: 'Referencia de integración en Read the Docs' },
-    github: {
-      name: 'GitHub',
-      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
-    },
-  }),
 }
 
 export const cadDiffViewerPt: CadDiffViewerCopy = {
@@ -584,17 +503,6 @@ export const cadDiffViewerPt: CadDiffViewerCopy = {
   ],
   ctaTitle: 'Pronto para comparar seu primeiro par de revisões?',
   ctaLead: 'Abra a demo ao vivo no navegador — sem instalação, sem conta, sem upload.',
-  relatedTitle: 'Explorar mais',
-  related: relatedLinks({
-    demo: { name: 'Demo ao vivo', desc: 'Compare dois DWG/DXF agora' },
-    viewer: { name: 'CAD-Viewer', desc: 'Visualizador e editor DWG/DXF completo no navegador' },
-    npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
-    docs: { name: 'Docs da API', desc: 'Referência de integração no Read the Docs' },
-    github: {
-      name: 'GitHub',
-      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
-    },
-  }),
 }
 
 export const cadDiffViewerRu: CadDiffViewerCopy = {
@@ -671,17 +579,6 @@ export const cadDiffViewerRu: CadDiffViewerCopy = {
   ],
   ctaTitle: 'Готовы сравнить первую пару ревизий?',
   ctaLead: 'Откройте живое демо в браузере — без установки, аккаунта и загрузки.',
-  relatedTitle: 'Узнать больше',
-  related: relatedLinks({
-    demo: { name: 'Живое демо', desc: 'Сравните два DWG/DXF прямо сейчас' },
-    viewer: { name: 'CAD-Viewer', desc: 'Полный браузерный DWG/DXF просмотрщик и редактор' },
-    npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
-    docs: { name: 'API Docs', desc: 'Справка по интеграции на Read the Docs' },
-    github: {
-      name: 'GitHub',
-      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
-    },
-  }),
 }
 
 export const cadDiffViewerCs: CadDiffViewerCopy = {
@@ -758,15 +655,4 @@ export const cadDiffViewerCs: CadDiffViewerCopy = {
   ],
   ctaTitle: 'Připraveni porovnat první pár revizí?',
   ctaLead: 'Otevřete live demo v prohlížeči — bez instalace, účtu i uploadu.',
-  relatedTitle: 'Prozkoumat dál',
-  related: relatedLinks({
-    demo: { name: 'Live demo', desc: 'Porovnejte dva DWG/DXF teď' },
-    viewer: { name: 'CAD-Viewer', desc: 'Plný prohlížečový DWG/DXF prohlížeč a editor' },
-    npm: { name: 'npm', desc: '@mlightcad/cad-diff-viewer' },
-    docs: { name: 'API docs', desc: 'Integrační reference na Read the Docs' },
-    github: {
-      name: 'GitHub',
-      desc: '/mlightcad/cad-viewer/tree/main/packages/cad-diff-viewer',
-    },
-  }),
 }
