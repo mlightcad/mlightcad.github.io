@@ -39,6 +39,12 @@ Satellite apps on the same origin (for example `https://mlightcad.com/onedrive/`
 <script type="module" src="https://mlightcad.com/site-chrome.js"></script>
 ```
 
+English-only hosts (for example the Demo Gallery) can lock chrome copy and hide the language switcher without overwriting the visitor’s stored site locale:
+
+```html
+<div data-site-nav data-locale-lock="en"></div>
+```
+
 Locally, run this site (`pnpm dev`) and point the satellite at `http://localhost:<port>/site-chrome.js`. The script injects CSS, nav/footer HTML, language switching, and mobile dropdowns.
 
 ## Trial license
