@@ -21,18 +21,30 @@
     "vite-plugin-static-copy": "^3.1.1"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.3.2",
     "@fontsource/ibm-plex-mono": "^5.3.0",
     "@fontsource/ibm-plex-sans": "^5.3.0",
     "@fontsource/syne": "^5.3.0",
+    "@mlightcad/cad-agent-plugin": "1.7.6",
+    "@mlightcad/cad-html-plugin": "1.7.6",
+    "@mlightcad/cad-pdf-plugin": "1.7.6",
     "@mlightcad/cad-simple-ui-plugin": "^1.7.6",
     "@mlightcad/cad-simple-viewer": "^1.7.6",
+    "@mlightcad/cad-svg-plugin": "1.7.6",
+    "@mlightcad/cad-viewer": "1.7.6",
     "@mlightcad/data-model": "1.15.10",
     "@mlightcad/dwg-converter": "https://npm.pkg.github.com/download/@mlightcad/dwg-converter/1.15.10/3b6466ad3be1211aa3236309592b3d6e8bc028db",
     "@mlightcad/mtext-parser": "1.5.5",
     "@mlightcad/mtext-renderer": "0.13.4",
+    "@mlightcad/pdf-renderer": "1.7.6",
     "@mlightcad/three-renderer": "1.7.6",
     "@paddle/paddle-js": "^1.6.4",
     "@supabase/supabase-js": "^2.112.3",
-    "three": "^0.172.0"
+    "@vueuse/core": "^11.3.0",
+    "element-plus": "^2.14.7",
+    "lodash-es": "4.17.21",
+    "three": "^0.172.0",
+    "vue": "^3.5.44",
+    "vue-i18n": "^11.4.16"
   }
 }

@@ -196,6 +196,7 @@ export function markActiveNav(
     | 'iframe-plugin'
     | 'cad-viewer'
     | 'cad-diff-viewer'
+    | 'cad-editor'
     | 'tutorial'
     | 'dwg-engine'
     | 'commercial'
@@ -206,6 +207,7 @@ export function markActiveNav(
   const matchers: Record<string, (href: string) => boolean> = {
     'cad-viewer': (href) => href.includes('cad-viewer.html'),
     'cad-diff-viewer': (href) => href.includes('cad-diff-viewer'),
+    'cad-editor': (href) => href.includes('cad-editor'),
     'iframe-plugin': (href) => href.includes('iframe-plugin'),
     'dwg-engine': (href) => href.includes('dwg-engine') && !href.includes('#pricing'),
     commercial: (href) => href.includes('commercial.html'),

@@ -321,10 +321,23 @@ export async function openDrawingFromBuffer(
   )
 }
 
-/** Show or hide command line + toolbar (used when entering/leaving fullscreen). */
-export function setViewerChromeVisible(visible: boolean): void {
+/**
+ * Show or hide command line + toolbar (used when entering/leaving fullscreen).
+ *
+ * @param visible - When `true`, show both chrome surfaces. When `false`, restore
+ *   `prefs` (or hide both when prefs are omitted — homepage viewer default).
+ * @param prefs - Preferred chrome outside fullscreen (e.g. write-mode toolbar).
+ */
+export function setViewerChromeVisible(
+  visible: boolean,
+  prefs?: { commandLine?: boolean; toolbar?: boolean },
+): void {
   if (!initialized) return
-  applyChromeVisibility(visible, visible)
+  if (visible) {
+    applyChromeVisibility(true, true)
+    return
+  }
+  applyChromeVisibility(prefs?.commandLine ?? false, prefs?.toolbar ?? false)
 }
 
 export function isViewerInitialized(): boolean {

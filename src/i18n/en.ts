@@ -1,5 +1,6 @@
 import { benchmarksEn } from './benchmarks'
 import { cadDiffViewerEn } from './cadDiffViewer'
+import { cadEditorEn } from './cadEditor'
 import { cadSdkEn } from './cadSdk'
 import { commercialEn } from './commercial'
 import { iframePluginEn } from './iframePlugin'
@@ -227,7 +228,7 @@ export const en: Dictionary = {
         id: 'cad-editor',
         name: 'CAD Editor',
         desc: 'Edit drawings entirely in the browser',
-        href: 'https://mlightcad.github.io/cad-viewer/',
+        href: '/cad-editor.html',
       },
       {
         id: 'cad-sdk',
@@ -339,6 +340,7 @@ export const en: Dictionary = {
   parser: parserEn,
   iframePlugin: iframePluginEn,
   cadDiffViewer: cadDiffViewerEn,
+  cadEditor: cadEditorEn,
   tutorial: tutorialEn,
   commercial: commercialEn,
   cadSdk: cadSdkEn,

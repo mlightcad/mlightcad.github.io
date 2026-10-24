@@ -813,6 +813,8 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
 
 .viewport-chrome__bar {
   position: relative;
+  z-index: 5;
+  flex-shrink: 0;
 }
 
 .try-drawing__bar-actions {
@@ -821,6 +823,22 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   align-items: center;
   gap: 0.25rem;
   margin-left: 0.5rem;
+}
+
+/* Keep the window chrome above the embedded CAD stack (ribbon / Vue root). */
+.flagship__media.is-viewing .viewport-chrome__bar,
+.flagship__media.is-fullscreen .viewport-chrome__bar {
+  z-index: 120;
+  background: rgba(8, 12, 18, 0.96);
+  box-shadow: 0 1px 0 rgba(61, 220, 255, 0.12);
+}
+
+.viewport-chrome__bar span[data-try-drawing-close-dot] {
+  cursor: pointer;
+}
+
+.viewport-chrome__bar span[data-try-drawing-close-dot]:hover {
+  filter: brightness(1.15);
 }
 
 .try-drawing__icon-btn {
@@ -1146,6 +1164,18 @@ body.is-ready .hero__ctas.hero-enter { animation-delay: 0.46s; }
   position: absolute;
   inset: 0;
   overflow: hidden;
+}
+
+/* Full `@mlightcad/cad-viewer` (ribbon) fills the try-drawing host — never escape the window. */
+.try-drawing__canvas-area [data-try-drawing-container] > * {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+  position: relative !important;
+  inset: auto !important;
+  overflow: hidden !important;
 }
 
 .try-drawing__canvas-area canvas {

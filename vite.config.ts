@@ -95,10 +95,37 @@ function insertAfterModuleImports(code: string, snippet: string): string {
 }
 
 /**
+ * Resolve Vite's `__vite-optional-peer-dep:…` placeholders for peers we do not
+ * install (e.g. OneDrive / Google Drive). Without this, import-analysis fails
+ * the Cad Editor page when prebundled `@mlightcad/cad-viewer` hits a missing
+ * optional peer.
+ */
+function stubOptionalPeerDeps(): Plugin {
+  const prefix = '__vite-optional-peer-dep:'
+  const virtualPrefix = '\0optional-peer:'
+  return {
+    name: 'stub-optional-peer-deps',
+    resolveId(id) {
+      if (!id.startsWith(prefix)) return null
+      return virtualPrefix + id.slice(prefix.length)
+    },
+    load(id) {
+      if (!id.startsWith(virtualPrefix)) return null
+      // Side-effect CSS / lazy panels we do not ship: empty module is enough.
+      return 'export default {};'
+    },
+  }
+}
+
+/**
  * Homepage entry must never eagerly load the CAD stack.
- * Lazy boundary: `import('./try-drawing/viewer')` in `src/try-drawing.ts`.
- * Do not use manualChunks for the viewer — it can pull the Vite preload
- * helper into the large chunk and make `main` statically import it.
+ * Lazy boundary: `import('./try-drawing/viewer')` in `src/try-drawing.ts`
+ * (and `cad-viewer-app` on the Editor page).
+ *
+ * Do not put the whole viewer stack in `manualChunks` — that can pull the
+ * Vite preload helper into a large chunk and make `main` statically import it.
+ * A narrow geometry/pdf chunk below is OK and silences a Rollup circular
+ * re-export warning from `@mlightcad/geometry-engine` + `pdf-renderer`.
  */
 export default defineConfig({
   base: '/',
@@ -115,6 +142,7 @@ export default defineConfig({
         iframePlugin: resolve(__dirname, 'iframe-plugin.html'),
         cadViewer: resolve(__dirname, 'cad-viewer.html'),
         cadDiffViewer: resolve(__dirname, 'cad-diff-viewer.html'),
+        cadEditor: resolve(__dirname, 'cad-editor.html'),
         tutorial: resolve(__dirname, 'tutorial.html'),
         terms: resolve(__dirname, 'terms.html'),
         privacy: resolve(__dirname, 'privacy.html'),
@@ -139,6 +167,38 @@ export default defineConfig({
           }
           return 'assets/[name]-[hash][extname]'
         },
+        /**
+         * Keep geometry-engine leaf + barrel modules with pdf-renderer so Rollup
+         * does not split a circular re-export (`AcGeMatrix3d`) across chunks.
+         * Also isolate Vue / Element Plus so idle prefetch can download them in
+         * parallel with the cad-viewer app chunk (still lazy — not on first paint).
+         */
+        manualChunks(id) {
+          if (
+            id.includes('@mlightcad/geometry-engine') ||
+            id.includes('@mlightcad/pdf-renderer')
+          ) {
+            return 'mlightcad-geometry'
+          }
+          // Match `vue` / `@vue/*` / `vue-i18n` without catching `@vueuse`.
+          if (
+            /node_modules[/\\]vue[/\\]/.test(id) ||
+            /node_modules[/\\]\.pnpm[/\\]vue@/.test(id) ||
+            /node_modules[/\\]vue-i18n[/\\]/.test(id) ||
+            /node_modules[/\\]\.pnpm[/\\]vue-i18n@/.test(id) ||
+            /node_modules[/\\]@vue[/\\]/.test(id) ||
+            /node_modules[/\\]\.pnpm[/\\]@vue\+/.test(id)
+          ) {
+            return 'vue-vendor'
+          }
+          if (
+            /node_modules[/\\]element-plus[/\\]/.test(id) ||
+            /node_modules[/\\]\.pnpm[/\\]element-plus@/.test(id) ||
+            id.includes('@element-plus')
+          ) {
+            return 'element-plus'
+          }
+        },
       },
     },
   },
@@ -147,6 +207,15 @@ export default defineConfig({
     // `import(new URL('./dwg-parser-main.js', import.meta.url))` resolves to a
     // missing file. Serve the package from node_modules instead (prod build OK).
     exclude: ['@mlightcad/dwg-converter'],
+    // Keep cad-viewer peers discoverable so optional CSS/JS imports resolve
+    // instead of becoming broken `__vite-optional-peer-dep:` placeholders.
+    include: [
+      '@mlightcad/cad-viewer',
+      '@mlightcad/cad-agent-plugin',
+      '@mlightcad/cad-html-plugin',
+      '@mlightcad/cad-pdf-plugin',
+      '@mlightcad/cad-svg-plugin',
+    ],
   },
   server: {
     cors: true,
@@ -155,6 +224,7 @@ export default defineConfig({
     cors: true,
   },
   plugins: [
+    stubOptionalPeerDeps(),
     siteChromeDevAlias(),
     siteChromeCssInject(),
     viteStaticCopy({
