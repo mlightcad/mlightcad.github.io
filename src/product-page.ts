@@ -99,26 +99,40 @@ function escapeHtml(value: string): string {
     .replace(/"/g, '&quot;')
 }
 
+/** Icon path for a use-case industry or architecture card. */
+function useCaseIcon(id: string): string {
+  return `/assets/user-cases/${id}.svg`
+}
+
 function renderUseCases(): string {
   const p = t(locale).useCases
   const cards = p.cases
     .map((c) => {
-      const inner = `<h3>${escapeHtml(c.title)}</h3><p>${escapeHtml(c.body)}</p>`
-      if (c.href) {
-        return `<a class="path-card path-card--link" id="${escapeHtml(c.id)}" href="${escapeHtml(c.href)}">${inner}</a>`
-      }
-      return `<article class="path-card" id="${escapeHtml(c.id)}">${inner}</article>`
+      const icon = useCaseIcon(c.id)
+      return [
+        `<article class="path-card path-card--icon" id="${escapeHtml(c.id)}">`,
+        `<img class="path-card__icon" src="${escapeHtml(icon)}" alt="" width="48" height="48" loading="lazy" decoding="async" />`,
+        `<div class="path-card__copy">`,
+        `<h3>${escapeHtml(c.title)}</h3>`,
+        `<p>${escapeHtml(c.body)}</p>`,
+        `</div>`,
+        `</article>`,
+      ].join('')
     })
     .join('')
   const modes = p.modes
     .map((mode) => {
+      const icon = useCaseIcon(mode.id)
       const points = mode.points.map((item) => `<li>${escapeHtml(item)}</li>`).join('')
       return [
-        `<article id="${escapeHtml(mode.id)}">`,
+        `<article class="render-mode" id="${escapeHtml(mode.id)}">`,
+        `<img class="path-card__icon" src="${escapeHtml(icon)}" alt="" width="48" height="48" loading="lazy" decoding="async" />`,
+        `<div class="render-mode__copy">`,
         `<p class="path-card__label">${escapeHtml(mode.label)}</p>`,
         `<h3>${escapeHtml(mode.title)}</h3>`,
         `<p>${escapeHtml(mode.body)}</p>`,
         `<ul class="render-points">${points}</ul>`,
+        `</div>`,
         `</article>`,
       ].join('')
     })

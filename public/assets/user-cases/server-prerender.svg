@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- Server prerender: server rack + ACEX package -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <rect x="10" y="12" width="16" height="24" rx="1.5" stroke="#5A6A82" stroke-width="1.5" fill="#0B0F14"/>
+  <path d="M13 17h10M13 22h10M13 27h10" stroke="#8B9BB4" stroke-width="1.25" stroke-linecap="square"/>
+  <circle cx="22" cy="17" r="1" fill="#3DDCFF"/>
+  <circle cx="22" cy="22" r="1" fill="#E8A54B"/>
+  <circle cx="22" cy="27" r="1" fill="#8B9BB4"/>
+  <path d="M26 24h4" stroke="#3DDCFF" stroke-width="1.5" stroke-linecap="square"/>
+  <path d="M30 16h10v14l-3 4H30V16z" stroke="#3DDCFF" stroke-width="1.5" stroke-linejoin="miter" fill="#0B0F14"/>
+  <path d="M37 16v5h3" stroke="#3DDCFF" stroke-width="1.25" stroke-linejoin="miter"/>
+  <path d="M33 26h4M33 29h3" stroke="#E8EEF5" stroke-width="1.15" stroke-linecap="square"/>
+</svg>

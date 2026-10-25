@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- Document management: stacked docs + drawing preview -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <rect x="12" y="18" width="18" height="16" rx="1" stroke="#5A6A82" stroke-width="1.25" fill="#0B0F14"/>
+  <rect x="15" y="14" width="18" height="16" rx="1" stroke="#8B9BB4" stroke-width="1.25" fill="#121821"/>
+  <rect x="18" y="10" width="18" height="20" rx="1" stroke="#3DDCFF" stroke-width="1.5" fill="#0B0F14"/>
+  <path d="M22 24V16h4l3 4h3v4" stroke="#E8EEF5" stroke-width="1.25" stroke-linejoin="miter"/>
+  <circle cx="27" cy="20" r="1.25" fill="#3DDCFF"/>
+</svg>

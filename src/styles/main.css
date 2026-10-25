@@ -1810,23 +1810,6 @@ html.try-drawing-fullscreen #bg-canvas {
   border-top: 1px solid var(--line);
 }
 
-a.path-card--link {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
-}
-
-a.path-card--link:hover h3,
-a.path-card--link:focus-visible h3 {
-  color: var(--cyan);
-}
-
-a.path-card--link:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 4px;
-}
-
 .path-card--icon {
   display: flex;
   align-items: flex-start;
@@ -1919,6 +1902,16 @@ a.path-card--link:focus-visible {
   margin-bottom: var(--space-6);
 }
 
+.render-mode {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.render-mode__copy {
+  min-width: 0;
+}
+
 .render-split h3 {
   margin: 0 0 0.65rem;
   font-family: var(--font-display);
@@ -1929,6 +1922,10 @@ a.path-card--link:focus-visible {
 .render-split p {
   margin: 0 0 1rem;
   color: var(--steel);
+}
+
+.render-split .path-card__label {
+  margin-top: 0.15rem;
 }
 
 .render-points {
@@ -1961,11 +1958,11 @@ a.path-card--link:focus-visible {
     align-items: start;
   }
 
-  .render-split article:first-child {
+  .render-split .render-mode:first-child {
     padding-right: var(--space-5);
   }
 
-  .render-split article + article {
+  .render-split .render-mode + .render-mode {
     padding-left: var(--space-5);
     border-left: 1px solid var(--line);
   }
