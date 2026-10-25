@@ -1,3 +1,4 @@
+import { aiCadKo } from './aiCad'
 import { benchmarksKo } from './benchmarks'
 import { cadDiffViewerKo } from './cadDiffViewer'
 import { cadEditorKo } from './cadEditor'
@@ -182,11 +183,13 @@ export const ko: Dictionary = {
     cadViewer: 'CAD Viewer',
     cadEditor: 'CAD Editor',
     cadSdk: 'CAD SDK',
+    aiCad: 'AI + CAD',
     dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
     dwgToHtml: 'DWG to HTML',
     developers: '개발자',
     iframePlugin: 'iframe 플러그인',
+    mcpAiCad: 'AI + CAD',
     integrations: '통합',
     oneDrive: 'OneDrive',
     googleDrive: 'Google Drive',
@@ -362,7 +365,7 @@ export const ko: Dictionary = {
     imageAlt: 'UI, Agent, HTML, PDF, Script 모듈이 있는 CAD 코어',
     items: [
       { name: 'cad-simple-ui-plugin', role: '툴바 & 레이어 관리 (프레임워크 무관 DOM)' },
-      { name: 'cad-agent-plugin', role: '그리기 도구가 있는 자연어 CAD 에이전트' },
+      { name: 'cad-agent-plugin', role: '자연어 CAD 에이전트 — AI + CAD 참고' },
       { name: 'cad-html-plugin', role: '자체 완결 오프라인 HTML 내보내기' },
       { name: 'cad-pdf-plugin', role: '벡터 PDF 내보내기 및 PDF→CAD 가져오기' },
       { name: 'cad-script-plugin', role: '스크립트 API로 도면 조작 — 그 위에 지능형 기능 구축' },
@@ -377,6 +380,7 @@ export const ko: Dictionary = {
       { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: '브라우저에서 개정 비교', href: '/cad-diff-viewer.html' },
       { id: 'cad-editor', name: 'CAD Editor', desc: '브라우저에서 도면 편집', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: '제품에 DWG/DXF 임베드', href: '/cad-sdk.html' },
+      { id: 'ai-cad', name: 'AI + CAD', desc: 'AI로 도면 이해·추출·수정·검토', href: '/ai-cad.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: '상용 프로덕션 DWG', href: '/dwg-engine.html' },
       { id: 'dwg-to-html', name: 'DWG to HTML', desc: '자가 완비 오프라인 HTML 내보내기', href: '/cad-viewer/cad-simple-viewer/html-converter.html' },
     ],
@@ -414,6 +418,7 @@ export const ko: Dictionary = {
   tutorial: tutorialKo,
   commercial: commercialKo,
   cadSdk: cadSdkKo,
+  aiCad: aiCadKo,
   useCases: useCasesKo,
   benchmarks: benchmarksKo,
 }

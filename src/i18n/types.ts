@@ -1,3 +1,4 @@
+import type { AiCadCopy } from './aiCad'
 import type { CadDiffViewerCopy } from './cadDiffViewer'
 import type { CadEditorCopy } from './cadEditor'
 import type { BenchmarksCopy } from './benchmarks'
@@ -81,11 +82,13 @@ export interface Dictionary {
     cadViewer: string
     cadEditor: string
     cadSdk: string
+    aiCad: string
     dwgEngine: string
     cadDiffViewer: string
     dwgToHtml: string
     developers: string
     iframePlugin: string
+    mcpAiCad: string
     integrations: string
     oneDrive: string
     googleDrive: string
@@ -230,6 +233,8 @@ export interface Dictionary {
   commercial: CommercialCopy
   /** CAD SDK product page copy. */
   cadSdk: CadSdkCopy
+  /** AI + CAD product page copy. */
+  aiCad: AiCadCopy
   /** Solutions / use-cases page copy. */
   useCases: UseCasesCopy
   /** Qualitative benchmarks page copy. */

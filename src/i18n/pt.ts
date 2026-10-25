@@ -1,3 +1,4 @@
+import { aiCadPt } from './aiCad'
 import { benchmarksPt } from './benchmarks'
 import { cadDiffViewerPt } from './cadDiffViewer'
 import { cadEditorPt } from './cadEditor'
@@ -182,11 +183,13 @@ export const pt: Dictionary = {
     cadViewer: 'CAD Viewer',
     cadEditor: 'CAD Editor',
     cadSdk: 'CAD SDK',
+    aiCad: 'AI + CAD',
     dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
     dwgToHtml: 'DWG to HTML',
     developers: 'Desenvolvedores',
     iframePlugin: 'Plugin iframe',
+    mcpAiCad: 'AI + CAD',
     integrations: 'Integrações',
     oneDrive: 'OneDrive',
     googleDrive: 'Google Drive',
@@ -362,7 +365,7 @@ export const pt: Dictionary = {
     imageAlt: 'Núcleo CAD com módulos plug-in de UI, agente, HTML, PDF e script',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'Barra de ferramentas e gerenciador de camadas (DOM agnóstico ao framework)' },
-      { name: 'cad-agent-plugin', role: 'Agente CAD em linguagem natural com ferramentas de desenho' },
+      { name: 'cad-agent-plugin', role: 'Agente CAD em linguagem natural — ver AI + CAD' },
       { name: 'cad-html-plugin', role: 'Exportar HTML offline autocontido' },
       { name: 'cad-pdf-plugin', role: 'Exportação PDF vetorial e importação PDF para CAD' },
       { name: 'cad-script-plugin', role: 'API de scripting para operar desenhos — base para automação inteligente' },
@@ -377,6 +380,7 @@ export const pt: Dictionary = {
       { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'Compare revisões no navegador', href: '/cad-diff-viewer.html' },
       { id: 'cad-editor', name: 'CAD Editor', desc: 'Edite desenhos inteiramente no navegador', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: 'Incorpore DWG/DXF no seu produto', href: '/cad-sdk.html' },
+      { id: 'ai-cad', name: 'AI + CAD', desc: 'Entenda, extraia, edite e revise desenhos com IA', href: '/ai-cad.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: 'DWG comercial de produção', href: '/dwg-engine.html' },
       { id: 'dwg-to-html', name: 'DWG to HTML', desc: 'Exporte HTML offline autocontido', href: '/cad-viewer/cad-simple-viewer/html-converter.html' },
     ],
@@ -414,6 +418,7 @@ export const pt: Dictionary = {
   tutorial: tutorialPt,
   commercial: commercialPt,
   cadSdk: cadSdkPt,
+  aiCad: aiCadPt,
   useCases: useCasesPt,
   benchmarks: benchmarksPt,
 }

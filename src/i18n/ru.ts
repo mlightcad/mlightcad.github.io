@@ -1,3 +1,4 @@
+import { aiCadRu } from './aiCad'
 import { benchmarksRu } from './benchmarks'
 import { cadDiffViewerRu } from './cadDiffViewer'
 import { cadEditorRu } from './cadEditor'
@@ -182,11 +183,13 @@ export const ru: Dictionary = {
     cadViewer: 'CAD Viewer',
     cadEditor: 'CAD Editor',
     cadSdk: 'CAD SDK',
+    aiCad: 'AI + CAD',
     dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
     dwgToHtml: 'DWG to HTML',
     developers: 'Разработчикам',
     iframePlugin: 'iframe-плагин',
+    mcpAiCad: 'AI + CAD',
     integrations: 'Интеграции',
     oneDrive: 'OneDrive',
     googleDrive: 'Google Drive',
@@ -362,7 +365,7 @@ export const ru: Dictionary = {
     imageAlt: 'CAD-ядро с plug-in модулями UI, agent, HTML, PDF и script',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'Панель инструментов и менеджер слоёв (framework-agnostic DOM)' },
-      { name: 'cad-agent-plugin', role: 'CAD-агент на естественном языке с инструментами черчения' },
+      { name: 'cad-agent-plugin', role: 'CAD-агент на естественном языке — см. AI + CAD' },
       { name: 'cad-html-plugin', role: 'Экспорт самодостаточного офлайн HTML' },
       { name: 'cad-pdf-plugin', role: 'Векторный PDF-экспорт и импорт PDF в CAD' },
       { name: 'cad-script-plugin', role: 'Scripting API для работы с чертежами — основа умной автоматизации' },
@@ -377,6 +380,7 @@ export const ru: Dictionary = {
       { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'Сравнение ревизий в браузере', href: '/cad-diff-viewer.html' },
       { id: 'cad-editor', name: 'CAD Editor', desc: 'Редактирование чертежей прямо в браузере', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: 'Встраивание DWG/DXF в ваш продукт', href: '/cad-sdk.html' },
+      { id: 'ai-cad', name: 'AI + CAD', desc: 'Понимание, извлечение, правки и проверка чертежей с ИИ', href: '/ai-cad.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: 'Коммерческий production DWG', href: '/dwg-engine.html' },
       { id: 'dwg-to-html', name: 'DWG to HTML', desc: 'Экспорт автономного offline HTML', href: '/cad-viewer/cad-simple-viewer/html-converter.html' },
     ],
@@ -414,6 +418,7 @@ export const ru: Dictionary = {
   tutorial: tutorialRu,
   commercial: commercialRu,
   cadSdk: cadSdkRu,
+  aiCad: aiCadRu,
   useCases: useCasesRu,
   benchmarks: benchmarksRu,
 }

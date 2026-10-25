@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI + CAD — Smarter Drawing Workflows | MLightCAD</title>
+    <meta
+      name="description"
+      content="Use AI with your DWG/DXF drawings: understand sheets, extract BOMs and title blocks, edit in batches, and review for issues — inside the browser or from your AI tools."
+    />
+    <meta
+      name="keywords"
+      content="AI CAD, AI + CAD, AI drawing, DWG AI, DXF AI, CAD agent, intelligent drawing review, BOM extraction, title block, MLightCAD"
+    />
+    <meta name="author" content="MLightCAD" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0B0F14" />
+    <link rel="canonical" href="https://mlightcad.com/ai-cad.html" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MLightCAD" />
+    <meta property="og:title" content="AI + CAD — Smarter Drawing Workflows | MLightCAD" />
+    <meta property="og:url" content="https://mlightcad.com/ai-cad.html" />
+    <meta property="og:image" content="https://mlightcad.com/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body data-page="ai-cad">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <div class="fx-spot" data-spot aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--x" data-cross-x aria-hidden="true"></div>
+    <div class="fx-cross fx-cross--y" data-cross-y aria-hidden="true"></div>
+    <div class="scroll-progress" aria-hidden="true"><span data-scroll-progress></span></div>
+
+    <div class="site">
+      <div data-site-nav></div>
+      <main>
+        <section class="hero parser-hero shell">
+          <div class="hero__frame" data-tilt>
+            <div class="hero__corners" aria-hidden="true"></div>
+            <div class="hero__grid">
+              <div class="hero__copy">
+                <p class="hero__meta hero-enter" data-scramble data-i18n="aiCad.eyebrow">AI + CAD</p>
+                <h1 class="section__title hero-enter" data-i18n="aiCad.title">
+                  AI that works on your drawings
+                </h1>
+                <p class="section__lead hero-enter" data-i18n="aiCad.lead"></p>
+                <div class="hero__ctas hero-enter">
+                  <a
+                    class="btn btn--primary btn--glow"
+                    href="https://mlightcad.github.io/cad-viewer/"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="aiCad.primaryCta"
+                    data-i18n-href="aiCad.primaryHref"
+                    >Try it in CAD Viewer</a
+                  >
+                  <a
+                    class="btn btn--ghost"
+                    href="#scenarios"
+                    data-i18n="aiCad.secondaryCta"
+                    data-i18n-href="aiCad.secondaryHref"
+                    >See what it can do</a
+                  >
+                </div>
+              </div>
+              <figure class="hero__visual hero__visual--bloom hero-enter">
+                <img
+                  src="/assets/ai-cad/hero.svg"
+                  alt="AI assisting with a CAD drawing: understand, extract, edit, and review"
+                  width="768"
+                  height="512"
+                  loading="eager"
+                  decoding="async"
+                  data-i18n-alt="aiCad.heroImageAlt"
+                />
+              </figure>
+            </div>
+          </div>
+        </section>
+        <div data-page-body></div>
+      </main>
+      <div data-site-footer></div>
+    </div>
+    <script type="module" src="/src/ai-cad-page.ts"></script>
+  </body>
+</html>

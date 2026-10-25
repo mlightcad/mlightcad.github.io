@@ -1810,6 +1810,23 @@ html.try-drawing-fullscreen #bg-canvas {
   border-top: 1px solid var(--line);
 }
 
+a.path-card--link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+a.path-card--link:hover h3,
+a.path-card--link:focus-visible h3 {
+  color: var(--cyan);
+}
+
+a.path-card--link:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
 .path-card--icon {
   display: flex;
   align-items: flex-start;

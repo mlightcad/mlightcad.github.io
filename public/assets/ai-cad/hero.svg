@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 512" fill="none" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="768" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B0F14"/>
+      <stop offset="0.45" stop-color="#121821"/>
+      <stop offset="1" stop-color="#0E1620"/>
+    </linearGradient>
+    <radialGradient id="aiGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(540 220) rotate(90) scale(220 200)">
+      <stop stop-color="#3DDCFF" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#3DDCFF" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" stroke="#2A3444" stroke-width="1" opacity="0.35"/>
+    </pattern>
+  </defs>
+  <rect width="768" height="512" fill="url(#bg)"/>
+  <rect width="768" height="512" fill="url(#grid)" opacity="0.45"/>
+  <circle cx="540" cy="220" r="220" fill="url(#aiGlow)"/>
+
+  <!-- Drawing stays present but secondary -->
+  <rect x="56" y="88" width="280" height="300" rx="10" fill="#0B0F14" stroke="#2A3444" stroke-width="2" opacity="0.9"/>
+  <rect x="56" y="88" width="280" height="36" fill="#121821"/>
+  <text x="72" y="112" fill="#5A6A82" font-family="IBM Plex Sans, sans-serif" font-size="13">Drawing</text>
+  <g stroke="#5A6A82" stroke-width="1.5" fill="none" opacity="0.85">
+    <rect x="90" y="160" width="160" height="110" rx="2"/>
+    <circle cx="170" cy="215" r="28"/>
+    <path d="M110 300h140M130 318h80"/>
+  </g>
+
+  <!-- Dominant AI panel -->
+  <rect x="380" y="72" width="340" height="340" rx="14" fill="#121821" stroke="#3DDCFF" stroke-width="2"/>
+  <!-- Neural hexagon badge -->
+  <g transform="translate(430 110)">
+    <circle cx="48" cy="48" r="46" stroke="#3DDCFF" stroke-width="1.25" opacity="0.3"/>
+    <path d="M48 8L82.6 28V68L48 88L13.4 68V28Z" stroke="#3DDCFF" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M48 8V88M13.4 28L82.6 68M82.6 28L13.4 68" stroke="#3DDCFF" stroke-width="1.25" opacity="0.5"/>
+    <circle cx="48" cy="8" r="4" fill="#3DDCFF"/>
+    <circle cx="82.6" cy="28" r="4" fill="#3DDCFF"/>
+    <circle cx="82.6" cy="68" r="4" fill="#3DDCFF"/>
+    <circle cx="48" cy="88" r="4" fill="#3DDCFF"/>
+    <circle cx="13.4" cy="68" r="4" fill="#3DDCFF"/>
+    <circle cx="13.4" cy="28" r="4" fill="#3DDCFF"/>
+    <rect x="28" y="32" width="40" height="32" rx="6" fill="#0B0F14" stroke="#E8EEF5" stroke-width="1.5"/>
+    <text x="35" y="54" fill="#3DDCFF" font-family="Syne, sans-serif" font-size="18" font-weight="700">AI</text>
+  </g>
+
+  <text x="545" y="155" fill="#E8EEF5" font-family="Syne, sans-serif" font-size="28" font-weight="700">AI + CAD</text>
+  <text x="545" y="186" fill="#8B9BB4" font-family="IBM Plex Sans, sans-serif" font-size="14">Agent on your drawings</text>
+
+  <g font-family="IBM Plex Sans, sans-serif" font-size="15" fill="#E8EEF5">
+    <text x="420" y="250">Built-in agent in Viewer &amp; Editor</text>
+    <text x="420" y="286">MCP server for Claude / Cursor</text>
+    <text x="420" y="322">Understand · Extract · Edit · Review</text>
+  </g>
+
+  <rect x="420" y="350" width="220" height="32" rx="6" fill="#0B0F14" stroke="#2A3444"/>
+  <text x="434" y="371" fill="#3DDCFF" font-family="IBM Plex Mono, monospace" font-size="13">Same intelligence, two doors</text>
+
+  <!-- Bridge from drawing to AI -->
+  <path d="M336 238h44" stroke="#3DDCFF" stroke-width="2" stroke-dasharray="6 5"/>
+  <circle cx="336" cy="238" r="4" fill="#3DDCFF"/>
+  <circle cx="380" cy="238" r="4" fill="#3DDCFF"/>
+
+  <text x="56" y="460" fill="#5A6A82" font-family="IBM Plex Sans, sans-serif" font-size="14">
+    CAD Viewer / Editor agent · MCP server · one shared drawing intelligence
+  </text>
+</svg>
