@@ -15,6 +15,7 @@ export type SitePage =
   | 'dwg-engine'
   | 'commercial'
   | 'cad-sdk'
+  | 'ai-cad'
   | 'use-cases'
   | 'benchmarks'
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- AI + CAD: neural hexagon + bold AI monogram (AI-first at 28px) -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+
+  <!-- Hexagon neural frame -->
+  <path
+    d="M24 5.5L39.5 14.5V32.5L24 41.5L8.5 32.5V14.5Z"
+    stroke="#3DDCFF"
+    stroke-width="1.75"
+    stroke-linejoin="round"
+  />
+  <!-- Node dots at vertices -->
+  <circle cx="24" cy="5.5" r="2.6" fill="#3DDCFF"/>
+  <circle cx="39.5" cy="14.5" r="2.6" fill="#3DDCFF"/>
+  <circle cx="39.5" cy="32.5" r="2.6" fill="#3DDCFF"/>
+  <circle cx="24" cy="41.5" r="2.6" fill="#3DDCFF"/>
+  <circle cx="8.5" cy="32.5" r="2.6" fill="#3DDCFF"/>
+  <circle cx="8.5" cy="14.5" r="2.6" fill="#3DDCFF"/>
+  <!-- Cross links -->
+  <path d="M24 5.5V41.5M8.5 14.5L39.5 32.5M39.5 14.5L8.5 32.5" stroke="#3DDCFF" stroke-width="1" opacity="0.35"/>
+
+  <!-- Center plate -->
+  <rect x="15" y="16" width="18" height="16" rx="3.5" fill="#0B0F14" stroke="#E8EEF5" stroke-width="1.35"/>
+
+  <!-- A -->
+  <path
+    d="M17.6 29.2L20.35 18.6h2.15L25.2 29.2h-2l-.55-2.05h-3.1l-.55 2.05h-1.4zm2.7-3.75h2.15l-1.05-3.85-1.1 3.85z"
+    fill="#3DDCFF"
+  />
+  <!-- I -->
+  <rect x="26.6" y="18.6" width="2.1" height="10.6" rx="0.4" fill="#3DDCFF"/>
+</svg>

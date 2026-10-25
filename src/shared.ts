@@ -212,6 +212,7 @@ export function markActiveNav(
     | 'dwg-engine'
     | 'commercial'
     | 'cad-sdk'
+    | 'ai-cad'
     | 'use-cases'
     | 'benchmarks',
 ): void {
@@ -223,6 +224,7 @@ export function markActiveNav(
     'dwg-engine': (href) => href.includes('dwg-engine') && !href.includes('#pricing'),
     commercial: (href) => href.includes('commercial.html'),
     'cad-sdk': (href) => href.includes('cad-sdk'),
+    'ai-cad': (href) => href.includes('ai-cad'),
     'use-cases': (href) => href.includes('use-cases'),
     benchmarks: (href) => href.includes('benchmarks'),
     tutorial: (href) => href.includes('tutorial.html'),

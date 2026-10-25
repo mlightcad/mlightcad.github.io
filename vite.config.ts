@@ -151,6 +151,7 @@ export default defineConfig({
         dwgEngine: resolve(__dirname, 'dwg-engine.html'),
         commercial: resolve(__dirname, 'commercial.html'),
         cadSdk: resolve(__dirname, 'cad-sdk.html'),
+        aiCad: resolve(__dirname, 'ai-cad.html'),
         useCases: resolve(__dirname, 'use-cases.html'),
         benchmarks: resolve(__dirname, 'benchmarks.html'),
         siteChrome: resolve(__dirname, 'src/site-chrome.ts'),

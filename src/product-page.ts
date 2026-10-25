@@ -13,7 +13,7 @@ import {
 } from './shared'
 
 /** Marketing product pages that share the homepage nav shell. */
-export type ProductPageId = 'commercial' | 'cad-sdk' | 'use-cases' | 'benchmarks'
+export type ProductPageId = 'commercial' | 'cad-sdk' | 'use-cases' | 'benchmarks' | 'ai-cad'
 
 function listHtml(items: string[]): string {
   return `<ul class="doc-list doc-list--split">${items.map((item) => `<li>${item}</li>`).join('')}</ul>`
@@ -102,10 +102,13 @@ function escapeHtml(value: string): string {
 function renderUseCases(): string {
   const p = t(locale).useCases
   const cards = p.cases
-    .map(
-      (c) =>
-        `<article class="path-card" id="${escapeHtml(c.id)}"><h3>${escapeHtml(c.title)}</h3><p>${escapeHtml(c.body)}</p></article>`,
-    )
+    .map((c) => {
+      const inner = `<h3>${escapeHtml(c.title)}</h3><p>${escapeHtml(c.body)}</p>`
+      if (c.href) {
+        return `<a class="path-card path-card--link" id="${escapeHtml(c.id)}" href="${escapeHtml(c.href)}">${inner}</a>`
+      }
+      return `<article class="path-card" id="${escapeHtml(c.id)}">${inner}</article>`
+    })
     .join('')
   const modes = p.modes
     .map((mode) => {
@@ -140,6 +143,80 @@ function renderUseCases(): string {
     `<a class="btn btn--ghost" href="${escapeHtml(p.articleHref)}" target="_blank" rel="noopener">${escapeHtml(p.articleLabel)}</a>`,
     `<a class="btn btn--primary btn--glow" href="${escapeHtml(p.sampleHref)}" target="_blank" rel="noopener">${escapeHtml(p.sampleLabel)}</a>`,
     `</div>`,
+    `</div>`,
+    `</div></section>`,
+  ].join('\n')
+}
+
+function renderAiCad(): string {
+  const p = t(locale).aiCad
+  const pain = p.painItems
+    .map(
+      (item) =>
+        `<article class="path-card"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.body)}</p></article>`,
+    )
+    .join('')
+  const scenarios = p.scenarios
+    .map(
+      (item) =>
+        [
+          `<article class="path-card" id="${escapeHtml(item.id)}">`,
+          `<h3>${escapeHtml(item.title)}</h3>`,
+          `<p>${escapeHtml(item.body)}</p>`,
+          `<p class="doc-note">${escapeHtml(item.outcome)}</p>`,
+          `</article>`,
+        ].join(''),
+    )
+    .join('')
+  const ways = p.ways
+    .map(
+      (item) =>
+        [
+          `<article class="path-card" id="${escapeHtml(item.id)}">`,
+          `<h3>${escapeHtml(item.title)}</h3>`,
+          `<p>${escapeHtml(item.body)}</p>`,
+          `<p><a class="btn btn--ghost" href="${escapeHtml(item.href)}"${item.href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(item.cta)}</a></p>`,
+          `</article>`,
+        ].join(''),
+    )
+    .join('')
+  const difference = p.differenceItems
+    .map(
+      (item) =>
+        `<article class="path-card"><h3>${escapeHtml(item.title)}</h3><p>${escapeHtml(item.body)}</p></article>`,
+    )
+    .join('')
+  return [
+    `<section class="section" id="pain"><div class="shell">`,
+    `<p class="eyebrow reveal">${escapeHtml(p.painEyebrow)}</p>`,
+    `<h2 class="section__title reveal">${escapeHtml(p.painTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.painLead)}</p>`,
+    `<div class="path-grid reveal">${pain}</div>`,
+    `</div></section>`,
+    `<section class="section" id="scenarios"><div class="shell">`,
+    `<p class="eyebrow reveal">${escapeHtml(p.scenariosEyebrow)}</p>`,
+    `<h2 class="section__title reveal">${escapeHtml(p.scenariosTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.scenariosLead)}</p>`,
+    `<div class="path-grid reveal">${scenarios}</div>`,
+    `</div></section>`,
+    `<section class="section" id="ways"><div class="shell">`,
+    `<p class="eyebrow reveal">${escapeHtml(p.waysEyebrow)}</p>`,
+    `<h2 class="section__title reveal">${escapeHtml(p.waysTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.waysLead)}</p>`,
+    `<div class="path-grid reveal">${ways}</div>`,
+    `</div></section>`,
+    `<section class="section" id="difference"><div class="shell">`,
+    `<h2 class="section__title reveal">${escapeHtml(p.differenceTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.differenceLead)}</p>`,
+    `<div class="path-grid reveal">${difference}</div>`,
+    `</div></section>`,
+    `<section class="section" id="cta"><div class="shell">`,
+    `<h2 class="section__title reveal">${escapeHtml(p.ctaTitle)}</h2>`,
+    `<p class="section__lead reveal">${escapeHtml(p.ctaLead)}</p>`,
+    `<div class="hero__ctas reveal">`,
+    `<a class="btn btn--primary btn--glow" href="${escapeHtml(p.ctaPrimaryHref)}" target="_blank" rel="noopener">${escapeHtml(p.ctaPrimary)}</a>`,
+    `<a class="btn btn--ghost" href="${escapeHtml(p.ctaSecondaryHref)}">${escapeHtml(p.ctaSecondary)}</a>`,
+    `<a class="btn btn--ghost" href="${escapeHtml(p.ctaDevHref)}" target="_blank" rel="noopener">${escapeHtml(p.ctaDevLabel)}</a>`,
     `</div>`,
     `</div></section>`,
   ].join('\n')
@@ -226,13 +303,18 @@ const renderers: Record<ProductPageId, () => string> = {
   'cad-sdk': renderCadSdk,
   'use-cases': renderUseCases,
   benchmarks: renderBenchmarks,
+  'ai-cad': renderAiCad,
 }
 
-const metaKeys: Record<ProductPageId, 'commercial' | 'cadSdk' | 'useCases' | 'benchmarks'> = {
+const metaKeys: Record<
+  ProductPageId,
+  'commercial' | 'cadSdk' | 'useCases' | 'benchmarks' | 'aiCad'
+> = {
   commercial: 'commercial',
   'cad-sdk': 'cadSdk',
   'use-cases': 'useCases',
   benchmarks: 'benchmarks',
+  'ai-cad': 'aiCad',
 }
 
 const paths: Record<ProductPageId, string> = {
@@ -240,6 +322,7 @@ const paths: Record<ProductPageId, string> = {
   'cad-sdk': '/cad-sdk.html',
   'use-cases': '/use-cases.html',
   benchmarks: '/benchmarks.html',
+  'ai-cad': '/ai-cad.html',
 }
 
 /** Boot a shared marketing product page. */

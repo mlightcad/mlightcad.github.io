@@ -1,3 +1,4 @@
+import { aiCadEn } from './aiCad'
 import { benchmarksEn } from './benchmarks'
 import { cadDiffViewerEn } from './cadDiffViewer'
 import { cadEditorEn } from './cadEditor'
@@ -22,11 +23,13 @@ export const en: Dictionary = {
     cadViewer: 'CAD Viewer',
     cadEditor: 'CAD Editor',
     cadSdk: 'CAD SDK',
+    aiCad: 'AI + CAD',
     dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
     dwgToHtml: 'DWG to HTML',
     developers: 'Developers',
     iframePlugin: 'iframe Plugin',
+    mcpAiCad: 'AI + CAD',
     integrations: 'Integrations',
     oneDrive: 'OneDrive',
     googleDrive: 'Google Drive',
@@ -207,7 +210,7 @@ export const en: Dictionary = {
     imageAlt: 'CAD core with pluggable UI, agent, HTML, PDF, and script modules',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'Toolbar & layer manager (framework-agnostic DOM)' },
-      { name: 'cad-agent-plugin', role: 'Natural-language CAD agent with drawing tools' },
+      { name: 'cad-agent-plugin', role: 'Natural-language CAD agent — see AI + CAD' },
       { name: 'cad-html-plugin', role: 'Export self-contained offline HTML' },
       { name: 'cad-pdf-plugin', role: 'Vector PDF export and PDF-to-CAD import' },
       { name: 'cad-script-plugin', role: 'Scripting API to operate drawings — build intelligent automation on top' },
@@ -241,6 +244,12 @@ export const en: Dictionary = {
         name: 'CAD SDK',
         desc: 'Embed DWG/DXF in your product',
         href: '/cad-sdk.html',
+      },
+      {
+        id: 'ai-cad',
+        name: 'AI + CAD',
+        desc: 'Understand, extract, edit, and review drawings with AI',
+        href: '/ai-cad.html',
       },
       {
         id: 'dwg-engine',
@@ -344,6 +353,7 @@ export const en: Dictionary = {
   tutorial: tutorialEn,
   commercial: commercialEn,
   cadSdk: cadSdkEn,
+  aiCad: aiCadEn,
   useCases: useCasesEn,
   benchmarks: benchmarksEn,
 }

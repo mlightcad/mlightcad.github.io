@@ -1,3 +1,4 @@
+import { aiCadJa } from './aiCad'
 import { benchmarksJa } from './benchmarks'
 import { cadDiffViewerJa } from './cadDiffViewer'
 import { cadEditorJa } from './cadEditor'
@@ -182,11 +183,13 @@ export const ja: Dictionary = {
     cadViewer: 'CAD Viewer',
     cadEditor: 'CAD Editor',
     cadSdk: 'CAD SDK',
+    aiCad: 'AI + CAD',
     dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
     dwgToHtml: 'DWG to HTML',
     developers: '開発者',
     iframePlugin: 'iframe プラグイン',
+    mcpAiCad: 'AI + CAD',
     integrations: '連携',
     oneDrive: 'OneDrive',
     googleDrive: 'Google Drive',
@@ -362,7 +365,7 @@ export const ja: Dictionary = {
     imageAlt: 'UI、Agent、HTML、PDF、Script モジュールを持つ CAD コア',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'ツールバー & レイヤー管理（フレームワーク非依存 DOM）' },
-      { name: 'cad-agent-plugin', role: '描画ツール付き自然言語 CAD エージェント' },
+      { name: 'cad-agent-plugin', role: '自然言語 CAD エージェント — AI + CAD を参照' },
       { name: 'cad-html-plugin', role: '自己完結オフライン HTML エクスポート' },
       { name: 'cad-pdf-plugin', role: 'ベクター PDF エクスポートと PDF→CAD インポート' },
       { name: 'cad-script-plugin', role: 'スクリプト API で図面を操作 — その上に知能化機能を構築' },
@@ -377,6 +380,7 @@ export const ja: Dictionary = {
       { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'ブラウザで改訂を比較', href: '/cad-diff-viewer.html' },
       { id: 'cad-editor', name: 'CAD Editor', desc: 'ブラウザ完結の図面編集', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: '製品に DWG/DXF を埋め込む', href: '/cad-sdk.html' },
+      { id: 'ai-cad', name: 'AI + CAD', desc: 'AI で図面を理解・抽出・編集・レビュー', href: '/ai-cad.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: '商用本番向け DWG', href: '/dwg-engine.html' },
       { id: 'dwg-to-html', name: 'DWG to HTML', desc: '自己完結のオフライン HTML を書き出し', href: '/cad-viewer/cad-simple-viewer/html-converter.html' },
     ],
@@ -414,6 +418,7 @@ export const ja: Dictionary = {
   tutorial: tutorialJa,
   commercial: commercialJa,
   cadSdk: cadSdkJa,
+  aiCad: aiCadJa,
   useCases: useCasesJa,
   benchmarks: benchmarksJa,
 }

@@ -1,3 +1,4 @@
+import { aiCadCs } from './aiCad'
 import { benchmarksCs } from './benchmarks'
 import { cadDiffViewerCs } from './cadDiffViewer'
 import { cadEditorCs } from './cadEditor'
@@ -182,11 +183,13 @@ export const cs: Dictionary = {
     cadViewer: 'CAD Viewer',
     cadEditor: 'CAD Editor',
     cadSdk: 'CAD SDK',
+    aiCad: 'AI + CAD',
     dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
     dwgToHtml: 'DWG to HTML',
     developers: 'Vývojáři',
     iframePlugin: 'iframe plugin',
+    mcpAiCad: 'AI + CAD',
     integrations: 'Integrace',
     oneDrive: 'OneDrive',
     googleDrive: 'Google Drive',
@@ -362,7 +365,7 @@ export const cs: Dictionary = {
     imageAlt: 'CAD jádro s plug-in moduly UI, agent, HTML, PDF a script',
     items: [
       { name: 'cad-simple-ui-plugin', role: 'Toolbar a správce vrstev (framework-agnostic DOM)' },
-      { name: 'cad-agent-plugin', role: 'CAD agent v přirozeném jazyce s kreslicími nástroji' },
+      { name: 'cad-agent-plugin', role: 'CAD agent v přirozeném jazyce — viz AI + CAD' },
       { name: 'cad-html-plugin', role: 'Export samostatného offline HTML' },
       { name: 'cad-pdf-plugin', role: 'Vektorový PDF export a import PDF do CAD' },
       { name: 'cad-script-plugin', role: 'Skriptovací API pro práci s výkresy — základ inteligentní automatizace' },
@@ -377,6 +380,7 @@ export const cs: Dictionary = {
       { id: 'cad-diff-viewer', name: 'CAD Diff Viewer', desc: 'Porovnání revizí v prohlížeči', href: '/cad-diff-viewer.html' },
       { id: 'cad-editor', name: 'CAD Editor', desc: 'Editace výkresů přímo v prohlížeči', href: '/cad-editor.html' },
       { id: 'cad-sdk', name: 'CAD SDK', desc: 'Vložení DWG/DXF do vašeho produktu', href: '/cad-sdk.html' },
+      { id: 'ai-cad', name: 'AI + CAD', desc: 'Porozumění, extrakce, úpravy a kontrola výkresů s AI', href: '/ai-cad.html' },
       { id: 'dwg-engine', name: 'DWG Engine', desc: 'Komerční produkční DWG', href: '/dwg-engine.html' },
       { id: 'dwg-to-html', name: 'DWG to HTML', desc: 'Export samostatného offline HTML', href: '/cad-viewer/cad-simple-viewer/html-converter.html' },
     ],
@@ -414,6 +418,7 @@ export const cs: Dictionary = {
   tutorial: tutorialCs,
   commercial: commercialCs,
   cadSdk: cadSdkCs,
+  aiCad: aiCadCs,
   useCases: useCasesCs,
   benchmarks: benchmarksCs,
 }

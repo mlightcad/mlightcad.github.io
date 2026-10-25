@@ -13,7 +13,7 @@ export interface UseCasesCopy {
   secondaryHref: string
   industryTitle: string
   industryLead: string
-  cases: { id: string; title: string; body: string }[]
+  cases: { id: string; title: string; body: string; href?: string }[]
   renderTitle: string
   renderLead: string
   modes: { id: string; label: string; title: string; body: string; points: string[] }[]
@@ -69,8 +69,9 @@ export const useCasesEn: UseCasesCopy = {
     },
     {
       id: 'ai',
-      title: 'AI CAD',
-      body: 'Parse and understand CAD drawings inside AI workflows — turn DWG/DXF into structured data your agents and models can reason over.',
+      title: 'AI + CAD',
+      body: 'Let AI understand drawings, extract BOMs and title blocks, edit in batches, and help review — then open the AI + CAD page for the full story.',
+      href: '/ai-cad.html',
     },
   ],
   industryTitle: 'By industry',
@@ -154,8 +155,9 @@ export const useCasesZh: UseCasesCopy = {
     },
     {
       id: 'ai',
-      title: 'AI CAD',
-      body: '在 AI 工作流中解析与理解 CAD 图纸 — 把 DWG/DXF 变成智能体与模型可推理的结构化数据。',
+      title: 'AI + CAD',
+      body: '让 AI 理解图纸、提取 BOM 与标题栏、批量修改并辅助审图 — 详情见 AI + CAD 专题页。',
+      href: '/ai-cad.html',
     },
   ],
   industryTitle: '按行业',
@@ -235,8 +237,9 @@ export const useCasesJa: UseCasesCopy = {
     },
     {
       id: 'ai',
-      title: 'AI CAD',
-      body: 'AI ワークフロー内で CAD 図面を解析・理解 — DWG/DXF をエージェントが扱える構造化データへ。',
+      title: 'AI + CAD',
+      body: 'AI で図面を理解し、BOM や表題欄を抽出し、一括編集やレビューを支援 — 詳細は AI + CAD ページへ。',
+      href: '/ai-cad.html',
     },
   ],
   industryTitle: '業界別',
@@ -318,8 +321,9 @@ export const useCasesKo: UseCasesCopy = {
     },
     {
       id: 'ai',
-      title: 'AI CAD',
-      body: 'AI 워크플로 안에서 CAD 도면을 파싱·이해 — DWG/DXF를 에이전트가 다룰 구조화 데이터로 바꿉니다.',
+      title: 'AI + CAD',
+      body: 'AI로 도면을 이해하고 BOM·표제란을 추출하며, 일괄 수정과 검토를 돕습니다 — 자세한 내용은 AI + CAD 페이지에서.',
+      href: '/ai-cad.html',
     },
   ],
   industryTitle: '산업별',
@@ -402,8 +406,9 @@ export const useCasesEs: UseCasesCopy = {
     },
     {
       id: 'ai',
-      title: 'IA CAD',
-      body: 'Analice y comprenda dibujos CAD en flujos de IA — convierta DWG/DXF en datos estructurados para agentes y modelos.',
+      title: 'AI + CAD',
+      body: 'Deje que la IA entienda planos, extraiga BOM y cajetines, edite por lotes y ayude a revisar — más en la página AI + CAD.',
+      href: '/ai-cad.html',
     },
   ],
   industryTitle: 'Por industria',
@@ -486,8 +491,9 @@ export const useCasesPt: UseCasesCopy = {
     },
     {
       id: 'ai',
-      title: 'IA CAD',
-      body: 'Analise e entenda desenhos CAD em fluxos de IA — transforme DWG/DXF em dados estruturados para agentes e modelos.',
+      title: 'AI + CAD',
+      body: 'Deixe a IA entender desenhos, extrair BOM e carimbos, editar em lote e ajudar na revisão — detalhes na página AI + CAD.',
+      href: '/ai-cad.html',
     },
   ],
   industryTitle: 'Por setor',
@@ -570,8 +576,9 @@ export const useCasesRu: UseCasesCopy = {
     },
     {
       id: 'ai',
-      title: 'ИИ CAD',
-      body: 'Разбирайте и понимайте CAD-чертежи в ИИ-потоках — превращайте DWG/DXF в структурированные данные для агентов и моделей.',
+      title: 'AI + CAD',
+      body: 'Пусть ИИ понимает чертежи, извлекает BOM и штампы, правит пакетами и помогает проверять — подробнее на странице AI + CAD.',
+      href: '/ai-cad.html',
     },
   ],
   industryTitle: 'По отраслям',
@@ -654,8 +661,9 @@ export const useCasesCs: UseCasesCopy = {
     },
     {
       id: 'ai',
-      title: 'AI CAD',
-      body: 'Parsujte a chápejte CAD výkresy v AI workflows — převeďte DWG/DXF na strukturovaná data pro agenty a modely.',
+      title: 'AI + CAD',
+      body: 'Nechte AI porozumět výkresům, extrahovat BOM a razítka, dávkově upravovat a pomáhat s kontrolou — více na stránce AI + CAD.',
+      href: '/ai-cad.html',
     },
   ],
   industryTitle: 'Podle odvětví',

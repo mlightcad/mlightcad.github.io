@@ -1,3 +1,4 @@
+import { aiCadZh } from './aiCad'
 import { benchmarksZh } from './benchmarks'
 import { cadDiffViewerZh } from './cadDiffViewer'
 import { cadEditorZh } from './cadEditor'
@@ -22,11 +23,13 @@ export const zh: Dictionary = {
     cadViewer: 'CAD Viewer',
     cadEditor: 'CAD Editor',
     cadSdk: 'CAD SDK',
+    aiCad: 'AI + CAD',
     dwgEngine: 'DWG Engine',
     cadDiffViewer: 'CAD Diff Viewer',
     dwgToHtml: 'DWG 转 HTML',
     developers: '开发者',
     iframePlugin: 'iframe 插件',
+    mcpAiCad: 'AI + CAD',
     integrations: '集成',
     oneDrive: 'OneDrive',
     googleDrive: 'Google Drive',
@@ -197,7 +200,7 @@ export const zh: Dictionary = {
     imageAlt: '带可插拔 UI、Agent、HTML、PDF、Script 模块的 CAD 核心',
     items: [
       { name: 'cad-simple-ui-plugin', role: '工具栏与图层管理（框架无关 DOM）' },
-      { name: 'cad-agent-plugin', role: '带绘图工具的自然语言 CAD Agent' },
+      { name: 'cad-agent-plugin', role: '自然语言 CAD Agent — 详见 AI + CAD' },
       { name: 'cad-html-plugin', role: '导出自包含离线 HTML' },
       { name: 'cad-pdf-plugin', role: '矢量 PDF 导出与 PDF 转 CAD 导入' },
       { name: 'cad-script-plugin', role: '通过脚本 API 操作图纸 — 可据此构建智能化功能' },
@@ -231,6 +234,12 @@ export const zh: Dictionary = {
         name: 'CAD SDK',
         desc: '将 DWG/DXF 嵌入你的产品',
         href: '/cad-sdk.html',
+      },
+      {
+        id: 'ai-cad',
+        name: 'AI + CAD',
+        desc: '用 AI 理解、提取、修改与审阅图纸',
+        href: '/ai-cad.html',
       },
       {
         id: 'dwg-engine',
@@ -334,6 +343,7 @@ export const zh: Dictionary = {
   tutorial: tutorialZh,
   commercial: commercialZh,
   cadSdk: cadSdkZh,
+  aiCad: aiCadZh,
   useCases: useCasesZh,
   benchmarks: benchmarksZh,
 }
