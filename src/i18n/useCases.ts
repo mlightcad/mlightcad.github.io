@@ -13,7 +13,7 @@ export interface UseCasesCopy {
   secondaryHref: string
   industryTitle: string
   industryLead: string
-  cases: { id: string; title: string; body: string; href?: string }[]
+  cases: { id: string; title: string; body: string }[]
   renderTitle: string
   renderLead: string
   modes: { id: string; label: string; title: string; body: string; points: string[] }[]
@@ -32,11 +32,11 @@ const RENDER_ARTICLE =
 const RENDER_SAMPLE = 'https://github.com/mlightcad/cad-viewer-nextjs-demo'
 
 export const useCasesEn: UseCasesCopy = {
-  metaTitle: 'Use Cases — Web CAD for Construction, Manufacturing, GIS & AI | MLightCAD',
+  metaTitle: 'Use Cases — Web CAD for Construction, Manufacturing & GIS | MLightCAD',
   metaDescription:
-    'Embed DWG/DXF into construction, manufacturing, GIS, document management, and AI CAD workflows. Parse live in the browser, or prerender once on the server.',
+    'Embed DWG/DXF into construction, manufacturing, GIS, and document management workflows. Parse live in the browser, or prerender once on the server.',
   metaKeywords:
-    'CAD SaaS, construction drawings browser, manufacturing DWG, GIS CAD, AI CAD, document management DWG, CAD live parse, server-side prerender, ACEX',
+    'CAD SaaS, construction drawings browser, manufacturing DWG, GIS CAD, document management DWG, CAD live parse, server-side prerender, ACEX',
   eyebrow: 'Solutions',
   title: 'CAD where users already work',
   lead: 'Teams do not want another desktop CAD seat. They want drawings inside the products they already ship: parsed live in the browser, or opened from a package the server rendered once.',
@@ -67,16 +67,10 @@ export const useCasesEn: UseCasesCopy = {
       title: 'Document management',
       body: 'Preview engineering drawings in your DMS or vault without desktop CAD software — pan, zoom, layers, and measure in the tab.',
     },
-    {
-      id: 'ai',
-      title: 'AI + CAD',
-      body: 'Let AI understand drawings, extract BOMs and title blocks, edit in batches, and help review — then open the AI + CAD page for the full story.',
-      href: '/ai-cad.html',
-    },
   ],
   industryTitle: 'By industry',
   industryLead:
-    'Construction, manufacturing, GIS, document systems, and AI products need drawings inside the tools people already use.',
+    'Construction, manufacturing, GIS, and document systems need drawings inside the tools people already use.',
   renderTitle: 'By architecture',
   renderLead:
     'The same viewer opens the original DWG or DXF in the browser, or a display package the server rendered once. The fit depends on who opens the drawing, and how often.',
@@ -123,9 +117,9 @@ export const useCasesEn: UseCasesCopy = {
 
 export const useCasesZh: UseCasesCopy = {
   ...useCasesEn,
-  metaTitle: '用例 — 面向施工、制造、GIS 与 AI 的 Web CAD | MLightCAD',
+  metaTitle: '用例 — 面向施工、制造与 GIS 的 Web CAD | MLightCAD',
   metaDescription:
-    '把 DWG/DXF 嵌入施工、制造、GIS、文档管理与 AI CAD 工作流。可在浏览器中即时解析，也可在服务端预渲染一次。',
+    '把 DWG/DXF 嵌入施工、制造、GIS 与文档管理工作流。可在浏览器中即时解析，也可在服务端预渲染一次。',
   eyebrow: '解决方案',
   title: '把 CAD 嵌入现有产品',
   lead: '团队不想再买一套桌面 CAD。他们想在已有产品里直接看图：在浏览器里即时解析，或打开服务端渲染一次后的显示包。',
@@ -153,15 +147,9 @@ export const useCasesZh: UseCasesCopy = {
       title: '文档管理',
       body: '在 DMS 或图纸库中预览工程图，无需桌面 CAD — 在标签页内平移、缩放、图层与测量。',
     },
-    {
-      id: 'ai',
-      title: 'AI + CAD',
-      body: '让 AI 理解图纸、提取 BOM 与标题栏、批量修改并辅助审图 — 详情见 AI + CAD 专题页。',
-      href: '/ai-cad.html',
-    },
   ],
   industryTitle: '按行业',
-  industryLead: '施工、制造、GIS、文档系统和 AI 产品，都需要把图纸放进用户已经在用的工具里。',
+  industryLead: '施工、制造、GIS 和文档系统，都需要把图纸放进用户已经在用的工具里。',
   renderTitle: '按架构',
   renderLead:
     '同一套查看器可以在浏览器里打开原始 DWG 或 DXF，也可以打开服务端渲染一次后的显示包。选哪条路径，取决于谁在看图、看多少次。',
@@ -205,9 +193,9 @@ export const useCasesZh: UseCasesCopy = {
 
 export const useCasesJa: UseCasesCopy = {
   ...useCasesEn,
-  metaTitle: 'ユースケース — 建設・製造・GIS・AI 向け Web CAD | MLightCAD',
+  metaTitle: 'ユースケース — 建設・製造・GIS 向け Web CAD | MLightCAD',
   metaDescription:
-    'DWG/DXF を建設・製造・GIS・文書管理・AI CAD ワークフローへ。ブラウザでライブ解析するか、サーバーで一度プリレンダーします。',
+    'DWG/DXF を建設・製造・GIS・文書管理ワークフローへ。ブラウザでライブ解析するか、サーバーで一度プリレンダーします。',
   eyebrow: 'ソリューション',
   title: '既存製品に CAD を置く',
   lead: 'チームは別のデスクトップ CAD 席を欲しくありません。既に出荷している製品の中で図面を見たい：ブラウザでライブ解析するか、サーバーが一度レンダリングしたパッケージを開くか。',
@@ -235,16 +223,10 @@ export const useCasesJa: UseCasesCopy = {
       title: '文書管理',
       body: 'DMS や図面庫でエンジニアリング図面をプレビュー — タブ内でパン・ズーム・レイヤー・計測。',
     },
-    {
-      id: 'ai',
-      title: 'AI + CAD',
-      body: 'AI で図面を理解し、BOM や表題欄を抽出し、一括編集やレビューを支援 — 詳細は AI + CAD ページへ。',
-      href: '/ai-cad.html',
-    },
   ],
   industryTitle: '業界別',
   industryLead:
-    '建設、製造、GIS、文書システム、AI 製品は、すでに使っているツールの中で図面を開く必要があります。',
+    '建設、製造、GIS、文書システムは、すでに使っているツールの中で図面を開く必要があります。',
   renderTitle: 'アーキテクチャ別',
   renderLead:
     '同じビューアで、ブラウザ上の元の DWG または DXF も、サーバーが一度レンダリングした表示パッケージも開けます。どちらが合うかは、誰が何回開くかで決まります。',
@@ -289,9 +271,9 @@ export const useCasesJa: UseCasesCopy = {
 
 export const useCasesKo: UseCasesCopy = {
   ...useCasesEn,
-  metaTitle: '사용 사례 — 건설·제조·GIS·AI용 Web CAD | MLightCAD',
+  metaTitle: '사용 사례 — 건설·제조·GIS용 Web CAD | MLightCAD',
   metaDescription:
-    '건설, 제조, GIS, 문서 관리, AI CAD 워크플로에 DWG/DXF를 임베드합니다. 브라우저에서 바로 파싱하거나, 서버에서 한 번 프리렌더합니다.',
+    '건설, 제조, GIS, 문서 관리 워크플로에 DWG/DXF를 임베드합니다. 브라우저에서 바로 파싱하거나, 서버에서 한 번 프리렌더합니다.',
   eyebrow: '솔루션',
   title: '사용자가 일하는 곳에 CAD를',
   lead: '팀은 또 다른 데스크톱 CAD 좌석을 원하지 않습니다. 이미 출하한 제품 안에서 도면을 보고 싶어 합니다. 브라우저에서 바로 파싱하거나, 서버가 한 번 렌더한 패키지를 엽니다.',
@@ -319,16 +301,10 @@ export const useCasesKo: UseCasesCopy = {
       title: '문서 관리',
       body: 'DMS나 도면 저장소에서 공학 도면을 미리보기 — 탭에서 팬·줌·레이어·측정.',
     },
-    {
-      id: 'ai',
-      title: 'AI + CAD',
-      body: 'AI로 도면을 이해하고 BOM·표제란을 추출하며, 일괄 수정과 검토를 돕습니다 — 자세한 내용은 AI + CAD 페이지에서.',
-      href: '/ai-cad.html',
-    },
   ],
   industryTitle: '산업별',
   industryLead:
-    '건설, 제조, GIS, 문서 시스템, AI 제품은 사람들이 이미 쓰는 도구 안에서 도면을 열어야 합니다.',
+    '건설, 제조, GIS, 문서 시스템은 사람들이 이미 쓰는 도구 안에서 도면을 열어야 합니다.',
   renderTitle: '아키텍처별',
   renderLead:
     '같은 뷰어가 브라우저에서 원본 DWG 또는 DXF를 열 수도 있고, 서버가 한 번 렌더한 표시 패키지를 열 수도 있습니다. 어느 쪽이 맞는지는 누가, 얼마나 자주 여는지에 달렸습니다.',
@@ -373,9 +349,9 @@ export const useCasesKo: UseCasesCopy = {
 
 export const useCasesEs: UseCasesCopy = {
   ...useCasesEn,
-  metaTitle: 'Casos de uso — CAD web para construcción, fabricación, GIS e IA | MLightCAD',
+  metaTitle: 'Casos de uso — CAD web para construcción, fabricación y GIS | MLightCAD',
   metaDescription:
-    'Incruste DWG/DXF en construcción, fabricación, GIS, gestión documental y flujos de IA CAD. Analice en el navegador, o prerenderice una vez en el servidor.',
+    'Incruste DWG/DXF en construcción, fabricación, GIS y gestión documental. Analice en el navegador, o prerenderice una vez en el servidor.',
   eyebrow: 'Soluciones',
   title: 'CAD donde ya trabajan',
   lead: 'Los equipos no quieren otro asiento de CAD de escritorio. Quieren dibujos dentro de los productos que ya envían: analizados en el navegador, o abiertos desde un paquete que el servidor renderizó una vez.',
@@ -404,16 +380,10 @@ export const useCasesEs: UseCasesCopy = {
       title: 'Gestión documental',
       body: 'Previsualice planos de ingeniería en su DMS sin CAD de escritorio — pan, zoom, capas y medición en la pestaña.',
     },
-    {
-      id: 'ai',
-      title: 'AI + CAD',
-      body: 'Deje que la IA entienda planos, extraiga BOM y cajetines, edite por lotes y ayude a revisar — más en la página AI + CAD.',
-      href: '/ai-cad.html',
-    },
   ],
   industryTitle: 'Por industria',
   industryLead:
-    'Construcción, fabricación, GIS, sistemas documentales y productos de IA necesitan los planos dentro de las herramientas que la gente ya usa.',
+    'Construcción, fabricación, GIS y sistemas documentales necesitan los planos dentro de las herramientas que la gente ya usa.',
   renderTitle: 'Por arquitectura',
   renderLead:
     'El mismo visor abre el DWG o DXF original en el navegador, o un paquete de visualización que el servidor renderizó una vez. Cuál encaja depende de quién abre el plano y con qué frecuencia.',
@@ -458,9 +428,9 @@ export const useCasesEs: UseCasesCopy = {
 
 export const useCasesPt: UseCasesCopy = {
   ...useCasesEn,
-  metaTitle: 'Casos de uso — CAD web para construção, manufatura, GIS e IA | MLightCAD',
+  metaTitle: 'Casos de uso — CAD web para construção, manufatura e GIS | MLightCAD',
   metaDescription:
-    'Incorpore DWG/DXF em construção, manufatura, GIS, gestão documental e fluxos de IA CAD. Analise no navegador, ou pré-renderize uma vez no servidor.',
+    'Incorpore DWG/DXF em construção, manufatura, GIS e gestão documental. Analise no navegador, ou pré-renderize uma vez no servidor.',
   eyebrow: 'Soluções',
   title: 'CAD onde os usuários já trabalham',
   lead: 'Times não querem outro assento de CAD desktop. Querem desenhos dentro dos produtos que já enviam: analisados no navegador, ou abertos a partir de um pacote que o servidor renderizou uma vez.',
@@ -489,16 +459,10 @@ export const useCasesPt: UseCasesCopy = {
       title: 'Gestão documental',
       body: 'Pré-visualize desenhos de engenharia no DMS sem CAD desktop — pan, zoom, camadas e medição na aba.',
     },
-    {
-      id: 'ai',
-      title: 'AI + CAD',
-      body: 'Deixe a IA entender desenhos, extrair BOM e carimbos, editar em lote e ajudar na revisão — detalhes na página AI + CAD.',
-      href: '/ai-cad.html',
-    },
   ],
   industryTitle: 'Por setor',
   industryLead:
-    'Construção, manufatura, GIS, sistemas de documentos e produtos de IA precisam dos desenhos dentro das ferramentas que as pessoas já usam.',
+    'Construção, manufatura, GIS e sistemas de documentos precisam dos desenhos dentro das ferramentas que as pessoas já usam.',
   renderTitle: 'Por arquitetura',
   renderLead:
     'O mesmo visualizador abre o DWG ou DXF original no navegador, ou um pacote de exibição que o servidor renderizou uma vez. O caminho certo depende de quem abre o desenho e com que frequência.',
@@ -543,9 +507,9 @@ export const useCasesPt: UseCasesCopy = {
 
 export const useCasesRu: UseCasesCopy = {
   ...useCasesEn,
-  metaTitle: 'Сценарии — веб-CAD для строительства, производства, GIS и ИИ | MLightCAD',
+  metaTitle: 'Сценарии — веб-CAD для строительства, производства и GIS | MLightCAD',
   metaDescription:
-    'Встраивайте DWG/DXF в строительство, производство, GIS, документооборот и ИИ-CAD. Разбирайте в браузере или один раз пререндерьте на сервере.',
+    'Встраивайте DWG/DXF в строительство, производство, GIS и документооборот. Разбирайте в браузере или один раз пререндерьте на сервере.',
   eyebrow: 'Решения',
   title: 'CAD там, где уже работают',
   lead: 'Командам не нужно ещё одно место desktop CAD. Им нужны чертежи внутри уже поставляемых продуктов: разобранные в браузере или открытые из пакета, который сервер отрисовал один раз.',
@@ -574,16 +538,10 @@ export const useCasesRu: UseCasesCopy = {
       title: 'Документооборот',
       body: 'Предпросмотр инженерных чертежей в DMS без desktop CAD — pan, zoom, слои и измерение во вкладке.',
     },
-    {
-      id: 'ai',
-      title: 'AI + CAD',
-      body: 'Пусть ИИ понимает чертежи, извлекает BOM и штампы, правит пакетами и помогает проверять — подробнее на странице AI + CAD.',
-      href: '/ai-cad.html',
-    },
   ],
   industryTitle: 'По отраслям',
   industryLead:
-    'Строительству, производству, GIS, документным системам и AI-продуктам нужны чертежи внутри инструментов, которыми люди уже пользуются.',
+    'Строительству, производству, GIS и документным системам нужны чертежи внутри инструментов, которыми люди уже пользуются.',
   renderTitle: 'По архитектуре',
   renderLead:
     'Один и тот же просмотрщик открывает исходный DWG или DXF в браузере либо пакет, который сервер отрисовал один раз. Подходящий путь зависит от того, кто открывает чертёж и как часто.',
@@ -628,9 +586,9 @@ export const useCasesRu: UseCasesCopy = {
 
 export const useCasesCs: UseCasesCopy = {
   ...useCasesEn,
-  metaTitle: 'Případy použití — webové CAD pro stavebnictví, výrobu, GIS a AI | MLightCAD',
+  metaTitle: 'Případy použití — webové CAD pro stavebnictví, výrobu a GIS | MLightCAD',
   metaDescription:
-    'Vložte DWG/DXF do stavebnictví, výroby, GIS, správy dokumentů a AI CAD workflow. Parsujte v prohlížeči, nebo jednou předrenderujte na serveru.',
+    'Vložte DWG/DXF do stavebnictví, výroby, GIS a správy dokumentů. Parsujte v prohlížeči, nebo jednou předrenderujte na serveru.',
   eyebrow: 'Řešení',
   title: 'CAD tam, kde uživatelé pracují',
   lead: 'Týmy nechtějí další desktopové CAD místo. Chtějí výkresy uvnitř produktů, které už dodávají: parsované v prohlížeči, nebo otevřené z balíčku, který server jednou vyrenderoval.',
@@ -659,16 +617,10 @@ export const useCasesCs: UseCasesCopy = {
       title: 'Správa dokumentů',
       body: 'Náhled technických výkresů v DMS bez desktop CADu — pan, zoom, vrstvy a měření v záložce.',
     },
-    {
-      id: 'ai',
-      title: 'AI + CAD',
-      body: 'Nechte AI porozumět výkresům, extrahovat BOM a razítka, dávkově upravovat a pomáhat s kontrolou — více na stránce AI + CAD.',
-      href: '/ai-cad.html',
-    },
   ],
   industryTitle: 'Podle odvětví',
   industryLead:
-    'Stavebnictví, výroba, GIS, dokumentové systémy a AI produkty potřebují výkresy v nástrojích, které lidé už používají.',
+    'Stavebnictví, výroba, GIS a dokumentové systémy potřebují výkresy v nástrojích, které lidé už používají.',
   renderTitle: 'Podle architektury',
   renderLead:
     'Stejný prohlížeč otevře původní DWG nebo DXF v prohlížeči, nebo balíček, který server jednou vyrenderoval. Vhodná cesta záleží na tom, kdo výkres otevírá a jak často.',
