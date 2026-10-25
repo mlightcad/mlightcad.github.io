@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+  <!-- Drawing edits: batch transform + AI spark -->
+  <rect x="1" y="1" width="46" height="46" rx="8" fill="#121821" stroke="#2A3444" stroke-width="1"/>
+  <path d="M12 30V18h7l4 7h6v5" stroke="#E8EEF5" stroke-width="1.5" stroke-linejoin="miter" opacity="0.55"/>
+  <path d="M14 32V20h7l4 7h6v5" stroke="#E8EEF5" stroke-width="1.5" stroke-linejoin="miter"/>
+  <rect x="12" y="18" width="3.5" height="3.5" fill="#3DDCFF"/>
+  <rect x="19" y="18" width="3.5" height="3.5" fill="#3DDCFF"/>
+  <rect x="23" y="25" width="3.5" height="3.5" fill="#3DDCFF"/>
+  <rect x="29" y="30" width="3.5" height="3.5" fill="#3DDCFF"/>
+  <path d="M34 12l2.2 4.6L41 19l-4.8 2.4L34 26l-2.2-4.6L27 19l4.8-2.4L34 12z" fill="#E8A54B"/>
+</svg>

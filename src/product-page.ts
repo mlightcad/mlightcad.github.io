@@ -148,6 +148,12 @@ function renderUseCases(): string {
   ].join('\n')
 }
 
+/** Resolve 48px icon for an AI + CAD scenario or workflow card. */
+function aiCadCardIcon(id: string): string {
+  if (id === 'in-app') return '/assets/products/ai-cad.svg'
+  return `/assets/ai-cad/${id}.svg`
+}
+
 function renderAiCad(): string {
   const p = t(locale).aiCad
   const pain = p.painItems
@@ -157,28 +163,35 @@ function renderAiCad(): string {
     )
     .join('')
   const scenarios = p.scenarios
-    .map(
-      (item) =>
-        [
-          `<article class="path-card" id="${escapeHtml(item.id)}">`,
-          `<h3>${escapeHtml(item.title)}</h3>`,
-          `<p>${escapeHtml(item.body)}</p>`,
-          `<p class="doc-note">${escapeHtml(item.outcome)}</p>`,
-          `</article>`,
-        ].join(''),
-    )
+    .map((item) => {
+      const icon = aiCadCardIcon(item.id)
+      return [
+        `<article class="path-card path-card--icon" id="${escapeHtml(item.id)}">`,
+        `  <img class="path-card__icon" src="${icon}" alt="" width="48" height="48" loading="lazy" decoding="async" />`,
+        `  <div class="path-card__copy">`,
+        `    <h3>${escapeHtml(item.title)}</h3>`,
+        `    <p>${escapeHtml(item.body)}</p>`,
+        `    <p class="doc-note">${escapeHtml(item.outcome)}</p>`,
+        `  </div>`,
+        `</article>`,
+      ].join('')
+    })
     .join('')
   const ways = p.ways
-    .map(
-      (item) =>
-        [
-          `<article class="path-card" id="${escapeHtml(item.id)}">`,
-          `<h3>${escapeHtml(item.title)}</h3>`,
-          `<p>${escapeHtml(item.body)}</p>`,
-          `<p><a class="btn btn--ghost" href="${escapeHtml(item.href)}"${item.href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(item.cta)}</a></p>`,
-          `</article>`,
-        ].join(''),
-    )
+    .map((item) => {
+      const icon = aiCadCardIcon(item.id)
+      const external = item.href.startsWith('http')
+      return [
+        `<article class="path-card path-card--icon" id="${escapeHtml(item.id)}">`,
+        `  <img class="path-card__icon" src="${icon}" alt="" width="48" height="48" loading="lazy" decoding="async" />`,
+        `  <div class="path-card__copy">`,
+        `    <h3>${escapeHtml(item.title)}</h3>`,
+        `    <p>${escapeHtml(item.body)}</p>`,
+        `    <p><a class="btn btn--ghost" href="${escapeHtml(item.href)}"${external ? ' target="_blank" rel="noopener"' : ''}>${escapeHtml(item.cta)}</a></p>`,
+        `  </div>`,
+        `</article>`,
+      ].join('')
+    })
     .join('')
   const difference = p.differenceItems
     .map(
