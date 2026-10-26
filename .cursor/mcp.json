@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "paddle-live": {
+      "type": "http",
+      "url": "https://mcp.paddle.com/mcp"
+    }    
+  }
+}
